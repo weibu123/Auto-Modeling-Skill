@@ -1,0 +1,670 @@
+{
+  "metadata": {
+    "source_workbook": "华为杯优秀论文基础数据库_v3_44篇完整版.xlsx",
+    "sheet": "方法库",
+    "record_count": 66,
+    "evidence_level": "论文摘要与模型/评价章节结构化抽取；作者结果尚未独立复算"
+  },
+  "records": [
+    {
+      "method_family": "组合优化",
+      "method": "拓扑排序/关键路径",
+      "applicable_task": "带前序约束的调度",
+      "required_data": "DAG节点、边、耗时",
+      "core_idea": "维护就绪集并按关键路径或资源压力排序",
+      "advantage": "快速、可解释",
+      "risk": "贪心不保证全局最优",
+      "source_paper_ids": "A01,A02,A03,A04"
+    },
+    {
+      "method_family": "组合优化",
+      "method": "模拟退火",
+      "applicable_task": "离散序列全局搜索",
+      "required_data": "可行初解、邻域与温度",
+      "core_idea": "允许概率接受劣解跳出局部最优",
+      "advantage": "通用、易混合",
+      "risk": "降温/邻域敏感",
+      "source_paper_ids": "A01,A04"
+    },
+    {
+      "method_family": "组合优化",
+      "method": "禁忌搜索",
+      "applicable_task": "调度序列局部改进",
+      "required_data": "可行邻域、禁忌长度",
+      "core_idea": "禁止近期移动以避免循环",
+      "advantage": "局部搜索强",
+      "risk": "参数与邻域设计关键",
+      "source_paper_ids": "A02,A04"
+    },
+    {
+      "method_family": "精确优化",
+      "method": "整数线性规划ILP",
+      "applicable_task": "小规模地址/选择决策",
+      "required_data": "线性目标与整数约束",
+      "core_idea": "用0-1变量表达分配与冲突",
+      "advantage": "可给最优性基准",
+      "risk": "规模扩展差",
+      "source_paper_ids": "A01"
+    },
+    {
+      "method_family": "资源分配",
+      "method": "Best-Fit/最优适应",
+      "applicable_task": "区间地址分配",
+      "required_data": "缓冲区大小和生命周期",
+      "core_idea": "放入最小可容纳空闲区间",
+      "advantage": "快、工程直观",
+      "risk": "易碎片化、顺序敏感",
+      "source_paper_ids": "A01,A03"
+    },
+    {
+      "method_family": "多目标优化",
+      "method": "NSGA-II/DPEA",
+      "applicable_task": "目标冲突的Pareto搜索",
+      "required_data": "多目标函数与可行编码",
+      "core_idea": "非支配排序并保持多样性",
+      "advantage": "不必预设单一权重",
+      "risk": "计算量大，需选最终解",
+      "source_paper_ids": "A02,A04,F01"
+    },
+    {
+      "method_family": "物理通信",
+      "method": "EESM",
+      "applicable_task": "多子载波SINR压缩",
+      "required_data": "每子载波SINR与标定标签",
+      "core_idea": "指数映射为等效SINR",
+      "advantage": "轻量、可解释",
+      "risk": "β常随MCS/场景变化",
+      "source_paper_ids": "B01,B02,B03"
+    },
+    {
+      "method_family": "物理通信",
+      "method": "MIESM",
+      "applicable_task": "互信息域有效SINR映射",
+      "required_data": "SINR、调制方式",
+      "core_idea": "先映射互信息再聚合",
+      "advantage": "宽场景常优于EESM",
+      "risk": "需准确调制/编码映射",
+      "source_paper_ids": "B01"
+    },
+    {
+      "method_family": "校准",
+      "method": "Isotonic Regression",
+      "applicable_task": "单调输入输出映射",
+      "required_data": "有序特征与标签",
+      "core_idea": "非参数单调拟合",
+      "advantage": "稳健且符合物理单调性",
+      "risk": "阶梯化、外推弱",
+      "source_paper_ids": "B01,B03"
+    },
+    {
+      "method_family": "机器学习",
+      "method": "HGBR/随机森林/XGBoost",
+      "applicable_task": "中小样本非线性回归分类",
+      "required_data": "结构化特征",
+      "core_idea": "树集成学习高阶交互",
+      "advantage": "训练快、基线强",
+      "risk": "域泄漏与解释局限",
+      "source_paper_ids": "B01,B03,D01,D02"
+    },
+    {
+      "method_family": "深度学习",
+      "method": "Transformer/ViT",
+      "applicable_task": "序列或时频图建模",
+      "required_data": "足量样本与位置/补丁表示",
+      "core_idea": "注意力聚合长程依赖",
+      "advantage": "表达力强",
+      "risk": "小样本过拟合",
+      "source_paper_ids": "B02,E01,E03"
+    },
+    {
+      "method_family": "降维/物理特征",
+      "method": "SVD",
+      "applicable_task": "信道主方向或低秩结构",
+      "required_data": "矩阵型观测",
+      "core_idea": "奇异值/向量表征能量与方向",
+      "advantage": "物理含义清晰",
+      "risk": "只取主分量可能丢信息",
+      "source_paper_ids": "B01,B02,B03"
+    },
+    {
+      "method_family": "数据清洗",
+      "method": "IQR/Winsor/时间同步",
+      "applicable_task": "异常与异步观测处理",
+      "required_data": "时间戳和连续变量",
+      "core_idea": "稳健分位规则与对齐",
+      "advantage": "简单透明",
+      "risk": "可能删除真实极端样本",
+      "source_paper_ids": "B01,B02"
+    },
+    {
+      "method_family": "图像处理",
+      "method": "CLAHE/双边/Canny/Sobel/Otsu",
+      "applicable_task": "低对比含噪图像增强分割",
+      "required_data": "灰度图像",
+      "core_idea": "局部增强、平滑、边缘与阈值",
+      "advantage": "小数据可用、可解释",
+      "risk": "参数与纹理干扰敏感",
+      "source_paper_ids": "C01,C02,C04,C05"
+    },
+    {
+      "method_family": "图像处理",
+      "method": "Frangi滤波",
+      "applicable_task": "线状/管状结构增强",
+      "required_data": "多尺度灰度图",
+      "core_idea": "Hessian特征值度量线结构",
+      "advantage": "适合裂隙、小数据",
+      "risk": "也会增强纹理线",
+      "source_paper_ids": "C03,C04"
+    },
+    {
+      "method_family": "语义分割",
+      "method": "U-Net/DeepLabV3+",
+      "applicable_task": "像素级小目标分割",
+      "required_data": "图像和像素标签",
+      "core_idea": "编码器-解码器与多尺度上下文",
+      "advantage": "精度高",
+      "risk": "标注成本与过拟合",
+      "source_paper_ids": "C01,C05"
+    },
+    {
+      "method_family": "聚类",
+      "method": "DBSCAN/GMM/K-means",
+      "applicable_task": "无标签实例聚合/主题划分",
+      "required_data": "点集或特征向量",
+      "core_idea": "密度、概率或中心距离聚类",
+      "advantage": "无需类别标签",
+      "risk": "参数与簇形状敏感",
+      "source_paper_ids": "C01,C02,C03,C04,C05,F02"
+    },
+    {
+      "method_family": "鲁棒拟合",
+      "method": "RANSAC/LM/非线性最小二乘",
+      "applicable_task": "含离群点曲线参数估计",
+      "required_data": "坐标点与函数形式",
+      "core_idea": "先剔除外点再精化参数",
+      "advantage": "稳健、参数可解释",
+      "risk": "依赖正确函数假设",
+      "source_paper_ids": "C01,C03,C04,C05"
+    },
+    {
+      "method_family": "工程指标",
+      "method": "JRC/Z2",
+      "applicable_task": "裂隙粗糙度评价",
+      "required_data": "按物理尺度采样的轮廓",
+      "core_idea": "由坡度统计映射粗糙度",
+      "advantage": "工程解释直接",
+      "risk": "尺度/采样/公式范围敏感",
+      "source_paper_ids": "C01,C02,C03,C04,C05"
+    },
+    {
+      "method_family": "不确定性",
+      "method": "Monte Carlo/信息熵",
+      "applicable_task": "概率重构与补充观测设计",
+      "required_data": "参数分布或网格概率",
+      "core_idea": "抽样传播不确定性或最大化信息增益",
+      "advantage": "可支持风险决策",
+      "risk": "先验错误会产生伪精确",
+      "source_paper_ids": "C02,C03,C04"
+    },
+    {
+      "method_family": "气象物理",
+      "method": "TKE/Richardson数/风切变",
+      "applicable_task": "湍流强度诊断",
+      "required_data": "风温压垂直剖面",
+      "core_idea": "从动力与热力稳定性构造指标",
+      "advantage": "物理可解释",
+      "risk": "观测误差与梯度放大",
+      "source_paper_ids": "D01,D02"
+    },
+    {
+      "method_family": "风场反演",
+      "method": "VAD/最小二乘",
+      "applicable_task": "径向速度恢复水平风",
+      "required_data": "多方位雷达径向速度",
+      "core_idea": "解观测方程得到u/v",
+      "advantage": "经典、透明",
+      "risk": "均匀风场等假设限制",
+      "source_paper_ids": "D01,D02"
+    },
+    {
+      "method_family": "空间插值",
+      "method": "IDW/RBF/双线性",
+      "applicable_task": "异构点观测网格化",
+      "required_data": "坐标、时间和值",
+      "core_idea": "按距离或核函数加权",
+      "advantage": "易实现",
+      "risk": "难表达复杂物理边界",
+      "source_paper_ids": "D01,D02"
+    },
+    {
+      "method_family": "数据同化",
+      "method": "变分同化/卡尔曼滤波",
+      "applicable_task": "多源场融合和时空外推",
+      "required_data": "观测、背景场、误差协方差",
+      "core_idea": "兼顾观测拟合、先验和平滑",
+      "advantage": "框架完整",
+      "risk": "权重/协方差估计困难",
+      "source_paper_ids": "D01,D02"
+    },
+    {
+      "method_family": "路径规划",
+      "method": "A*/蚁群",
+      "applicable_task": "风险场中的最优航路",
+      "required_data": "栅格、起终点、代价函数",
+      "core_idea": "搜索距离与风险加权最小路径",
+      "advantage": "输出直观",
+      "risk": "代价权重决定结果",
+      "source_paper_ids": "D01,D02"
+    },
+    {
+      "method_family": "信号处理",
+      "method": "小波/STFT/包络谱/TVFEMD",
+      "applicable_task": "非平稳振动特征提取与降噪",
+      "required_data": "高频振动序列",
+      "core_idea": "时频分解并提取故障频率",
+      "advantage": "符合轴承机理",
+      "risk": "参数多、可能过处理",
+      "source_paper_ids": "E01,E02,E03"
+    },
+    {
+      "method_family": "域适应",
+      "method": "MMD/CORAL/DANN",
+      "applicable_task": "源有标签、目标无标签迁移",
+      "required_data": "跨域样本与共享标签空间",
+      "core_idea": "对齐均值/协方差/核分布或对抗域判别",
+      "advantage": "缓解分布偏移",
+      "risk": "边缘对齐可能混淆类别",
+      "source_paper_ids": "E01,E02,E03"
+    },
+    {
+      "method_family": "可解释性",
+      "method": "SHAP/TCAV/注意力可视化",
+      "applicable_task": "预测证据与概念审计",
+      "required_data": "模型、样本、概念集",
+      "core_idea": "局部贡献、概念敏感度或关注区域",
+      "advantage": "便于沟通",
+      "risk": "相关解释不等同因果",
+      "source_paper_ids": "E01,E03"
+    },
+    {
+      "method_family": "空间图论",
+      "method": "Voronoi/可视图/空间索引",
+      "applicable_task": "从平面要素构造可行路网",
+      "required_data": "边界、障碍与景点坐标",
+      "core_idea": "生成骨架并过滤穿障边",
+      "advantage": "几何解释清晰",
+      "risk": "对图纸精度和安全距离敏感",
+      "source_paper_ids": "F01,F02"
+    },
+    {
+      "method_family": "视域分析",
+      "method": "射线追踪/视域多边形",
+      "applicable_task": "量化沿路可见景观与开合",
+      "required_data": "三维/二维障碍和观察点",
+      "core_idea": "计算可见元素与视域面积",
+      "advantage": "贴近游览感知",
+      "risk": "视高/视距/角度需校准",
+      "source_paper_ids": "F01,F02,F03"
+    },
+    {
+      "method_family": "综合评价",
+      "method": "AHP-熵权/模糊评价",
+      "applicable_task": "主客观指标融合排序",
+      "required_data": "指标矩阵与专家判断",
+      "core_idea": "组合主观结构与客观离散度",
+      "advantage": "易解释、常用",
+      "risk": "权重和基准仍需敏感性",
+      "source_paper_ids": "F02,F03"
+    },
+    {
+      "method_family": "相似度",
+      "method": "余弦/Jaccard/加权欧氏/Ward",
+      "applicable_task": "对象相似矩阵与聚类",
+      "required_data": "标准化特征向量",
+      "core_idea": "多度量融合后层次聚类",
+      "advantage": "透明、适合小样本",
+      "risk": "权重与尺度影响大",
+      "source_paper_ids": "F01,F02"
+    },
+    {
+      "method_family": "多模态学习",
+      "method": "MKL/对比学习",
+      "applicable_task": "异构特征融合与度量学习",
+      "required_data": "多核特征与正负样本对",
+      "core_idea": "学习统一嵌入空间",
+      "advantage": "能整合多模态",
+      "risk": "小样本下极易过拟合",
+      "source_paper_ids": "F03"
+    },
+    {
+      "method_family": "验证设计",
+      "method": "GroupKFold/OOF/Bootstrap",
+      "applicable_task": "防泄漏与不确定性评估",
+      "required_data": "组标识或可重采样样本",
+      "core_idea": "按主体分组、折外预测或重复抽样",
+      "advantage": "提高可信度",
+      "risk": "组定义错误仍会泄漏",
+      "source_paper_ids": "B03,C03,E02"
+    },
+    {
+      "method_family": "稳健性",
+      "method": "敏感性/消融/基线比较",
+      "applicable_task": "检验模型依赖与增益来源",
+      "required_data": "参数范围与多个模型",
+      "core_idea": "改变关键假设并比较输出",
+      "advantage": "竞赛论文必备",
+      "risk": "只展示有利结果会偏倚",
+      "source_paper_ids": "A-F多篇"
+    },
+    {
+      "method_family": "疲劳分析",
+      "method": "雨流计数+Goodman+Miner",
+      "applicable_task": "载荷循环与疲劳损伤",
+      "required_data": "载荷时序、S-N曲线",
+      "core_idea": "识别循环并进行均值应力修正和线性/非线性累积",
+      "advantage": "工程解释直接",
+      "risk": "窗口实时化会截断长循环",
+      "source_paper_ids": "A05,A06,A07,A08"
+    },
+    {
+      "method_family": "控制优化",
+      "method": "模型预测控制MPC",
+      "applicable_task": "滚动功率分配和约束控制",
+      "required_data": "状态、预测模型、约束与代价",
+      "core_idea": "每个时刻重预测并求有限时域最优控制",
+      "advantage": "可在线反馈",
+      "risk": "代理误差与计算预算敏感",
+      "source_paper_ids": "A07"
+    },
+    {
+      "method_family": "强化学习",
+      "method": "DDPG+安全层",
+      "applicable_task": "连续动作调度",
+      "required_data": "仿真环境、奖励、约束",
+      "core_idea": "策略网络生成动作后投影/修复到可行域",
+      "advantage": "能学习复杂非线性策略",
+      "risk": "训练稳定性和场景覆盖不足",
+      "source_paper_ids": "A05"
+    },
+    {
+      "method_family": "稳健优化",
+      "method": "不确定集鲁棒优化",
+      "applicable_task": "噪声/延迟下的调度",
+      "required_data": "扰动边界或场景集",
+      "core_idea": "优化最坏情形或保守上界",
+      "advantage": "显式控制风险",
+      "risk": "不确定集过宽会保守",
+      "source_paper_ids": "A05,A07"
+    },
+    {
+      "method_family": "时序预测",
+      "method": "LSTM/BiLSTM/GRU/TCN",
+      "applicable_task": "载荷、交通流与网络状态预测",
+      "required_data": "有时间顺序的多变量序列",
+      "core_idea": "循环/卷积结构捕获短长期依赖",
+      "advantage": "表达非线性动态",
+      "risk": "随机划分会泄漏未来信息",
+      "source_paper_ids": "A05,A06,A08,B07,E04,E07"
+    },
+    {
+      "method_family": "信号处理",
+      "method": "Savitzky-Golay/SVD/Kalman",
+      "applicable_task": "时序去噪、异常修复和状态估计",
+      "required_data": "连续时序及噪声假设",
+      "core_idea": "平滑、低秩或递推估计恢复信号",
+      "advantage": "轻量可在线",
+      "risk": "过平滑或错误噪声模型",
+      "source_paper_ids": "A06,A07,A08"
+    },
+    {
+      "method_family": "机器学习",
+      "method": "CatBoost/GBDT/AdaBoost",
+      "applicable_task": "结构化非线性回归分类",
+      "required_data": "混合连续/类别特征",
+      "core_idea": "逐步提升弱学习器拟合残差",
+      "advantage": "中小样本强基线",
+      "risk": "调参和目标编码需防泄漏",
+      "source_paper_ids": "B05,C07,E06"
+    },
+    {
+      "method_family": "网络建模",
+      "method": "MCS-NSS组合标签",
+      "applicable_task": "联合物理层状态预测",
+      "required_data": "RSSI/SINR与组合标签",
+      "core_idea": "把两个相关离散变量合成多分类任务",
+      "advantage": "避免独立预测不一致",
+      "risk": "类别爆炸与长尾",
+      "source_paper_ids": "B04,B05,B06,B07"
+    },
+    {
+      "method_family": "插值",
+      "method": "Akima/Kriging",
+      "applicable_task": "曲线补点或空间代理建模",
+      "required_data": "有坐标的稀疏观测",
+      "core_idea": "局部样条或地统计协方差估计未知点",
+      "advantage": "平滑且可解释",
+      "risk": "插值点不可当独立真值",
+      "source_paper_ids": "B04,D06,E05"
+    },
+    {
+      "method_family": "物理建模",
+      "method": "Steinmetz/IGSE/MSE修正",
+      "applicable_task": "磁芯损耗预测",
+      "required_data": "频率、磁通、温度、材料、波形",
+      "core_idea": "保留幂律机理并加入温度/波形等修正",
+      "advantage": "参数可解释",
+      "risk": "适用工况与材料有限",
+      "source_paper_ids": "C06,C07,C08,C09"
+    },
+    {
+      "method_family": "统计检验",
+      "method": "ANOVA/非参数检验",
+      "applicable_task": "主效应、交互与组合差异",
+      "required_data": "分组连续响应",
+      "core_idea": "比较组内组间变异或秩差异",
+      "advantage": "结论清晰",
+      "risk": "正态/方差齐性、多重检验要求",
+      "source_paper_ids": "C06,C07,C08,C09"
+    },
+    {
+      "method_family": "时频分析",
+      "method": "FFT/HHT/双谱",
+      "applicable_task": "励磁波形分类和抗噪特征",
+      "required_data": "周期/非平稳波形",
+      "core_idea": "提取频谱、瞬时模态和高阶相位耦合",
+      "advantage": "兼顾时频与非高斯信息",
+      "risk": "特征多、参数敏感",
+      "source_paper_ids": "C06,C08,C09"
+    },
+    {
+      "method_family": "多目标优化",
+      "method": "GA/PSO/GWO/MOPSO",
+      "applicable_task": "连续与离散混合工况优化",
+      "required_data": "代理模型、变量边界、多目标",
+      "core_idea": "群体智能搜索折中解或Pareto前沿",
+      "advantage": "易处理黑箱目标",
+      "risk": "可能在代理模型外推区钻空子",
+      "source_paper_ids": "A06,C06,C07,C08,C09,E05"
+    },
+    {
+      "method_family": "空间统计",
+      "method": "Moran's I/标准差椭圆",
+      "applicable_task": "空间集聚、方向与迁移",
+      "required_data": "地理坐标及属性",
+      "core_idea": "度量空间自相关或分布方向变化",
+      "advantage": "地图解释直观",
+      "risk": "空间权重矩阵决定结果",
+      "source_paper_ids": "D03,D06"
+    },
+    {
+      "method_family": "趋势分析",
+      "method": "Mann-Kendall+Sen/Theil-Sen",
+      "applicable_task": "长时序趋势和斜率",
+      "required_data": "有序时间序列",
+      "core_idea": "非参数检验单调趋势并稳健估计斜率",
+      "advantage": "不依赖正态分布",
+      "risk": "自相关会影响显著性",
+      "source_paper_ids": "D04,D06"
+    },
+    {
+      "method_family": "地理信息",
+      "method": "GIS栅格重采样与叠加",
+      "applicable_task": "多源地理数据统一",
+      "required_data": "不同分辨率/投影栅格",
+      "core_idea": "统一网格后进行空间连接与制图",
+      "advantage": "适合大范围综合分析",
+      "risk": "分辨率改变会制造尺度效应",
+      "source_paper_ids": "D03,D04,D05,D06"
+    },
+    {
+      "method_family": "类别不平衡",
+      "method": "欠采样/过采样",
+      "applicable_task": "极端事件与稀有类别分类",
+      "required_data": "长尾标签数据",
+      "core_idea": "重平衡训练分布并使用F1/AUC等指标",
+      "advantage": "提高少数类学习",
+      "risk": "必须只在训练折内处理",
+      "source_paper_ids": "B05,D05"
+    },
+    {
+      "method_family": "综合评价",
+      "method": "H-E-V脆弱性框架",
+      "applicable_task": "灾害脆弱性指标体系",
+      "required_data": "危险度、暴露度、脆弱性指标",
+      "core_idea": "分层组织灾害风险并组合赋权",
+      "advantage": "结构清晰",
+      "risk": "权重与指标方向需敏感性",
+      "source_paper_ids": "D04"
+    },
+    {
+      "method_family": "土地利用",
+      "method": "转移矩阵/动态度",
+      "applicable_task": "土地类型变化结构",
+      "required_data": "多期LULC分类图",
+      "core_idea": "统计类型间转入转出及变化速率",
+      "advantage": "适合解释结构演变",
+      "risk": "分类误差会被当作真实转移",
+      "source_paper_ids": "D05,D06"
+    },
+    {
+      "method_family": "目标检测跟踪",
+      "method": "YOLO+DeepSORT/ByteTrack",
+      "applicable_task": "从交通视频提取车辆轨迹",
+      "required_data": "标注或预训练模型、视频",
+      "core_idea": "逐帧检测并跨帧关联ID",
+      "advantage": "端到端得到流量速度密度",
+      "risk": "遮挡、透视和ID切换误差",
+      "source_paper_ids": "E04,E05,E06,E07"
+    },
+    {
+      "method_family": "交通流",
+      "method": "Greenberg/Greenshields/激波理论",
+      "applicable_task": "速度密度关系与拥堵传播",
+      "required_data": "流量、速度、密度",
+      "core_idea": "用基本图和波速刻画拥堵形成传播",
+      "advantage": "物理含义明确",
+      "risk": "参数随道路和时段变化",
+      "source_paper_ids": "E04,E06,E07"
+    },
+    {
+      "method_family": "决策规则",
+      "method": "阈值+滞回/安全约束",
+      "applicable_task": "实时启停与告警",
+      "required_data": "预测指标、风险阈值、切换成本",
+      "core_idea": "根据阈值和持续时间生成可执行规则",
+      "advantage": "可解释、易部署",
+      "risk": "阈值迁移性与频繁切换",
+      "source_paper_ids": "E04,E05,E06,E07"
+    },
+    {
+      "method_family": "实验设计",
+      "method": "时空分组验证",
+      "applicable_task": "地理/时序模型防泄漏",
+      "required_data": "时间、站点、区域或主体ID",
+      "core_idea": "按未来时间或未见区域留出测试",
+      "advantage": "更接近真实泛化",
+      "risk": "样本变少、方差增大",
+      "source_paper_ids": "A05-A08,B04-B07,C06-C09,D03-D06,E04-E07"
+    },
+    {
+      "method_family": "轨道动力学",
+      "method": "开普勒六根数与二体轨道",
+      "applicable_task": "由轨道要素求位置速度",
+      "required_data": "半长轴、偏心率、倾角、升交点等",
+      "core_idea": "先在轨道平面求状态，再旋转到目标参考系",
+      "advantage": "物理清晰、易验证",
+      "risk": "忽略摄动时只适合短时或理想轨道",
+      "source_paper_ids": "F04,F05,F06,F07"
+    },
+    {
+      "method_family": "坐标与时间系统",
+      "method": "ECI/GCRS/BCRS及TT/TDB/TCB转换",
+      "applicable_task": "统一航天观测时空基准",
+      "required_data": "历元、地球姿态、星历和时间尺度常数",
+      "core_idea": "通过旋转、平移和相对论尺度修正统一参考系",
+      "advantage": "是精密时延的前提",
+      "risk": "常数、历表版本和符号稍错即产生系统偏差",
+      "source_paper_ids": "F04,F05,F06,F07"
+    },
+    {
+      "method_family": "导航时延",
+      "method": "Roemer几何传播时延",
+      "applicable_task": "远距离平行光的接收时差",
+      "required_data": "脉冲星方向与探测器相对SSB位置",
+      "core_idea": "将基线在视线方向投影并除以光速",
+      "advantage": "计算轻量、几何意义直接",
+      "risk": "直接对巨大距离作差会数值消减",
+      "source_paper_ids": "F04,F05,F06,F07"
+    },
+    {
+      "method_family": "相对论修正",
+      "method": "Shapiro/引力红移/动钟时延",
+      "applicable_task": "高精度脉冲到达时间校正",
+      "required_data": "太阳系天体位置质量、卫星速度和时间尺度",
+      "core_idea": "分别计算引力路径、势能和运动时间膨胀效应",
+      "advantage": "能达到导航所需精细度",
+      "risk": "量级悬殊、易重复修正或符号错误",
+      "source_paper_ids": "F04,F05,F06,F07"
+    },
+    {
+      "method_family": "随机过程",
+      "method": "齐次/非齐次泊松光子过程",
+      "applicable_task": "脉冲星和背景光子事件仿真",
+      "required_data": "时间变强度函数、探测面积和观测时长",
+      "core_idea": "按强度函数随机生成事件到达时刻",
+      "advantage": "符合光子计数机理",
+      "risk": "低计数、强度归一化和随机方差敏感",
+      "source_paper_ids": "F04,F05,F06,F07"
+    },
+    {
+      "method_family": "随机采样",
+      "method": "削减法/拒绝采样/Ogata thinning/逆变换",
+      "applicable_task": "从非齐次强度生成事件时刻",
+      "required_data": "强度上界或可逆累计强度",
+      "core_idea": "通过接受拒绝或累计强度反演产生样本",
+      "advantage": "可适配复杂强度曲线",
+      "risk": "效率、上界和随机预算影响比较",
+      "source_paper_ids": "F05,F06,F07"
+    },
+    {
+      "method_family": "周期信号",
+      "method": "历元折叠与脉冲轮廓匹配",
+      "applicable_task": "从稀疏光子恢复周期轮廓",
+      "required_data": "到达时刻、频率及其导数",
+      "core_idea": "换算相位后按周期分箱累积并与模板比较",
+      "advantage": "输出直观、便于导航测时",
+      "risk": "周期/相位误差会导致轮廓展宽",
+      "source_paper_ids": "F04,F05,F06,F07"
+    },
+    {
+      "method_family": "数值验证",
+      "method": "守恒量/反算/误差量级检查",
+      "applicable_task": "物理模型一致性验证",
+      "required_data": "模型输入输出与理论不变量",
+      "core_idea": "用能量角动量守恒、参数反算和数量级交叉核验",
+      "advantage": "可快速发现单位和实现错误",
+      "risk": "只能验证内部一致性，不能替代真实观测外部验证",
+      "source_paper_ids": "F04,F05,F06,F07"
+    }
+  ]
+}

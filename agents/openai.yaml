@@ -1,0 +1,4 @@
+interface:
+  display_name: "华为杯数学建模助手"
+  short_description: "赛题拆解、模型选择、验证设计与论文写作的全流程辅助"
+  default_prompt: "使用 $huawei-cup-modeling 分析这道华为杯赛题，并给出可验证的完整建模方案。"
