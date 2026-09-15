@@ -18,24 +18,22 @@
 - 164 条子问题记录；
 - 66 条方法记录。
 
-论文中的性能指标均标记为作者自报结果，不能替代在当前赛题数据上的复现和验证。仓库不包含原始论文 PDF。
 
 ## 安装
 
 将仓库克隆到 Codex Skills 目录：
 
 ```bash
-git clone <repository-url> ~/.codex/skills/huawei-cup-modeling
+git clone <repository-url> ~/.codex/skills/Auto-Modeling-Skill
 ```
 
-也可以将整个目录复制到 `$CODEX_HOME/skills/huawei-cup-modeling`。
 
 ## 使用
 
 显式调用示例：
 
 ```text
-使用 $huawei-cup-modeling 分析这道华为杯赛题，先完成问题拆解和数据审计，再比较候选模型并给出验证方案。
+使用 Auto-Modeling-Skill 分析这道华为杯赛题，先完成问题拆解和数据审计，再比较候选模型并给出验证方案。
 ```
 
 查询本地知识库：
@@ -48,7 +46,7 @@ python3 scripts/query_kb.py --query "空间泄漏 脆弱性" --dataset subproble
 ## 目录结构
 
 ```text
-huawei-cup-modeling/
+Auto-Modeling-modeling/
 ├── SKILL.md
 ├── agents/openai.yaml
 ├── scripts/query_kb.py
