@@ -42,7 +42,7 @@ Resolve command paths relative to this Skill directory. Do not assume the user's
 7. Separate current-data facts, assumptions/model choices, and historical-paper results.
 8. Before delivery, run the project audit and reconcile every paper claim with code or result files.
 
-Read [competition-workflow.md](references/competition-workflow.md) for full solution design, [problem-routing.md](references/problem-routing.md) for model selection, [validation-and-audit.md](references/validation-and-audit.md) for evaluation or review, and [paper-writing.md](references/paper-writing.md) only for drafting or structural revision.
+Read [competition-workflow.md](references/competition-workflow.md) for full solution design, [problem-routing.md](references/problem-routing.md) for model selection, and [validation-and-audit.md](references/validation-and-audit.md) for evaluation or review. For drafting or structural revision, read [paper-writing.md](references/paper-writing.md) completely; before final delivery, apply [delivery-checklist.md](references/delivery-checklist.md).
 
 ## Use the curated knowledge base
 
@@ -71,6 +71,8 @@ Use returned paper IDs to cross-reference `references/data/papers.json`, `subpro
 - Treat `题目/` and `数据/原始/` as immutable source material.
 - Reuse existing code and results unless the user asks to replace them; do not silently rerun or redesign completed work.
 - Write numerical claims only after computation and link them to a result table, figure, or log.
+- Draft the narrative in `论文/论文草稿.md` before polishing `论文/论文.tex`; write the abstract after the result sections stabilize.
+- Make every subquestion close the loop from task and model choice through result, validation, interpretation, and handoff.
 - Verify every citation against a real source.
 - Compile LaTeX twice when cross-references are used, and report unresolved warnings or missing fonts/packages honestly.
 - Never invent attachment contents, numerical results, citations, successful validation, or competition awards.

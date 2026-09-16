@@ -48,12 +48,15 @@ class CommandLineTests(unittest.TestCase):
             self.assertEqual(init.returncode, 0, init.stderr)
             self.assertTrue((target / "问题3" / "建模笔记.md").is_file())
             self.assertIn("测试赛题", (target / "论文" / "论文.tex").read_text(encoding="utf-8"))
+            self.assertTrue((target / "论文" / "论文草稿.md").is_file())
 
             (target / "题目" / "赛题.md").write_text("测试题目", encoding="utf-8")
             audit = self.run_cli("audit", str(target))
             self.assertEqual(audit.returncode, 0, audit.stderr)
             self.assertIn("PASS", audit.stdout)
             self.assertIn("WARN", audit.stdout)
+            self.assertIn("论文结构", audit.stdout)
+            self.assertIn("正文写作红线", audit.stdout)
 
     def test_merge_never_overwrites_existing_note(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -66,6 +69,22 @@ class CommandLineTests(unittest.TestCase):
             self.assertEqual(merged.returncode, 0, merged.stderr)
             self.assertEqual(note.read_text(encoding="utf-8"), "custom note")
             self.assertTrue((target / "问题3" / "建模笔记.md").is_file())
+
+    def test_audit_flags_process_language_in_paper(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp) / "contest"
+            init = self.run_cli("init", str(target), "--questions", "1")
+            self.assertEqual(init.returncode, 0)
+            (target / "题目" / "赛题.md").write_text("测试题目", encoding="utf-8")
+            paper = target / "论文" / "论文.tex"
+            paper.write_text(
+                paper.read_text(encoding="utf-8") + "\n调用了某函数并写入文件 result.csv。\n",
+                encoding="utf-8",
+            )
+            audit = self.run_cli("audit", str(target))
+            self.assertEqual(audit.returncode, 0)
+            self.assertIn("疑似程序日志或过程元语言", audit.stdout)
+            self.assertIn("result.csv", audit.stdout)
 
 
 if __name__ == "__main__":

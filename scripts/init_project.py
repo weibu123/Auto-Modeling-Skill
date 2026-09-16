@@ -70,6 +70,8 @@ def initialize_workspace(
 
     paper = _asset("paper-template.tex").replace("{{COMPETITION_TITLE}}", title)
     _write_if_missing(target / "论文" / "论文.tex", paper, created)
+    draft = _asset("paper-draft-template.md").replace("{{COMPETITION_TITLE}}", title)
+    _write_if_missing(target / "论文" / "论文草稿.md", draft, created)
 
     source_notice = "本目录保存原始赛题。请保留原文件名和内容，不在此处写入派生结果。\n"
     data_notice = "本目录保存原始附件。清洗或转换后的数据写入 ../处理/，并保留生成脚本。\n"

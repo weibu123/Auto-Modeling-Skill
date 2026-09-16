@@ -33,6 +33,12 @@ class SkillStructureTests(unittest.TestCase):
         self.assertIn("$auto-modeling-skill", text)
         self.assertNotIn("$huawei-cup-modeling", text)
 
+    def test_writing_resources_are_routed(self) -> None:
+        skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("references/paper-writing.md", skill)
+        self.assertIn("references/delivery-checklist.md", skill)
+        self.assertTrue((ROOT / "assets" / "paper-draft-template.md").is_file())
+
 
 if __name__ == "__main__":
     unittest.main()

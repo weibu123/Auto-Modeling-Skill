@@ -41,7 +41,7 @@ python3 scripts/auto_model.py audit <target-directory>
 python3 scripts/auto_model.py audit <target-directory> --strict
 ```
 
-The audit checks source material, per-question notes/code/results, paper files, unresolved placeholders, and whether a compiled PDF exists. It does not prove mathematical correctness. `--strict` returns a non-zero exit status when warnings remain, which is useful in CI or before final delivery.
+The audit checks source material, per-question notes/code/results, the Markdown draft, core LaTeX sections, unresolved placeholders, selected writing red flags, and whether a compiled PDF exists. It does not prove mathematical correctness or citation truth. `--strict` returns a non-zero exit status when warnings remain, which is useful in CI or before final delivery.
 
 ## Check the local toolchain
 

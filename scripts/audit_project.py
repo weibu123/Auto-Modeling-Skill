@@ -10,7 +10,32 @@ from pathlib import Path
 
 
 QUESTION_PATTERN = re.compile(r"^问题(\d+)$")
-PLACEHOLDER_PATTERN = re.compile(r"\[待(?:填写|计算|核实)[^\]]*\]|\b(?:TODO|TBD)\b", re.IGNORECASE)
+PLACEHOLDER_PATTERN = re.compile(r"\[待(?:填写|计算|核实|补证据)[^\]]*\]|\b(?:TODO|TBD)\b", re.IGNORECASE)
+RAW_FILENAME_PATTERN = re.compile(r"(?<![\w.-])[\w.-]+\.(?:csv|xlsx?|json|npy|pkl)(?![\w.-])", re.IGNORECASE)
+PROCESS_LANGUAGE_PATTERNS = [
+    re.compile(pattern)
+    for pattern in (
+        r"调用.{0,12}函数",
+        r"写入(?:了)?文件",
+        r"程序报错",
+        r"机械校验",
+        r"独立复算",
+        r"如实报告",
+    )
+]
+STOCK_PHRASES = ("值得指出的是", "值得注意的是", "综上所述", "由此可见")
+REQUIRED_LATEX_MARKERS = (
+    r"\begin{abstract}",
+    r"\section{问题重述}",
+    r"\section{问题分析}",
+    r"\section{模型假设}",
+    r"\section{符号说明}",
+    r"\section{模型建立与求解}",
+    r"\section{模型评价与推广}",
+    r"\section{结论}",
+    r"\begin{thebibliography}",
+    r"\appendix",
+)
 
 
 @dataclass(frozen=True)
@@ -36,6 +61,34 @@ def _count_placeholders(path: Path) -> int:
         except UnicodeDecodeError:
             continue
     return total
+
+
+def _read_utf8(path: Path) -> str:
+    try:
+        return path.read_text(encoding="utf-8")
+    except (OSError, UnicodeDecodeError):
+        return ""
+
+
+def _latex_without_comments(text: str) -> str:
+    return "\n".join(line.split("%", 1)[0] for line in text.splitlines())
+
+
+def _paper_style_findings(text: str) -> list[str]:
+    body = _latex_without_comments(text)
+    findings: list[str] = []
+    filenames = sorted(set(RAW_FILENAME_PATTERN.findall(body)))
+    if filenames:
+        findings.append("正文出现原始文件名：" + ", ".join(filenames[:5]))
+    process_hits = sorted(
+        {match.group(0) for pattern in PROCESS_LANGUAGE_PATTERNS for match in pattern.finditer(body)}
+    )
+    if process_hits:
+        findings.append("疑似程序日志或过程元语言：" + "、".join(process_hits[:5]))
+    repeated = [f"{phrase}×{body.count(phrase)}" for phrase in STOCK_PHRASES if body.count(phrase) >= 3]
+    if repeated:
+        findings.append("模板化连接词重复：" + "、".join(repeated))
+    return findings
 
 
 def audit_workspace(root: Path) -> list[Check]:
@@ -64,10 +117,31 @@ def audit_workspace(root: Path) -> list[Check]:
         checks.append(Check("PASS" if code_count else "WARN", f"{question_dir.name}代码", f"发现 {code_count} 个代码或配置文件"))
         checks.append(Check("PASS" if result_count else "WARN", f"{question_dir.name}结果", f"发现 {result_count} 个结果文件"))
 
+    paper_draft = root / "论文" / "论文草稿.md"
     paper_tex = root / "论文" / "论文.tex"
     paper_pdf = root / "论文" / "论文.pdf"
+    checks.append(Check("PASS" if paper_draft.is_file() else "WARN", "Markdown论文草稿", str(paper_draft)))
     checks.append(Check("PASS" if paper_tex.is_file() else "FAIL", "LaTeX论文", str(paper_tex)))
     checks.append(Check("PASS" if paper_pdf.is_file() else "WARN", "编译PDF", str(paper_pdf)))
+
+    if paper_tex.is_file():
+        paper_text = _read_utf8(paper_tex)
+        missing_markers = [marker for marker in REQUIRED_LATEX_MARKERS if marker not in paper_text]
+        checks.append(
+            Check(
+                "PASS" if not missing_markers else "WARN",
+                "论文结构",
+                "核心章节完整" if not missing_markers else "缺少：" + ", ".join(missing_markers),
+            )
+        )
+        style_findings = _paper_style_findings(paper_text)
+        checks.append(
+            Check(
+                "PASS" if not style_findings else "WARN",
+                "正文写作红线",
+                "未发现文件名、程序日志式语言或高频模板词" if not style_findings else "；".join(style_findings),
+            )
+        )
 
     placeholder_count = _count_placeholders(root)
     checks.append(Check("PASS" if placeholder_count == 0 else "WARN", "未完成占位符", f"发现 {placeholder_count} 处待填写、待计算、TODO 或 TBD"))
