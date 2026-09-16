@@ -14,7 +14,7 @@ class SkillStructureTests(unittest.TestCase):
         text = (ROOT / "SKILL.md").read_text(encoding="utf-8")
         match = re.search(r"^name:\s*([a-z0-9-]+)\s*$", text, re.MULTILINE)
         self.assertIsNotNone(match)
-        self.assertEqual(match.group(1), ROOT.name)
+        self.assertEqual(match.group(1), ROOT.name.lower())
 
     def test_skill_references_exist(self) -> None:
         text = (ROOT / "SKILL.md").read_text(encoding="utf-8")
