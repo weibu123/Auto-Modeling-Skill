@@ -1,0 +1,93 @@
+\documentclass[UTF8,a4paper,12pt]{ctexart}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{booktabs,multirow,array}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{siunitx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue}
+\graphicspath{{figures/}}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt}
+
+\title{ {{COMPETITION_TITLE}} }
+\author{参赛队伍：\underline{\hspace{4cm}}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+% 最后撰写。逐问说明任务、核心模型、验证方式和可追溯的主要数值。
+[待填写]
+
+\textbf{关键词：} [待填写]
+\end{abstract}
+
+\section{问题重述}
+[待填写]
+
+\section{问题分析}
+% 说明各问数学本质及输入输出依赖，不重复原题。
+[待填写]
+
+\section{模型假设}
+\begin{enumerate}[label=\arabic*.]
+  \item [待填写：假设、依据、适用范围及潜在偏差]
+\end{enumerate}
+
+\section{符号说明}
+\begin{table}[H]
+  \centering
+  \caption{主要符号}
+  \begin{tabular}{lll}
+    \toprule
+    符号 & 含义 & 单位或范围 \\
+    \midrule
+    $x$ & [待填写] & [待填写] \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{数据预处理与审计}
+[待填写：数据字典、缺失、异常、分组、泄漏和处理前后样本数]
+
+\section{模型建立与求解}
+\subsection{问题一}
+\subsubsection{基线模型}
+[待填写]
+
+\subsubsection{主模型与求解算法}
+[待填写]
+
+\subsubsection{结果与验证}
+[待填写：数值必须对应结果文件或图表]
+
+% 按实际子问题继续添加章节。
+
+\section{敏感性、稳健性与误差分析}
+[待填写]
+
+\section{模型评价与推广}
+\subsection{优点}
+[待填写：只写已经验证的性质]
+
+\subsection{局限}
+[待填写：说明影响范围和可能偏差方向]
+
+\section{结论}
+[待填写：按题目顺序回答，不引入新结果]
+
+\begin{thebibliography}{99}
+\bibitem{ref1} [待核实的真实文献]
+\end{thebibliography}
+
+\appendix
+\section{核心代码与补充结果}
+[待填写]
+
+\end{document}
