@@ -26,6 +26,7 @@ Read [commands.md](references/commands.md) before initializing or auditing a wor
 python3 scripts/auto_model.py init ./contest --questions 4
 python3 scripts/auto_model.py query "时间序列 空间泄漏" --dataset subproblems --topic D --limit 6
 python3 scripts/auto_model.py query "无人机 调度" --dataset index --year 2016 --topic A --limit 6
+python3 scripts/prepare_full_distillation.py --batch 2016-C
 python3 scripts/auto_model.py decision-promote --check
 python3 scripts/auto_model.py audit ./contest
 python3 scripts/auto_model.py doctor
@@ -48,7 +49,7 @@ Read [competition-workflow.md](references/competition-workflow.md) for full solu
 
 ## Use the curated knowledge base
 
-The local knowledge base has two evidence levels: a 338-paper discovery index and a deeply curated layer containing 55 paper records, 213 subproblem records, and 86 method records. Query it when an analogue materially improves model selection or risk checking:
+The local knowledge base has two evidence levels: a 338-paper discovery index and a deeply curated layer containing 61 paper records, 237 subproblem records, and 92 method records. Query it when an analogue materially improves model selection or risk checking:
 
 ```bash
 python3 scripts/auto_model.py query "多目标优化 疲劳 功率分配" --dataset all --limit 8

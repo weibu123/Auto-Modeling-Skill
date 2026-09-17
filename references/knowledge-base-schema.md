@@ -61,11 +61,28 @@ Each batch must state its `evidence_basis`. Subproblem entries must provide non-
 ## Maintenance commands
 
 ```powershell
+python scripts/prepare_full_distillation.py
 python scripts/migrate_kb_schema_v2.py
 python scripts/auto_model.py decision-promote --check
 python scripts/auto_model.py decision-promote
 python scripts/auto_model.py kb-validate
 python scripts/auto_model.py eval-retrieval
 ```
+
+## Full-corpus distillation manifest
+
+`references/data/full_distillation_manifest.json` is the resumable ledger for the
+complete Markdown corpus. Every index UID appears exactly once and has one of four
+review states:
+
+- `deeply_curated`: promoted through a reviewed curation batch;
+- `ready_for_deep_review`: source Markdown has no known conversion flag;
+- `ready_with_quality_flags`: review can proceed, but flagged passages and formulas
+  need additional checking;
+- `needs_source_repair`: the conversion lacks enough source evidence to promote.
+
+The generated evidence packets are review aids rather than knowledge records. Never
+change a manifest state by hand to claim completion; rebuild it from the index after
+promotion.
 
 The migration and decision promotion are idempotent. The validator checks field types, identities, paper links, method sources, index links, metadata counts, and structured-field coverage.

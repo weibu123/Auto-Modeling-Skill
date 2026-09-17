@@ -31,6 +31,7 @@
 
 ```powershell
 python scripts/build_paper_index.py
+python scripts/prepare_full_distillation.py
 python scripts/migrate_kb_schema_v2.py
 python scripts/auto_model.py decision-promote --check
 python scripts/auto_model.py decision-promote
@@ -41,5 +42,24 @@ python -m unittest discover -s tests -v
 ```
 
 每次深度蒸馏建议按“年份 × 题目”成批处理。完成后重新构建索引，使对应记录从 `indexed` 变为 `curated`，并检查总数与唯一性。
+
+全量蒸馏开始前运行 `prepare_full_distillation.py`。它会把 338 篇源文与
+`references/data/full_distillation_manifest.json` 一一对应，并在
+`build/distillation_packets/` 生成带原文行号的紧凑证据包。证据包只用于减少复核时
+重复载入全文的 token 和时间；它不会自动把论文晋级为 `deeply_curated`。
+
+按批次继续时可限定范围：
+
+```powershell
+python scripts/prepare_full_distillation.py --batch 2016-C
+python scripts/promote_curation_batch.py references/data/curation_batches/2016-C.json
+python scripts/build_paper_index.py
+python scripts/prepare_full_distillation.py --batch 2016-D
+```
+
+每完成一个批次，必须把论文记录、子问题记录和必要的方法来源一起晋级，重新生成
+索引与 manifest，并运行校验和检索评测。manifest 中的
+`ready_with_quality_flags` 表示转换稿需要额外核查；`needs_source_repair` 表示在修复
+来源前不得深度晋级。
 
 论文事实蒸馏与决策字段蒸馏分两步。先在 `curation_batches/` 固定论文事实，再在 `decision_fields/` 填写约束、指标、最低基线和方法禁用条件。后者必须声明 `evidence_basis`；维护者归纳不得写成论文原始结论。

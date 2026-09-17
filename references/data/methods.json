@@ -2,11 +2,12 @@
   "metadata": {
     "source_workbook": "华为杯优秀论文基础数据库_v3_44篇完整版.xlsx",
     "sheet": "方法库",
-    "record_count": 86,
+    "record_count": 92,
     "evidence_level": "论文摘要与模型/评价章节结构化抽取；作者结果尚未独立复算",
     "curation_batches": [
       "2016-A",
-      "2016-B"
+      "2016-B",
+      "2016-C"
     ],
     "curation_batch_sources": {
       "2016-A": {
@@ -16,12 +17,17 @@
       "2016-B": {
         "source_scope": "2016年研究生数学建模竞赛B题优秀论文6篇；依据MarkItDown转换稿逐篇核验摘要、模型、求解、验证、评价和结论",
         "evidence_note": "结果均为论文作者报告，未独立复算；已显式标注Markdown转换损坏、文内数值冲突和缺少独立验证等证据边界。"
+      },
+      "2016-C": {
+        "source_scope": "2016年研究生数学建模竞赛C题优秀论文6篇；依据MarkItDown转换稿逐篇核验摘要、问题分析、模型建立、求解、检验、评价和结论",
+        "evidence_note": "结果均为论文作者报告，未独立复算；证据位置使用Markdown行号与章节定位。"
       }
     },
     "schema_version": 2,
     "decision_field_batches": [
       "2016-A",
       "2016-B",
+      "2016-C",
       "cross-cutting-methods-v1",
       "domain-methods-completion-v1",
       "domain-methods-core-v2",
@@ -32,7 +38,7 @@
       "subproblems-e-reviewed-v1",
       "subproblems-f-reviewed-v1"
     ],
-    "decision_field_batch_count": 11
+    "decision_field_batch_count": 12
   },
   "records": [
     {
@@ -565,7 +571,7 @@
       "core_idea": "密度、概率或中心距离聚类",
       "advantage": "无需类别标签",
       "risk": "参数与簇形状敏感",
-      "source_paper_ids": "C01,C02,C03,C04,C05,F02,B16-04",
+      "source_paper_ids": "C01,C02,C03,C04,C05,F02,B16-04,C16-04",
       "must_check": [
         "参数与簇形状敏感"
       ],
@@ -600,7 +606,7 @@
       "core_idea": "先剔除外点再精化参数",
       "advantage": "稳健、参数可解释",
       "risk": "依赖正确函数假设",
-      "source_paper_ids": "C01,C03,C04,C05",
+      "source_paper_ids": "C01,C03,C04,C05,C16-01,C16-03,C16-04,C16-05",
       "must_check": [
         "依赖正确函数假设"
       ],
@@ -2772,6 +2778,216 @@
       "record_version": 2,
       "decision_field_sources": [
         "2016-B"
+      ]
+    },
+    {
+      "method_family": "无线定位",
+      "method": "TOA线性误差校准+非线性最小二乘定位",
+      "applicable_task": "NLOS偏差随TOA或距离呈稳定关系时的室内三维定位",
+      "required_data": "带真值校准样本、待测TOA与基站三维坐标",
+      "core_idea": "先估计测量TOA到视距传播时间的校准关系，再最小化几何测距残差联合求位置与时差",
+      "advantage": "误差模型可解释，能复用到删站与轨迹任务",
+      "risk": "校准关系可能场景特定，非凸迭代依赖初值",
+      "source_paper_ids": "C16-01,C16-03,C16-04",
+      "must_check": [
+        "校准关系可能场景特定，非凸迭代依赖初值"
+      ],
+      "minimum_baseline": "与未校准的TOA几何最小二乘及仅常数偏差校正比较，并在按场景留出的真值数据上报告水平和高度误差。",
+      "forbidden_when": [
+        "没有任何带真值或可识别的校准信息",
+        "误差—TOA关系在训练场景明显非稳定或强非线性",
+        "基站几何退化导致位置不可识别"
+      ],
+      "recommended_alternatives": [
+        "鲁棒非线性最小二乘",
+        "显式NLOS混合误差模型",
+        "TDOA/Chan定位"
+      ],
+      "computational_complexity": "单次残差与基站数近似线性；迭代成本还取决于参数维数、初值和停止条件。",
+      "common_misuse": [
+        "在全部场景含测试真值上拟合校准关系",
+        "只报告总体误差而隐藏高度失效",
+        "把局部迭代解称为全局最优"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "method_family": "无线定位",
+      "method": "Shadowing/Hata路径损耗校正+极大似然定位",
+      "applicable_task": "具备传播损耗先验的LOS/NLOS混合环境定位",
+      "required_data": "TOA、基站坐标、环境或损耗参数和校准样本",
+      "core_idea": "用路径损耗模型修正TOA距离后，以正则化极大似然估计三维位置",
+      "advantage": "能把传播机理与统计估计结合并处理高度不稳定",
+      "risk": "环境参数固定会随布局变化失效，正规方程可能病态",
+      "source_paper_ids": "C16-02",
+      "must_check": [
+        "环境参数固定会随布局变化失效，正规方程可能病态"
+      ],
+      "minimum_baseline": "与纯几何最小二乘和无路径损耗校正的极大似然在相同场景切分上比较。",
+      "forbidden_when": [
+        "缺少路径损耗相关观测且参数无法识别",
+        "环境快速变化却把误差因子固定",
+        "正规方程条件数过大且无稳定化方案"
+      ],
+      "recommended_alternatives": [
+        "RSSI/TOA联合贝叶斯定位",
+        "正则化或截断SVD最小二乘",
+        "数据驱动残差校正"
+      ],
+      "computational_complexity": "四基站组合可能随基站数呈组合增长；每次极大似然求解取决于迭代次数和线性系统规模。",
+      "common_misuse": [
+        "直接套用室外Hata参数到室内而不校准",
+        "用同一真值样本既估参数又评估",
+        "不报告病态方程和失败解"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "method_family": "传感器选择",
+      "method": "渐增基站子集稳定性选择",
+      "applicable_task": "在定位精度接近饱和时选择尽可能少的基站",
+      "required_data": "可排序的候选基站、定位器、位置差或真值误差阈值",
+      "core_idea": "从几何最低基站数起逐个加入候选，位置变化或验证误差进入平台后停止",
+      "advantage": "实现简单并给出基站数—精度曲线",
+      "risk": "稳定可源于共同偏差，全基站解也不等于真值",
+      "source_paper_ids": "C16-02,C16-03,C16-05,C16-06",
+      "must_check": [
+        "稳定可源于共同偏差，全基站解也不等于真值"
+      ],
+      "minimum_baseline": "至少与最近k基站、随机k基站和全基站定位比较，报告基站数—误差曲线及多次抽样分布。",
+      "forbidden_when": [
+        "新增基站的候选顺序没有可解释依据",
+        "仅有内部稳定性而没有任何真值或仿真校验",
+        "四个起始基站共面或几何条件极差"
+      ],
+      "recommended_alternatives": [
+        "D-optimal/Fisher信息传感器选择",
+        "混合整数子集优化",
+        "带不确定性的前向选择"
+      ],
+      "computational_complexity": "最坏需对每个候选子集重复运行定位器，约为O(m)次定位求解。",
+      "common_misuse": [
+        "把连续两次位置接近当作准确",
+        "把全基站解当作真值",
+        "在测试集上调停止阈值"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "method_family": "传感器选择",
+      "method": "MST初始化K-means基站筛选",
+      "applicable_task": "基站空间分布不均且需要代表性子集的定位",
+      "required_data": "基站空间坐标、距离度量和候选簇数",
+      "core_idea": "用最小生成树结构选择分散初始中心，再聚类选取代表基站",
+      "advantage": "较随机初始化更利用空间结构",
+      "risk": "簇数、尺度和离群基站会显著改变选择",
+      "source_paper_ids": "C16-04",
+      "must_check": [
+        "簇数、尺度和离群基站会显著改变选择"
+      ],
+      "minimum_baseline": "与k-means++、随机初始化和最近基站选择在相同k及定位器下比较选择稳定性和定位误差。",
+      "forbidden_when": [
+        "基站空间坐标尺度未统一",
+        "簇代表点不能保证三维非退化几何",
+        "簇数没有精度或资源依据"
+      ],
+      "recommended_alternatives": [
+        "k-medoids",
+        "D-optimal设计",
+        "设施选址或覆盖优化"
+      ],
+      "computational_complexity": "MST通常O(m² log m)或依图实现而定，随后K-means约O(mkit)。",
+      "common_misuse": [
+        "用聚类紧致性替代定位误差",
+        "只运行一次K-means",
+        "忽略离群基站和坐标量纲"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "method_family": "无线定位",
+      "method": "TDOA Chan+NLOS迭代修正",
+      "applicable_task": "需要削弱终端—基站钟差且可建立NLOS附加时延模型的定位",
+      "required_data": "多基站TOA、坐标、误差协方差或校准样本",
+      "core_idea": "TOA作差消除公共钟差，用Chan加权最小二乘初定位，再按NLOS误差模型迭代更新",
+      "advantage": "解析初值快且能显式区分系统误差与附加时延",
+      "risk": "参考基站和误差协方差设定敏感，NLOS模型错误会产生系统偏差",
+      "source_paper_ids": "C16-05,C16-06",
+      "must_check": [
+        "参考基站和误差协方差设定敏感，NLOS模型错误会产生系统偏差"
+      ],
+      "minimum_baseline": "与原始Chan、普通加权最小二乘和至少一种鲁棒NLOS方法在按场景留出的数据上比较。",
+      "forbidden_when": [
+        "参考基站时钟或误差并非公共可消除项",
+        "误差协方差无法合理估计且加权矩阵严重失真",
+        "基站几何不满足Chan可识别条件"
+      ],
+      "recommended_alternatives": [
+        "鲁棒M估计定位",
+        "半正定松弛定位",
+        "粒子滤波或因子图定位"
+      ],
+      "computational_complexity": "Chan初解主要是小型线性系统；NLOS修正按基站数线性构造残差并重复若干次。",
+      "common_misuse": [
+        "只用校准样本证明厘米级精度",
+        "混淆TOA与TDOA误差模型",
+        "不分水平与高度误差"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "method_family": "轨迹估计",
+      "method": "定位轨迹图优化",
+      "applicable_task": "已有逐时刻位置初估并需利用相邻一致性恢复连续轨迹",
+      "required_data": "时序位置初值、相邻关系、观测与运动误差模型",
+      "core_idea": "把时刻位置设为节点，把观测和相邻运动残差设为边，联合最小化全图代价",
+      "advantage": "比逐点定位更能利用全序列一致性",
+      "risk": "非凸优化依赖初值，错误平滑会抹去真实急转或停顿",
+      "source_paper_ids": "C16-05",
+      "must_check": [
+        "非凸优化依赖初值，错误平滑会抹去真实急转或停顿"
+      ],
+      "minimum_baseline": "与逐点定位、移动平均/样条平滑和卡尔曼滤波在整轨迹留出集上比较。",
+      "forbidden_when": [
+        "没有可靠时间顺序或相邻关系",
+        "运动边假设与真实急转/跳变冲突",
+        "初始位置错误到优化无法进入合理吸引域"
+      ],
+      "recommended_alternatives": [
+        "扩展/无迹卡尔曼滤波",
+        "粒子滤波",
+        "鲁棒样条或高斯过程轨迹"
+      ],
+      "computational_complexity": "稀疏图求解通常随轨迹长度近线性到超线性，取决于边结构、线性化和迭代次数。",
+      "common_misuse": [
+        "把非线性局部解称为全局最优",
+        "用过强平滑抹去真实运动",
+        "随机拆分轨迹点导致时序泄漏"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
       ]
     }
   ]

@@ -2,11 +2,12 @@
   "metadata": {
     "source_workbook": "华为杯优秀论文基础数据库_v3_44篇完整版.xlsx",
     "sheet": "子问题库",
-    "record_count": 213,
+    "record_count": 237,
     "evidence_level": "论文摘要与模型/评价章节结构化抽取；作者结果尚未独立复算",
     "curation_batches": [
       "2016-A",
-      "2016-B"
+      "2016-B",
+      "2016-C"
     ],
     "curation_batch_sources": {
       "2016-A": {
@@ -16,12 +17,17 @@
       "2016-B": {
         "source_scope": "2016年研究生数学建模竞赛B题优秀论文6篇；依据MarkItDown转换稿逐篇核验摘要、模型、求解、验证、评价和结论",
         "evidence_note": "结果均为论文作者报告，未独立复算；已显式标注Markdown转换损坏、文内数值冲突和缺少独立验证等证据边界。"
+      },
+      "2016-C": {
+        "source_scope": "2016年研究生数学建模竞赛C题优秀论文6篇；依据MarkItDown转换稿逐篇核验摘要、问题分析、模型建立、求解、检验、评价和结论",
+        "evidence_note": "结果均为论文作者报告，未独立复算；证据位置使用Markdown行号与章节定位。"
       }
     },
     "schema_version": 2,
     "decision_field_batches": [
       "2016-A",
       "2016-B",
+      "2016-C",
       "cross-cutting-methods-v1",
       "domain-methods-completion-v1",
       "domain-methods-core-v2",
@@ -32,7 +38,7 @@
       "subproblems-e-reviewed-v1",
       "subproblems-f-reviewed-v1"
     ],
-    "decision_field_batch_count": 11
+    "decision_field_batch_count": 12
   },
   "records": [
     {
@@ -8415,6 +8421,918 @@
       "record_version": 2,
       "decision_field_sources": [
         "2016-B"
+      ]
+    },
+    {
+      "record_id": "Q214",
+      "paper_id": "C16-01",
+      "question": "1",
+      "task": "在LOS/NLOS混合误差下由TOA估计终端三维坐标",
+      "input": "带真值样本、待测TOA和基站坐标",
+      "processing": "拟合TOA校准关系并引入时差与系统误差",
+      "model": "单目标非线性最小二乘+最速下降",
+      "output": "10组终端三维坐标",
+      "validation": "5组真值样本的MSE/RMSE与迭代曲线",
+      "risk": "初值、步长和场景迁移未系统检验",
+      "objective": "在LOS/NLOS混合误差下由TOA估计终端三维坐标",
+      "constraints": [
+        "校准参数只由带真值样本估计",
+        "三维解满足物理高度和几何可识别性",
+        "所有测试场景使用冻结的误差处理流程"
+      ],
+      "metric": [
+        "三维RMSE/MAE",
+        "水平误差与高度误差",
+        "迭代收敛率和运行时间"
+      ],
+      "split_unit": "场景或终端",
+      "assumptions": [],
+      "failure_modes": [
+        "初值、步长和场景迁移未系统检验"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "10组终端三维坐标"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q215",
+      "paper_id": "C16-01",
+      "question": "2",
+      "task": "用尽可能少的基站保持定位精度",
+      "input": "问题一模型、各基站残差和TOA",
+      "processing": "计算单基站累计误差并逐步剔除高误差基站",
+      "model": "基站数—误差双目标非线性规划",
+      "output": "保留/剔除基站及定位结果",
+      "validation": "与全基站定位和最低4基站几何条件比较",
+      "risk": "贪心剔除不能保证全局最优",
+      "objective": "用尽可能少的基站保持定位精度",
+      "constraints": [
+        "至少保留四个几何非退化基站",
+        "每次删站后重新验算定位误差",
+        "基站数和误差目标的权衡规则预先确定"
+      ],
+      "metric": [
+        "保留基站数",
+        "相对全基站的误差增量",
+        "最差终端误差"
+      ],
+      "split_unit": "终端或场景",
+      "assumptions": [],
+      "failure_modes": [
+        "贪心剔除不能保证全局最优"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "保留/剔除基站及定位结果"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q216",
+      "paper_id": "C16-01",
+      "question": "3",
+      "task": "恢复移动终端轨迹",
+      "input": "连续TOA、基站坐标和共享时差假设",
+      "processing": "逐时刻联合定位并保持同一终端时差一致",
+      "model": "带共享时差约束的非线性跟踪模型",
+      "output": "5组轨迹坐标和曲线",
+      "validation": "目标函数和轨迹连续性检查",
+      "risk": "未显式建模速度、加速度与过程噪声",
+      "objective": "恢复移动终端轨迹",
+      "constraints": [
+        "时间顺序不可打乱",
+        "共享时差假设需按同一设备核验",
+        "轨迹点满足位置和速度的物理边界"
+      ],
+      "metric": [
+        "逐点定位误差",
+        "轨迹平滑度",
+        "最大跳变和端点误差"
+      ],
+      "split_unit": "整条轨迹",
+      "assumptions": [],
+      "failure_modes": [
+        "未显式建模速度、加速度与过程噪声"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "5组轨迹坐标和曲线"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q217",
+      "paper_id": "C16-01",
+      "question": "4",
+      "task": "有限通信半径下判定可定位终端并分析连接度与精度",
+      "input": "200m半径、TOA、基站位置和最低基站数",
+      "processing": "校准通信半径后筛有效基站，以可定位区域大小代理精度",
+      "model": "覆盖判定+等价替换关系模型",
+      "output": "可定位终端及连接度—精度方向",
+      "validation": "与有效基站数、半径的单调关系核对",
+      "risk": "只给定性相关，代理指标未由真值验证",
+      "objective": "有限通信半径下判定可定位终端并分析连接度与精度",
+      "constraints": [
+        "仅统计通信半径内有效基站",
+        "可定位阈值与几何维数一致",
+        "精度代理必须用带真值场景校准"
+      ],
+      "metric": [
+        "可定位召回率/准确率",
+        "连接度",
+        "真实位置误差与代理相关性"
+      ],
+      "split_unit": "场景",
+      "assumptions": [],
+      "failure_modes": [
+        "只给定性相关，代理指标未由真值验证"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "可定位终端及连接度—精度方向"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q218",
+      "paper_id": "C16-02",
+      "question": "1",
+      "task": "自适应校正传播损耗并估计三维位置",
+      "input": "TOA、基站坐标、LOS/NLOS样本和环境参数",
+      "processing": "四基站组合初估、Shadowing/Hata校正、正则化极大似然",
+      "model": "预估-校正-自适应定位模型",
+      "output": "10组终端三维坐标",
+      "validation": "5组真值样本的改进前后误差比较",
+      "risk": "固定误差因子难适应布局变化且正规方程可能病态",
+      "objective": "自适应校正传播损耗并估计三维位置",
+      "constraints": [
+        "路径损耗参数仅在训练场景估计",
+        "LOS/NLOS判定和距离校正不使用待测真值",
+        "病态方程采用正则化并报告条件数"
+      ],
+      "metric": [
+        "三维RMSE",
+        "改进前后误差差值",
+        "条件数与失败率"
+      ],
+      "split_unit": "场景或终端",
+      "assumptions": [],
+      "failure_modes": [
+        "固定误差因子难适应布局变化且正规方程可能病态"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "10组终端三维坐标"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q219",
+      "paper_id": "C16-02",
+      "question": "2",
+      "task": "选择精度趋于饱和时的最少基站数",
+      "input": "10个场景及4–10个基站候选",
+      "processing": "每个基站数随机抽样20次并计算RMSE",
+      "model": "随机子集性能曲线",
+      "output": "建议7或8个基站",
+      "validation": "跨基站数比较RMSE平台区",
+      "risk": "未给随机种子、方差或最差情况",
+      "objective": "选择精度趋于饱和时的最少基站数",
+      "constraints": [
+        "不同基站数使用相同抽样次数和评价样本",
+        "随机种子固定并报告分布",
+        "停止点由事前精度容差定义"
+      ],
+      "metric": [
+        "基站数—RMSE曲线",
+        "均值及标准差/分位数",
+        "最坏情况误差"
+      ],
+      "split_unit": "场景",
+      "assumptions": [],
+      "failure_modes": [
+        "未给随机种子、方差或最差情况"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "建议7或8个基站"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q220",
+      "paper_id": "C16-02",
+      "question": "3",
+      "task": "由连续TOA拟合移动轨迹",
+      "input": "5组连续TOA和7个参考基站",
+      "processing": "逐点二维定位后拟合轨迹方程",
+      "model": "自适应定位+轨迹回归",
+      "output": "二维轨迹和方程",
+      "validation": "拟合图和残差检查",
+      "risk": "固定7基站及二维化可能忽略高度与遮挡变化",
+      "objective": "由连续TOA拟合移动轨迹",
+      "constraints": [
+        "基站子集只由训练或前置问题确定",
+        "定位和轨迹拟合分开评估",
+        "二维化假设需检查高度变化"
+      ],
+      "metric": [
+        "轨迹点RMSE",
+        "拟合残差",
+        "最大偏差和轨迹长度误差"
+      ],
+      "split_unit": "整条轨迹",
+      "assumptions": [],
+      "failure_modes": [
+        "固定7基站及二维化可能忽略高度与遮挡变化"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "二维轨迹和方程"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q221",
+      "paper_id": "C16-02",
+      "question": "4",
+      "task": "筛选可定位终端并量化连接度—精度关系",
+      "input": "200m有效TOA、连接数和定位RMSE",
+      "processing": "连接数至少4判定可定位，以RMSE倒数作精度并拟合",
+      "model": "覆盖阈值+回归关系",
+      "output": "可定位终端和关系式",
+      "validation": "5个场景的拟合一致性",
+      "risk": "RMSE依赖未知真值且小样本拟合不稳",
+      "objective": "筛选可定位终端并量化连接度—精度关系",
+      "constraints": [
+        "200m阈值在计算前固定",
+        "连接数至少满足三维可识别要求",
+        "RMSE倒数在RMSE接近零时需稳定化"
+      ],
+      "metric": [
+        "可定位终端数及分类指标",
+        "连接度—精度相关系数",
+        "跨场景拟合误差"
+      ],
+      "split_unit": "场景",
+      "assumptions": [],
+      "failure_modes": [
+        "RMSE依赖未知真值且小样本拟合不稳"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "可定位终端和关系式"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q222",
+      "paper_id": "C16-03",
+      "question": "1",
+      "task": "同时估计TOA线性校准参数和终端坐标",
+      "input": "TOA、基站坐标、参数搜索范围",
+      "processing": "遍历斜率/截距并求超定方程最小二乘残差",
+      "model": "二维网格搜索+线性最小二乘",
+      "output": "校准参数和三维坐标",
+      "validation": "5组真值样本定位误差",
+      "risk": "网格边界与步长主导精度和计算量",
+      "objective": "同时估计TOA线性校准参数和终端坐标",
+      "constraints": [
+        "参数搜索边界来自训练数据或物理先验",
+        "网格步长做敏感性分析",
+        "高度约束直接进入求解而非事后任意修正"
+      ],
+      "metric": [
+        "三维定位误差",
+        "校准参数稳定性",
+        "网格规模与运行时间"
+      ],
+      "split_unit": "场景或终端",
+      "assumptions": [],
+      "failure_modes": [
+        "网格边界与步长主导精度和计算量"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "校准参数和三维坐标"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q223",
+      "paper_id": "C16-03",
+      "question": "2",
+      "task": "由近到远渐增基站直至接近全基站解",
+      "input": "排序TOA、全基站参考解和容差",
+      "processing": "从4个基站起逐个增加并比较位置差",
+      "model": "渐增子集稳定性选择",
+      "output": "每个终端的最少基站数",
+      "validation": "与全基站解的距离差",
+      "risk": "全基站解不是独立真值，阈值选择未充分论证",
+      "objective": "由近到远渐增基站直至接近全基站解",
+      "constraints": [
+        "最低基站数保证几何非退化",
+        "稳定阈值不由测试误差反调",
+        "全基站解只作为内部基线而非真值"
+      ],
+      "metric": [
+        "选中基站数",
+        "与真值/全基站解的距离",
+        "跨重采样选择频率"
+      ],
+      "split_unit": "终端",
+      "assumptions": [],
+      "failure_modes": [
+        "全基站解不是独立真值，阈值选择未充分论证"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "每个终端的最少基站数"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q224",
+      "paper_id": "C16-03",
+      "question": "3",
+      "task": "逐采样点恢复移动终端轨迹",
+      "input": "连续TOA和二维化定位模型",
+      "processing": "逐点校准定位并连接轨迹",
+      "model": "二维最小二乘定位",
+      "output": "5组运动轨迹",
+      "validation": "测试样本轨迹误差比较",
+      "risk": "无动态状态约束，噪声会产生抖动",
+      "objective": "逐采样点恢复移动终端轨迹",
+      "constraints": [
+        "保留原始时间间隔",
+        "逐点定位不读取未来真值",
+        "异常跳点有明确处理规则"
+      ],
+      "metric": [
+        "轨迹点RMSE",
+        "速度/加速度违例率",
+        "轨迹连续性"
+      ],
+      "split_unit": "整条轨迹",
+      "assumptions": [],
+      "failure_modes": [
+        "无动态状态约束，噪声会产生抖动"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "5组运动轨迹"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q225",
+      "paper_id": "C16-03",
+      "question": "4",
+      "task": "用连续两次定位稳定性判定有限覆盖下的可定位性",
+      "input": "200m有效TOA、排序基站和连接数",
+      "processing": "比较4/5及渐增基站解，稳定后计算残差和连接度",
+      "model": "稳定性阈值判定",
+      "output": "可定位终端、连接度与平均误差",
+      "validation": "5场景连接度—平均误差对照",
+      "risk": "存在反例场景且阈值依赖数据",
+      "objective": "用连续两次定位稳定性判定有限覆盖下的可定位性",
+      "constraints": [
+        "有效TOA严格按通信半径筛选",
+        "位置稳定阈值预先设定",
+        "可定位判定与误差评价使用独立依据"
+      ],
+      "metric": [
+        "可定位准确率",
+        "位置残差",
+        "连接度—平均误差的相关及例外数"
+      ],
+      "split_unit": "场景",
+      "assumptions": [],
+      "failure_modes": [
+        "存在反例场景且阈值依赖数据"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "可定位终端、连接度与平均误差"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q226",
+      "paper_id": "C16-04",
+      "question": "1",
+      "task": "校正TOA延时并求三维坐标",
+      "input": "TOA、基站坐标和5组真值样本",
+      "processing": "回归延时线性模型，泰勒展开误差方程并迭代最小二乘",
+      "model": "时间线性模型+泰勒最小二乘",
+      "output": "10组终端坐标",
+      "validation": "真值样本平均定位误差",
+      "risk": "线性延时关系对重NLOS场景可能失效",
+      "objective": "校正TOA延时并求三维坐标",
+      "constraints": [
+        "延时线性关系在独立场景检查",
+        "迭代初值和停止规则固定",
+        "坐标解满足物理边界"
+      ],
+      "metric": [
+        "三维MAE/RMSE",
+        "迭代次数",
+        "不同NLOS比例下误差"
+      ],
+      "split_unit": "场景或终端",
+      "assumptions": [],
+      "failure_modes": [
+        "线性延时关系对重NLOS场景可能失效"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "10组终端坐标"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q227",
+      "paper_id": "C16-04",
+      "question": "2",
+      "task": "聚类选择最少基站",
+      "input": "基站空间位置、TOA和定位误差",
+      "processing": "最小生成树选初始中心，K-means聚类并逐步筛选",
+      "model": "MST初始化K-means基站优化",
+      "output": "基站子集和定位结果",
+      "validation": "与全基站误差及聚类稳定性比较",
+      "risk": "初始化、簇数和距离尺度影响11基站结论",
+      "objective": "聚类选择最少基站",
+      "constraints": [
+        "坐标尺度在聚类前标准化",
+        "簇数和代表点规则预先确定",
+        "至少保留三维定位所需的非共面基站"
+      ],
+      "metric": [
+        "选中基站数",
+        "定位误差增量",
+        "不同初始化下选择稳定性"
+      ],
+      "split_unit": "场景",
+      "assumptions": [],
+      "failure_modes": [
+        "初始化、簇数和距离尺度影响11基站结论"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "基站子集和定位结果"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q228",
+      "paper_id": "C16-04",
+      "question": "3",
+      "task": "用多项式描述移动轨迹",
+      "input": "逐时刻定位坐标",
+      "processing": "按时间分别拟合坐标分量",
+      "model": "三次多项式轨迹拟合",
+      "output": "5组轨迹函数和图",
+      "validation": "轨迹连续性与残差图",
+      "risk": "视觉平滑不能证明预测或物理合理性",
+      "objective": "用多项式描述移动轨迹",
+      "constraints": [
+        "多项式次数由验证选择",
+        "拟合保留真实时间间隔",
+        "转弯和停顿不能仅因平滑被删除"
+      ],
+      "metric": [
+        "轨迹拟合RMSE",
+        "最大点误差",
+        "速度/加速度物理违例率"
+      ],
+      "split_unit": "整条轨迹",
+      "assumptions": [],
+      "failure_modes": [
+        "视觉平滑不能证明预测或物理合理性"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "5组轨迹函数和图"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q229",
+      "paper_id": "C16-04",
+      "question": "4",
+      "task": "结合覆盖与最少基站数判断终端可定位性",
+      "input": "200m覆盖、聚类得到的基站阈值和TOA",
+      "processing": "统计有效基站并计算平均连接度",
+      "model": "覆盖计数+连接度相关分析",
+      "output": "可定位终端和连接度关系",
+      "validation": "5场景横向比较",
+      "risk": "样本少且相关方向表述与精度定义易混淆",
+      "objective": "结合覆盖与最少基站数判断终端可定位性",
+      "constraints": [
+        "覆盖和连接度定义跨场景一致",
+        "定位精度方向统一为误差或精度不得混用",
+        "相关分析报告小样本不确定性"
+      ],
+      "metric": [
+        "可定位终端数",
+        "连接度—误差相关系数",
+        "置信区间或重采样稳定性"
+      ],
+      "split_unit": "场景",
+      "assumptions": [],
+      "failure_modes": [
+        "样本少且相关方向表述与精度定义易混淆"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "可定位终端和连接度关系"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q230",
+      "paper_id": "C16-05",
+      "question": "1",
+      "task": "消除钟差和NLOS偏差后定位终端",
+      "input": "TOA、基站坐标和带真值样本",
+      "processing": "拟合LOS/NLOS关系，以TDOA去钟差，最小二乘初估并反向迭代",
+      "model": "TDOA最小二乘+迭代最邻近",
+      "output": "三维位置及误差",
+      "validation": "平面和高度误差分别比较",
+      "risk": "线性NLOS关系和反向迭代可能过拟合当前场景",
+      "objective": "消除钟差和NLOS偏差后定位终端",
+      "constraints": [
+        "TDOA参考基站选择规则固定",
+        "NLOS关系只用校准数据拟合",
+        "平面和高度误差分别验收"
+      ],
+      "metric": [
+        "水平RMSE",
+        "高度RMSE",
+        "迭代前后误差与运行时间"
+      ],
+      "split_unit": "场景或终端",
+      "assumptions": [],
+      "failure_modes": [
+        "线性NLOS关系和反向迭代可能过拟合当前场景"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "三维位置及误差"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q231",
+      "paper_id": "C16-05",
+      "question": "2",
+      "task": "评估不同基站数的定位性能并选折中",
+      "input": "3个以上基站组合和定位误差",
+      "processing": "定义基站数—准确性评价参数并比较",
+      "model": "基站数性能曲线",
+      "output": "推荐5个基站",
+      "validation": "不同基站数下定位差异",
+      "risk": "组合覆盖和不确定性报告不足",
+      "objective": "评估不同基站数的定位性能并选折中",
+      "constraints": [
+        "每个基站数覆盖可比的组合和场景",
+        "评价参数与实际位置误差方向一致",
+        "推荐点同时满足精度容差和几何可识别性"
+      ],
+      "metric": [
+        "基站数—误差曲线",
+        "最坏场景误差",
+        "选择稳定率"
+      ],
+      "split_unit": "场景",
+      "assumptions": [],
+      "failure_modes": [
+        "组合覆盖和不确定性报告不足"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "推荐5个基站"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q232",
+      "paper_id": "C16-05",
+      "question": "3",
+      "task": "联合优化整条移动轨迹",
+      "input": "逐点位置估计及相邻误差关系",
+      "processing": "以位置为节点、误差为边最小化全图代价",
+      "model": "非线性轨迹图优化",
+      "output": "平滑轨迹坐标",
+      "validation": "图目标值和轨迹可视化",
+      "risk": "非凸求解不保证全局最优且未引入真实运动速度",
+      "objective": "联合优化整条移动轨迹",
+      "constraints": [
+        "图中观测边和运动边权重来源明确",
+        "优化初始化和停止规则固定",
+        "保留真实急转/停顿的允许范围"
+      ],
+      "metric": [
+        "轨迹点RMSE",
+        "图目标函数",
+        "多初值稳定性和运行时间"
+      ],
+      "split_unit": "整条轨迹",
+      "assumptions": [],
+      "failure_modes": [
+        "非凸求解不保证全局最优且未引入真实运动速度"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "平滑轨迹坐标"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q233",
+      "paper_id": "C16-05",
+      "question": "4",
+      "task": "以最近基站反向验证可定位性并计算连接度",
+      "input": "200m覆盖、初估位置和基站距离",
+      "processing": "优先最近基站定位，再由估计位置反查其有效性",
+      "model": "最近邻基站筛选+反向一致性",
+      "output": "可定位终端数和连接度关系",
+      "validation": "case26–30计数与坐标一致性",
+      "risk": "距离近不必然等于NLOS污染小，存在自证循环",
+      "objective": "以最近基站反向验证可定位性并计算连接度",
+      "constraints": [
+        "有效性反查不能复用同一估计作为唯一证据",
+        "最近基站仍需通过通信半径和残差门槛",
+        "不同场景使用相同判定规则"
+      ],
+      "metric": [
+        "可定位分类指标",
+        "位置误差",
+        "反查失败率"
+      ],
+      "split_unit": "场景",
+      "assumptions": [],
+      "failure_modes": [
+        "距离近不必然等于NLOS污染小，存在自证循环"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "可定位终端数和连接度关系"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q234",
+      "paper_id": "C16-06",
+      "question": "1",
+      "task": "在LOS/NLOS混合误差下用改进Chan定位",
+      "input": "TOA、基站坐标、误差分布和带真值样本",
+      "processing": "TDOA去钟差；加权最小二乘Chan初估；按误差—距离模型迭代修正",
+      "model": "改进Chan+NLOS误差迭代",
+      "output": "三维坐标和环境参数K",
+      "validation": "误差分布拟合优度及真值坐标误差",
+      "risk": "同源样本校准与验证导致精度乐观",
+      "objective": "在LOS/NLOS混合误差下用改进Chan定位",
+      "constraints": [
+        "误差分布和线性关系在独立场景验证",
+        "Chan协方差与参考基站设定明确",
+        "校准和最终测试按场景隔离"
+      ],
+      "metric": [
+        "水平/高度RMSE",
+        "拟合优度",
+        "NLOS比例分层误差"
+      ],
+      "split_unit": "场景",
+      "assumptions": [],
+      "failure_modes": [
+        "同源样本校准与验证导致精度乐观"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "三维坐标和环境参数K"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q235",
+      "paper_id": "C16-06",
+      "question": "2",
+      "task": "优先最近基站并渐增到定位稳定",
+      "input": "排序TOA、改进Chan模型和稳定阈值",
+      "processing": "从最少基站起逐步加入并比较位置变化",
+      "model": "渐增基站子集选择",
+      "output": "场景自适应基站数",
+      "validation": "解稳定性和定位误差",
+      "risk": "最近基站仍可能受严重遮挡，稳定不代表准确",
+      "objective": "优先最近基站并渐增到定位稳定",
+      "constraints": [
+        "从至少四个非退化基站开始",
+        "稳定阈值事前确定",
+        "每次加入后核查位置误差而非只看位置变化"
+      ],
+      "metric": [
+        "基站数",
+        "定位误差",
+        "选择频率和最坏场景误差"
+      ],
+      "split_unit": "终端或场景",
+      "assumptions": [],
+      "failure_modes": [
+        "最近基站仍可能受严重遮挡，稳定不代表准确"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "场景自适应基站数"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q236",
+      "paper_id": "C16-06",
+      "question": "3",
+      "task": "逐点精确定位并描绘运动轨迹",
+      "input": "移动TOA序列及每时刻场景参数",
+      "processing": "每个时刻重新识别LOS/NLOS并定位",
+      "model": "逐点改进Chan定位",
+      "output": "移动轨迹",
+      "validation": "平面定位误差和轨迹连续性",
+      "risk": "缺少动态滤波与运动约束",
+      "objective": "逐点精确定位并描绘运动轨迹",
+      "constraints": [
+        "按整条轨迹留出验证",
+        "每时刻场景参数不使用未来真值",
+        "轨迹满足速度和加速度边界"
+      ],
+      "metric": [
+        "逐点RMSE",
+        "最大跳变",
+        "轨迹长度和端点误差"
+      ],
+      "split_unit": "整条轨迹",
+      "assumptions": [],
+      "failure_modes": [
+        "缺少动态滤波与运动约束"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "移动轨迹"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q237",
+      "paper_id": "C16-06",
+      "question": "4",
+      "task": "以区域精度贡献度分析连接度影响",
+      "input": "有效基站数、覆盖情况、粗/精定位规则",
+      "processing": "按基站数分级定位并聚合终端区域精度贡献",
+      "model": "分段定位+自定义贡献度",
+      "output": "可定位终端和连接度—贡献度关系",
+      "validation": "5个场景的坐标比对",
+      "risk": "贡献度不是直接位置误差且场景数不足",
+      "objective": "以区域精度贡献度分析连接度影响",
+      "constraints": [
+        "贡献度定义和方向在分析前固定",
+        "分段粗/精定位的切换阈值明确",
+        "自定义代理与真实误差做外部校准"
+      ],
+      "metric": [
+        "可定位终端数",
+        "贡献度—真实误差相关",
+        "跨场景稳定性"
+      ],
+      "split_unit": "场景",
+      "assumptions": [],
+      "failure_modes": [
+        "贡献度不是直接位置误差且场景数不足"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "可定位终端和连接度—贡献度关系"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-C"
       ]
     }
   ]

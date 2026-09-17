@@ -132,8 +132,8 @@ class CommandLineTests(unittest.TestCase):
         before = (subproblems.read_bytes(), methods.read_bytes())
         result = self.run_cli("decision-promote", "--check")
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertIn("213", result.stdout)
-        self.assertIn("86", result.stdout)
+        self.assertIn("237", result.stdout)
+        self.assertIn("92", result.stdout)
         self.assertEqual(before, (subproblems.read_bytes(), methods.read_bytes()))
 
     def test_doctor_reports_components(self) -> None:
