@@ -17,7 +17,22 @@
         "source_scope": "2016年研究生数学建模竞赛B题优秀论文6篇；依据MarkItDown转换稿逐篇核验摘要、模型、求解、验证、评价和结论",
         "evidence_note": "结果均为论文作者报告，未独立复算；已显式标注Markdown转换损坏、文内数值冲突和缺少独立验证等证据边界。"
       }
-    }
+    },
+    "schema_version": 2,
+    "decision_field_batches": [
+      "2016-A",
+      "2016-B",
+      "cross-cutting-methods-v1",
+      "domain-methods-completion-v1",
+      "domain-methods-core-v2",
+      "subproblems-a-reviewed-v1",
+      "subproblems-b-reviewed-v1",
+      "subproblems-c-reviewed-v1",
+      "subproblems-d-reviewed-v1",
+      "subproblems-e-reviewed-v1",
+      "subproblems-f-reviewed-v1"
+    ],
+    "decision_field_batch_count": 11
   },
   "records": [
     {
@@ -30,7 +45,35 @@
       "model": "模拟退火拓扑排序",
       "output": "调度序列、峰值驻留",
       "validation": "六算例目标值与复杂度",
-      "risk": "启发式不保证全局最优"
+      "risk": "启发式不保证全局最优",
+      "objective": "最小化满足拓扑约束的缓存驻留峰值",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：六算例目标值与复杂度"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "启发式不保证全局最优"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "调度序列、峰值驻留"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q002",
@@ -42,7 +85,35 @@
       "model": "ILP+rounding+彩色边图",
       "output": "地址与SPILL列表、搬运量",
       "validation": "六算例搬运量",
-      "risk": "分解可能牺牲全局最优"
+      "risk": "分解可能牺牲全局最优",
+      "objective": "容量约束下分配地址并最小化额外搬运",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：六算例搬运量"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "分解可能牺牲全局最优"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "地址与SPILL列表、搬运量"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q003",
@@ -54,7 +125,35 @@
       "model": "自适应优先级+Best-Fit+Pareto",
       "output": "联合优化方案与周期",
       "validation": "基线/优化结果比较",
-      "risk": "多目标权衡与参数需复核"
+      "risk": "多目标权衡与参数需复核",
+      "objective": "约束搬运量并最小化执行时间",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：基线/优化结果比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "多目标权衡与参数需复核"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "联合优化方案与周期"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q004",
@@ -66,7 +165,35 @@
       "model": "优先级贪心+禁忌搜索",
       "output": "合法调度序列",
       "validation": "算例与复杂度",
-      "risk": "参数敏感、局部最优"
+      "risk": "参数敏感、局部最优",
+      "objective": "大规模DAG的峰值驻留调度",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：算例与复杂度"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "参数敏感、局部最优"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "合法调度序列"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q005",
@@ -78,7 +205,34 @@
       "model": "ABQPSO",
       "output": "地址/SPILL方案",
       "validation": "数据搬运量比较",
-      "risk": "计算开销大"
+      "risk": "计算开销大",
+      "objective": "联合编码地址与SPILL决策",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：数据搬运量比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "计算开销大"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "地址/SPILL方案"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q006",
@@ -90,7 +244,35 @@
       "model": "DPEA",
       "output": "Pareto解集",
       "validation": "综合提升率",
-      "risk": "收敛性主张需证明"
+      "risk": "收敛性主张需证明",
+      "objective": "时间与搬运量的Pareto优化",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：综合提升率"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "收敛性主张需证明"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "Pareto解集"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q007",
@@ -102,7 +284,35 @@
       "model": "MCBGS",
       "output": "拓扑调度序列",
       "validation": "多基线降低率",
-      "risk": "基线公平性需复核"
+      "risk": "基线公平性需复核",
+      "objective": "缓存峰值最小化",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：多基线降低率"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "基线公平性需复核"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "拓扑调度序列"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q008",
@@ -114,7 +324,35 @@
       "model": "最优适应+动态SPILL",
       "output": "物理地址与搬运量",
       "validation": "缓存利用率/搬运量",
-      "risk": "硬件模型简化"
+      "risk": "硬件模型简化",
+      "objective": "多级缓存分配与SPILL最小化",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：缓存利用率/搬运量"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "硬件模型简化"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "物理地址与搬运量"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q009",
@@ -126,7 +364,35 @@
       "model": "DOSA多策略融合",
       "output": "优化调度与SPILL时机",
       "validation": "执行时间改善",
-      "risk": "真实流水线未建模"
+      "risk": "真实流水线未建模",
+      "objective": "搬运增长≤15%下缩短时间",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：执行时间改善"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "真实流水线未建模"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "优化调度与SPILL时机"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q010",
@@ -138,7 +404,35 @@
       "model": "贪心/SA/禁忌/GA",
       "output": "调度与峰值",
       "validation": "横向算法比较",
-      "risk": "最终选贪心的充分性需说明"
+      "risk": "最终选贪心的充分性需说明",
+      "objective": "比较启发式调度并确定峰值解",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：横向算法比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "最终选贪心的充分性需说明"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "调度与峰值"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q011",
@@ -150,7 +444,34 @@
       "model": "遗传编程+变邻域SA",
       "output": "缓存方案",
       "validation": "两子模型比较",
-      "risk": "权重主观"
+      "risk": "权重主观",
+      "objective": "固定或调整序列下最小搬运",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：两子模型比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "权重主观"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "缓存方案"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q012",
@@ -162,7 +483,35 @@
       "model": "改进GP+NSGA-II+MOPSO",
       "output": "Pareto方案",
       "validation": "指标提升",
-      "risk": "算法堆叠与资源开销"
+      "risk": "算法堆叠与资源开销",
+      "objective": "时间-搬运联合优化",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：指标提升"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "算法堆叠与资源开销"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "Pareto方案"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q013",
@@ -174,7 +523,35 @@
       "model": "EESM+速率映射",
       "output": "等效SINR和速率",
       "validation": "RMSE/Spearman",
-      "risk": "单一β跨MCS泛化有限"
+      "risk": "单一β跨MCS泛化有限",
+      "objective": "关闭TxBF下EESM标定与速率预测",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：RMSE/Spearman"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "单一β跨MCS泛化有限"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "等效SINR和速率"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q014",
@@ -186,7 +563,35 @@
       "model": "MIESM/LogSumExp/分位数回归",
       "output": "更稳健速率预测",
       "validation": "七组对比实验",
-      "risk": "模型选择需独立验证"
+      "risk": "模型选择需独立验证",
+      "objective": "改进聚合与尾部特征",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：七组对比实验"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "模型选择需独立验证"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "更稳健速率预测"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q015",
@@ -198,7 +603,35 @@
       "model": "SVD+MIESM/EESM+DA",
       "output": "TxBF速率分布",
       "validation": "预测分布对比",
-      "risk": "无标签对齐不等于准确"
+      "risk": "无标签对齐不等于准确",
+      "objective": "TxBF域的结构提取与无监督对齐",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：预测分布对比"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "无标签对齐不等于准确"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "TxBF速率分布"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q016",
@@ -210,7 +643,35 @@
       "model": "物理惩罚目标+Adam",
       "output": "α/β与mcs",
       "validation": "验证准确率",
-      "risk": "容差口径需明确"
+      "risk": "容差口径需明确",
+      "objective": "EESM参数拟合与mcs估计",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：验证准确率"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "容差口径需明确"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "α/β与mcs"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q017",
@@ -222,7 +683,35 @@
       "model": "改进指数映射+正则化",
       "output": "速率/mcs",
       "validation": "递进准确率",
-      "risk": "特征和样本划分需复核"
+      "risk": "特征和样本划分需复核",
+      "objective": "改进关闭TxBF估计",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：递进准确率"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "特征和样本划分需复核"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "速率/mcs"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q018",
@@ -234,7 +723,35 @@
       "model": "MFF-CT Transformer",
       "output": "mcs类别",
       "validation": "准确率87.5%",
-      "risk": "深模泄漏与数据量风险"
+      "risk": "深模泄漏与数据量风险",
+      "objective": "TxBF多模态速率估计",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：准确率87.5%"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "深模泄漏与数据量风险"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "mcs类别"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q019",
@@ -246,7 +763,34 @@
       "model": "EESM+Isotonic+HGBR",
       "output": "连续速率",
       "validation": "R²/RMSE",
-      "risk": "Isotonic外推弱"
+      "risk": "Isotonic外推弱",
+      "objective": "可解释基线与残差融合",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：R²/RMSE"
+      ],
+      "metric": [
+        "独立集误差",
+        "校准与稳定性",
+        "相对简单基线的增益"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "Isotonic外推弱"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "连续速率"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q020",
@@ -258,7 +802,35 @@
       "model": "随机森林+Isotonic",
       "output": "速率",
       "validation": "R²/RMSE",
-      "risk": "高维与域记忆"
+      "risk": "高维与域记忆",
+      "objective": "纯数据驱动估计",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：R²/RMSE"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "高维与域记忆"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "速率"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q021",
@@ -270,7 +842,34 @@
       "model": "EESM+HGBR",
       "output": "速率与Top-k",
       "validation": "R²/RMSE/Top-1/±1",
-      "risk": "性能低于问题一需解释"
+      "risk": "性能低于问题一需解释",
+      "objective": "TxBF物理-机器学习融合",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：R²/RMSE/Top-1/±1"
+      ],
+      "metric": [
+        "独立集误差",
+        "校准与稳定性",
+        "相对简单基线的增益"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "性能低于问题一需解释"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "速率与Top-k"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q022",
@@ -282,7 +881,34 @@
       "model": "ResNet50 U-Net+ASPP+注意力",
       "output": "二值掩码",
       "validation": "Accuracy/IoU/Recall/F1",
-      "risk": "标注规模需核验"
+      "risk": "标注规模需核验",
+      "objective": "抗干扰裂隙像素分割",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：Accuracy/IoU/Recall/F1"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "标注规模需核验"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "二值掩码"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q023",
@@ -294,7 +920,35 @@
       "model": "DBSCAN+LM+RANSAC",
       "output": "振幅/相位/中心线",
       "validation": "R²",
-      "risk": "固定周期假设需说明"
+      "risk": "固定周期假设需说明",
+      "objective": "裂隙实例聚类与正弦参数反演",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：R²"
+      ],
+      "metric": [
+        "簇稳定性",
+        "下游任务表现",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "固定周期假设需说明"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "振幅/相位/中心线"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q024",
@@ -306,7 +960,35 @@
       "model": "Z2经验式JRC",
       "output": "粗糙度",
       "validation": "采样对比",
-      "risk": "尺度影响大"
+      "risk": "尺度影响大",
+      "objective": "复杂轮廓JRC估计",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：采样对比"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "尺度影响大"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "粗糙度"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q025",
@@ -318,7 +1000,34 @@
       "model": "PPIGA+三维可视化",
       "output": "连通概率与优先孔位",
       "validation": "AHP对比",
-      "risk": "权重与概率校准"
+      "risk": "权重与概率校准",
+      "objective": "连通概率、三维重构与布孔",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：AHP对比"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "权重与概率校准"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "连通概率与优先孔位"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q026",
@@ -330,7 +1039,35 @@
       "model": "K-means+Canny/YOLOv8",
       "output": "裂隙掩码/数量",
       "validation": "方案比较",
-      "risk": "最终选择依据需量化"
+      "risk": "最终选择依据需量化",
+      "objective": "传统/深度方法比较识别裂隙",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：方案比较"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "最终选择依据需量化"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "裂隙掩码/数量"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q027",
@@ -342,7 +1079,35 @@
       "model": "GMM+梯度下降/牛顿/NN",
       "output": "正弦参数",
       "validation": "R²",
-      "risk": "神经回归必要性不明"
+      "risk": "神经回归必要性不明",
+      "objective": "正弦裂隙聚类与拟合",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：R²"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "神经回归必要性不明"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "正弦参数"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q028",
@@ -354,7 +1119,34 @@
       "model": "二阶导数JRC",
       "output": "粗糙度",
       "validation": "采样比较",
-      "risk": "JRC超范围风险"
+      "risk": "JRC超范围风险",
+      "objective": "自适应采样JRC",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：采样比较"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "JRC超范围风险"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "粗糙度"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q029",
@@ -366,7 +1158,34 @@
       "model": "多因子概率+最大信息增益",
       "output": "三维网与孔位",
       "validation": "约束可行性",
-      "risk": "概率未校准"
+      "risk": "概率未校准",
+      "objective": "概率网络与信息增益布孔",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：约束可行性"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "概率未校准"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "三维网与孔位"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q030",
@@ -378,7 +1197,34 @@
       "model": "规则融合评分",
       "output": "裂隙掩码",
       "validation": "Precision/Recall/F1",
-      "risk": "阈值人工"
+      "risk": "阈值人工",
+      "objective": "粗定位后连通域精筛",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：Precision/Recall/F1"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "阈值人工"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "裂隙掩码"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q031",
@@ -390,7 +1236,35 @@
       "model": "RANSAC/最小二乘；滑窗Hough对比",
       "output": "正弦参数",
       "validation": "RMSE/IQR/有效率",
-      "risk": "窗口参数敏感"
+      "risk": "窗口参数敏感",
+      "objective": "断续正弦裂隙鲁棒拟合",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：RMSE/IQR/有效率"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "窗口参数敏感"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "正弦参数"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q032",
@@ -402,7 +1276,34 @@
       "model": "Bootstrap与增强JRC",
       "output": "多尺度参数/JRC",
       "validation": "采样点敏感性",
-      "risk": "增强公式需外部依据"
+      "risk": "增强公式需外部依据",
+      "objective": "宏微观分层裂隙表征",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：采样点敏感性"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "增强公式需外部依据"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "多尺度参数/JRC"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q033",
@@ -414,7 +1315,35 @@
       "model": "概率图+DFS+贪心选址",
       "output": "连通簇与3孔位",
       "validation": "不确定性降幅",
-      "risk": "相关长度主观"
+      "risk": "相关长度主观",
+      "objective": "图连通和不确定性最小化布孔",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：不确定性降幅"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "相关长度主观"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "连通簇与3孔位"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q034",
@@ -426,7 +1355,34 @@
       "model": "Frangi+Otsu+形态学+先验掩码",
       "output": "二值掩码",
       "validation": "四组预处理对比",
-      "risk": "先验掩码可能过拟合附件"
+      "risk": "先验掩码可能过拟合附件",
+      "objective": "无训练裂隙增强与分割",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：四组预处理对比"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "先验掩码可能过拟合附件"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "二值掩码"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q035",
@@ -438,7 +1394,35 @@
       "model": "DBSCAN+两阶段鲁棒拟合",
       "output": "正弦参数",
       "validation": "拟合误差",
-      "risk": "误差单位需说明"
+      "risk": "误差单位需说明",
+      "objective": "断续裂隙聚类拟合",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：拟合误差"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "误差单位需说明"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "正弦参数"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q036",
@@ -450,7 +1434,34 @@
       "model": "分段JRC加权",
       "output": "粗糙度",
       "validation": "采样密度稳定性",
-      "risk": "JRC范围需核查"
+      "risk": "JRC范围需核查",
+      "objective": "分段长度加权JRC",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：采样密度稳定性"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "JRC范围需核查"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "粗糙度"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q037",
@@ -462,7 +1473,35 @@
       "model": "Monte Carlo+几何连通指标",
       "output": "连通概率/云图/孔位",
       "validation": "抽样稳定性",
-      "risk": "先验分布决定结果"
+      "risk": "先验分布决定结果",
+      "objective": "三维概率重构与不确定区识别",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：抽样稳定性"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "先验分布决定结果"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "连通概率/云图/孔位"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q038",
@@ -474,7 +1513,34 @@
       "model": "DeepLabV3+-ResNet50+BCE/Dice",
       "output": "裂隙掩码",
       "validation": "mIoU/Precision/Recall",
-      "risk": "小样本过拟合"
+      "risk": "小样本过拟合",
+      "objective": "小目标语义分割",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：mIoU/Precision/Recall"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "小样本过拟合"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "裂隙掩码"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q039",
@@ -486,7 +1552,34 @@
       "model": "DBSCAN+正弦假设迭代+NLS",
       "output": "振幅/相位/周期",
       "validation": "周期=周长物理校验",
-      "risk": "依赖正弦假设"
+      "risk": "依赖正弦假设",
+      "objective": "模型驱动碎片合并与参数化",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：周期=周长物理校验"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "依赖正弦假设"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "振幅/相位/周期"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q040",
@@ -498,7 +1591,34 @@
       "model": "JRC经验模型",
       "output": "JRC",
       "validation": "Barton标准轮廓R²/RMSE",
-      "risk": "经验式尺度迁移"
+      "risk": "经验式尺度迁移",
+      "objective": "微观粗糙度提取",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：Barton标准轮廓R²/RMSE"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "经验式尺度迁移"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "JRC"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q041",
@@ -510,7 +1630,35 @@
       "model": "加权相似度+连通分量+序贯优化",
       "output": "网络与三孔优先级",
       "validation": "阈值/网络结构",
-      "risk": "权重仍主观"
+      "risk": "权重仍主观",
+      "objective": "多源连通图与序贯布孔",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：阈值/网络结构"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "权重仍主观"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "网络与三孔优先级"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q042",
@@ -522,7 +1670,34 @@
       "model": "TKE/Ri+RF/XGBoost",
       "output": "二维湍流强度",
       "validation": "R²/残差",
-      "risk": "基准场并非真实标签"
+      "risk": "基准场并非真实标签",
+      "objective": "双源基准湍流场与单源替代模型",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：R²/残差"
+      ],
+      "metric": [
+        "时空留出误差",
+        "空间覆盖与极端事件误差",
+        "尺度敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "基准场并非真实标签"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "二维湍流强度"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q043",
@@ -534,7 +1709,34 @@
       "model": "加权融合+简化EnKF",
       "output": "三维风/湍流场",
       "validation": "TKE/耗散率互证",
-      "risk": "固定源权重"
+      "risk": "固定源权重",
+      "objective": "异构观测三维融合",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：TKE/耗散率互证"
+      ],
+      "metric": [
+        "时空留出误差",
+        "空间覆盖与极端事件误差",
+        "尺度敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "固定源权重"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "三维风/湍流场"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q044",
@@ -546,7 +1748,35 @@
       "model": "LSTM融合+三维蚁群",
       "output": "风险场与路径",
       "validation": "路径代价对比",
-      "risk": "误差级联"
+      "risk": "误差级联",
+      "objective": "临近预报与三维航路规划",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：路径代价对比"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "时空留出误差",
+        "空间覆盖与极端事件误差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "误差级联"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "风险场与路径"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q045",
@@ -558,7 +1788,34 @@
       "model": "Ri+TKE+切变；岭标定+RF",
       "output": "湍流强度",
       "validation": "RMSE/R²",
-      "risk": "经验权重与伪标签"
+      "risk": "经验权重与伪标签",
+      "objective": "物理综合指数与单源校准",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：RMSE/R²"
+      ],
+      "metric": [
+        "时空留出误差",
+        "空间覆盖与极端事件误差",
+        "尺度敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "经验权重与伪标签"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "湍流强度"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q046",
@@ -570,7 +1827,34 @@
       "model": "变分融合+共轭梯度+Kalman",
       "output": "三维连续场",
       "validation": "相关系数/RMSE",
-      "risk": "正则和网格参数敏感"
+      "risk": "正则和网格参数敏感",
+      "objective": "三维湍流变分同化",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：相关系数/RMSE"
+      ],
+      "metric": [
+        "时空留出误差",
+        "空间覆盖与极端事件误差",
+        "尺度敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "正则和网格参数敏感"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "三维连续场"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q047",
@@ -582,7 +1866,35 @@
       "model": "集成预测+改进A*",
       "output": "最优航路",
       "validation": "识别率/暴露量",
-      "risk": "极端天气与动态约束"
+      "risk": "极端天气与动态约束",
+      "objective": "NWP/观测双模型与A*航路",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：识别率/暴露量"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "时空留出误差",
+        "空间覆盖与极端事件误差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "极端天气与动态约束"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "最优航路"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q048",
@@ -594,7 +1906,34 @@
       "model": "手工特征+小波图+ViT",
       "output": "融合特征",
       "validation": "轮廓系数/t-SNE",
-      "risk": "保留低分样本比例主观"
+      "risk": "保留低分样本比例主观",
+      "objective": "构建跨域可迁移特征",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：轮廓系数/t-SNE"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "保留低分样本比例主观"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "融合特征"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q049",
@@ -606,7 +1945,35 @@
       "model": "KNN/TCN/DenseNet/ResNet-CBAM",
       "output": "故障类别",
       "validation": "Accuracy/Precision/Recall/F1",
-      "risk": "近100%需检查泄漏"
+      "risk": "近100%需检查泄漏",
+      "objective": "源域故障分类",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：Accuracy/Precision/Recall/F1"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "近100%需检查泄漏"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "故障类别"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q050",
@@ -618,7 +1985,35 @@
       "model": "DANN+MMD",
       "output": "16文件类别",
       "validation": "MMD/内聚性/消融",
-      "risk": "无真值不能证实准确率"
+      "risk": "无真值不能证实准确率",
+      "objective": "无标签目标域迁移分类",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：MMD/内聚性/消融"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "无真值不能证实准确率"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "16文件类别"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q051",
@@ -630,7 +2025,35 @@
       "model": "SHAP+TCAV+域指标",
       "output": "局部证据与审计指标",
       "validation": "保真度/一致性/Layer MMD",
-      "risk": "解释阈值主观"
+      "risk": "解释阈值主观",
+      "objective": "诊断与迁移可解释性",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：保真度/一致性/Layer MMD"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "解释阈值主观"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "局部证据与审计指标"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q052",
@@ -642,7 +2065,34 @@
       "model": "相关/PCA/MI/卡方",
       "output": "14/19项特征",
       "validation": "可视化与统计",
-      "risk": "特征数量前后不一致"
+      "risk": "特征数量前后不一致",
+      "objective": "源域筛选与多域特征工程",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：可视化与统计"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "特征数量前后不一致"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "14/19项特征"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q053",
@@ -654,7 +2104,35 @@
       "model": "SVM/RF/MLP/VGG/CNN",
       "output": "故障类别",
       "validation": "五折多指标",
-      "risk": "划分粒度需按文件/工况"
+      "risk": "划分粒度需按文件/工况",
+      "objective": "源域多模型故障诊断",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：五折多指标"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "划分粒度需按文件/工况"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "故障类别"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q054",
@@ -666,7 +2144,34 @@
       "model": "CDA/IJDA、MMD/CORAL",
       "output": "目标文件标签",
       "validation": "分布距离",
-      "risk": "目标真值缺失"
+      "risk": "目标真值缺失",
+      "objective": "决策边界对齐迁移",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：分布距离"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "目标真值缺失"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "目标文件标签"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q055",
@@ -678,7 +2183,34 @@
       "model": "MMD/CORAL可视化",
       "output": "域对齐说明",
       "validation": "距离下降",
-      "risk": "不是预测因果解释"
+      "risk": "不是预测因果解释",
+      "objective": "迁移过程解释",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：距离下降"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "不是预测因果解释"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "域对齐说明"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q056",
@@ -690,7 +2222,34 @@
       "model": "36特征+MixHop",
       "output": "源域特征矩阵",
       "validation": "信号可视化",
-      "risk": "SMOTE泄漏风险"
+      "risk": "SMOTE泄漏风险",
+      "objective": "降噪、平衡与多域融合",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：信号可视化"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "SMOTE泄漏风险"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "源域特征矩阵"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q057",
@@ -702,7 +2261,34 @@
       "model": "RF/LSTM/CNN/ViT",
       "output": "故障类别",
       "validation": "性能与稳定性",
-      "risk": "单次随机划分弱"
+      "risk": "单次随机划分弱",
+      "objective": "选择源域基模型",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：性能与稳定性"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "单次随机划分弱"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "故障类别"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q058",
@@ -714,7 +2300,35 @@
       "model": "ViT领域适应+矩匹配",
       "output": "目标分类",
       "validation": "域距离/训练曲线",
-      "risk": "对齐可能损失类别结构"
+      "risk": "对齐可能损失类别结构",
+      "objective": "二阶/高阶统计联合对齐",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：域距离/训练曲线"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "对齐可能损失类别结构"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "目标分类"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q059",
@@ -726,7 +2340,34 @@
       "model": "注意力可视化+机理核对",
       "output": "解释报告",
       "validation": "类间机理一致性",
-      "risk": "注意力不等同因果贡献"
+      "risk": "注意力不等同因果贡献",
+      "objective": "迁移与事后解释",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：类间机理一致性"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "注意力不等同因果贡献"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "解释报告"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q060",
@@ -738,7 +2379,34 @@
       "model": "Markov+Hamming+NSGA-II",
       "output": "Pareto游线",
       "validation": "收敛/相关性/路线检查",
-      "risk": "感知参数经验化"
+      "risk": "感知参数经验化",
+      "objective": "量化移步异景并规划游线",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：收敛/相关性/路线检查"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "感知参数经验化"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "Pareto游线"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q061",
@@ -750,7 +2418,34 @@
       "model": "景观指数+层次加权",
       "output": "幻境评分/排序",
       "validation": "学术评价对照",
-      "risk": "权重和基准主观"
+      "risk": "权重和基准主观",
+      "objective": "量化元素分布与开合幻境",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：学术评价对照"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "权重和基准主观"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "幻境评分/排序"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q062",
@@ -762,7 +2457,35 @@
       "model": "179维特征+卷积自编码器+相似度",
       "output": "相似矩阵与类型",
       "validation": "新园林验证",
-      "risk": "样本维度极不匹配"
+      "risk": "样本维度极不匹配",
+      "objective": "园林相似度与共性/个性识别",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：新园林验证"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "样本维度极不匹配"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "相似矩阵与类型"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q063",
@@ -774,7 +2497,35 @@
       "model": "Shannon+Jaccard+改进GA",
       "output": "趣味指数与游线",
       "validation": "参数合理性/路线",
-      "risk": "组合权重主观"
+      "risk": "组合权重主观",
+      "objective": "路径异景综合趣味与优化",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：参数合理性/路线"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "组合权重主观"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "趣味指数与游线"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q064",
@@ -786,7 +2537,34 @@
       "model": "自相关韵律+模糊评价",
       "output": "幻境分数",
       "validation": "园林排序对照",
-      "risk": "阈值/调整因子主观"
+      "risk": "阈值/调整因子主观",
+      "objective": "元素-开合双维幻境评价",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：园林排序对照"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "阈值/调整因子主观"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "幻境分数"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q065",
@@ -798,7 +2576,35 @@
       "model": "余弦/Jaccard/欧氏融合+Ward",
       "output": "相似矩阵、3类群、共性特征",
       "validation": "CV阈值与外部园林",
-      "risk": "验证样本仅3个"
+      "risk": "验证样本仅3个",
+      "objective": "共性规律与园林聚类",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：CV阈值与外部园林"
+      ],
+      "metric": [
+        "簇稳定性",
+        "下游任务表现",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "验证样本仅3个"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "相似矩阵、3类群、共性特征"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q066",
@@ -810,7 +2616,35 @@
       "model": "改进遗传算法IGA",
       "output": "Pareto路径",
       "validation": "敏感性/优越性",
-      "risk": "趣味函数需游客数据校准"
+      "risk": "趣味函数需游客数据校准",
+      "objective": "双目标趣味游线规划",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：敏感性/优越性"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "趣味函数需游客数据校准"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "Pareto路径"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q067",
@@ -822,7 +2656,34 @@
       "model": "AHP-熵权组合",
       "output": "综合评分",
       "validation": "排名共识",
-      "risk": "专家样本与一致性需披露"
+      "risk": "专家样本与一致性需披露",
+      "objective": "主客观融合的幻境评分",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：排名共识"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "专家样本与一致性需披露"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "综合评分"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q068",
@@ -834,7 +2695,34 @@
       "model": "MKL+对比学习；NeRF/STGCN扩展",
       "output": "相似度与排序",
       "validation": "R²/交叉验证/t-SNE",
-      "risk": "小样本不足支撑复杂模型"
+      "risk": "小样本不足支撑复杂模型",
+      "objective": "多模态深度相似度与美学扩展",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：R²/交叉验证/t-SNE"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "小样本不足支撑复杂模型"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "相似度与排序"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q069",
@@ -846,7 +2734,34 @@
       "model": "实时雨流+非线性累积损伤",
       "output": "疲劳损伤序列",
       "validation": "离线雨流与耗时",
-      "risk": "窗口边界会遗漏跨窗循环"
+      "risk": "窗口边界会遗漏跨窗循环",
+      "objective": "在线评估机组疲劳损伤",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：离线雨流与耗时"
+      ],
+      "metric": [
+        "目标函数值",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "窗口边界会遗漏跨窗循环"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "疲劳损伤序列"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q070",
@@ -858,7 +2773,35 @@
       "model": "物理模型+最小二乘",
       "output": "扭矩与推力",
       "validation": "参考载荷误差",
-      "risk": "推力拟合误差较高"
+      "risk": "推力拟合误差较高",
+      "objective": "从可观测量估计关键载荷",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：参考载荷误差"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "目标函数值",
+        "约束违例率"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "推力拟合误差较高"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "扭矩与推力"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q071",
@@ -870,7 +2813,34 @@
       "model": "DDPG+安全约束层",
       "output": "逐机功率指令",
       "validation": "疲劳/方差与均分对比",
-      "risk": "奖励和训练场景敏感"
+      "risk": "奖励和训练场景敏感",
+      "objective": "在功率跟踪下均衡疲劳",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：疲劳/方差与均分对比"
+      ],
+      "metric": [
+        "目标函数值",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "奖励和训练场景敏感"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "逐机功率指令"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q072",
@@ -882,7 +2852,35 @@
       "model": "CNN-LSTM+鲁棒优化",
       "output": "稳健功率分配",
       "validation": "扰动情景比较",
-      "risk": "不确定集覆盖率需校准"
+      "risk": "不确定集覆盖率需校准",
+      "objective": "噪声和延迟下稳健分配",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：扰动情景比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "不确定集覆盖率需校准"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "稳健功率分配"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q073",
@@ -894,7 +2892,34 @@
       "model": "TW-Rainflow-Goodman-Miner",
       "output": "在线损伤",
       "validation": "多基线精度/时间",
-      "risk": "窗口长度敏感"
+      "risk": "窗口长度敏感",
+      "objective": "实时计算疲劳损伤",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：多基线精度/时间"
+      ],
+      "metric": [
+        "目标函数值",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "窗口长度敏感"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "在线损伤"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q074",
@@ -906,7 +2931,35 @@
       "model": "物理模型+Nelder-Mead/BiLSTM",
       "output": "载荷预测",
       "validation": "70/30时序测试",
-      "risk": "模型外推工况有限"
+      "risk": "模型外推工况有限",
+      "objective": "建立载荷代理模型",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：70/30时序测试"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "目标函数值",
+        "约束违例率"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "模型外推工况有限"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "载荷预测"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q075",
@@ -918,7 +2971,34 @@
       "model": "NSGA-II",
       "output": "Pareto功率方案",
       "validation": "与均分策略比较",
-      "risk": "实时计算成本"
+      "risk": "实时计算成本",
+      "objective": "最小化轴系与塔架疲劳",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：与均分策略比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "实时计算成本"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "Pareto功率方案"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q076",
@@ -930,7 +3010,34 @@
       "model": "SVD+改进样条",
       "output": "清洗后的信号",
       "validation": "原始/处理/理想对比",
-      "risk": "异常和延迟可能耦合"
+      "risk": "异常和延迟可能耦合",
+      "objective": "修复噪声、异常与时延信号",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：原始/处理/理想对比"
+      ],
+      "metric": [
+        "目标函数值",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "异常和延迟可能耦合"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "清洗后的信号"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q077",
@@ -942,7 +3049,34 @@
       "model": "改进雨流计数",
       "output": "损伤序列",
       "validation": "精度与耗时",
-      "risk": "自适应规则复杂"
+      "risk": "自适应规则复杂",
+      "objective": "自适应在线疲劳计数",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：精度与耗时"
+      ],
+      "metric": [
+        "目标函数值",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "自适应规则复杂"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "损伤序列"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q078",
@@ -954,7 +3088,35 @@
       "model": "物理信息非线性回归",
       "output": "扭矩/推力",
       "validation": "拟合优度",
-      "risk": "分段边界敏感"
+      "risk": "分段边界敏感",
+      "objective": "物理信息载荷回归",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：拟合优度"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "目标函数值",
+        "约束违例率"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "分段边界敏感"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "扭矩/推力"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q079",
@@ -966,7 +3128,35 @@
       "model": "自适应权重MPC",
       "output": "逐机功率",
       "validation": "疲劳与跟踪性能",
-      "risk": "权重更新需稳定性证明"
+      "risk": "权重更新需稳定性证明",
+      "objective": "分风区滚动优化功率",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：疲劳与跟踪性能"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "权重更新需稳定性证明"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "逐机功率"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q080",
@@ -978,7 +3168,35 @@
       "model": "鲁棒区域MPC/PSO",
       "output": "稳健指令",
       "validation": "多扰动比较",
-      "risk": "场景集合可能不完备"
+      "risk": "场景集合可能不完备",
+      "objective": "通信异常下鲁棒调度",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：多扰动比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "场景集合可能不完备"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "稳健指令"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q081",
@@ -990,7 +3208,34 @@
       "model": "雨流+Goodman+Miner",
       "output": "疲劳损伤",
       "validation": "标准算法比较",
-      "risk": "窗口截断偏差"
+      "risk": "窗口截断偏差",
+      "objective": "向量化实时疲劳评估",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：标准算法比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "窗口截断偏差"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "疲劳损伤"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q082",
@@ -1002,7 +3247,35 @@
       "model": "能量/气动模型",
       "output": "载荷估计",
       "validation": "SSE",
-      "risk": "简化机理忽略尾流"
+      "risk": "简化机理忽略尾流",
+      "objective": "气动机理估计载荷",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：SSE"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "目标函数值",
+        "约束违例率"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "简化机理忽略尾流"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "载荷估计"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q083",
@@ -1014,7 +3287,35 @@
       "model": "约束遗传算法",
       "output": "分配方案与五项指标",
       "validation": "五方案比较",
-      "risk": "指标权重主观"
+      "risk": "指标权重主观",
+      "objective": "约束下优化功率分配",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：五方案比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "指标权重主观"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "分配方案与五项指标"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q084",
@@ -1026,7 +3327,35 @@
       "model": "SG/Kalman+ARIMA/LSTM",
       "output": "修复预测信号",
       "validation": "多方法比较",
-      "risk": "预处理选择可能事后最优"
+      "risk": "预处理选择可能事后最优",
+      "objective": "异常信号处理并预测",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：多方法比较"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "目标函数值",
+        "约束违例率"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "预处理选择可能事后最优"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "修复预测信号"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-a-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q085",
@@ -1038,7 +3367,35 @@
       "model": "随机森林回归",
       "output": "发送机会/seq_time",
       "validation": "分场景误差",
-      "risk": "同源时间窗口泄漏"
+      "risk": "同源时间窗口泄漏",
+      "objective": "预测AP发送机会",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：分场景误差"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "同源时间窗口泄漏"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "发送机会/seq_time"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q086",
@@ -1050,7 +3407,35 @@
       "model": "残差CNN",
       "output": "MCS/NSS",
       "validation": "准确率",
-      "risk": "插值样本不应跨折"
+      "risk": "插值样本不应跨折",
+      "objective": "预测MCS与NSS组合",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：准确率"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "插值样本不应跨折"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "MCS/NSS"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q087",
@@ -1062,7 +3447,35 @@
       "model": "CNN回归",
       "output": "吞吐量",
       "validation": "误差与CDF",
-      "risk": "连续预测准确率定义不清"
+      "risk": "连续预测准确率定义不清",
+      "objective": "预测网络吞吐量",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：误差与CDF"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "连续预测准确率定义不清"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "吞吐量"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q088",
@@ -1074,7 +3487,35 @@
       "model": "DBSCAN+RF/GBDT",
       "output": "状态与seq_time",
       "validation": "模型对比",
-      "risk": "目标编码泄漏"
+      "risk": "目标编码泄漏",
+      "objective": "识别同步状态并预测发送机会",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：模型对比"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "目标编码泄漏"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "状态与seq_time"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q089",
@@ -1086,7 +3527,35 @@
       "model": "BP/CNN分类",
       "output": "组合标签",
       "validation": "分类指标",
-      "risk": "类别不平衡"
+      "risk": "类别不平衡",
+      "objective": "组合预测MCS/NSS",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：分类指标"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "类别不平衡"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "组合标签"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q090",
@@ -1098,7 +3567,35 @@
       "model": "RF+深度残差网络",
       "output": "吞吐量",
       "validation": "阶段误差比较",
-      "risk": "误差级联"
+      "risk": "误差级联",
+      "objective": "两阶段预测吞吐量",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：阶段误差比较"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "误差级联"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "吞吐量"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q091",
@@ -1110,7 +3607,35 @@
       "model": "八类回归模型",
       "output": "发送机会",
       "validation": "MSE/MAE/MAPE",
-      "risk": "模型选择多重比较"
+      "risk": "模型选择多重比较",
+      "objective": "多模型预测发送机会",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：MSE/MAE/MAPE"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "模型选择多重比较"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "发送机会"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q092",
@@ -1122,7 +3647,35 @@
       "model": "Logistic/SVM/KNN/RF",
       "output": "MCS/NSS",
       "validation": "Accuracy/F1",
-      "risk": "高准确率掩盖少数类"
+      "risk": "高准确率掩盖少数类",
+      "objective": "预测MCS与NSS",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：Accuracy/F1"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "高准确率掩盖少数类"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "MCS/NSS"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q093",
@@ -1134,7 +3687,35 @@
       "model": "多回归器",
       "output": "吞吐量",
       "validation": "分场景误差",
-      "risk": "指标疑似跨问复用"
+      "risk": "指标疑似跨问复用",
+      "objective": "回归预测吞吐量",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：分场景误差"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "指标疑似跨问复用"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "吞吐量"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q094",
@@ -1146,7 +3727,35 @@
       "model": "RF/LSTM",
       "output": "发送机会",
       "validation": "误差曲线",
-      "risk": "相关筛选遗漏非线性"
+      "risk": "相关筛选遗漏非线性",
+      "objective": "预测发送机会",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：误差曲线"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "相关筛选遗漏非线性"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "发送机会"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q095",
@@ -1158,7 +3767,35 @@
       "model": "RF/多元回归/LSTM",
       "output": "MCS/NSS",
       "validation": "附件结果",
-      "risk": "映射多解性"
+      "risk": "映射多解性",
+      "objective": "由PHY速率反推MCS/NSS",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：附件结果"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "映射多解性"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "MCS/NSS"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q096",
@@ -1170,7 +3807,35 @@
       "model": "RF/SVM/LSTM",
       "output": "吞吐量",
       "validation": "多模型对比",
-      "risk": "测试指标披露不足"
+      "risk": "测试指标披露不足",
+      "objective": "预测吞吐量",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：多模型对比"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "测试指标披露不足"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "吞吐量"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-b-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q097",
@@ -1182,7 +3847,35 @@
       "model": "MLP+RF加权集成",
       "output": "波形类别",
       "validation": "混淆矩阵/交叉验证",
-      "risk": "随机划分可能泄漏同工况"
+      "risk": "随机划分可能泄漏同工况",
+      "objective": "分类励磁波形",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：混淆矩阵/交叉验证"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "随机划分可能泄漏同工况"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "波形类别"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q098",
@@ -1194,7 +3887,35 @@
       "model": "Solow温度修正SE",
       "output": "损耗预测",
       "validation": "MAPE/R²/残差",
-      "risk": "温度函数选择依赖样本范围"
+      "risk": "温度函数选择依赖样本范围",
+      "objective": "加入温度修正Steinmetz方程",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：MAPE/R²/残差"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "温度函数选择依赖样本范围"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "损耗预测"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q099",
@@ -1206,7 +3927,35 @@
       "model": "单/多因素ANOVA",
       "output": "显著性与低损耗组合",
       "validation": "p值/穷举",
-      "risk": "频率与峰值混杂"
+      "risk": "频率与峰值混杂",
+      "objective": "分析因素主效应与交互",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：p值/穷举"
+      ],
+      "metric": [
+        "校正后显著性",
+        "效应量与置信区间",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "频率与峰值混杂"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "显著性与低损耗组合"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q100",
@@ -1218,7 +3967,35 @@
       "model": "MSE扩展的12子模型",
       "output": "损耗预测",
       "validation": "精度/泛化分析",
-      "risk": "子模型样本变少"
+      "risk": "子模型样本变少",
+      "objective": "跨材料工况预测损耗",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：精度/泛化分析"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "子模型样本变少"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "损耗预测"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q101",
@@ -1230,7 +4007,34 @@
       "model": "改进PSO",
       "output": "最优工况",
       "validation": "双目标比较",
-      "risk": "标量化权重敏感"
+      "risk": "标量化权重敏感",
+      "objective": "损耗最小且磁能最大",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：双目标比较"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "标量化权重敏感"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "最优工况"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q102",
@@ -1242,7 +4046,35 @@
       "model": "树模型+逻辑回归投票",
       "output": "波形类别",
       "validation": "训练/测试与投票",
-      "risk": "同源样本泄漏"
+      "risk": "同源样本泄漏",
+      "objective": "稳健分类励磁波形",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：训练/测试与投票"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "同源样本泄漏"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "波形类别"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q103",
@@ -1254,7 +4086,35 @@
       "model": "最小二乘非线性回归",
       "output": "损耗预测",
       "validation": "R²/误差",
-      "risk": "候选筛选有过拟合风险"
+      "risk": "候选筛选有过拟合风险",
+      "objective": "温度修正SE方程",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：R²/误差"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "候选筛选有过拟合风险"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "损耗预测"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q104",
@@ -1266,7 +4126,35 @@
       "model": "单/双因素ANOVA",
       "output": "主效应/交互与组合",
       "validation": "显著性/热力图",
-      "risk": "每组合抽样可能忽略连续变量"
+      "risk": "每组合抽样可能忽略连续变量",
+      "objective": "量化三因素影响",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：显著性/热力图"
+      ],
+      "metric": [
+        "校正后显著性",
+        "效应量与置信区间",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "每组合抽样可能忽略连续变量"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "主效应/交互与组合"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q105",
@@ -1278,7 +4166,35 @@
       "model": "CatBoost",
       "output": "损耗预测",
       "validation": "九模型/相对误差",
-      "risk": "先验计算与目标泄漏需审计"
+      "risk": "先验计算与目标泄漏需审计",
+      "objective": "通用磁芯损耗预测",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：九模型/相对误差"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "先验计算与目标泄漏需审计"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "损耗预测"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q106",
@@ -1290,7 +4206,34 @@
       "model": "GA/PSO/GWO",
       "output": "Pareto或折中解",
       "validation": "48组合稳健性",
-      "risk": "代理模型边界外优化"
+      "risk": "代理模型边界外优化",
+      "objective": "求双目标最优工况",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：48组合稳健性"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "代理模型边界外优化"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "Pareto或折中解"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q107",
@@ -1302,7 +4245,35 @@
       "model": "SVM/决策树/集成学习",
       "output": "波形类别",
       "validation": "准确率",
-      "risk": "100%结果需防泄漏"
+      "risk": "100%结果需防泄漏",
+      "objective": "波形特征提取与分类",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：准确率"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "100%结果需防泄漏"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "波形类别"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q108",
@@ -1314,7 +4285,35 @@
       "model": "动态PSO/最小二乘/退火",
       "output": "修正方程",
       "validation": "R²比较",
-      "risk": "优化器比较需同预算"
+      "risk": "优化器比较需同预算",
+      "objective": "优化温度修正方程参数",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：R²比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "优化器比较需同预算"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "修正方程"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q109",
@@ -1326,7 +4325,34 @@
       "model": "差异分析",
       "output": "最佳组合",
       "validation": "热点图",
-      "risk": "未控制频率/峰值"
+      "risk": "未控制频率/峰值",
+      "objective": "分析独立与协同效应",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：热点图"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "未控制频率/峰值"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "最佳组合"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q110",
@@ -1338,7 +4364,35 @@
       "model": "特征权重BiLSTM",
       "output": "损耗预测",
       "validation": "验证/测试/加噪R²",
-      "risk": "序列与样本划分边界"
+      "risk": "序列与样本划分边界",
+      "objective": "跨工况预测损耗",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：验证/测试/加噪R²"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "序列与样本划分边界"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "损耗预测"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q111",
@@ -1350,7 +4404,35 @@
       "model": "GA/PSO/NSGA-II/MOPSO",
       "output": "折中解集",
       "validation": "Pareto比较",
-      "risk": "多算法参数公平性"
+      "risk": "多算法参数公平性",
+      "objective": "多目标优化工况",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：Pareto比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "多算法参数公平性"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "折中解集"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q112",
@@ -1362,7 +4444,35 @@
       "model": "SVM",
       "output": "波形类别",
       "validation": "无噪/加噪准确率",
-      "risk": "模拟噪声代表性"
+      "risk": "模拟噪声代表性",
+      "objective": "抗噪励磁波形分类",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：无噪/加噪准确率"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "模拟噪声代表性"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "波形类别"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q113",
@@ -1374,7 +4484,35 @@
       "model": "LSEDSR+NAdam",
       "output": "损耗预测",
       "validation": "相对误差递进",
-      "risk": "自定义网络复现难"
+      "risk": "自定义网络复现难",
+      "objective": "温度自适应SE修正",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：相对误差递进"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "自定义网络复现难"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "损耗预测"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q114",
@@ -1386,7 +4524,35 @@
       "model": "多因素方差分析",
       "output": "显著性/最优组合",
       "validation": "F统计量/检验",
-      "risk": "多重检验校正未明"
+      "risk": "多重检验校正未明",
+      "objective": "检验因素与交互影响",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：F统计量/检验"
+      ],
+      "metric": [
+        "校正后显著性",
+        "效应量与置信区间",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "多重检验校正未明"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "显著性/最优组合"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q115",
@@ -1398,7 +4564,35 @@
       "model": "WMTLMSEDSR",
       "output": "损耗预测",
       "validation": "相对误差",
-      "risk": "模型复杂且命名自定义"
+      "risk": "模型复杂且命名自定义",
+      "objective": "跨材料波形通用预测",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：相对误差"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "模型复杂且命名自定义"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "损耗预测"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q116",
@@ -1410,7 +4604,35 @@
       "model": "GA/PSO",
       "output": "最优工况",
       "validation": "不同正则系数",
-      "risk": "摘要量纲与符号需核查"
+      "risk": "摘要量纲与符号需核查",
+      "objective": "双目标工况优化",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：不同正则系数"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "摘要量纲与符号需核查"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "最优工况"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-c-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q117",
@@ -1422,7 +4644,34 @@
       "model": "GIS时空分析",
       "output": "趋势与分布图",
       "validation": "区域对比",
-      "risk": "空间尺度选择影响结论"
+      "risk": "空间尺度选择影响结论",
+      "objective": "描述降水与LULC时空演变",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：区域对比"
+      ],
+      "metric": [
+        "时空留出误差",
+        "空间覆盖与极端事件误差",
+        "尺度敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "空间尺度选择影响结论"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "趋势与分布图"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q118",
@@ -1434,7 +4683,34 @@
       "model": "决策树+物理解释",
       "output": "交互阈值",
       "validation": "树规则与GIS",
-      "risk": "相关非因果"
+      "risk": "相关非因果",
+      "objective": "解释地形气候与极端降水交互",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：树规则与GIS"
+      ],
+      "metric": [
+        "时空留出误差",
+        "空间覆盖与极端事件误差",
+        "尺度敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "相关非因果"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "交互阈值"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q119",
@@ -1446,7 +4722,35 @@
       "model": "XGBoost+ARIMA+SVR",
       "output": "2025–2035脆弱性",
       "validation": "地图与重点区域",
-      "risk": "长期外推不确定"
+      "risk": "长期外推不确定",
+      "objective": "识别成灾临界条件并预测脆弱性",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：地图与重点区域"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "时空留出误差",
+        "空间覆盖与极端事件误差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "长期外推不确定"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "2025–2035脆弱性"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q120",
@@ -1458,7 +4762,34 @@
       "model": "标准差椭圆/GIS",
       "output": "结构与和仲线",
       "validation": "空间可视化",
-      "risk": "自定义分界线需外部依据"
+      "risk": "自定义分界线需外部依据",
+      "objective": "刻画土地利用结构变化",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：空间可视化"
+      ],
+      "metric": [
+        "时空留出误差",
+        "空间覆盖与极端事件误差",
+        "尺度敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "自定义分界线需外部依据"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "结构与和仲线"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q121",
@@ -1470,7 +4801,35 @@
       "model": "Mann-Kendall+Sen",
       "output": "变化点与斜率",
       "validation": "显著性",
-      "risk": "空间多重检验"
+      "risk": "空间多重检验",
+      "objective": "检验降水/LULC趋势",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：显著性"
+      ],
+      "metric": [
+        "校正后显著性",
+        "效应量与置信区间",
+        "时空留出误差",
+        "空间覆盖与极端事件误差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "空间多重检验"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "变化点与斜率"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q122",
@@ -1482,7 +4841,35 @@
       "model": "回归+RF/SVM/XGB/AdaBoost",
       "output": "极端天气预测",
       "validation": "交叉验证",
-      "risk": "空间泄漏"
+      "risk": "空间泄漏",
+      "objective": "量化地理因子影响",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：交叉验证"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "时空留出误差",
+        "空间覆盖与极端事件误差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "空间泄漏"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "极端天气预测"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q123",
@@ -1494,7 +4881,34 @@
       "model": "H-E-V+AHP",
       "output": "脆弱地区",
       "validation": "区域讨论",
-      "risk": "主观权重"
+      "risk": "主观权重",
+      "objective": "评价未来暴雨脆弱性",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：区域讨论"
+      ],
+      "metric": [
+        "时空留出误差",
+        "空间覆盖与极端事件误差",
+        "尺度敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "主观权重"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "脆弱地区"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q124",
@@ -1506,7 +4920,35 @@
       "model": "机器学习回归",
       "output": "2025–2035变化率",
       "validation": "模型验证",
-      "risk": "情景变量缺失"
+      "risk": "情景变量缺失",
+      "objective": "预测土地利用变化率",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：模型验证"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "时空留出误差",
+        "空间覆盖与极端事件误差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "情景变量缺失"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "2025–2035变化率"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q125",
@@ -1518,7 +4960,34 @@
       "model": "统计测度",
       "output": "趋势/循环/分布",
       "validation": "多图表",
-      "risk": "极端事件被年均化"
+      "risk": "极端事件被年均化",
+      "objective": "构造降水/LULC时空指标",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：多图表"
+      ],
+      "metric": [
+        "时空留出误差",
+        "空间覆盖与极端事件误差",
+        "尺度敏感性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "极端事件被年均化"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "趋势/循环/分布"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q126",
@@ -1530,7 +4999,35 @@
       "model": "决策树",
       "output": "气候地形阈值",
       "validation": "类别统计/规则",
-      "risk": "欠采样与空间依赖"
+      "risk": "欠采样与空间依赖",
+      "objective": "识别极端降水形成条件",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：类别统计/规则"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "时空留出误差",
+        "空间覆盖与极端事件误差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "欠采样与空间依赖"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "气候地形阈值"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q127",
@@ -1542,7 +5039,35 @@
       "model": "XGBoost+SVM/RF",
       "output": "风险区地图",
       "validation": "ROC/AUC",
-      "risk": "0.999可能空间泄漏"
+      "risk": "0.999可能空间泄漏",
+      "objective": "预测暴雨高风险区",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：ROC/AUC"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "时空留出误差",
+        "空间覆盖与极端事件误差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "0.999可能空间泄漏"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "风险区地图"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q128",
@@ -1554,7 +5079,35 @@
       "model": "独立样本t检验",
       "output": "区域差异",
       "validation": "显著性与效应量",
-      "risk": "空间自相关违反独立性"
+      "risk": "空间自相关违反独立性",
+      "objective": "分析中国土地利用分异",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：显著性与效应量"
+      ],
+      "metric": [
+        "校正后显著性",
+        "效应量与置信区间",
+        "时空留出误差",
+        "空间覆盖与极端事件误差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "空间自相关违反独立性"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "区域差异"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q129",
@@ -1566,7 +5119,35 @@
       "model": "Moran's I+MK+ARIMA/LSTM",
       "output": "时空演变",
       "validation": "95%显著性/损失",
-      "risk": "模型指标量纲需统一"
+      "risk": "模型指标量纲需统一",
+      "objective": "多尺度描述降水与土地覆盖",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：95%显著性/损失"
+      ],
+      "metric": [
+        "校正后显著性",
+        "效应量与置信区间",
+        "时空留出误差",
+        "空间覆盖与极端事件误差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "模型指标量纲需统一"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "时空演变"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q130",
@@ -1578,7 +5159,35 @@
       "model": "多模型集成",
       "output": "影响路径",
       "validation": "多模型一致性",
-      "risk": "整合规则不透明"
+      "risk": "整合规则不透明",
+      "objective": "集成分析地形气候机制",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：多模型一致性"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "时空留出误差",
+        "空间覆盖与极端事件误差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "整合规则不透明"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "影响路径"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q131",
@@ -1590,7 +5199,35 @@
       "model": "XGBoost+OLS+LSTM",
       "output": "2025–2035脆弱性",
       "validation": "区域比较",
-      "risk": "部分结论方向冲突"
+      "risk": "部分结论方向冲突",
+      "objective": "多情景脆弱性预测",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：区域比较"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "时空留出误差",
+        "空间覆盖与极端事件误差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "部分结论方向冲突"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "2025–2035脆弱性"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q132",
@@ -1602,7 +5239,35 @@
       "model": "XGBoost回归",
       "output": "变化率/类型转移",
       "validation": "历史拟合",
-      "risk": "结构转折难外推"
+      "risk": "结构转折难外推",
+      "objective": "预测土地利用转移",
+      "constraints": [
+        "时间与空间依赖单元不得跨越训练和验证",
+        "多源数据的坐标、分辨率和时间口径统一",
+        "验收时复核：历史拟合"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "时空留出误差",
+        "空间覆盖与极端事件误差"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "结构转折难外推"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "变化率/类型转移"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-d-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q133",
@@ -1614,7 +5279,34 @@
       "model": "YOLOv5+DeepSORT+LSTM/Greenberg",
       "output": "流量速度密度与预警",
       "validation": "视频事件验证",
-      "risk": "检测误差传播"
+      "risk": "检测误差传播",
+      "objective": "从视频提取交通流并预警拥堵",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：视频事件验证"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "检测误差传播"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "流量速度密度与预警"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q134",
@@ -1626,7 +5318,34 @@
       "model": "规则模型",
       "output": "启用条件",
       "validation": "情景合理性",
-      "risk": "定性规则多"
+      "risk": "定性规则多",
+      "objective": "构建应急车道启用理论规则",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：情景合理性"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "定性规则多"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "启用条件"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q135",
@@ -1638,7 +5357,34 @@
       "model": "LSTM+Greenberg",
       "output": "开关决策",
       "validation": "不同阈值",
-      "risk": "提升因子主观"
+      "risk": "提升因子主观",
+      "objective": "量化实时启用阈值与效果",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：不同阈值"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "提升因子主观"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "开关决策"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q136",
@@ -1650,7 +5396,35 @@
       "model": "几何模型+二分法",
       "output": "布点方案",
       "validation": "题目数据实验",
-      "risk": "成本目标未显式优化"
+      "risk": "成本目标未显式优化",
+      "objective": "优化监控点位置",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：题目数据实验"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "成本目标未显式优化"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "布点方案"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q137",
@@ -1662,7 +5436,35 @@
       "model": "YOLOv8+时空集成",
       "output": "交通参数与预警",
       "validation": "预测有效性",
-      "risk": "同一路段验证"
+      "risk": "同一路段验证",
+      "objective": "提取交通流并实时预警",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：预测有效性"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "同一路段验证"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "交通参数与预警"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q138",
@@ -1674,7 +5476,35 @@
       "model": "概率阈值模型",
       "output": "启用规则",
       "validation": "阈值拟合",
-      "risk": "跨路段迁移弱"
+      "risk": "跨路段迁移弱",
+      "objective": "估计启用概率阈值",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：阈值拟合"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "跨路段迁移弱"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "启用规则"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q139",
@@ -1686,7 +5516,34 @@
       "model": "规则决策模型",
       "output": "开关序列",
       "validation": "五项效益指标",
-      "risk": "仿真非因果"
+      "risk": "仿真非因果",
+      "objective": "带安全约束实时控制",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：五项效益指标"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "仿真非因果"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "开关序列"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q140",
@@ -1698,7 +5555,35 @@
       "model": "Kriging+GA",
       "output": "位置与数量",
       "validation": "布局前后指标",
-      "risk": "代理误差影响最优解"
+      "risk": "代理误差影响最优解",
+      "objective": "安全效率成本下优化布点",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：布局前后指标"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "代理误差影响最优解"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "位置与数量"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q141",
@@ -1710,7 +5595,34 @@
       "model": "YOLOv10m+ByteTrack+AdaBoost",
       "output": "交通参数/拥堵预警",
       "validation": "MAE/RMSE/R²+事件",
-      "risk": "时间划分需核查"
+      "risk": "时间划分需核查",
+      "objective": "检测车辆并提前十分钟预警",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：MAE/RMSE/R²+事件"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "时间划分需核查"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "交通参数/拥堵预警"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q142",
@@ -1722,7 +5634,34 @@
       "model": "区间占用率K(t)",
       "output": "三项启用依据",
       "validation": "阈值解释",
-      "risk": "0.4/0.6与0.8敏感"
+      "risk": "0.4/0.6与0.8敏感",
+      "objective": "用区间占用率制定启用条件",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：阈值解释"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "0.4/0.6与0.8敏感"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "三项启用依据"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q143",
@@ -1734,7 +5673,34 @@
       "model": "占用率模型",
       "output": "堵塞时长变化",
       "validation": "延迟/结束时间",
-      "risk": "缺少真实对照"
+      "risk": "缺少真实对照",
+      "objective": "量化启用效果",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：延迟/结束时间"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "缺少真实对照"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "堵塞时长变化"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q144",
@@ -1746,7 +5712,34 @@
       "model": "占有率/利用率模型",
       "output": "E/F点布设",
       "validation": "逻辑完整性",
-      "risk": "成本未量化"
+      "risk": "成本未量化",
+      "objective": "补充摄像头完善开关闭环",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：逻辑完整性"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "成本未量化"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "E/F点布设"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q145",
@@ -1758,7 +5751,35 @@
       "model": "SE-YOLOv5+DeepSORT+TCNAt-BiGRU",
       "output": "交通参数/十分钟预警",
       "validation": "多误差指标/跨视频",
-      "risk": "模块消融需求高"
+      "risk": "模块消融需求高",
+      "objective": "增强检测并预测拥堵",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：多误差指标/跨视频"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "模块消融需求高"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "交通参数/十分钟预警"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q146",
@@ -1770,7 +5791,34 @@
       "model": "激波规则模型",
       "output": "启停条件",
       "validation": "交通机理解释",
-      "risk": "临界值校准"
+      "risk": "临界值校准",
+      "objective": "依据激波制定开关条件",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：交通机理解释"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "临界值校准"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "启停条件"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q147",
@@ -1782,7 +5830,34 @@
       "model": "联合控制+Greenshields",
       "output": "开关序列/效益",
       "validation": "机理模型仿真",
-      "risk": "真实行为响应未建模"
+      "risk": "真实行为响应未建模",
+      "objective": "分段控制并量化效果",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：机理模型仿真"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "真实行为响应未建模"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "开关序列/效益"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q148",
@@ -1794,7 +5869,34 @@
       "model": "混合监控布局",
       "output": "布点与平台方案",
       "validation": "定性论证",
-      "risk": "缺少显式成本函数"
+      "risk": "缺少显式成本函数",
+      "objective": "提升监控覆盖与数据共享",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：定性论证"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "缺少显式成本函数"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "布点与平台方案"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-e-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q149",
@@ -1806,7 +5908,34 @@
       "model": "开普勒二体模型+ECI/GCRS转换",
       "output": "GCRS位置和速度",
       "validation": "轨道参数一致性",
-      "risk": "忽略摄动限制长期外推"
+      "risk": "忽略摄动限制长期外推",
+      "objective": "由轨道六根数求卫星状态",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：轨道参数一致性"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "忽略摄动限制长期外推"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "GCRS位置和速度"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q150",
@@ -1818,7 +5947,35 @@
       "model": "平行光路几何传播模型",
       "output": "路径时间差",
       "validation": "数量级核验",
-      "risk": "远距离作差有数值消减风险"
+      "risk": "远距离作差有数值消减风险",
+      "objective": "计算卫星与SSB接收光子的几何时延",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：数量级核验"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "远距离作差有数值消减风险"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "路径时间差"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q151",
@@ -1830,7 +5987,34 @@
       "model": "Roemer+Shapiro+红移+动钟+光线偏折",
       "output": "精确时延及误差贡献",
       "validation": "位置误差敏感性",
-      "risk": "基准和符号约定复杂"
+      "risk": "基准和符号约定复杂",
+      "objective": "建立含时间与空间修正的精确时延",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：位置误差敏感性"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "基准和符号约定复杂"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "精确时延及误差贡献"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q152",
@@ -1842,7 +6026,35 @@
       "model": "非齐次泊松+历元折叠+高斯拟合",
       "output": "光子事件和累积轮廓",
       "validation": "Pearson相关系数",
-      "risk": "短观测光子数不足"
+      "risk": "短观测光子数不足",
+      "objective": "仿真探测器光子到达序列和轮廓",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：Pearson相关系数"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "短观测光子数不足"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "光子事件和累积轮廓"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q153",
@@ -1854,7 +6066,34 @@
       "model": "二体轨道+旋转矩阵",
       "output": "卫星位置/速度",
       "validation": "半径、角动量、能量守恒",
-      "risk": "二体假设未含摄动"
+      "risk": "二体假设未含摄动",
+      "objective": "轨道根数转换为GCRS状态",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：半径、角动量、能量守恒"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "二体假设未含摄动"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "卫星位置/速度"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q154",
@@ -1866,7 +6105,35 @@
       "model": "平行光几何路径差",
       "output": "传播时间差",
       "validation": "合理性分析",
-      "risk": "直接大距离作差精度有限"
+      "risk": "直接大距离作差精度有限",
+      "objective": "求真空传播路径时间差",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：合理性分析"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "直接大距离作差精度有限"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "传播时间差"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q155",
@@ -1878,7 +6145,34 @@
       "model": "Shapiro+引力红移+动钟+自行",
       "output": "各子时延与总时延",
       "validation": "量级比较",
-      "risk": "极小修正项容易单位错误"
+      "risk": "极小修正项容易单位错误",
+      "objective": "叠加主要相对论与自行时延",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：量级比较"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "极小修正项容易单位错误"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "各子时延与总时延"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q156",
@@ -1890,7 +6184,34 @@
       "model": "蒙特卡洛削减/拒绝采样/Ogata thinning",
       "output": "光子序列与轮廓",
       "validation": "相关/MSE/RMSE/R²",
-      "risk": "随机仿真比较需统一预算"
+      "risk": "随机仿真比较需统一预算",
+      "objective": "比较光子事件采样器的仿真精度",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：相关/MSE/RMSE/R²"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "随机仿真比较需统一预算"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "光子序列与轮廓"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q157",
@@ -1902,7 +6223,34 @@
       "model": "开普勒轨道模型",
       "output": "GCRS状态与轨道曲线",
       "validation": "反算根数/周期平滑性",
-      "risk": "平滑性不能验证真实摄动"
+      "risk": "平滑性不能验证真实摄动",
+      "objective": "精确求解并反验卫星轨道状态",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：反算根数/周期平滑性"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "平滑性不能验证真实摄动"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "GCRS状态与轨道曲线"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q158",
@@ -1914,7 +6262,35 @@
       "model": "平行光几何传播模型",
       "output": "路径时间差",
       "validation": "跨坐标计算一致性",
-      "risk": "时间尺度算法需权威常数"
+      "risk": "时间尺度算法需权威常数",
+      "objective": "转换时空基准并计算传播时延",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：跨坐标计算一致性"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "时间尺度算法需权威常数"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "路径时间差"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q159",
@@ -1926,7 +6302,34 @@
       "model": "几何+Shapiro+红移+狭义相对论动钟",
       "output": "总时延及分量",
       "validation": "分量数量级",
-      "risk": "正负号定义影响比较"
+      "risk": "正负号定义影响比较",
+      "objective": "计算精确脉冲光子传播时延",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：分量数量级"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "正负号定义影响比较"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "总时延及分量"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q160",
@@ -1938,7 +6341,35 @@
       "model": "非齐次泊松+逆变换采样",
       "output": "事件序列/脉冲轮廓",
       "validation": "Pearson相关+卡方检验",
-      "risk": "卡方分箱与低计数条件敏感"
+      "risk": "卡方分箱与低计数条件敏感",
+      "objective": "生成光子序列并检验概率模型",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：Pearson相关+卡方检验"
+      ],
+      "metric": [
+        "校正后显著性",
+        "效应量与置信区间",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "卡方分箱与低计数条件敏感"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "事件序列/脉冲轮廓"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q161",
@@ -1950,7 +6381,34 @@
       "model": "轨道动力学+GCRS转换",
       "output": "位置与速度",
       "validation": "能量/动量守恒",
-      "risk": "未明确全部摄动项"
+      "risk": "未明确全部摄动项",
+      "objective": "在精细坐标框架下求卫星状态",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：能量/动量守恒"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "未明确全部摄动项"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "位置与速度"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q162",
@@ -1962,7 +6420,35 @@
       "model": "Roemer几何时延",
       "output": "传播路径时间差",
       "validation": "方向遍历完备性",
-      "risk": "遍历不等于历表精度验证"
+      "risk": "遍历不等于历表精度验证",
+      "objective": "建立BCRS下Roemer时延模型",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：方向遍历完备性"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "遍历不等于历表精度验证"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "传播路径时间差"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q163",
@@ -1974,7 +6460,34 @@
       "model": "Shapiro+红移+动钟+自行修正",
       "output": "精细时间转换",
       "validation": "误差量级分析",
-      "risk": "修正项重复计入风险"
+      "risk": "修正项重复计入风险",
+      "objective": "在TCB尺度汇总相对论时延",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：误差量级分析"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "修正项重复计入风险"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "精细时间转换"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q164",
@@ -1986,7 +6499,34 @@
       "model": "反变换非齐次泊松+历元折叠",
       "output": "光子序列/折叠轮廓",
       "validation": "步长与分布改进比较",
-      "risk": "缺少摘要级统一数值指标"
+      "risk": "缺少摘要级统一数值指标",
+      "objective": "考虑动态相位与多普勒的光子仿真",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：步长与分布改进比较"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "缺少摘要级统一数值指标"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "光子序列/折叠轮廓"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_quality": "reviewed-prose-normalization",
+      "decision_field_sources": [
+        "subproblems-f-reviewed-v1"
+      ]
     },
     {
       "record_id": "Q165",
@@ -1998,7 +6538,33 @@
       "model": "2-opt/ACO对比+贪心覆盖",
       "output": "FY-1数量、载荷、路线和时刻表",
       "validation": "路径/耗时算法对比与4小时同步、续航检查",
-      "risk": "覆盖和2-opt均为近似，进出群时间简化"
+      "risk": "覆盖和2-opt均为近似，进出群时间简化",
+      "objective": "为双传感器侦察设计最小雷达区滞留路线与同步调度",
+      "constraints": [
+        "68个目标点均被所需传感器覆盖",
+        "同一目标的双载荷侦察时差不超过4小时",
+        "各机航程、续航和基地起降条件可行"
+      ],
+      "metric": [
+        "雷达区累计滞留时间",
+        "任务总航程与完成时间",
+        "所需无人机架次"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "覆盖和2-opt均为近似，进出群时间简化"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "FY-1数量、载荷、路线和时刻表"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q166",
@@ -2010,7 +6576,33 @@
       "model": "跟随式几何通信调度",
       "output": "FY-2航迹和最少架次",
       "validation": "理论距离和8小时续航核查",
-      "risk": "忽略FY-1/FY-2速度差"
+      "risk": "忽略FY-1/FY-2速度差",
+      "objective": "用最少通信中继覆盖侦察航迹",
+      "constraints": [
+        "侦察航迹全程满足通信覆盖",
+        "中继飞行时间不超过8小时续航",
+        "中继位置与通信半径匹配"
+      ],
+      "metric": [
+        "中继无人机最少架次",
+        "未覆盖时长",
+        "单机最大连续任务时间"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "忽略FY-1/FY-2速度差"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "FY-2航迹和最少架次"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q167",
@@ -2022,7 +6614,34 @@
       "model": "最近邻贪心+协同攻击覆盖",
       "output": "攻击路线、炸弹与无人机清单",
       "validation": "资源/时间约束核查",
-      "risk": "跨基地到达时差和并发冲突被忽略"
+      "risk": "跨基地到达时差和并发冲突被忽略",
+      "objective": "先压缩雷达暴露再完成全部目标打击",
+      "constraints": [
+        "全部目标均完成打击",
+        "弹药和载荷资源守恒",
+        "总任务时间不超过7小时",
+        "优先压缩雷达威胁区暴露"
+      ],
+      "metric": [
+        "雷达区累计滞留时间",
+        "任务完成时间",
+        "出动架次与资源余量"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "跨基地到达时差和并发冲突被忽略"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "攻击路线、炸弹与无人机清单"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q168",
@@ -2034,7 +6653,33 @@
       "model": "情景分类+巡逻待命调度",
       "output": "待命位置、数量与攻击策略",
       "validation": "D-1/D-2暴露时间比较",
-      "risk": "情景未赋概率且缺少随机仿真"
+      "risk": "情景未赋概率且缺少随机仿真",
+      "objective": "应对位置和开机时刻不确定的远程雷达",
+      "constraints": [
+        "覆盖远程雷达位置与开机顺序场景",
+        "各场景下任务时限和资源均可行",
+        "D-1与D-2的使用条件分别核查"
+      ],
+      "metric": [
+        "各场景雷达暴露时间",
+        "最坏场景完成时间",
+        "不同弹药方案资源消耗"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "情景未赋概率且缺少随机仿真"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "待命位置、数量与攻击策略"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q169",
@@ -2046,7 +6691,33 @@
       "model": "复杂度分析+参数方向分析",
       "output": "算法改进和装备改进建议",
       "validation": "作者自述局限",
-      "risk": "参数影响未做定量敏感性"
+      "risk": "参数影响未做定量敏感性",
+      "objective": "评估算法复杂度和装备参数影响",
+      "constraints": [
+        "算法比较使用同一数据与可比计算预算",
+        "装备参数变化保持其他条件不变",
+        "近似算法不得宣称已证明全局最优"
+      ],
+      "metric": [
+        "运行时间与复杂度增长",
+        "路线或目标函数差距",
+        "关键装备参数敏感度"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "参数影响未做定量敏感性"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "算法改进和装备改进建议"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q170",
@@ -2058,7 +6729,34 @@
       "model": "多目标路径模型+分区域多目标遗传算法",
       "output": "目标分区、路线、飞机与起飞方案",
       "validation": "覆盖/续航/同步/起降间隔检查",
-      "risk": "聚类阈值和GA参数缺少敏感性"
+      "risk": "聚类阈值和GA参数缺少敏感性",
+      "objective": "聚类降维后求带转弯代价的多机侦察路径",
+      "constraints": [
+        "68个目标全部覆盖",
+        "各机续航可行",
+        "双载荷侦察满足4小时同步",
+        "基地起降间隔和转弯代价纳入"
+      ],
+      "metric": [
+        "雷达区内外航程",
+        "转弯代价",
+        "机群规模与任务完成时间"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "聚类阈值和GA参数缺少敏感性"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "目标分区、路线、飞机与起飞方案"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q171",
@@ -2070,7 +6768,33 @@
       "model": "约束路径规划",
       "output": "FY-2路线与架次数",
       "validation": "通信覆盖和航行时间核查",
-      "risk": "未考虑链路质量与通信中断"
+      "risk": "未考虑链路质量与通信中断",
+      "objective": "在既定侦察路线下最小化中继架次",
+      "constraints": [
+        "既定侦察航线全程通信连续",
+        "通信半径限制满足",
+        "各中继航行时间不超续航"
+      ],
+      "metric": [
+        "中继最少架次",
+        "覆盖率或未覆盖时长",
+        "中继总飞行时间"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "未考虑链路质量与通信中断"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "FY-2路线与架次数"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q172",
@@ -2082,7 +6806,34 @@
       "model": "竞标式目标分配",
       "output": "飞机/炸弹/目标/路线清单",
       "validation": "覆盖全部68目标与时间约束",
-      "risk": "通信时延或拓扑不稳会破坏分配"
+      "risk": "通信时延或拓扑不稳会破坏分配",
+      "objective": "在7小时内无冲突分配多机多目标打击任务",
+      "constraints": [
+        "68个目标全部分配且不重复冲突",
+        "总任务时间不超过7小时",
+        "机型能力、弹药与基地资源可行",
+        "协同分配在通信条件下保持一致"
+      ],
+      "metric": [
+        "目标完成率",
+        "最大完工时间",
+        "冲突数与出动成本"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "通信时延或拓扑不稳会破坏分配"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "飞机/炸弹/目标/路线清单"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q173",
@@ -2094,7 +6845,33 @@
       "model": "离散情景枚举与规则调度",
       "output": "6套应急任务清单",
       "validation": "逐场景资源可行性",
-      "risk": "位置和开机时间连续不确定性未覆盖"
+      "risk": "位置和开机时间连续不确定性未覆盖",
+      "objective": "处理三部远程雷达的不同开启顺序",
+      "constraints": [
+        "分别处理三部远程雷达的开启顺序",
+        "每个场景均满足资源与时限",
+        "场景切换不得复用已消耗资源"
+      ],
+      "metric": [
+        "逐场景完成时间",
+        "逐场景雷达暴露时间",
+        "最坏场景资源消耗"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "位置和开机时间连续不确定性未覆盖"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "6套应急任务清单"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q174",
@@ -2106,7 +6883,33 @@
       "model": "定性复杂度与结构误差分析",
       "output": "算法与作战能力改进建议",
       "validation": "显式指出通信和转弯假设",
-      "risk": "缺少参数扰动实验"
+      "risk": "缺少参数扰动实验",
+      "objective": "评价算法效率并识别装备改进参数",
+      "constraints": [
+        "效率结论基于可比实现和计算环境",
+        "参数改进不破坏通信、续航和任务约束",
+        "明确转弯与通信简化假设"
+      ],
+      "metric": [
+        "运行时间与收敛代数",
+        "任务指标改善幅度",
+        "关键参数敏感度"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "缺少参数扰动实验"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "算法与作战能力改进建议"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q175",
@@ -2118,7 +6921,34 @@
       "model": "分层MDO-MTSP+无性繁殖多岛遗传算法",
       "output": "4架FY-1路线与起飞策略",
       "validation": "与68点全局规划比较精度、迭代和耗时",
-      "risk": "对照仍是启发式，不能证明全局最优"
+      "risk": "对照仍是启发式，不能证明全局最优",
+      "objective": "在传感器约束下高效求解多起点开放MTSP",
+      "constraints": [
+        "多基地开放路径起终点合法",
+        "传感器覆盖与同步要求满足",
+        "各机续航可行",
+        "分层结果需与68点全局方案同口径比较"
+      ],
+      "metric": [
+        "总航程或雷达区滞留",
+        "相对全局方案的目标差距",
+        "迭代次数与运行时间"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "对照仍是启发式，不能证明全局最优"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "4架FY-1路线与起飞策略"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q176",
@@ -2130,7 +6960,33 @@
       "model": "时空几何调度",
       "output": "起飞间隔和3架FY-2方案",
       "validation": "最大间距与8小时续航检查",
-      "risk": "盘旋机动能耗只作定性处理"
+      "risk": "盘旋机动能耗只作定性处理",
+      "objective": "通过调整起飞间隔减少中继需求",
+      "constraints": [
+        "最大机间距离满足通信半径",
+        "起飞间隔可由基地执行",
+        "单机任务时间不超过8小时"
+      ],
+      "metric": [
+        "中继最少架次",
+        "最大通信间断时长",
+        "调整后的最大完工时间"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "盘旋机动能耗只作定性处理"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "起飞间隔和3架FY-2方案"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q177",
@@ -2142,7 +6998,34 @@
       "model": "背包+非线性内点法+资源/调度矩阵",
       "output": "路线、投弹与资源计划",
       "validation": "GA与内点法适用性比较及7小时核查",
-      "risk": "阶段分解可能损失跨层全局最优"
+      "risk": "阶段分解可能损失跨层全局最优",
+      "objective": "按威胁层级规划普通雷达和剩余目标打击",
+      "constraints": [
+        "高威胁雷达目标先于普通目标处理",
+        "全部目标最终完成",
+        "资源守恒且总时长不超过7小时",
+        "阶段接口传递剩余资源"
+      ],
+      "metric": [
+        "高威胁阶段暴露时间",
+        "总完成时间",
+        "各阶段资源消耗"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "阶段分解可能损失跨层全局最优"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "路线、投弹与资源计划"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q178",
@@ -2154,7 +7037,33 @@
       "model": "威胁分级四层规划",
       "output": "不同初始雷达场景的路线与滞留时间",
       "validation": "三种初始雷达场景和任务时限核查",
-      "risk": "雷达开机机制和位置为理想化情景"
+      "risk": "雷达开机机制和位置为理想化情景",
+      "objective": "在远程雷达顺序未知时扩展威胁分层打击",
+      "constraints": [
+        "覆盖三种初始远程雷达场景",
+        "各层威胁顺序一致且剩余资源连续",
+        "所有场景满足任务时限"
+      ],
+      "metric": [
+        "最坏场景完成时间",
+        "最坏场景暴露时间",
+        "场景间资源消耗差异"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "雷达开机机制和位置为理想化情景"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "不同初始雷达场景的路线与滞留时间"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q179",
@@ -2166,7 +7075,33 @@
       "model": "模型交叉对照+复杂度分析",
       "output": "适用边界和装备参数建议",
       "validation": "同数据同实现横向比较",
-      "risk": "线性/指数规模结论缺少多规模实验"
+      "risk": "线性/指数规模结论缺少多规模实验",
+      "objective": "量化分层规划的精度—效率权衡",
+      "constraints": [
+        "分层与全局方案使用同一数据、目标和求解预算",
+        "全局启发式只作为经验对照",
+        "报告精度与效率两端"
+      ],
+      "metric": [
+        "目标值相对差距",
+        "运行时间比",
+        "迭代次数与可行率"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "线性/指数规模结论缺少多规模实验"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "适用边界和装备参数建议"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q180",
@@ -2178,7 +7113,33 @@
       "model": "两层2-opt单目标优化",
       "output": "4架FY-1路线和累计滞留",
       "validation": "不同架次数比较；转弯影响约0.24%的几何核查",
-      "risk": "局部搜索和中心近似不保证全局最优"
+      "risk": "局部搜索和中心近似不保证全局最优",
+      "objective": "先按目标群中心再按68点规划侦察路线",
+      "constraints": [
+        "目标群中心层和68点层的覆盖关系一致",
+        "不同架次数均满足续航与同步",
+        "转弯影响按同一几何口径计入"
+      ],
+      "metric": [
+        "不同架次数的总航程",
+        "雷达区累计滞留",
+        "转弯修正前后差异"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "局部搜索和中心近似不保证全局最优"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "4架FY-1路线和累计滞留"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q181",
@@ -2190,7 +7151,33 @@
       "model": "蒙特卡罗概率可行域搜索",
       "output": "2架FY-2的通信方案",
       "validation": "航线覆盖与续航核查",
-      "risk": "结果依赖随机样本规模且未报告收敛"
+      "risk": "结果依赖随机样本规模且未报告收敛",
+      "objective": "寻找可由同一中继同时覆盖的多条航线",
+      "constraints": [
+        "同一中继覆盖的航线在时间上重叠可服务",
+        "通信半径全程满足",
+        "中继续航可行"
+      ],
+      "metric": [
+        "中继最少架次",
+        "同时覆盖航线数",
+        "未覆盖时长"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "结果依赖随机样本规模且未报告收敛"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "2架FY-2的通信方案"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q182",
@@ -2202,7 +7189,34 @@
       "model": "几何分析+线性规划",
       "output": "攻击路线和资源清单",
       "validation": "累计滞留、资源和7小时约束",
-      "risk": "阶段最优不等于整体最优"
+      "risk": "阶段最优不等于整体最优",
+      "objective": "用最少暴露和资源完成普通雷达场景打击",
+      "constraints": [
+        "普通雷达场景全部目标完成",
+        "累计滞留和资源消耗可核算",
+        "总任务时间不超过7小时",
+        "几何进入与退出条件合法"
+      ],
+      "metric": [
+        "雷达区累计滞留",
+        "总资源消耗",
+        "任务完成时间"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "阶段最优不等于整体最优"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "攻击路线和资源清单"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q183",
@@ -2214,7 +7228,33 @@
       "model": "粒子群+线性规划",
       "output": "远程雷达位置与攻击计划",
       "validation": "任务时限和资源核查",
-      "risk": "PSO随机性未用多次运行统计验证"
+      "risk": "PSO随机性未用多次运行统计验证",
+      "objective": "在防御方最优布置下规划远程雷达打击",
+      "constraints": [
+        "防御方布置位于允许区域",
+        "攻击方方案在该最坏布置下仍满足资源和时限",
+        "随机优化需多次独立运行"
+      ],
+      "metric": [
+        "最坏布置下目标函数",
+        "任务完成时间",
+        "多次运行的最好值与波动"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "PSO随机性未用多次运行统计验证"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "远程雷达位置与攻击计划"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q184",
@@ -2226,7 +7266,33 @@
       "model": "算法复杂度+定性参数分析",
       "output": "算法和装备改进方向",
       "validation": "明确随机算法需多次求解",
-      "risk": "DPSO建议未在本数据上实证"
+      "risk": "DPSO建议未在本数据上实证",
+      "objective": "分析2-opt/PSO复杂度和装备性能",
+      "constraints": [
+        "复杂度分析区分问题规模与迭代次数",
+        "PSO统计来自多次独立求解",
+        "装备参数变化保持基准方案可比"
+      ],
+      "metric": [
+        "运行时间与规模曲线",
+        "随机算法结果分布",
+        "装备性能边际改善"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "DPSO建议未在本数据上实证"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "算法和装备改进方向"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q185",
@@ -2238,7 +7304,35 @@
       "model": "虚拟点Hamilton回路+改进改良圈",
       "output": "4架FY-1路线和滞留时间",
       "validation": "与改良圈、Prim生成树方案及迭代次数比较",
-      "risk": "近似解、初值和大权常数敏感；MST非等价验证"
+      "risk": "近似解、初值和大权常数敏感；MST非等价验证",
+      "objective": "同时选择路线条数并最小化雷达区内侦察航程",
+      "constraints": [
+        "路线条数与虚拟点数量一致解码",
+        "所有目标恰当归入可行路线",
+        "边界进出、续航与同步约束满足",
+        "大权虚拟边不进入真实成本"
+      ],
+      "metric": [
+        "雷达区内侦察航程",
+        "路线条数与机群规模",
+        "与改良圈和Prim方案的目标差距"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "近似解、初值和大权常数敏感",
+        "MST非等价验证"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "4架FY-1路线和滞留时间"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q186",
@@ -2250,7 +7344,33 @@
       "model": "动态规划式分类决策",
       "output": "2架FY-2路线",
       "validation": "巡航时间和通信连续性检查",
-      "risk": "状态定义与最优性证明不充分"
+      "risk": "状态定义与最优性证明不充分",
+      "objective": "在4条侦察路线之间规划最少中继",
+      "constraints": [
+        "4条侦察路线全程通信连续",
+        "中继巡航时间可行",
+        "中继之间不存在不可执行的瞬时交接"
+      ],
+      "metric": [
+        "中继最少架次",
+        "通信覆盖率",
+        "中继总巡航时间"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "状态定义与最优性证明不充分"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "2架FY-2路线"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q187",
@@ -2262,7 +7382,34 @@
       "model": "分步资源规划",
       "output": "飞机、炸弹、路线和任务时间",
       "validation": "资源守恒、滞留和7小时核查",
-      "risk": "分阶段固定先后顺序限制搜索空间"
+      "risk": "分阶段固定先后顺序限制搜索空间",
+      "objective": "分阶段完成普通雷达场景全部打击",
+      "constraints": [
+        "分阶段资源守恒",
+        "普通雷达与其余目标全部完成",
+        "总任务时间不超过7小时",
+        "阶段间传递真实剩余载荷"
+      ],
+      "metric": [
+        "雷达区累计滞留",
+        "任务完成时间",
+        "分阶段资源利用率"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "分阶段固定先后顺序限制搜索空间"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "飞机、炸弹、路线和任务时间"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q188",
@@ -2274,7 +7421,33 @@
       "model": "最坏情景+分步优化",
       "output": "资源清单、累计滞留和任务时间",
       "validation": "逐段几何时间和巡航约束核查",
-      "risk": "最不利位置构造未做系统鲁棒优化"
+      "risk": "最不利位置构造未做系统鲁棒优化",
+      "objective": "按攻击方最不利位置处理远程雷达",
+      "constraints": [
+        "远程雷达位置取攻击方允许集内的不利情形",
+        "逐段几何时间计算一致",
+        "巡航、资源和任务时限均可行"
+      ],
+      "metric": [
+        "最坏位置下完成时间",
+        "雷达暴露时间",
+        "位置变化敏感度"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "最不利位置构造未做系统鲁棒优化"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "资源清单、累计滞留和任务时间"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q189",
@@ -2286,7 +7459,33 @@
       "model": "收敛表+复杂度分析",
       "output": "精度边界、推广和改进建议",
       "validation": "15点/68点迭代表",
-      "risk": "迭代停止不代表全局最优"
+      "risk": "迭代停止不代表全局最优",
+      "objective": "评估近似路线算法精度与复杂度",
+      "constraints": [
+        "15点与68点实验使用同一目标定义",
+        "迭代上限和停止准则明确",
+        "近似精度只按可得对照基准陈述"
+      ],
+      "metric": [
+        "相对对照方案的目标差距",
+        "迭代次数",
+        "运行时间随规模增长"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "迭代停止不代表全局最优"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "精度边界、推广和改进建议"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "record_id": "Q190",
@@ -2298,7 +7497,33 @@
       "model": "基因型剂量0/1/2编码",
       "output": "1000×9445数值矩阵",
       "validation": "编码类型与列取值核查",
-      "risk": "需按主/次等位基因统一方向"
+      "risk": "需按主/次等位基因统一方向",
+      "objective": "将三种无相位SNP基因型转为数值",
+      "constraints": [
+        "每个SNP仅使用三种无相位二倍体基因型",
+        "主/次等位基因方向在训练、验证和解释中一致",
+        "缺失值不被编码为有效剂量"
+      ],
+      "metric": [
+        "编码取值合法率",
+        "编码与原基因型往返一致率",
+        "缺失比例"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "需按主/次等位基因统一方向"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "1000×9445数值矩阵"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q191",
@@ -2310,7 +7535,34 @@
       "model": "卡方检验+Bonferroni",
       "output": "显著SNP排名",
       "validation": "显著性检验",
-      "risk": "独立SNP假设忽略LD和种群分层"
+      "risk": "独立SNP假设忽略LD和种群分层",
+      "objective": "筛选疾病A的单位点",
+      "constraints": [
+        "病例与对照标签正确",
+        "按样本量条件选择卡方或精确检验",
+        "全基因组扫描进行多重比较校正",
+        "同时报告效应方向"
+      ],
+      "metric": [
+        "校正后P值或q值",
+        "优势比及置信区间",
+        "显著位点数"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "独立SNP假设忽略LD和种群分层"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "显著SNP排名"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q192",
@@ -2322,7 +7574,34 @@
       "model": "多元线性回归",
       "output": "Gene102/Gene217等候选",
       "validation": "回归显著性",
-      "risk": "二元结局线性化且忽略SNP相关"
+      "risk": "二元结局线性化且忽略SNP相关",
+      "objective": "从SNP集合识别疾病关联基因",
+      "constraints": [
+        "SNP到基因映射预先定义",
+        "训练与评估样本隔离",
+        "高维回归控制共线和过拟合",
+        "基因级多重比较校正"
+      ],
+      "metric": [
+        "基因级校正显著性",
+        "交叉验证判别指标",
+        "入选SNP稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "二元结局线性化且忽略SNP相关"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "Gene102/Gene217等候选"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q193",
@@ -2334,7 +7613,34 @@
       "model": "典型相关分析",
       "output": "rs12746773",
       "validation": "典型相关显著性",
-      "risk": "线性假设与预筛数据泄漏"
+      "risk": "线性假设与预筛数据泄漏",
+      "objective": "识别与10个相关性状整体关联的SNP",
+      "constraints": [
+        "10个性状的尺度和缺失处理一致",
+        "CCA维数小于有效样本秩",
+        "调参不使用最终检验集",
+        "SNP扫描进行多重校正"
+      ],
+      "metric": [
+        "第一典型相关系数",
+        "置换或校正后显著性",
+        "跨重采样载荷稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "线性假设与预筛数据泄漏"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "rs12746773"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q194",
@@ -2346,7 +7652,34 @@
       "model": "次要等位基因剂量编码",
       "output": "SNP剂量矩阵",
       "validation": "核对频率与取值范围",
-      "risk": "加性假设无法表达显性/隐性效应"
+      "risk": "加性假设无法表达显性/隐性效应",
+      "objective": "基于等位基因频率作加性编码",
+      "constraints": [
+        "由观测基因型定义等位基因频率",
+        "剂量方向全流程一致",
+        "编码值限定为0/1/2",
+        "缺失值单独处理"
+      ],
+      "metric": [
+        "主次等位基因频率核对误差",
+        "非法编码数",
+        "缺失率"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "加性假设无法表达显性/隐性效应"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "SNP剂量矩阵"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q195",
@@ -2358,7 +7691,34 @@
       "model": "SNP质控+卡方/Logistic",
       "output": "rs2273298等候选",
       "validation": "两模型结果对照",
-      "risk": "缺少协变量和种群分层校正"
+      "risk": "缺少协变量和种群分层校正",
+      "objective": "质控后检验疾病A的单SNP关联",
+      "constraints": [
+        "MAF与Hardy-Weinberg阈值在检验前确定",
+        "病例和对照质控规则明确",
+        "协变量和种群结构按同一方案处理",
+        "多位点检验校正"
+      ],
+      "metric": [
+        "质控前后位点数",
+        "校正后P值",
+        "卡方与Logistic结果一致性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "缺少协变量和种群分层校正"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "rs2273298等候选"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q196",
@@ -2370,7 +7730,34 @@
       "model": "Logistic回归+SKAT",
       "output": "Gene102/Gene217排名",
       "validation": "根据SNP相关性讨论假设适配",
-      "risk": "同数据的模型对照不是外部验证"
+      "risk": "同数据的模型对照不是外部验证",
+      "objective": "比较单SNP回归与集合检验的基因关联",
+      "constraints": [
+        "基因边界和SNP集合预先定义",
+        "集合方法与变异方向及LD条件匹配",
+        "单SNP和基因级检验分别校正",
+        "协变量处理一致"
+      ],
+      "metric": [
+        "基因级校正显著性",
+        "单SNP与集合检验排名一致性",
+        "不同LD处理下稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "同数据的模型对照不是外部验证"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "Gene102/Gene217排名"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q197",
@@ -2382,7 +7769,34 @@
       "model": "metaCCA",
       "output": "rs12746773",
       "validation": "显著性差异与稳定性讨论",
-      "risk": "摘要统计和协方差质量决定结果"
+      "risk": "摘要统计和协方差质量决定结果",
+      "objective": "检验SNP与多表型整体的关联",
+      "constraints": [
+        "表型协方差可稳定估计",
+        "不同方法使用一致样本与协变量",
+        "摘要统计方法满足输入兼容性",
+        "SNP扫描做多重校正"
+      ],
+      "metric": [
+        "校正后多表型显著性",
+        "方法间排名一致性",
+        "重采样稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "摘要统计和协方差质量决定结果"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "rs12746773"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q198",
@@ -2394,7 +7808,33 @@
       "model": "二比特0/1/2编码",
       "output": "紧凑SNP数据",
       "validation": "存储与解码一致性",
-      "risk": "编码紧凑不等于统计假设合理"
+      "risk": "编码紧凑不等于统计假设合理",
+      "objective": "以位点为最小单元压缩编码",
+      "constraints": [
+        "每个位点编码可无歧义解码",
+        "缺失状态与有效基因型分离",
+        "位顺序和字节序固定"
+      ],
+      "metric": [
+        "往返解码一致率",
+        "存储空间压缩率",
+        "编码解码耗时"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "编码紧凑不等于统计假设合理"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "紧凑SNP数据"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q199",
@@ -2406,7 +7846,34 @@
       "model": "列联表检验+信息值IV",
       "output": "rs2273298",
       "validation": "统计检验与IV排名对照",
-      "risk": "IV分箱与筛选阈值需事前规定"
+      "risk": "IV分箱与筛选阈值需事前规定",
+      "objective": "同时衡量SNP显著性与预测信息",
+      "constraints": [
+        "统计检验与预测信息使用相同训练样本定义",
+        "IV分箱只在训练数据拟合",
+        "多重比较与数据泄漏控制",
+        "低频格使用精确方法"
+      ],
+      "metric": [
+        "校正后P值",
+        "信息价值或预测增益",
+        "两类排名的一致性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "IV分箱与筛选阈值需事前规定"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "rs2273298"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q200",
@@ -2418,7 +7885,34 @@
       "model": "决策树分类",
       "output": "gene102和gene55",
       "validation": "准确率和ROC",
-      "risk": "若无独立划分则存在训练内评估与筛选泄漏"
+      "risk": "若无独立划分则存在训练内评估与筛选泄漏",
+      "objective": "用基因内SNP预测疾病并排名",
+      "constraints": [
+        "按基因组织SNP且基因映射固定",
+        "决策树深度或叶节点受控",
+        "训练、调参与测试严格分离",
+        "类别不平衡处理在训练折内完成"
+      ],
+      "metric": [
+        "测试集ROC-AUC",
+        "平衡准确率",
+        "基因排名的重采样稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "若无独立划分则存在训练内评估与筛选泄漏"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "gene102和gene55"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q201",
@@ -2430,7 +7924,34 @@
       "model": "系统聚类+显著性检验",
       "output": "8个稳定候选SNP",
       "validation": "R²/偏R²与原性状回查",
-      "risk": "多个簇数与阈值会引入研究者自由度"
+      "risk": "多个簇数与阈值会引入研究者自由度",
+      "objective": "将相关性状聚合后筛选SNP",
+      "constraints": [
+        "性状聚类只使用训练数据",
+        "簇数和距离度量有验证依据",
+        "聚合后回查原性状方向",
+        "SNP筛选进行多重校正"
+      ],
+      "metric": [
+        "R²或偏R²",
+        "校正后显著性",
+        "性状聚类与SNP排名稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "多个簇数与阈值会引入研究者自由度"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "8个稳定候选SNP"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q202",
@@ -2442,7 +7963,33 @@
       "model": "有序碱基对二进制编码",
       "output": "位运算友好矩阵",
       "validation": "编码表穷举",
-      "risk": "无相位数据中AT与TA不应被当作不同基因型"
+      "risk": "无相位数据中AT与TA不应被当作不同基因型",
+      "objective": "对16种有序碱基对作可位运算编码",
+      "constraints": [
+        "16种有序碱基对一一映射",
+        "位运算编码无碰撞",
+        "缺失或非法碱基使用保留码"
+      ],
+      "metric": [
+        "穷举编码唯一率",
+        "往返解码一致率",
+        "非法输入检出率"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "无相位数据中AT与TA不应被当作不同基因型"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "位运算友好矩阵"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q203",
@@ -2454,7 +8001,34 @@
       "model": "频率比启发式筛选",
       "output": "8个候选SNP",
       "validation": "结果频数表",
-      "risk": "小底数可造成高比例，且无置信区间/多重校正"
+      "risk": "小底数可造成高比例，且无置信区间/多重校正",
+      "objective": "按患病样本中的高频异常类型筛SNP",
+      "constraints": [
+        "异常类型定义在查看结局关联前固定",
+        "病例高频需与对照背景频率比较",
+        "低频计数不使用失效的大样本近似",
+        "多位点扫描校正"
+      ],
+      "metric": [
+        "病例与对照频率差",
+        "校正后显著性",
+        "入选位点对阈值的敏感度"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "小底数可造成高比例，且无置信区间/多重校正"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "8个候选SNP"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q204",
@@ -2466,7 +8040,33 @@
       "model": "K-means+集合相似性",
       "output": "gene_7/129/265/293",
       "validation": "聚类与相似度列表",
-      "risk": "簇数、中心更新和相似度的统计意义不充分"
+      "risk": "簇数、中心更新和相似度的统计意义不充分",
+      "objective": "按异常基因型簇与基因相似度排名",
+      "constraints": [
+        "基因型距离和簇数预先定义或经训练集选择",
+        "基因相似度不使用测试标签",
+        "空簇和低频类别有处理规则"
+      ],
+      "metric": [
+        "簇内与簇间分离度",
+        "外部验证排名表现",
+        "不同初始化下排名稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "簇数、中心更新和相似度的统计意义不充分"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "gene_7/129/265/293"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q205",
@@ -2478,7 +8078,34 @@
       "model": "规则矩阵交集",
       "output": "各性状的1–3个SNP",
       "validation": "阈值变化的数量对照",
-      "risk": "连续性状离散化与阈值高度主观"
+      "risk": "连续性状离散化与阈值高度主观",
+      "objective": "用多性状阈值矩阵交集筛SNP",
+      "constraints": [
+        "各性状阈值在独立训练或验证流程中确定",
+        "矩阵交集规则明确",
+        "相关性状不被当作独立重复证据",
+        "位点筛选校正多重比较"
+      ],
+      "metric": [
+        "阈值变化下入选位点数",
+        "独立样本复现率",
+        "多性状覆盖率"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "连续性状离散化与阈值高度主观"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "各性状的1–3个SNP"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q206",
@@ -2490,7 +8117,33 @@
       "model": "加性剂量编码",
       "output": "SNP数值矩阵",
       "validation": "列频率核对",
-      "risk": "忽略非加性遗传效应"
+      "risk": "忽略非加性遗传效应",
+      "objective": "用加性效应编码SNP",
+      "constraints": [
+        "加性效应方向与主/次等位基因一致",
+        "编码范围为0/1/2",
+        "缺失和低质量基因型单独标记"
+      ],
+      "metric": [
+        "列频率核对误差",
+        "非法编码数",
+        "缺失率"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "忽略非加性遗传效应"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "SNP数值矩阵"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q207",
@@ -2502,7 +8155,34 @@
       "model": "多重校正+置换检验+贝叶斯因子",
       "output": "rs2273298",
       "validation": "频率学派/贝叶斯结果对照",
-      "risk": "交叉模型同源且置换次数决定尾部精度"
+      "risk": "交叉模型同源且置换次数决定尾部精度",
+      "objective": "以多种证据筛疾病A的单SNP",
+      "constraints": [
+        "频率学派与贝叶斯模型使用一致样本和协变量",
+        "先验在查看结果前说明",
+        "全扫描控制多重比较",
+        "证据冲突不强行合并为确定结论"
+      ],
+      "metric": [
+        "校正后P值",
+        "贝叶斯因子",
+        "多种证据排名一致性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "交叉模型同源且置换次数决定尾部精度"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "rs2273298"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q208",
@@ -2514,7 +8194,34 @@
       "model": "Set-based test+VEGAS",
       "output": "gene_55/102/217的模型别证据",
       "validation": "两模型比较与BH校正",
-      "risk": "论文对Set-based的总结与报告P值不完全一致"
+      "risk": "论文对Set-based的总结与报告P值不完全一致",
+      "objective": "考虑基因内LD的基因级关联检验",
+      "constraints": [
+        "基因边界和LD参考匹配研究人群",
+        "集合方法假设与效应方向相符",
+        "基因级检验采用BH等校正",
+        "模型比较使用相同输入位点"
+      ],
+      "metric": [
+        "基因级q值",
+        "两模型排名一致性",
+        "LD参考变化下稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "论文对Set-based的总结与报告P值不完全一致"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "gene_55/102/217的模型别证据"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q209",
@@ -2526,7 +8233,34 @@
       "model": "mv-plink+MultiPhen",
       "output": "rs12746773",
       "validation": "两模型结果一致性",
-      "risk": "摘要与正文表格的P值指数冲突，需回原始数据复算"
+      "risk": "摘要与正文表格的P值指数冲突，需回原始数据复算",
+      "objective": "用两种多表型方法检验SNP",
+      "constraints": [
+        "两种多表型方法使用同一有效样本和协变量",
+        "表型尺度统一",
+        "模型各自的分布假设被检查",
+        "SNP扫描做多重校正"
+      ],
+      "metric": [
+        "两模型校正后显著性",
+        "排名重合率",
+        "重采样稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "摘要与正文表格的P值指数冲突，需回原始数据复算"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "rs12746773"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q210",
@@ -2538,7 +8272,33 @@
       "model": "加性剂量编码",
       "output": "SNP数值矩阵",
       "validation": "主/次频率检查",
-      "risk": "Markdown的公式占位符不影响基本编码，但不宜拷贝损坏符号"
+      "risk": "Markdown的公式占位符不影响基本编码，但不宜拷贝损坏符号",
+      "objective": "以主/次等位基因定义SNP剂量",
+      "constraints": [
+        "主/次等位基因由明确频率规则定义",
+        "剂量方向全流程一致",
+        "0/1/2之外取值仅表示缺失"
+      ],
+      "metric": [
+        "主次频率核对误差",
+        "编码合法率",
+        "缺失率"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "Markdown的公式占位符不影响基本编码，但不宜拷贝损坏符号"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "SNP数值矩阵"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q211",
@@ -2550,7 +8310,34 @@
       "model": "单SNP三检验+多重校正",
       "output": "rs2273298及模型别次级候选",
       "validation": "三种检验一致性",
-      "risk": "小期望频数、趋势假设和加性Logistic的适用性各不相同"
+      "risk": "小期望频数、趋势假设和加性Logistic的适用性各不相同",
+      "objective": "通过多种单SNP检验定位疾病A位点",
+      "constraints": [
+        "三种检验使用相同样本纳入标准",
+        "按期望频数选择卡方或Fisher",
+        "趋势检验的有序加性假设明确",
+        "多位点结果校正"
+      ],
+      "metric": [
+        "各检验校正后P值",
+        "显著位点交集率",
+        "效应方向一致性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "小期望频数、趋势假设和加性Logistic的适用性各不相同"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "rs2273298及模型别次级候选"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q212",
@@ -2562,7 +8349,34 @@
       "model": "Fisher/Brown合并P值",
       "output": "gene102等候选",
       "validation": "两合并法和三类输入P值对照",
-      "risk": "协方差估计不稳或SNP筛选会扭曲合并P值"
+      "risk": "协方差估计不稳或SNP筛选会扭曲合并P值",
+      "objective": "将基因内多个SNP的P值合成基因级证据",
+      "constraints": [
+        "基因成员SNP在看P值前固定",
+        "Fisher独立性与Brown依赖校正分别说明",
+        "输入P值来自可比检验",
+        "基因级结果继续校正多重比较"
+      ],
+      "metric": [
+        "Fisher与Brown基因级q值",
+        "三类输入P值下排名一致性",
+        "依赖估计敏感度"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "协方差估计不稳或SNP筛选会扭曲合并P值"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "gene102等候选"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "record_id": "Q213",
@@ -2574,7 +8388,34 @@
       "model": "最优缩放+惩罚CCA",
       "output": "rs351617等候选",
       "validation": "置换/显著性阈值和多候选排名",
-      "risk": "结果对惩罚与接受阈值敏感，且与其他方法的最优SNP不同"
+      "risk": "结果对惩罚与接受阈值敏感，且与其他方法的最优SNP不同",
+      "objective": "在高维离散SNP与多性状间做关联",
+      "constraints": [
+        "离散SNP的最优缩放和惩罚参数仅在训练折选择",
+        "置换保持个体与协变量结构下的可交换性",
+        "候选SNP扫描做多重校正",
+        "高维协方差保持可估"
+      ],
+      "metric": [
+        "交叉验证典型相关",
+        "置换P值或校正后显著性",
+        "候选排名的重采样稳定性"
+      ],
+      "split_unit": "",
+      "assumptions": [],
+      "failure_modes": [
+        "结果对惩罚与接受阈值敏感，且与其他方法的最优SNP不同"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "rs351617等候选"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     }
   ]
 }

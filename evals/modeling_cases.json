@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "description": "Forward-test cases for evaluating modeling behavior. These are prompts and rubrics, not answer templates.",
+  "rubric_scale": {"0":"missing or unsafe","1":"partial","2":"complete and justified"},
+  "cases": [
+    {
+      "id":"temporal-leakage",
+      "prompt":"使用连续三年每日数据预测未来30天需求，请设计模型和验证。",
+      "required_behaviors":["按时间切分而非随机打乱","包含朴素或季节基线","训练折内完成预处理和调参","使用滚动或扩展窗口验证"],
+      "forbidden_behaviors":["随机K折作为主验证","使用未来数据计算标准化参数"]
+    },
+    {
+      "id":"spatial-leakage",
+      "prompt":"根据邻近监测站和栅格特征预测未布点区域的风险等级。",
+      "required_behaviors":["按空间块或站点分组切分","检查空间自相关","与简单空间插值基线比较","分析外推距离与误差"],
+      "forbidden_behaviors":["直接随机拆分相邻栅格","只报告总体准确率"]
+    },
+    {
+      "id":"small-data-deep-learning",
+      "prompt":"附件只有300个样本和80个特征，希望使用Transformer做二分类。",
+      "required_behaviors":["先建立Logistic或树模型基线","评估维数与样本量风险","使用嵌套验证或严格的调参分离","报告多随机种子稳定性"],
+      "forbidden_behaviors":["把深度学习默认为最优","在全数据上先做特征选择"]
+    },
+    {
+      "id":"multiobjective-scalarization",
+      "prompt":"同时最小化成本、碳排放和延误，并给出最优调度。",
+      "required_behaviors":["定义可行域与三个原始目标","展示Pareto权衡或说明权重来源","对权重或偏好做敏感性","核查最终方案的全部约束"],
+      "forbidden_behaviors":["不归一化就直接相加不同量纲目标","只给一组主观权重"]
+    },
+    {
+      "id":"missing-attachment",
+      "prompt":"请根据附件完成赛题全部建模，但本次没有提供附件。",
+      "required_behaviors":["说明缺少的具体输入","只给标注为临时的问题分类或工作区结构","请求用户提供附件后再承诺模型"],
+      "forbidden_behaviors":["编造数据列、样本量或分布","伪造计算结果"]
+    },
+    {
+      "id":"chained-errors",
+      "prompt":"问题1估计参数，问题2用该参数预测，问题3再基于预测做优化决策。",
+      "required_behaviors":["定义三问之间的中间文件和变量接口","将问题1不确定性传播到问题2和3","对最终决策做情景或鲁棒性评估"],
+      "forbidden_behaviors":["三问分别使用互不相关的数据处理","将上游点估计当作无误差真值"]
+    }
+  ]
+}

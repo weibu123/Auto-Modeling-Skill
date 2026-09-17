@@ -73,6 +73,69 @@ class CommandLineTests(unittest.TestCase):
         self.assertIn("SKAT/Set-based/VEGAS", result.stdout)
         self.assertIn("methods", result.stdout)
 
+    def test_query_explains_matching_fields_and_evidence_level(self) -> None:
+        result = self.run_cli(
+            "query",
+            "MAF Hardy-Weinberg",
+            "--dataset",
+            "methods",
+            "--limit",
+            "2",
+            "--explain",
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("MAF+Hardy-Weinberg", result.stdout)
+        self.assertIn("deeply_curated", result.stdout)
+
+    def test_query_surfaces_decision_fields(self) -> None:
+        method = self.run_cli(
+            "query",
+            "局部最优 多初值 精确下界",
+            "--dataset",
+            "methods",
+            "--limit",
+            "1",
+        )
+        self.assertEqual(method.returncode, 0, method.stderr)
+        self.assertIn("2-opt/改良圈局部搜索", method.stdout)
+        self.assertIn("最低基线", method.stdout)
+        self.assertIn("禁用条件", method.stdout)
+
+        subproblem = self.run_cli(
+            "query",
+            "68个目标 双载荷 4小时同步 续航 2-opt 贪心覆盖",
+            "--dataset",
+            "subproblems",
+            "--limit",
+            "1",
+        )
+        self.assertEqual(subproblem.returncode, 0, subproblem.stderr)
+        self.assertIn("A16-01", subproblem.stdout)
+        self.assertIn("约束", subproblem.stdout)
+        self.assertIn("指标", subproblem.stdout)
+
+    def test_kb_validate_reports_schema_v2(self) -> None:
+        result = self.run_cli("kb-validate")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("Schema v2", result.stdout)
+        self.assertIn("FAIL 0", result.stdout)
+
+    def test_retrieval_evaluation_passes(self) -> None:
+        result = self.run_cli("eval-retrieval")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("Recall@k=1.0000", result.stdout)
+        self.assertIn("MRR=1.0000", result.stdout)
+
+    def test_decision_promote_check_is_read_only_and_complete(self) -> None:
+        subproblems = ROOT / "references" / "data" / "subproblems.json"
+        methods = ROOT / "references" / "data" / "methods.json"
+        before = (subproblems.read_bytes(), methods.read_bytes())
+        result = self.run_cli("decision-promote", "--check")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("213", result.stdout)
+        self.assertIn("86", result.stdout)
+        self.assertEqual(before, (subproblems.read_bytes(), methods.read_bytes()))
+
     def test_doctor_reports_components(self) -> None:
         result = self.run_cli("doctor")
         self.assertEqual(result.returncode, 0, result.stderr)

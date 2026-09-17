@@ -1,0 +1,593 @@
+{
+  "batch_id": "subproblems-c-reviewed-v1",
+  "evidence_basis": "从已深度蒸馏的任务、输入输出、验证和风险字段中结构化归纳，并按领域验证原则复核；不新增论文性能结论。",
+  "subproblems": [
+    {
+      "record_id": "Q022",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：Accuracy/IoU/Recall/F1"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q023",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：R²"
+      ],
+      "metric": [
+        "簇稳定性",
+        "下游任务表现",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q024",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：采样对比"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q025",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：AHP对比"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q026",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：方案比较"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q027",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：R²"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q028",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：采样比较"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q029",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：约束可行性"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q030",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：Precision/Recall/F1"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q031",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：RMSE/IQR/有效率"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q032",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：采样点敏感性"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q033",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：不确定性降幅"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q034",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：四组预处理对比"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q035",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：拟合误差"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q036",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：采样密度稳定性"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q037",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：抽样稳定性"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q038",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：mIoU/Precision/Recall"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q039",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：周期=周长物理校验"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q040",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：Barton标准轮廓R²/RMSE"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q041",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：阈值/网络结构"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q097",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：混淆矩阵/交叉验证"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q098",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：MAPE/R²/残差"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q099",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：p值/穷举"
+      ],
+      "metric": [
+        "校正后显著性",
+        "效应量与置信区间",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q100",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：精度/泛化分析"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q101",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：双目标比较"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q102",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：训练/测试与投票"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q103",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：R²/误差"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q104",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：显著性/热力图"
+      ],
+      "metric": [
+        "校正后显著性",
+        "效应量与置信区间",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q105",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：九模型/相对误差"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q106",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：48组合稳健性"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q107",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：准确率"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q108",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：R²比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q109",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：热点图"
+      ],
+      "metric": [
+        "重构或预测误差",
+        "物理一致性残差",
+        "参数敏感性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q110",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：验证/测试/加噪R²"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q111",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：Pareto比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q112",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：无噪/加噪准确率"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q113",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：相对误差递进"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q114",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：F统计量/检验"
+      ],
+      "metric": [
+        "校正后显著性",
+        "效应量与置信区间",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q115",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：相对误差"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q116",
+      "constraints": [
+        "物理单位、坐标和标定参数保持一致",
+        "中间结果满足已知物理范围和边界条件",
+        "验收时复核：不同正则系数"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "重构或预测误差",
+        "物理一致性残差"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    }
+  ],
+  "methods": []
+}

@@ -6,6 +6,9 @@
 
 - `init`：创建标准参赛目录、建模笔记和论文骨架；
 - `query`：检索 338 篇论文索引、55 条深度论文记录、213 条子问题和 86 条方法记录；
+- `decision-promote`：校验并合并人工审核的约束、指标、最低基线与方法护栏；
+- `kb-validate`：检查 Schema v2、证据层、引用关系和结构化字段覆盖率；
+- `eval-retrieval`：用人工复核的查询集计算 Recall@k 和 MRR；
 - `audit`：检查材料完整性、占位符、结果来源和论文交付状态；
 - `doctor`：检查 Python、XeLaTeX 和中文论文模板所需宏包；
 - `$auto-modeling-skill`：在题目与附件基础上完成问题拆解、建模、实现、验证和写作协作。
@@ -42,10 +45,18 @@ python3 scripts/auto_model.py query "多目标优化 疲劳 功率分配" --data
 # 3. 按年份和题号检索尚待深度蒸馏的论文索引
 python3 scripts/auto_model.py query "无人机 调度" --dataset index --year 2016 --topic A --limit 6
 
-# 4. 检查参赛材料和论文交付是否完整
+# 4. 校验并写入已审核的决策字段
+python3 scripts/auto_model.py decision-promote --check
+python3 scripts/auto_model.py decision-promote
+
+# 5. 检查知识库结构与检索质量
+python3 scripts/auto_model.py kb-validate
+python3 scripts/auto_model.py eval-retrieval
+
+# 6. 检查参赛材料和论文交付是否完整
 python3 scripts/auto_model.py audit ./contest-2026
 
-# 5. 检查本机能否编译中文 LaTeX 模板
+# 7. 检查本机能否编译中文 LaTeX 模板
 python3 scripts/auto_model.py doctor
 ```
 
@@ -55,6 +66,9 @@ python3 scripts/auto_model.py doctor
 python3 scripts/auto_model.py --help
 python3 scripts/auto_model.py init --help
 python3 scripts/auto_model.py query --help
+python3 scripts/auto_model.py decision-promote --help
+python3 scripts/auto_model.py kb-validate --help
+python3 scripts/auto_model.py eval-retrieval --help
 python3 scripts/auto_model.py audit --help
 python3 scripts/auto_model.py doctor --help
 ```
@@ -86,7 +100,7 @@ contest-2026/
 
 ## 知识库边界
 
-知识库中的历史结果均为原论文作者自报，不能替代当前赛题上的复现、验证或证明。`paper_index.json` 中标记为 `indexed` 的记录仅完成标题、摘要和关键词自动提取，用于发现候选论文；只有标记为 `curated` 的记录进入深度论文、子问题和方法层。检索时优先匹配任务结构、数据形式、约束和验证方式，不按算法名称机械套用。仓库不包含原始论文 PDF 或 Markdown 全文。
+知识库中的历史结果均为原论文作者自报，不能替代当前赛题上的复现、验证或证明。`paper_index.json` 中标记为 `indexed` 的记录仅完成标题、摘要和关键词自动提取，用于发现候选论文；只有标记为 `curated` 的记录进入深度论文、子问题和方法层。`decision_fields/` 中的约束、指标和方法护栏是可追溯的维护者归纳，不冒充论文实验结论；当前 213/213 个子问题和 86/86 个方法均已具备决策字段。其中 2016-A/B 的 49 个子问题为逐条深度整理，其余子问题由已审核蒸馏字段按领域规则结构化，并标记为 `reviewed-prose-normalization`。检索时优先匹配任务结构、数据形式、约束和验证方式，不按算法名称机械套用。仓库不包含原始论文 PDF 或 Markdown 全文。
 
 ## 项目结构
 
@@ -97,8 +111,9 @@ auto-modeling-skill/
 ├── assets/                     # 初始化工作区时复制的模板
 ├── references/                 # 工作流、模型路由、验证与写作规范
 │   └── data/                   # 338 篇索引 + 深度蒸馏知识库
-├── scripts/                    # init / query / audit 命令
-└── tests/                      # 标准库 smoke tests
+├── scripts/                    # init / query / audit / validate / eval
+├── evals/                      # 检索黄金集与建模行为案例
+└── tests/                      # 标准库回归测试
 ```
 
 ## 验证

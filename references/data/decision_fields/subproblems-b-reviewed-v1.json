@@ -1,0 +1,320 @@
+{
+  "batch_id": "subproblems-b-reviewed-v1",
+  "evidence_basis": "从已深度蒸馏的任务、输入输出、验证和风险字段中结构化归纳，并按领域验证原则复核；不新增论文性能结论。",
+  "subproblems": [
+    {
+      "record_id": "Q013",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：RMSE/Spearman"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q014",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：七组对比实验"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q015",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：预测分布对比"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q016",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：验证准确率"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q017",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：递进准确率"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q018",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：准确率87.5%"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q019",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：R²/RMSE"
+      ],
+      "metric": [
+        "独立集误差",
+        "校准与稳定性",
+        "相对简单基线的增益"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q020",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：R²/RMSE"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q021",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：R²/RMSE/Top-1/±1"
+      ],
+      "metric": [
+        "独立集误差",
+        "校准与稳定性",
+        "相对简单基线的增益"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q085",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：分场景误差"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q086",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：准确率"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q087",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：误差与CDF"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q088",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：模型对比"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q089",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：分类指标"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q090",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：阶段误差比较"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q091",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：MSE/MAE/MAPE"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q092",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：Accuracy/F1"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q093",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：分场景误差"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q094",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：误差曲线"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q095",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：附件结果"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q096",
+      "constraints": [
+        "训练、调参与最终评估严格隔离",
+        "变量定义、单位和样本对应关系全流程一致",
+        "验收时复核：多模型对比"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "独立集误差",
+        "校准与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    }
+  ],
+  "methods": []
+}

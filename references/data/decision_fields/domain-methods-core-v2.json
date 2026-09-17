@@ -1,0 +1,105 @@
+{
+  "batch_id": "domain-methods-core-v2",
+  "evidence_basis": "依据已深度蒸馏记录中的适用任务、数据要求和风险字段，结合通用算法验证原则补充决策护栏；不新增历史论文性能结论。",
+  "subproblems": [],
+  "methods": [
+    {
+      "method": "拓扑排序/关键路径",
+      "minimum_baseline": "先与按输入顺序执行的可行调度比较完工时间，并核对关键路径长度与最早/最迟时刻。",
+      "forbidden_when": ["前序关系存在环且未先处理", "资源容量约束决定排程却只使用无资源拓扑排序"],
+      "recommended_alternatives": ["资源受限项目调度整数规划", "约束规划或离散事件仿真"],
+      "common_misuse": ["把任一拓扑序当最优调度", "漏检跨任务资源冲突"]
+    },
+    {
+      "method": "模拟退火",
+      "minimum_baseline": "与随机搜索和同邻域的纯爬山法在相同评估预算下多次比较。",
+      "forbidden_when": ["没有可行邻域或修复机制", "降温过程无法在时间预算内达到稳定阶段"],
+      "recommended_alternatives": ["禁忌搜索", "遗传算法或小规模精确规划"],
+      "common_misuse": ["只运行一次并报告最好值", "温度和接受率没有诊断"]
+    },
+    {
+      "method": "禁忌搜索",
+      "minimum_baseline": "与相同初值和邻域的局部搜索比较，并报告多初值结果与可行率。",
+      "forbidden_when": ["禁忌属性不能区分逆操作", "邻域生成无法保持或修复硬约束"],
+      "recommended_alternatives": ["模拟退火", "大邻域搜索或整数规划"],
+      "common_misuse": ["禁忌长度固定却不做敏感性", "没有特赦准则导致错过改进解"]
+    },
+    {
+      "method": "Best-Fit/最优适应",
+      "minimum_baseline": "与First-Fit、原始顺序和按规模排序后的启发式比较碎片率与失败率。",
+      "forbidden_when": ["分配可回溯且全局重排收益显著", "区间对齐或未来请求分布决定可行性却未建模"],
+      "recommended_alternatives": ["区间分配整数规划", "伙伴系统或动态重打包"],
+      "common_misuse": ["把当前最紧凑选择写成全局最优", "只统计已用容量而不统计不可用碎片"]
+    },
+    {
+      "method": "EESM",
+      "minimum_baseline": "与平均SINR和最差子载波SINR比较，并在独立链路样本上校准β。",
+      "forbidden_when": ["不同MCS共用未经验证的β", "子载波映射或编码结构与校准场景不一致"],
+      "recommended_alternatives": ["MIESM", "按MCS分层的链路级模型"],
+      "common_misuse": ["在测试集拟合β", "把有效SINR误作逐子载波真实SINR"]
+    },
+    {
+      "method": "MIESM",
+      "minimum_baseline": "与EESM和实际BLER/吞吐查表结果在同一MCS分层验证。",
+      "forbidden_when": ["互信息映射与调制编码不匹配", "缺少可靠链路曲线进行反映射"],
+      "recommended_alternatives": ["EESM", "端到端链路仿真或数据驱动校准"],
+      "common_misuse": ["跨MCS直接比较未归一化互信息", "忽略码率与资源块结构"]
+    },
+    {
+      "method": "Isotonic Regression",
+      "minimum_baseline": "与线性回归、分箱均值和无校准预测比较独立集误差与单调违例。",
+      "forbidden_when": ["任务关系没有可信单调方向", "主要需求是训练范围之外的外推"],
+      "recommended_alternatives": ["单调样条", "带单调约束的树模型"],
+      "common_misuse": ["用测试标签拟合校准曲线", "把阶梯平台解释成真实阈值"]
+    },
+    {
+      "method": "Transformer/ViT",
+      "minimum_baseline": "与正则化CNN、树模型或简单序列模型在同一划分和参数预算下比较。",
+      "forbidden_when": ["样本量不足且无合理预训练", "位置编码或切片方式破坏任务所需结构"],
+      "recommended_alternatives": ["CNN或TCN", "预训练特征加浅层模型"],
+      "common_misuse": ["小数据从零训练却无稳定性实验", "将注意力权重直接当因果解释"]
+    },
+    {
+      "method": "SVD",
+      "minimum_baseline": "报告保留秩、解释能量和重构误差，并与不降维方案比较下游指标。",
+      "forbidden_when": ["关键弱信号位于低能量方向", "缺失模式或非线性结构使直接矩阵分解失真"],
+      "recommended_alternatives": ["稳健PCA", "核降维或物理特征"],
+      "common_misuse": ["按累计能量选秩却不检查任务性能", "在全数据上分解后再划分验证"]
+    },
+    {
+      "method": "CLAHE/双边/Canny/Sobel/Otsu",
+      "minimum_baseline": "保留原图和单一基础算子结果，在独立标注上比较像素或目标级指标。",
+      "forbidden_when": ["增强会改变待测物理灰度关系", "参数由最终测试图逐张人工调节"],
+      "recommended_alternatives": ["自适应阈值与形态学处理", "监督语义分割"],
+      "common_misuse": ["只展示视觉效果不做定量验证", "串联过多算子导致纹理伪边缘"]
+    },
+    {
+      "method": "Frangi滤波",
+      "minimum_baseline": "与原图阈值和普通边缘/线检测比较目标级召回、误检及尺度敏感性。",
+      "forbidden_when": ["目标并非局部管状或线状结构", "背景纹理与目标具有相同Hessian响应"],
+      "recommended_alternatives": ["多尺度线检测", "监督分割或方向滤波"],
+      "common_misuse": ["只选一个尺度", "把增强响应直接当最终分割概率"]
+    },
+    {
+      "method": "U-Net/DeepLabV3+",
+      "minimum_baseline": "与阈值/形态学基线和轻量分割网络比较，并按原图或对象分组划分。",
+      "forbidden_when": ["训练与测试切片来自同一原图而造成泄漏", "标注量不足且没有预训练或强正则"],
+      "recommended_alternatives": ["传统图像处理", "弱监督或预训练编码器"],
+      "common_misuse": ["只报像素准确率掩盖小目标失败", "切片级随机划分造成近重复泄漏"]
+    },
+    {
+      "method": "RANSAC/LM/非线性最小二乘",
+      "minimum_baseline": "与普通最小二乘和稳健损失拟合比较参数误差、残差结构与重采样稳定性。",
+      "forbidden_when": ["函数族与物理形态不匹配", "参数不可辨识或初值决定不同局部解"],
+      "recommended_alternatives": ["稳健M估计", "贝叶斯参数估计或样条拟合"],
+      "common_misuse": ["RANSAC阈值无量纲依据", "只报告拟合R²而不检查残差和参数区间"]
+    },
+    {
+      "method": "JRC/Z2",
+      "minimum_baseline": "在标准轮廓或已知样本上核对公式实现，并报告采样间距变化下的稳定性。",
+      "forbidden_when": ["轮廓尺度超出经验公式适用范围", "宏观趋势未剥离或坐标单位不一致"],
+      "recommended_alternatives": ["多尺度粗糙度谱", "分形或轮廓统计指标"],
+      "common_misuse": ["不同采样率直接比较JRC", "把经验等级当精确物理常数"]
+    }
+  ]
+}

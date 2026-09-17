@@ -1,0 +1,418 @@
+{
+  "batch_id": "subproblems-a-reviewed-v1",
+  "evidence_basis": "从已深度蒸馏的任务、输入输出、验证和风险字段中结构化归纳，并按领域验证原则复核；不新增论文性能结论。",
+  "subproblems": [
+    {
+      "record_id": "Q001",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：六算例目标值与复杂度"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q002",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：六算例搬运量"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q003",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：基线/优化结果比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q004",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：算例与复杂度"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q005",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：数据搬运量比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q006",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：综合提升率"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q007",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：多基线降低率"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q008",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：缓存利用率/搬运量"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q009",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：执行时间改善"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q010",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：横向算法比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q011",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：两子模型比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q012",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：指标提升"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q069",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：离线雨流与耗时"
+      ],
+      "metric": [
+        "目标函数值",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q070",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：参考载荷误差"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "目标函数值",
+        "约束违例率"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q071",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：疲劳/方差与均分对比"
+      ],
+      "metric": [
+        "目标函数值",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q072",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：扰动情景比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q073",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：多基线精度/时间"
+      ],
+      "metric": [
+        "目标函数值",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q074",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：70/30时序测试"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "目标函数值",
+        "约束违例率"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q075",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：与均分策略比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q076",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：原始/处理/理想对比"
+      ],
+      "metric": [
+        "目标函数值",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q077",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：精度与耗时"
+      ],
+      "metric": [
+        "目标函数值",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q078",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：拟合优度"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "目标函数值",
+        "约束违例率"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q079",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：疲劳与跟踪性能"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q080",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：多扰动比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q081",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：标准算法比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q082",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：SSE"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "目标函数值",
+        "约束违例率"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q083",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：五方案比较"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "约束违例率",
+        "运行时间与稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q084",
+      "constraints": [
+        "资源、时序与可行域约束必须逐项验算",
+        "比较方案使用相同目标函数与计算预算",
+        "验收时复核：多方法比较"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "目标函数值",
+        "约束违例率"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    }
+  ],
+  "methods": []
+}

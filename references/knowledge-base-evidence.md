@@ -31,8 +31,15 @@
 
 ```powershell
 python scripts/build_paper_index.py
+python scripts/migrate_kb_schema_v2.py
+python scripts/auto_model.py decision-promote --check
+python scripts/auto_model.py decision-promote
+python scripts/auto_model.py kb-validate
+python scripts/auto_model.py eval-retrieval
 python scripts/auto_model.py query "关键词" --dataset index --year 2016 --topic A
 python -m unittest discover -s tests -v
 ```
 
 每次深度蒸馏建议按“年份 × 题目”成批处理。完成后重新构建索引，使对应记录从 `indexed` 变为 `curated`，并检查总数与唯一性。
+
+论文事实蒸馏与决策字段蒸馏分两步。先在 `curation_batches/` 固定论文事实，再在 `decision_fields/` 填写约束、指标、最低基线和方法禁用条件。后者必须声明 `evidence_basis`；维护者归纳不得写成论文原始结论。

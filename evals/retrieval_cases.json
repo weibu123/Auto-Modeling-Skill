@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "description": "Human-reviewed retrieval smoke set. A case passes when at least one expected record appears in top-k.",
+  "minimum_recall_at_k": 0.9,
+  "minimum_mrr": 0.75,
+  "cases": [
+    {"id":"virtual-mtsp","query":"虚拟点 MTSP Hamilton回路","dataset":"papers","year":2016,"topic":"A","k":5,"expected_ids":["A16-05"]},
+    {"id":"skat-gene","query":"SKAT 基因集合 罕见变异","dataset":"methods","k":5,"expected_ids":["SKAT/Set-based/VEGAS基因级关联"]},
+    {"id":"maf-hwe","query":"MAF Hardy-Weinberg SNP质控","dataset":"methods","k":5,"expected_ids":["MAF+Hardy-Weinberg平衡质控"]},
+    {"id":"fisher-brown","query":"相关SNP Fisher Brown 合并P值","dataset":"methods","k":5,"expected_ids":["Fisher/Brown基因内P值合并"]},
+    {"id":"auction-allocation","query":"多无人机 竞标 拍卖 任务分配","dataset":"methods","k":5,"expected_ids":["竞标/拍卖式协同分配"]},
+    {"id":"spatial-validation","query":"时空数据 分组验证 防止泄漏","dataset":"methods","k":5,"expected_ids":["时空分组验证","GroupKFold/OOF/Bootstrap"]},
+    {"id":"pulsar-delay","query":"X射线脉冲星 相对论时延 非齐次泊松","dataset":"papers","topic":"F","k":5,"expected_ids":["F04","F05","F06","F07"]},
+    {"id":"emergency-lane","query":"应急车道 YOLO 交通流 拥堵预警","dataset":"papers","topic":"E","k":5,"expected_ids":["E04","E05","E06","E07"]},
+    {"id":"wind-fatigue","query":"风电场 疲劳损伤 功率分配 多目标","dataset":"papers","topic":"A","k":5,"expected_ids":["A05","A06","A07","A08"]},
+    {"id":"mimo-link","query":"MIMO OFDM EESM 链路速率预测","dataset":"papers","topic":"B","k":5,"expected_ids":["B01","B02","B03"]},
+    {"id":"rock-fracture","query":"围岩裂隙 Frangi 三维概率重构","dataset":"papers","topic":"C","k":5,"expected_ids":["C01","C02","C03","C04","C05"]},
+    {"id":"turbulence-route","query":"低空湍流 多源融合 最优航路","dataset":"papers","topic":"D","k":5,"expected_ids":["D01","D02"]},
+    {"id":"two-opt-guardrail","query":"局部最优 多初值 精确下界 续航约束","dataset":"methods","k":3,"expected_ids":["2-opt/改良圈局部搜索"]},
+    {"id":"permutation-exchangeability","query":"置换单元 零假设 可交换性 先验敏感","dataset":"methods","k":3,"expected_ids":["置换检验+贝叶斯因子交叉证据"]},
+    {"id":"dual-sensor-sync","query":"68个目标 双载荷 4小时同步 续航 2-opt 贪心覆盖","dataset":"subproblems","k":3,"expected_ids":["Q165"]},
+    {"id":"brown-dependence-guardrail","query":"Fisher独立性 LD强依赖 Brown协方差 先筛成员","dataset":"methods","k":3,"expected_ids":["Fisher/Brown基因内P值合并"]},
+    {"id":"spatiotemporal-buffer-guardrail","query":"空间缓冲区 未来时间 时空外推 派生样本","dataset":"methods","k":3,"expected_ids":["时空分组验证"]},
+    {"id":"group-oof-guardrail","query":"部署独立单元 OOF 行号组ID 滚动时间","dataset":"methods","k":3,"expected_ids":["GroupKFold/OOF/Bootstrap"]},
+    {"id":"resampling-leakage-guardrail","query":"重采样 训练测试前 类别权重 原始比例","dataset":"methods","k":3,"expected_ids":["欠采样/过采样"]}
+  ]
+}

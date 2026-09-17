@@ -17,7 +17,8 @@
         "source_scope": "2016年研究生数学建模竞赛B题优秀论文6篇；依据MarkItDown转换稿逐篇核验摘要、模型、求解、验证、评价和结论",
         "evidence_note": "结果均为论文作者报告，未独立复算；已显式标注Markdown转换损坏、文内数值冲突和缺少独立验证等证据边界。"
       }
-    }
+    },
+    "schema_version": 2
   },
   "records": [
     {
@@ -34,7 +35,37 @@
       "risk": "结果为论文自报；部分算例名称/数值表述重复，需用代码复核；提取文本含推广水印",
       "evidence": "PDF第1–3页摘要；第8页起模型；第41页附近总结",
       "source_file": "A题-1-通用神经网络处理器下的核内调度问题.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "组合优化：DAG调度、缓存分配、多目标优化",
+      "problem_archetypes": [
+        "组合优化：DAG调度、缓存分配、多目标优化"
+      ],
+      "data_structure": [
+        "计算图节点/边、缓存类型与容量、缓冲区生命周期、执行周期"
+      ],
+      "models": [
+        "多策略初始解+模拟退火",
+        "ILP/rounding/彩色边图缓存分配",
+        "自适应优先级+时序敏感Best-Fit+Pareto搜索"
+      ],
+      "validation_design": [
+        "6个Conv/FlashAttention/Matmul算例",
+        "目标值对比",
+        "复杂度分析"
+      ],
+      "failure_modes": [
+        "结果为论文自报",
+        "部分算例名称/数值表述重复，需用代码复核",
+        "提取文本含推广水印"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第8页起模型",
+        "第41页附近总结"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "A02",
@@ -50,7 +81,37 @@
       "risk": "高维元启发式计算开销大；参数敏感；“概率1收敛”等理论主张需核验",
       "evidence": "PDF第1–3页摘要；第6/17/28页起三问；第34页起评价",
       "source_file": "A题-2-通用神经网络处理器下的核内调度问题.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "大规模离散调度与多目标进化优化",
+      "problem_archetypes": [
+        "大规模离散调度与多目标进化优化"
+      ],
+      "data_structure": [
+        "异构DAG、ALLOC/FREE节点、多级缓存、SPILL决策与地址"
+      ],
+      "models": [
+        "优先级贪心+禁忌邻域",
+        "ABQPSO混合编码与修复",
+        "双种群多目标进化DPEA"
+      ],
+      "validation_design": [
+        "典型算子计算图",
+        "多指标对比",
+        "复杂度与局限讨论"
+      ],
+      "failure_modes": [
+        "高维元启发式计算开销大",
+        "参数敏感",
+        "“概率1收敛”等理论主张需核验"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第6/17/28页起三问",
+        "第34页起评价"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "A03",
@@ -66,7 +127,36 @@
       "risk": "改进幅度很大且基线定义需复核；未充分覆盖真实带宽、流水线与能耗约束",
       "evidence": "PDF第1–4页摘要；第19/42/65页起三问；第88页起评价",
       "source_file": "A题-NPU 核内调度算法设计与优化研究.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "硬件感知图调度与资源约束优化",
+      "problem_archetypes": [
+        "硬件感知图调度与资源约束优化"
+      ],
+      "data_structure": [
+        "DAG、缓存互斥约束、内存压力、关键路径、DDR搬运与执行时间"
+      ],
+      "models": [
+        "MCBGS多约束平衡贪心",
+        "最优适应缓存分配+动态SPILL+复用分析",
+        "DOSA增量双目标优化"
+      ],
+      "validation_design": [
+        "6个计算图",
+        "与随机/贪心/关键路径策略比较",
+        "复杂度分析"
+      ],
+      "failure_modes": [
+        "改进幅度很大且基线定义需复核",
+        "未充分覆盖真实带宽、流水线与能耗约束"
+      ],
+      "evidence_locations": [
+        "PDF第1–4页摘要",
+        "第19/42/65页起三问",
+        "第88页起评价"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "A04",
@@ -82,7 +172,35 @@
       "risk": "算法堆叠较多；权重主观；摘要出现“NAGA-II”等命名问题，需回查实现",
       "evidence": "PDF第1–3页摘要；第29/31/54页附近三问；第55页起评价",
       "source_file": "A题-面向 Davinci 架构的 NPU 核内调度算法研究.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "单目标到多目标的分阶段调度优化",
+      "problem_archetypes": [
+        "单目标到多目标的分阶段调度优化"
+      ],
+      "data_structure": [
+        "六类算子图、缓存驻留、物理地址、SPILL、执行单元与周期"
+      ],
+      "models": [
+        "贪心/模拟退火/禁忌/遗传对比",
+        "遗传编程与变邻域模拟退火",
+        "NSGA-II与多目标粒子群"
+      ],
+      "validation_design": [
+        "六个算例、多算法横向比较、Pareto解与指标提升分析"
+      ],
+      "failure_modes": [
+        "算法堆叠较多",
+        "权重主观",
+        "摘要出现“NAGA-II”等命名问题，需回查实现"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第29/31/54页附近三问",
+        "第55页起评价"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "B01",
@@ -98,7 +216,36 @@
       "risk": "对齐后目标域缺少完整标签时只能验证分布接近，不能等同预测准确",
       "evidence": "PDF第1–3页摘要；第6/12/27页起三问；第34页附近结论",
       "source_file": "B题-MIMO-OFDM 链路速率预测问题的建模研究.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "物理模型驱动回归与跨域校准",
+      "problem_archetypes": [
+        "物理模型驱动回归与跨域校准"
+      ],
+      "data_structure": [
+        "122子载波CSI/SINR、噪声、TxBF状态、实际速率"
+      ],
+      "models": [
+        "Frobenius/SVD信道表征",
+        "EESM与MIESM",
+        "LogSumExp、分位数特征、单调回归",
+        "中位数/IQR分布对齐"
+      ],
+      "validation_design": [
+        "RMSE、NRMSE、MAE、Spearman",
+        "7组消融/对比",
+        "TxBF域对齐"
+      ],
+      "failure_modes": [
+        "对齐后目标域缺少完整标签时只能验证分布接近，不能等同预测准确"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第6/12/27页起三问",
+        "第34页附近结论"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "B02",
@@ -114,7 +261,37 @@
       "risk": "用“准确率”评价速率/mcs需明确容差与类别定义；样本划分和泄漏风险需复核",
       "evidence": "PDF第1–3页摘要；第8/20/27页起三问；第39页结论",
       "source_file": "B题-无线通信系统链路速率建模.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "物理约束估计与多模态Transformer预测",
+      "problem_archetypes": [
+        "物理约束估计与多模态Transformer预测"
+      ],
+      "data_structure": [
+        "CSI复数张量、SINR、噪声、mcs、TxBF状态与采集时间"
+      ],
+      "models": [
+        "IQR清洗与同步",
+        "改进指数映射+Adam",
+        "SVD与统计特征",
+        "CSI-SINR融合Transformer（MFF-CT）"
+      ],
+      "validation_design": [
+        "分终端训练",
+        "验证集准确率",
+        "场景递进比较"
+      ],
+      "failure_modes": [
+        "用“准确率”评价速率/mcs需明确容差与类别定义",
+        "样本划分和泄漏风险需复核"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第8/20/27页起三问",
+        "第39页结论"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "B03",
@@ -130,7 +307,37 @@
       "risk": "高维特征与文件域提示可能记忆数据源；Isotonic外推弱；尾部异方差未充分处理",
       "evidence": "PDF第1–3页摘要；第5–7页问题分析；第54页起评价",
       "source_file": "B题-机器学习驱动的面向 MIMO-OFDM 的链路速率预测.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "物理基线、树模型与堆叠融合",
+      "problem_archetypes": [
+        "物理基线、树模型与堆叠融合"
+      ],
+      "data_structure": [
+        "子载波SINR线性/dB域、统计量、SVD结构量、底噪、速率标签"
+      ],
+      "models": [
+        "EESM+Isotonic",
+        "HGBR堆叠",
+        "259维特征随机森林",
+        "SVD-EESM与HGBR岭融合"
+      ],
+      "validation_design": [
+        "GroupKFold、OOF、防泄漏校准",
+        "R²、RMSE、Top-1与±1准确率"
+      ],
+      "failure_modes": [
+        "高维特征与文件域提示可能记忆数据源",
+        "Isotonic外推弱",
+        "尾部异方差未充分处理"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第5–7页问题分析",
+        "第54页起评价"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "C01",
@@ -146,7 +353,35 @@
       "risk": "深度模型训练样本与标注规模需核验；JRC与连通权重对工程结论敏感",
       "evidence": "PDF第1–3页摘要；第6页起模型；第50页附近评价",
       "source_file": "C题-1-围岩裂隙精准识别与三维模型重构.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "图像分割、曲线拟合、粗糙度与三维重构",
+      "problem_archetypes": [
+        "图像分割、曲线拟合、粗糙度与三维重构"
+      ],
+      "data_structure": [
+        "钻孔展开图、裂隙掩码、二维坐标、钻孔空间位置与JRC"
+      ],
+      "models": [
+        "CLAHE/双边/Sobel+ResNet50 U-Net/ASPP/注意力",
+        "DBSCAN+LM/RANSAC",
+        "LoG与JRC",
+        "PPIGA连通评价"
+      ],
+      "validation_design": [
+        "Accuracy/IoU/Recall/F1、R²、采样策略比较、AHP基线比较"
+      ],
+      "failure_modes": [
+        "深度模型训练样本与标注规模需核验",
+        "JRC与连通权重对工程结论敏感"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第6页起模型",
+        "第50页附近评价"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "C02",
@@ -162,7 +397,34 @@
       "risk": "摘要报告JRC约28–38，超出常见0–20经验范围，必须核查公式/尺度",
       "evidence": "PDF第1–3页摘要；第7页起分析；第49页附近评价",
       "source_file": "C题-2-围岩裂隙精准识别与三维模型重构.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "传统视觉与概率网络重构",
+      "problem_archetypes": [
+        "传统视觉与概率网络重构"
+      ],
+      "data_structure": [
+        "钻孔图像、裂隙边缘点、正弦参数、粗糙度、钻孔坐标"
+      ],
+      "models": [
+        "多特征K-means+Canny与YOLOv8对比",
+        "GMM聚类+混合优化拟合",
+        "二阶JRC",
+        "信息熵网格与信息增益选址"
+      ],
+      "validation_design": [
+        "方案比较、R²、采样比较、三维不确定性与布孔约束"
+      ],
+      "failure_modes": [
+        "摘要报告JRC约28–38，超出常见0–20经验范围，必须核查公式/尺度"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第7页起分析",
+        "第49页附近评价"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "C03",
@@ -178,7 +440,38 @@
       "risk": "人工评分阈值与融合权重主观；不确定性尺度和信息相关长度需敏感性检验",
       "evidence": "PDF第1–4页摘要；第9/26/40页起相关模型；第66页附近评价",
       "source_file": "C题-3-围岩裂隙精准识别与三维模型重构.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "多方法融合识别与层级几何表征",
+      "problem_archetypes": [
+        "多方法融合识别与层级几何表征"
+      ],
+      "data_structure": [
+        "钻孔图像、12维连通域特征、轮廓点、产状与钻孔位置"
+      ],
+      "models": [
+        "六方法投票粗定位+12特征评分精筛",
+        "DBSCAN/水平带合并+RANSAC",
+        "傅里叶+小波+Bootstrap",
+        "概率图与贪心布孔"
+      ],
+      "validation_design": [
+        "精确率/召回率/F1",
+        "两模型比较",
+        "采样数敏感性",
+        "不确定性降幅"
+      ],
+      "failure_modes": [
+        "人工评分阈值与融合权重主观",
+        "不确定性尺度和信息相关长度需敏感性检验"
+      ],
+      "evidence_locations": [
+        "PDF第1–4页摘要",
+        "第9/26/40页起相关模型",
+        "第66页附近评价"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "C04",
@@ -194,7 +487,34 @@
       "risk": "JRC数值范围需核查；概率先验与抽样分布若无依据会制造伪不确定性",
       "evidence": "PDF第1–3页摘要；第9/44/56/76页起四问",
       "source_file": "C题-基于 Frangi 滤波的钻孔裂隙识别与三维概率重构.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "可解释传统视觉与蒙特卡洛概率重构",
+      "problem_archetypes": [
+        "可解释传统视觉与蒙特卡洛概率重构"
+      ],
+      "data_structure": [
+        "钻孔图像、中心线、正弦参数、JRC、裂隙平面法向量"
+      ],
+      "models": [
+        "Frangi+Otsu+形态学+先验掩码",
+        "DBSCAN+两阶段鲁棒拟合",
+        "等弧长JRC",
+        "Monte Carlo连通概率"
+      ],
+      "validation_design": [
+        "四组预处理对比、拟合误差、采样密度稳定性、概率不确定性云图"
+      ],
+      "failure_modes": [
+        "JRC数值范围需核查",
+        "概率先验与抽样分布若无依据会制造伪不确定性"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第9/44/56/76页起四问"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "C05",
@@ -210,7 +530,38 @@
       "risk": "连通概率权重0.45/0.45/0.10仍含主观性；小样本深度训练需防过拟合",
       "evidence": "PDF第1–3页摘要；第10/31/49页附近模型；第60页起评价",
       "source_file": "C题-基于钻孔裂隙智能识别的岩体结构面网络重构与稳定性分区研究.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "深度分割、物理参数化与序贯勘探设计",
+      "problem_archetypes": [
+        "深度分割、物理参数化与序贯勘探设计"
+      ],
+      "data_structure": [
+        "钻孔图像、分割掩码、裂隙参数、JRC、钻孔空间布局"
+      ],
+      "models": [
+        "DeepLabV3+-ResNet50+BCE/Dice",
+        "模型驱动迭代聚类+非线性最小二乘",
+        "基准线法JRC",
+        "多源相似度图与序贯布孔"
+      ],
+      "validation_design": [
+        "mIoU/Precision/Recall",
+        "周期物理一致性",
+        "Barton轮廓验证",
+        "图连通分量"
+      ],
+      "failure_modes": [
+        "连通概率权重0.45/0.45/0.10仍含主观性",
+        "小样本深度训练需防过拟合"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第10/31/49页附近模型",
+        "第60页起评价"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "D01",
@@ -226,7 +577,36 @@
       "risk": "模型数量多且误差会级联；固定数据源权重0.6/0.4需依据；部分验证偏定性",
       "evidence": "PDF第1–3页摘要；第5/15/23页附近三阶段模型",
       "source_file": "D题-低空湍流监测及最优航路规划研究.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "多源时空融合、湍流预测与三维路径规划",
+      "problem_archetypes": [
+        "多源时空融合、湍流预测与三维路径规划"
+      ],
+      "data_structure": [
+        "风廓线雷达、微波辐射计、天气雷达、气象站、NWP与地理信息"
+      ],
+      "models": [
+        "双重插值+TKE/Ri",
+        "RF/XGBoost校准",
+        "VAD+加权融合+简化EnKF",
+        "LSTM/RBF/K-means预测",
+        "三维蚁群规划"
+      ],
+      "validation_design": [
+        "基准场双重验证、R²/残差、TKE与耗散率互证、路径代价比较"
+      ],
+      "failure_modes": [
+        "模型数量多且误差会级联",
+        "固定数据源权重0.6/0.4需依据",
+        "部分验证偏定性"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第5/15/23页附近三阶段模型"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "D02",
@@ -242,7 +622,36 @@
       "risk": "大量自报指标需独立复算；100m/50m网格和经验衰减参数需敏感性分析",
       "evidence": "PDF第1–4页摘要；第7页起分析；第21页后评价；第62页结论",
       "source_file": "D题-基于多源数据融合的低空湍流监测与航路优化.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "物理-统计耦合、变分同化与A*路径优化",
+      "problem_archetypes": [
+        "物理-统计耦合、变分同化与A*路径优化"
+      ],
+      "data_structure": [
+        "雷达/辐射计/地面站/NWP，多时空分辨率气象变量"
+      ],
+      "models": [
+        "Ri+TKE+风切变综合指数",
+        "RF简化模型",
+        "各向异性IDW+变分融合+卡尔曼",
+        "NWP分层标定+集成预测+A*"
+      ],
+      "validation_design": [
+        "RMSE/R²、空间相关系数、湍流识别率、暴露量对比"
+      ],
+      "failure_modes": [
+        "大量自报指标需独立复算",
+        "100m/50m网格和经验衰减参数需敏感性分析"
+      ],
+      "evidence_locations": [
+        "PDF第1–4页摘要",
+        "第7页起分析",
+        "第21页后评价",
+        "第62页结论"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "E01",
@@ -258,7 +667,35 @@
       "risk": "目标域无真值时分类正确率不能直接证实；解释指标阈值和自报数值需复核",
       "evidence": "PDF第1–3页摘要；第7/16页起前两问；第35页附近解释评价",
       "source_file": "E题-高速列车轴承智能故障诊断问题.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "跨域故障诊断与多层可解释性",
+      "problem_archetypes": [
+        "跨域故障诊断与多层可解释性"
+      ],
+      "data_structure": [
+        "源域/目标域振动信号、时频图、手工与深度特征、无标签目标文件"
+      ],
+      "models": [
+        "滑窗+机理特征+ViT",
+        "ResNet-CBAM",
+        "DANN+MMD+伪标签",
+        "SHAP/TCAV与域对齐指标"
+      ],
+      "validation_design": [
+        "多划分模型比较、混淆矩阵/t-SNE、消融、MMD、解释保真度/一致性"
+      ],
+      "failure_modes": [
+        "目标域无真值时分类正确率不能直接证实",
+        "解释指标阈值和自报数值需复核"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第7/16页起前两问",
+        "第35页附近解释评价"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "E02",
@@ -274,7 +711,35 @@
       "risk": "摘要称筛14特征、评价章节又称19特征，存在内部不一致；可解释性偏域距离",
       "evidence": "PDF第1–3页摘要；第12页后特征；第58页附近评价",
       "source_file": "E题-基于迁移学习的高速列车轴承故障诊断研究.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "多域特征工程、分类比较与决策边界对齐",
+      "problem_archetypes": [
+        "多域特征工程、分类比较与决策边界对齐"
+      ],
+      "data_structure": [
+        "轴承源/目标域振动信号、时域/频域/时频/包络谱特征"
+      ],
+      "models": [
+        "窗口与39维候选特征",
+        "相关/PCA/互信息/卡方筛选",
+        "SVM/RF/MLP/VGG/CNN",
+        "CDA/IJDA与MMD/CORAL"
+      ],
+      "validation_design": [
+        "五折交叉验证、多模型多指标、特征分布与迁移距离"
+      ],
+      "failure_modes": [
+        "摘要称筛14特征、评价章节又称19特征，存在内部不一致",
+        "可解释性偏域距离"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第12页后特征",
+        "第58页附近评价"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "E03",
@@ -290,7 +755,37 @@
       "risk": "MixHop用于表格多域特征的图构造依据需说明；SMOTE应只在训练折内执行",
       "evidence": "PDF第1–3页摘要；第5页后流程；第38页解释；第42页评价",
       "source_file": "E题-无监督迁移学习下的轴承故障诊断建模与优化.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "信号增强、多域融合与高阶矩领域适应",
+      "problem_archetypes": [
+        "信号增强、多域融合与高阶矩领域适应"
+      ],
+      "data_structure": [
+        "48/32kHz振动信号、时频与熵特征、源域标签、无标签目标域"
+      ],
+      "models": [
+        "TVFEMD+GWO-MOMEDA+SMOTE",
+        "36特征+MixHop",
+        "ViT/RF/LSTM/CNN比较",
+        "二阶+高阶矩联合对齐",
+        "注意力解释"
+      ],
+      "validation_design": [
+        "8:2划分、性能/稳定性、KDE/域距离、特征可视化、机理一致性"
+      ],
+      "failure_modes": [
+        "MixHop用于表格多域特征的图构造依据需说明",
+        "SMOTE应只在训练折内执行"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第5页后流程",
+        "第38页解释",
+        "第42页评价"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "F01",
@@ -306,7 +801,36 @@
       "risk": "179维相对约10个样本极易过拟合；权重与阈值需专家/游客外部验证",
       "evidence": "PDF第1–4页摘要；第6–8页问题分析；第99页起评价",
       "source_file": "F题-1-江南古典园林的美学特征建模.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "空间图论、多目标游线、景观评价与多模态相似度",
+      "problem_archetypes": [
+        "空间图论、多目标游线、景观评价与多模态相似度"
+      ],
+      "data_structure": [
+        "园林矢量图、景观要素、路径/视域、栅格、专家特征与图像"
+      ],
+      "models": [
+        "Voronoi+空间索引+射线视景",
+        "Markov+Hamming异景",
+        "NSGA-II",
+        "景观生态/空间句法",
+        "179维特征+卷积自编码器"
+      ],
+      "validation_design": [
+        "相关性、学术评价对照、特征稳定性、新园林泛化、多目标收敛"
+      ],
+      "failure_modes": [
+        "179维相对约10个样本极易过拟合",
+        "权重与阈值需专家/游客外部验证"
+      ],
+      "evidence_locations": [
+        "PDF第1–4页摘要",
+        "第6–8页问题分析",
+        "第99页起评价"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "F02",
@@ -322,7 +846,37 @@
       "risk": "权重和等级阈值主观；样本量很小，66.7%泛化证据有限",
       "evidence": "PDF第1–3页摘要；第7/34/49页附近三问；第70页参考文献前",
       "source_file": "F题-2-江南古典园林的美学特征建模.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "视域感知、综合评价与聚类相似度",
+      "problem_archetypes": [
+        "视域感知、综合评价与聚类相似度"
+      ],
+      "data_structure": [
+        "园林道路/障碍、景观类型、空间开合指标、20维园林特征"
+      ],
+      "models": [
+        "中轴线+Minkowski膨胀+射线",
+        "Shannon/Jaccard",
+        "改进遗传",
+        "K-means",
+        "模糊评价",
+        "多相似度融合+Ward聚类"
+      ],
+      "validation_design": [
+        "排序对照、阈值标准、变异系数、3个新园林泛化"
+      ],
+      "failure_modes": [
+        "权重和等级阈值主观",
+        "样本量很小，66.7%泛化证据有限"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第7/34/49页附近三问",
+        "第70页参考文献前"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "F03",
@@ -338,7 +892,36 @@
       "risk": "十个主体不足以支持复杂深度模型/5折稳定结论；部分扩展模型可能停留在概念层",
       "evidence": "PDF第1–3页摘要；第17/20/25页后各问；第83页起评价",
       "source_file": "F题-多模态数据融合视角下江南古典园林美学特征量化建模研究.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2025,
+      "variant_label": "多目标路径、组合赋权与深度度量学习",
+      "problem_archetypes": [
+        "多目标路径、组合赋权与深度度量学习"
+      ],
+      "data_structure": [
+        "园林图结构、元素坐标/面积、视域、图像与文本语义特征"
+      ],
+      "models": [
+        "赋权无向图+IGA",
+        "KDE/最邻近/视域多边形",
+        "AHP-熵权",
+        "MKL+对比学习",
+        "NeRF/时空图卷积扩展"
+      ],
+      "validation_design": [
+        "敏感性、优越性对比、相关/R²/MSE/MAE、5折交叉验证、t-SNE"
+      ],
+      "failure_modes": [
+        "十个主体不足以支持复杂深度模型/5折稳定结论",
+        "部分扩展模型可能停留在概念层"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第17/20/25页后各问",
+        "第83页起评价"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "A05",
@@ -354,7 +937,38 @@
       "risk": "强化学习奖励和安全修正影响结论；推力误差偏高；鲁棒场景与超参数需复算",
       "evidence": "PDF第1–3页摘要；问题一至四模型与仿真章节",
       "source_file": "A24102940057.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "风电场疲劳评估、强化学习与鲁棒调度",
+      "problem_archetypes": [
+        "风电场疲劳评估、强化学习与鲁棒调度"
+      ],
+      "data_structure": [
+        "机组SCADA/载荷、风速、有功功率、扭矩、推力、调度指令与延迟噪声"
+      ],
+      "models": [
+        "实时雨流计数+非线性累积损伤",
+        "物理约束最小二乘",
+        "DDPG安全层分配",
+        "CNN-LSTM预测+鲁棒优化"
+      ],
+      "validation_design": [
+        "与离线雨流/均分策略对比",
+        "载荷拟合误差",
+        "疲劳与载荷方差",
+        "噪声/延迟场景"
+      ],
+      "failure_modes": [
+        "强化学习奖励和安全修正影响结论",
+        "推力误差偏高",
+        "鲁棒场景与超参数需复算"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "问题一至四模型与仿真章节"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "A06",
@@ -370,7 +984,37 @@
       "risk": "摘要缺少统一量化指标；NSGA-II实时计算预算和时序外推需核查",
       "evidence": "PDF第1–3页摘要；各问题模型建立、求解与评价章节",
       "source_file": "A24103350007.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "滑窗疲劳评估、载荷代理与多目标优化",
+      "problem_archetypes": [
+        "滑窗疲劳评估、载荷代理与多目标优化"
+      ],
+      "data_structure": [
+        "功率、风速、桨距角、转矩/推力参考、调度指令"
+      ],
+      "models": [
+        "TW-Rainflow-Goodman-Miner",
+        "物理模型与BiLSTM",
+        "NSGA-II",
+        "SVD去噪+相位差延迟检测+样条恢复"
+      ],
+      "validation_design": [
+        "基线疲劳算法比较",
+        "70/30时序划分",
+        "Pareto方案",
+        "原始/处理/理想信号比较"
+      ],
+      "failure_modes": [
+        "摘要缺少统一量化指标",
+        "NSGA-II实时计算预算和时序外推需核查"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "各问题模型建立、求解与评价章节"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "A07",
@@ -386,7 +1030,36 @@
       "risk": "聚类分区、权重更新和鲁棒不确定集定义较敏感",
       "evidence": "PDF第1–3页摘要；问题一至四模型章节",
       "source_file": "A24103530117.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "在线疲劳、物理信息回归与鲁棒MPC",
+      "problem_archetypes": [
+        "在线疲劳、物理信息回归与鲁棒MPC"
+      ],
+      "data_structure": [
+        "机组载荷、风速、功率、桨距角、通信噪声与延时"
+      ],
+      "models": [
+        "自适应三阶段滑窗雨流",
+        "物理信息非线性回归",
+        "风区聚类+自适应权重MPC",
+        "Kalman/时延补偿+鲁棒区域MPC"
+      ],
+      "validation_design": [
+        "疲劳精度/耗时",
+        "拟合优度",
+        "滚动优化对比",
+        "扰动敏感性"
+      ],
+      "failure_modes": [
+        "聚类分区、权重更新和鲁棒不确定集定义较敏感"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "问题一至四模型章节"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "A08",
@@ -402,7 +1075,37 @@
       "risk": "多方法并列但选择准则不够统一；遗传算法最优性与时间预算需核验",
       "evidence": "PDF第1–3页摘要；问题一至四模型与结果章节",
       "source_file": "A24107120016.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "载荷估计、遗传优化与信号补偿",
+      "problem_archetypes": [
+        "载荷估计、遗传优化与信号补偿"
+      ],
+      "data_structure": [
+        "SCADA时序、载荷、功率指令、风速及延迟信号"
+      ],
+      "models": [
+        "滑窗雨流+Goodman+Miner",
+        "气动/能量模型",
+        "约束遗传算法",
+        "滑动平均/SG/Kalman+ARIMA/LSTM"
+      ],
+      "validation_design": [
+        "与标准雨流比较",
+        "SSE",
+        "五类分配方案",
+        "多种滤波和预测器比较"
+      ],
+      "failure_modes": [
+        "多方法并列但选择准则不够统一",
+        "遗传算法最优性与时间预算需核验"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "问题一至四模型与结果章节"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "B04",
@@ -418,7 +1121,33 @@
       "risk": "“准确率”对连续吞吐量的定义需核查；插值样本可能造成验证泄漏",
       "evidence": "PDF第1–3页摘要；三问模型及评价章节",
       "source_file": "B24102860287.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "特征筛选、组合标签分类与深度吞吐预测",
+      "problem_archetypes": [
+        "特征筛选、组合标签分类与深度吞吐预测"
+      ],
+      "data_structure": [
+        "2AP/3AP组网日志、RSSI、发送机会、MCS、NSS、吞吐量"
+      ],
+      "models": [
+        "缺失/异常处理+随机森林",
+        "Akima插值+残差CNN预测MCS/NSS",
+        "CNN吞吐回归"
+      ],
+      "validation_design": [
+        "分场景验证、特征重要性、分类准确率、理论/仿真误差、CDF"
+      ],
+      "failure_modes": [
+        "“准确率”对连续吞吐量的定义需核查",
+        "插值样本可能造成验证泄漏"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "三问模型及评价章节"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "B05",
@@ -434,7 +1163,33 @@
       "risk": "两阶段误差会累积；目标编码、过采样须在训练折内部执行",
       "evidence": "PDF第1–3页摘要；问题一至三模型与验证章节",
       "source_file": "B24103530099.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "网络状态分类与两阶段吞吐预测",
+      "problem_archetypes": [
+        "网络状态分类与两阶段吞吐预测"
+      ],
+      "data_structure": [
+        "组网日志、同步/异步状态、RSSI/SINR、MCS、NSS、帧统计与吞吐量"
+      ],
+      "models": [
+        "目标编码+DBSCAN+RF/GBDT",
+        "组合标签+过采样+BP/CNN",
+        "随机森林中间变量+深度残差网络"
+      ],
+      "validation_design": [
+        "聚类状态解释、模型对比、分类指标、两阶段误差"
+      ],
+      "failure_modes": [
+        "两阶段误差会累积",
+        "目标编码、过采样须在训练折内部执行"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "问题一至三模型与验证章节"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "B06",
@@ -450,7 +1205,33 @@
       "risk": "部分两问指标数值重复，可能存在复制或口径混用；类别不平衡导致F1明显偏低",
       "evidence": "PDF第1–3页摘要；模型比较表与结论章节",
       "source_file": "B24104760033.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "多模型基线比较与分层预测",
+      "problem_archetypes": [
+        "多模型基线比较与分层预测"
+      ],
+      "data_structure": [
+        "2AP/3AP组网特征、发送机会、MCS、NSS、吞吐量"
+      ],
+      "models": [
+        "八类回归模型",
+        "Logistic/SVM/KNN/RF多分类",
+        "多回归器吞吐预测"
+      ],
+      "validation_design": [
+        "MSE、MAE、MAPE、准确率、F1与分场景比较"
+      ],
+      "failure_modes": [
+        "部分两问指标数值重复，可能存在复制或口径混用",
+        "类别不平衡导致F1明显偏低"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "模型比较表与结论章节"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "B07",
@@ -466,7 +1247,34 @@
       "risk": "缺少清晰独立测试指标；相关性筛选可能漏掉非线性特征",
       "evidence": "PDF第1–3页摘要；三问模型及结果章节",
       "source_file": "B24116640167.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "相关性筛选、树模型与时序网络",
+      "problem_archetypes": [
+        "相关性筛选、树模型与时序网络"
+      ],
+      "data_structure": [
+        "RSSI、干扰、帧统计、发送机会、MCS/NSS、吞吐时序"
+      ],
+      "models": [
+        "Pearson筛选+RF/LSTM发送机会",
+        "RF/多元回归/LSTM物理速率",
+        "RF/SVM/LSTM吞吐预测"
+      ],
+      "validation_design": [
+        "多模型误差与附件输出",
+        "相关性和预测曲线"
+      ],
+      "failure_modes": [
+        "缺少清晰独立测试指标",
+        "相关性筛选可能漏掉非线性特征"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "三问模型及结果章节"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "C06",
@@ -482,7 +1290,38 @@
       "risk": "高R²与较高MAPE并存需检查长尾；离散工况拆成12模型可能削弱泛化",
       "evidence": "PDF第1–3页摘要；问题一至五模型章节",
       "source_file": "C24102890089.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "波形分类、物理方程修正与混合整数多目标优化",
+      "problem_archetypes": [
+        "波形分类、物理方程修正与混合整数多目标优化"
+      ],
+      "data_structure": [
+        "温度、频率、励磁波形、磁通密度序列、材料与磁芯损耗"
+      ],
+      "models": [
+        "FFT特征+MLP/RF集成",
+        "Solow温度修正Steinmetz",
+        "ANOVA",
+        "12类工况模型",
+        "PSO混合整数优化"
+      ],
+      "validation_design": [
+        "混淆矩阵/交叉验证",
+        "残差、MAPE、R²",
+        "因素显著性",
+        "多目标结果"
+      ],
+      "failure_modes": [
+        "高R²与较高MAPE并存需检查长尾",
+        "离散工况拆成12模型可能削弱泛化"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "问题一至五模型章节"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "C07",
@@ -498,7 +1337,39 @@
       "risk": "随机抽样和模型堆叠须防数据泄漏；优化依赖代理模型外推可靠性",
       "evidence": "PDF第1–3页摘要；第五至九章",
       "source_file": "C24103860012.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "物理先验堆叠与智能多目标优化",
+      "problem_archetypes": [
+        "物理先验堆叠与智能多目标优化"
+      ],
+      "data_structure": [
+        "磁通密度波形、温度、频率、材料、励磁类型与损耗"
+      ],
+      "models": [
+        "统计/几何特征投票分类",
+        "六类温度修正",
+        "ANOVA",
+        "IGSE先验+CatBoost堆叠",
+        "GA/PSO/GWO"
+      ],
+      "validation_design": [
+        "分类投票",
+        "R²/误差",
+        "分层抽样ANOVA",
+        "九模型比较",
+        "48种离散组合稳健性"
+      ],
+      "failure_modes": [
+        "随机抽样和模型堆叠须防数据泄漏",
+        "优化依赖代理模型外推可靠性"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第五至九章"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "C08",
@@ -514,7 +1385,38 @@
       "risk": "100%分类可能来自过易特征或划分泄漏；时序网络用于样本级波形需核查划分单位",
       "evidence": "PDF第1–3页摘要；第四至八章",
       "source_file": "C24104220149.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "多因素统计、BiLSTM预测与Pareto优化",
+      "problem_archetypes": [
+        "多因素统计、BiLSTM预测与Pareto优化"
+      ],
+      "data_structure": [
+        "温度、频率、材料、波形、磁通密度序列及损耗"
+      ],
+      "models": [
+        "PCA+SVM/树/集成分类",
+        "动态PSO三次温度修正",
+        "差异分析",
+        "特征加权BiLSTM",
+        "NSGA-II/MOPSO"
+      ],
+      "validation_design": [
+        "分类准确率",
+        "多寻优器比较",
+        "R²与加噪测试",
+        "Pareto前沿"
+      ],
+      "failure_modes": [
+        "100%分类可能来自过易特征或划分泄漏",
+        "时序网络用于样本级波形需核查划分单位"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第四至八章"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "C09",
@@ -530,7 +1432,38 @@
       "risk": "自定义模型复现成本高；摘要中的最优解符号/量纲有混乱，需回查公式",
       "evidence": "PDF第1–3页摘要；问题一至五模型及评价章节",
       "source_file": "C24106130096.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "多域特征、自表示物理模型与多目标优化",
+      "problem_archetypes": [
+        "多域特征、自表示物理模型与多目标优化"
+      ],
+      "data_structure": [
+        "时域/时频域磁通特征、温度、材料、波形、频率、损耗"
+      ],
+      "models": [
+        "HHT+双谱多域SVM",
+        "LSEDSR温度自表示",
+        "多因素ANOVA/非参数检验",
+        "WMTLMSEDSR",
+        "GA/PSO"
+      ],
+      "validation_design": [
+        "无噪/加噪分类",
+        "相对误差递进",
+        "显著性检验",
+        "模型族比较"
+      ],
+      "failure_modes": [
+        "自定义模型复现成本高",
+        "摘要中的最优解符号/量纲有混乱，需回查公式"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "问题一至五模型及评价章节"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "D03",
@@ -546,7 +1479,38 @@
       "risk": "以年均降水解释极端暴雨可能尺度不匹配；未来预测缺少外部情景验证",
       "evidence": "PDF第1–3页摘要；问题一至四模型章节",
       "source_file": "D24103850092.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "地理时空分析、脆弱性预测与土地利用评价",
+      "problem_archetypes": [
+        "地理时空分析、脆弱性预测与土地利用评价"
+      ],
+      "data_structure": [
+        "1990–2020降水、LULC、地形、气温、经纬度及人口经济数据"
+      ],
+      "models": [
+        "描述统计+GIS",
+        "决策树交互",
+        "XGBoost临界条件",
+        "熵权脆弱性+ARIMA/SVR",
+        "标准差椭圆"
+      ],
+      "validation_design": [
+        "空间分布与时间趋势",
+        "临界阈值",
+        "未来情景预测",
+        "地图可视化"
+      ],
+      "failure_modes": [
+        "以年均降水解释极端暴雨可能尺度不匹配",
+        "未来预测缺少外部情景验证"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "问题一至四模型章节"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "D04",
@@ -562,7 +1526,33 @@
       "risk": "AHP主观权重和未来外推不确定性需敏感性分析",
       "evidence": "PDF第1–3页摘要；四问模型与结论章节",
       "source_file": "D24104250063.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "趋势检验、机器学习与H-E-V脆弱性评价",
+      "problem_archetypes": [
+        "趋势检验、机器学习与H-E-V脆弱性评价"
+      ],
+      "data_structure": [
+        "降水、LULC、DEM径流、气温、地理与人文指标"
+      ],
+      "models": [
+        "Mann-Kendall+Sen斜率",
+        "多元回归+RF/SVM/XGB/AdaBoost",
+        "H-E-V+AHP",
+        "土地变化率预测"
+      ],
+      "validation_design": [
+        "显著性、交叉验证、网格搜索、重点区域讨论"
+      ],
+      "failure_modes": [
+        "AHP主观权重和未来外推不确定性需敏感性分析"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "四问模型与结论章节"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "D05",
@@ -578,7 +1568,36 @@
       "risk": "随机欠采样损失大量无雨样本；空间随机划分可能高估泛化，0.999指标需重点复核",
       "evidence": "PDF第1–3页摘要；问题一至四模型及评价章节",
       "source_file": "D24104460003.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "大规模栅格融合、非平衡分类与空间聚类",
+      "problem_archetypes": [
+        "大规模栅格融合、非平衡分类与空间聚类"
+      ],
+      "data_structure": [
+        "约百万级降水/气温/地形/LULC栅格、人口与GDP"
+      ],
+      "models": [
+        "时间序列分解",
+        "重采样融合+欠采样",
+        "决策树/XGBoost",
+        "GMM空间聚类",
+        "SVM/RF",
+        "假设检验"
+      ],
+      "validation_design": [
+        "ROC、混淆矩阵、准确率/AUC、区域差异显著性"
+      ],
+      "failure_modes": [
+        "随机欠采样损失大量无雨样本",
+        "空间随机划分可能高估泛化，0.999指标需重点复核"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "问题一至四模型及评价章节"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "D06",
@@ -594,7 +1613,36 @@
       "risk": "摘要部分区域结论表述疑似方向冲突；多模型结论整合规则需核查",
       "evidence": "PDF第1–3页摘要；问题一至四模型及结论章节",
       "source_file": "D24106570027.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "空间统计、时序预测与多情景脆弱性集成",
+      "problem_archetypes": [
+        "空间统计、时序预测与多情景脆弱性集成"
+      ],
+      "data_structure": [
+        "降水、NPP、LULC、地形气候和区域社会指标"
+      ],
+      "models": [
+        "Kriging+Moran's I+MK/Theil-Sen+ARIMA/LSTM",
+        "多模型地形气候分析",
+        "动态脆弱性+XGBoost/OLS/LSTM",
+        "转移矩阵"
+      ],
+      "validation_design": [
+        "95%显著性、损失与拟合",
+        "区域结果对照",
+        "多情景解释"
+      ],
+      "failure_modes": [
+        "摘要部分区域结论表述疑似方向冲突",
+        "多模型结论整合规则需核查"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "问题一至四模型及结论章节"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "E04",
@@ -610,7 +1658,35 @@
       "risk": "目标检测误差会传播；阈值和速度提升因子主观；缺少统一效益指标",
       "evidence": "PDF第1–3页摘要；第10/39/50/57页起四问",
       "source_file": "E24101480006.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "视频交通参数提取、拥堵预测与监控布点",
+      "problem_archetypes": [
+        "视频交通参数提取、拥堵预测与监控布点"
+      ],
+      "data_structure": [
+        "四点视频、车辆轨迹、流量/速度/密度、道路几何"
+      ],
+      "models": [
+        "YOLOv5+DeepSORT",
+        "LSTM密度+Greenberg速度",
+        "阈值决策",
+        "针孔模型+二分布点"
+      ],
+      "validation_design": [
+        "多预测器比较、视频事件验证、阈值与布点实验"
+      ],
+      "failure_modes": [
+        "目标检测误差会传播",
+        "阈值和速度提升因子主观",
+        "缺少统一效益指标"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第10/39/50/57页起四问"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "E05",
@@ -626,7 +1702,37 @@
       "risk": "效益来自模型仿真而非真实干预；阈值跨路段迁移性有限",
       "evidence": "PDF第1–3页摘要；问题一至四模型与结果章节",
       "source_file": "E24102870008.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "时空预警、概率决策与多目标监控布局",
+      "problem_archetypes": [
+        "时空预警、概率决策与多目标监控布局"
+      ],
+      "data_structure": [
+        "四点视频、交通流时序、道路容量、监控位置与成本"
+      ],
+      "models": [
+        "OpenCV+YOLOv8",
+        "时空集成+窗口梯度预警",
+        "中断概率+MLE阈值",
+        "时空安全决策",
+        "Kriging元模型+GA"
+      ],
+      "validation_design": [
+        "预警有效性",
+        "五项交通安全效率指标",
+        "布局前后对比"
+      ],
+      "failure_modes": [
+        "效益来自模型仿真而非真实干预",
+        "阈值跨路段迁移性有限"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "问题一至四模型与结果章节"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "E06",
@@ -642,7 +1748,37 @@
       "risk": "区间权重0.4/0.6与0.8阈值需敏感性；真实道路因果效果未验证",
       "evidence": "PDF第1–3页摘要；问题一至四模型章节",
       "source_file": "E24102910005.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "目标检测、十分钟预警与区间占用率决策",
+      "problem_archetypes": [
+        "目标检测、十分钟预警与区间占用率决策"
+      ],
+      "data_structure": [
+        "四点视频、车辆轨迹、流量/速度/密度、区间距离"
+      ],
+      "models": [
+        "YOLOv10m+ByteTrack",
+        "ARIMA/回归/AdaBoost",
+        "间断交通流",
+        "区间占用率",
+        "上下游增设摄像头"
+      ],
+      "validation_design": [
+        "测试集MAE/RMSE/R²",
+        "实际拥堵持续时间",
+        "启用前后占用率"
+      ],
+      "failure_modes": [
+        "区间权重0.4/0.6与0.8阈值需敏感性",
+        "真实道路因果效果未验证"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "问题一至四模型章节"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "E07",
@@ -658,7 +1794,35 @@
       "risk": "改进模块多，消融是否充分需核查；布点方案偏定性",
       "evidence": "PDF第1–3页摘要；问题一至四模型及评价章节",
       "source_file": "E24106980067.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "增强目标检测、深度时序预测与激波控制",
+      "problem_archetypes": [
+        "增强目标检测、深度时序预测与激波控制"
+      ],
+      "data_structure": [
+        "视频交通流、速度/流量/密度、拥堵指数、道路节点"
+      ],
+      "models": [
+        "SE-YOLOv5+DeepSORT",
+        "TCNAt-BiGRU",
+        "Sigmoid标准拥堵指数+拥堵波",
+        "Greenshields",
+        "混合监控布局"
+      ],
+      "validation_design": [
+        "多误差指标、跨视频验证、提前预警、交通流模型量化"
+      ],
+      "failure_modes": [
+        "改进模块多，消融是否充分需核查",
+        "布点方案偏定性"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "问题一至四模型及评价章节"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "F04",
@@ -674,7 +1838,36 @@
       "risk": "10 s短观测下轮廓相关性有限；多项极小时延的符号、基准和单位必须逐项复核",
       "evidence": "PDF第1–3页摘要；第5–8章四问模型与求解",
       "source_file": "F24102870082.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "航天轨道、时空转换与随机光子序列仿真",
+      "problem_archetypes": [
+        "航天轨道、时空转换与随机光子序列仿真"
+      ],
+      "data_structure": [
+        "XPNAV-1轨道六根数、Crab脉冲星星历、天体位置、光子流量与标准脉冲轮廓"
+      ],
+      "models": [
+        "开普勒二体轨道+ECI/GCRS转换",
+        "SSB几何传播时延",
+        "TT/TDB与Roemer/Shapiro等精确时延",
+        "非齐次泊松+历元折叠+高斯拟合"
+      ],
+      "validation_design": [
+        "轨道状态一致性",
+        "时延量级与误差敏感性",
+        "标准脉冲轮廓Pearson相关"
+      ],
+      "failure_modes": [
+        "10 s短观测下轮廓相关性有限",
+        "多项极小时延的符号、基准和单位必须逐项复核"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第5–8章四问模型与求解"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "F05",
@@ -690,7 +1883,36 @@
       "risk": "高拟合指标可能受标准轮廓直接驱动；采样器比较应保证相同随机种子、光子数和观测时间",
       "evidence": "PDF第1–3页摘要；第11/17/20/25页起四问",
       "source_file": "F24103360083.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "轨道动力学、相对论时延与多采样器仿真",
+      "problem_archetypes": [
+        "轨道动力学、相对论时延与多采样器仿真"
+      ],
+      "data_structure": [
+        "轨道根数、Crab脉冲星方向/距离、自行参数、太阳系天体常量及光子事件"
+      ],
+      "models": [
+        "PQW到GCRS旋转",
+        "真空路径差",
+        "点积几何时延+Shapiro/红移/动钟",
+        "齐次/非齐次泊松+蒙特卡洛削减/拒绝采样/Ogata thinning"
+      ],
+      "validation_design": [
+        "轨道半径/角动量/能量守恒",
+        "子时延量级",
+        "相关系数、MSE、RMSE、R²"
+      ],
+      "failure_modes": [
+        "高拟合指标可能受标准轮廓直接驱动",
+        "采样器比较应保证相同随机种子、光子数和观测时间"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第11/17/20/25页起四问"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "F06",
@@ -706,7 +1928,36 @@
       "risk": "PDF目录文本与物理页存在偏差；时延正负号取决于定义，跨论文比较前需统一约定",
       "evidence": "PDF第1–3页摘要；第8/21/27/33页起四问",
       "source_file": "F24104860143.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "精密坐标时间转换、相对论修正与脉冲轮廓检验",
+      "problem_archetypes": [
+        "精密坐标时间转换、相对论修正与脉冲轮廓检验"
+      ],
+      "data_structure": [
+        "开普勒根数、TT/TDB时间、GCRS/太阳质心坐标、Crab自转与光子流量"
+      ],
+      "models": [
+        "二体轨道与反算检验",
+        "时间/坐标转换+自行修正",
+        "几何/Shapiro/红移/动钟时延",
+        "非齐次泊松+逆变换采样+历元折叠"
+      ],
+      "validation_design": [
+        "反算轨道根数和整周期轨道",
+        "各时延分量",
+        "Pearson相关与卡方拟合优度"
+      ],
+      "failure_modes": [
+        "PDF目录文本与物理页存在偏差",
+        "时延正负号取决于定义，跨论文比较前需统一约定"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第8/21/27/33页起四问"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "F07",
@@ -722,7 +1973,37 @@
       "risk": "修正项多且量级悬殊，容易发生重复计入；十大天体模型和时间尺度因子的实现需高精度历表复核",
       "evidence": "PDF第1–3页摘要；第5.2–5.5节四问模型与求解",
       "source_file": "F24910020063.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "year": 2024,
+      "variant_label": "TCB时间尺度、精细相对论时延与动态光子仿真",
+      "problem_archetypes": [
+        "TCB时间尺度、精细相对论时延与动态光子仿真"
+      ],
+      "data_structure": [
+        "XPNAV-1轨道、Crab星历、极移/章动、太阳系十大天体、频率导数与多普勒效应"
+      ],
+      "models": [
+        "轨道动力学+GCRS/BCRS转换",
+        "Roemer时延",
+        "十大天体Shapiro+红移时间尺度因子+自行",
+        "动态强度函数+反变换非齐次泊松+历元折叠"
+      ],
+      "validation_design": [
+        "能量/动量守恒",
+        "赤经赤纬遍历",
+        "误差量级",
+        "步长与光子生成分布改进"
+      ],
+      "failure_modes": [
+        "修正项多且量级悬殊，容易发生重复计入",
+        "十大天体模型和时间尺度因子的实现需高精度历表复核"
+      ],
+      "evidence_locations": [
+        "PDF第1–3页摘要",
+        "第5.2–5.5节四问模型与求解"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "A16-01",
@@ -739,7 +2020,39 @@
       "risk": "S-1进出目标群时间被固定、S-2覆盖为贪心近似；忽略FY-1/FY-2速度差和跨基地到达时差；远程雷达方案主要为分类讨论，未做不确定性仿真",
       "evidence": "Markdown摘要；4.1–4.2节侦察模型与算法对比；5–7节通信/攻击/远程雷达；8–9节复杂度与优缺点",
       "source_file": "A10248058.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "problem_archetypes": [
+        "多无人机协同侦察、通信、攻击与应急调度"
+      ],
+      "data_structure": [
+        "7个基地、10个目标群/68个目标点、雷达探测区、FY-1/2/3无人机、S-1/2/3载荷及D-1/2炸弹参数"
+      ],
+      "models": [
+        "S-1开放TSP用2-opt并与蚁群对比",
+        "S-2用贪心覆盖压缩目标",
+        "按时差约束联合调度",
+        "通信采用跟随式中继",
+        "攻击采用最近邻与协同覆盖",
+        "远程雷达采用巡检待命策略"
+      ],
+      "validation_design": [
+        "2-opt与ACO比较路径和运行时间",
+        "逐架核查续航、同目标双载荷4小时内同步及通信可行性",
+        "给出复杂度和作者自述局限"
+      ],
+      "failure_modes": [
+        "S-1进出目标群时间被固定、S-2覆盖为贪心近似",
+        "忽略FY-1/FY-2速度差和跨基地到达时差",
+        "远程雷达方案主要为分类讨论，未做不确定性仿真"
+      ],
+      "evidence_locations": [
+        "Markdown摘要",
+        "4.1–4.2节侦察模型与算法对比",
+        "5–7节通信/攻击/远程雷达",
+        "8–9节复杂度与优缺点"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "A16-02",
@@ -756,7 +2069,41 @@
       "risk": "聚类阈值与遗传算法参数缺少敏感性分析；所谓仿真验证没有独立基线；通信拓扑时延/失稳会破坏竞标分配；目标点正上方转弯低估真实航程",
       "evidence": "Markdown摘要；4.2.3节模糊聚类；4.3–4.4节多目标模型与遗传算法；5–7节通信/攻击；8.2–8.4节评价与改进",
       "source_file": "A10252152.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "problem_archetypes": [
+        "空间聚类、带转弯代价的多目标路径与多机任务分配"
+      ],
+      "data_structure": [
+        "目标坐标与相似关系、基地/无人机资源、传感器覆盖、转弯半径、通信距离、雷达与炸弹约束"
+      ],
+      "models": [
+        "模糊聚类划分目标群并用重心法细分",
+        "构造含航程和转弯时间的多目标路径模型",
+        "分区域极大极小多目标遗传算法求解",
+        "通信增加50km覆盖约束",
+        "攻击采用竞标算法",
+        "枚举远程雷达6种开启次序"
+      ],
+      "validation_design": [
+        "检查覆盖、续航、起降间隔和双载荷同步约束",
+        "用仿真路线与任务清单验证可行性",
+        "论文仅定性讨论算法收敛和通信时延，缺少统一基线与敏感性实验"
+      ],
+      "failure_modes": [
+        "聚类阈值与遗传算法参数缺少敏感性分析",
+        "所谓仿真验证没有独立基线",
+        "通信拓扑时延/失稳会破坏竞标分配",
+        "目标点正上方转弯低估真实航程"
+      ],
+      "evidence_locations": [
+        "Markdown摘要",
+        "4.2.3节模糊聚类",
+        "4.3–4.4节多目标模型与遗传算法",
+        "5–7节通信/攻击",
+        "8.2–8.4节评价与改进"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "A16-03",
@@ -773,7 +2120,39 @@
       "risk": "所谓全局模型仍由启发式遗传算法求解，不能证明全局最优；多岛GA只保留最优父代可能过早收敛；折线航迹忽略转弯半径，通信与雷达启动机制理想化",
       "evidence": "Markdown摘要；4.2–4.3节分层/全局规划及表3–4；5节通信；6–7节三层/四层攻击；8节复杂度与算法比较",
       "source_file": "A10287004.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "problem_archetypes": [
+        "大规模多起点开放MTSP、连续航迹与威胁分级资源协同"
+      ],
+      "data_structure": [
+        "目标群/目标点层级结构、传感器几何约束、无人机航迹与时序、雷达威胁等级、炸弹和基地资源"
+      ],
+      "models": [
+        "三层侦察规划（群间、群内、传感器航迹）抽象为MDO-MTSP",
+        "无性繁殖多岛遗传算法求解并与全局规划对照",
+        "通信优化起飞间隔",
+        "攻击分解为背包、连续几何航迹和资源矩阵",
+        "远程雷达扩展为四层规划"
+      ],
+      "validation_design": [
+        "将分层规划与同算法的68点全局规划比较结果、迭代数和耗时",
+        "连续子问题比较遗传算法与非线性内点法",
+        "核查通信距离和7小时任务约束"
+      ],
+      "failure_modes": [
+        "所谓全局模型仍由启发式遗传算法求解，不能证明全局最优",
+        "多岛GA只保留最优父代可能过早收敛",
+        "折线航迹忽略转弯半径，通信与雷达启动机制理想化"
+      ],
+      "evidence_locations": [
+        "Markdown摘要",
+        "4.2–4.3节分层/全局规划及表3–4",
+        "5节通信",
+        "6–7节三层/四层攻击",
+        "8节复杂度与算法比较"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "A16-04",
@@ -790,7 +2169,41 @@
       "risk": "2-opt与PSO不保证全局最优；蒙特卡罗未报告样本规模收敛；PSO需多次运行却未给稳定性统计；雷达位置从防御方最优推导依赖强假设",
       "evidence": "Markdown摘要；5.1节2-opt与转弯误差；5.2节蒙特卡罗；5.3–5.4节线性规划/PSO；5.5–6节复杂度和评价",
       "source_file": "A10287022.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "problem_archetypes": [
+        "分层路径优化、随机可行域搜索和攻防资源规划"
+      ],
+      "data_structure": [
+        "目标群中心及68点坐标、通信覆盖、无人机/炸弹资源、普通与远程雷达探测范围"
+      ],
+      "models": [
+        "先中心后目标点的2-opt侦察路线",
+        "蒙特卡罗搜索中继可同时服务多条航线的公共区域",
+        "几何分析加线性规划完成打击资源分配",
+        "粒子群从防御方视角搜索最不利远程雷达位置",
+        "再分步规划攻击"
+      ],
+      "validation_design": [
+        "用单目标转弯几何计算说明忽略转弯仅产生约0.24%差异",
+        "比较不同无人机架次数",
+        "检查通信覆盖、巡航和7小时约束",
+        "论文承认蒙特卡罗样本量和PSO随机性影响结果"
+      ],
+      "failure_modes": [
+        "2-opt与PSO不保证全局最优",
+        "蒙特卡罗未报告样本规模收敛",
+        "PSO需多次运行却未给稳定性统计",
+        "雷达位置从防御方最优推导依赖强假设"
+      ],
+      "evidence_locations": [
+        "Markdown摘要",
+        "5.1节2-opt与转弯误差",
+        "5.2节蒙特卡罗",
+        "5.3–5.4节线性规划/PSO",
+        "5.5–6节复杂度和评价"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "A16-05",
@@ -807,7 +2220,41 @@
       "risk": "改进改良圈对初值和迭代阈值敏感且不保证全局最优；MST不是TSP可行回路，不能单独证明路线正确；大权常数需做数值敏感性；通信动态规划包含较强路线重规划假设",
       "evidence": "Markdown摘要；5.1–5.4节虚拟点、改良圈和MST；5.5节结果验证；6–8节通信/攻击；9–11节复杂度、优缺点和结论",
       "source_file": "A10294006.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "problem_archetypes": [
+        "虚拟节点图变换、近似TSP、动态通信规划与阶段式攻击"
+      ],
+      "data_structure": [
+        "68目标点和雷达边界、虚拟点/距离矩阵、无人机续航与传感器、通信航迹、炸弹和远程雷达场景"
+      ],
+      "models": [
+        "在雷达区外增加零代价虚拟点，将多条开路线MTSP变成TSP",
+        "以改进改良圈算法迭代优化，并用Prim最小生成树作交叉检查",
+        "通信采用动态规划",
+        "攻击按雷达—剩余目标分步规划",
+        "远程雷达采用最不利部署下的分步优化"
+      ],
+      "validation_design": [
+        "比较改良圈与多次迭代改良圈的目标值/耗时",
+        "用生成树方案作交叉检查",
+        "逐项核查续航、起降间隔和7小时约束",
+        "作者明确算法为近似解且复杂度O(n^5)"
+      ],
+      "failure_modes": [
+        "改进改良圈对初值和迭代阈值敏感且不保证全局最优",
+        "MST不是TSP可行回路，不能单独证明路线正确",
+        "大权常数需做数值敏感性",
+        "通信动态规划包含较强路线重规划假设"
+      ],
+      "evidence_locations": [
+        "Markdown摘要",
+        "5.1–5.4节虚拟点、改良圈和MST",
+        "5.5节结果验证",
+        "6–8节通信/攻击",
+        "9–11节复杂度、优缺点和结论"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "B16-01",
@@ -824,7 +2271,38 @@
       "risk": "假设SNP相互独立且基因—疾病为简单线性关系；二元疾病用线性回归不理想；先筛选后CCA若复用全数据会放大显著性；未控制种群分层和其他协变量",
       "evidence": "Markdown摘要；5.2–5.3节卡方与校正；6.2节多元回归；7.2–7.4节CCA；8节总结与局限",
       "source_file": "B10013022.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "problem_archetypes": [
+        "SNP编码、单位点/基因关联和多表型分析"
+      ],
+      "data_structure": [
+        "1000个样本的9445个SNP、疾病A二元标签、300个基因的SNP集合及10个相关性状"
+      ],
+      "models": [
+        "AA/AB/BB编码0/1/2",
+        "单SNP卡方检验加Bonferroni校正",
+        "基因内SNP多元线性回归",
+        "先筛候选SNP再对SNP与10性状做CCA"
+      ],
+      "validation_design": [
+        "各问用显著性检验",
+        "结论章明示讨论GWAS对样本量、种群差异和连锁不平衡的局限，但没有独立数据或样本外验证"
+      ],
+      "failure_modes": [
+        "假设SNP相互独立且基因—疾病为简单线性关系",
+        "二元疾病用线性回归不理想",
+        "先筛选后CCA若复用全数据会放大显著性",
+        "未控制种群分层和其他协变量"
+      ],
+      "evidence_locations": [
+        "Markdown摘要",
+        "5.2–5.3节卡方与校正",
+        "6.2节多元回归",
+        "7.2–7.4节CCA",
+        "8节总结与局限"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "B16-02",
@@ -841,7 +2319,40 @@
       "risk": "多模型一致性不能代替外部验证；Logistic基因模型受SNP相关性影响；未报告种群结构、协变量和严格的样本外评估",
       "evidence": "Markdown摘要；5.2节MAF/HWE质控；5.3–5.5节SNP检验；6.2–6.4节Logistic/SKAT；7节metaCCA；8节评价",
       "source_file": "B10248299.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "problem_archetypes": [
+        "全基因组质控、单SNP/基因联合检验与多表型关联"
+      ],
+      "data_structure": [
+        "1000个样本、9445个SNP、疾病A、300个基因集和10个表型"
+      ],
+      "models": [
+        "按等位基因频率作0/1/2编码",
+        "MAF+Hardy-Weinberg质控",
+        "卡方与Logistic检验SNP",
+        "Logistic与SKAT检验基因",
+        "metaCCA检验多表型"
+      ],
+      "validation_design": [
+        "剥97个不合格SNP",
+        "同一问使用多模型独立对照并讨论独立性假设",
+        "未做独立数据集验证"
+      ],
+      "failure_modes": [
+        "多模型一致性不能代替外部验证",
+        "Logistic基因模型受SNP相关性影响",
+        "未报告种群结构、协变量和严格的样本外评估"
+      ],
+      "evidence_locations": [
+        "Markdown摘要",
+        "5.2节MAF/HWE质控",
+        "5.3–5.5节SNP检验",
+        "6.2–6.4节Logistic/SKAT",
+        "7节metaCCA",
+        "8节评价"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "B16-03",
@@ -858,7 +2369,38 @@
       "risk": "候选基因筛选和决策树评估似乎复用同一数据，63.8%最高准确率也不强；聚类数与显著性阈值选择较多，需防选择性报告和多重检验漏洞",
       "evidence": "Markdown摘要；问题2质控/列联表/IV；问题3决策树、混淆矩阵和ROC；问题4系统聚类与原性状回查；第五节结论",
       "source_file": "B10273004.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "problem_archetypes": [
+        "质控、关联筛选、分类预测和综合性状聚类"
+      ],
+      "data_structure": [
+        "1000个样本、9445个SNP、疾病A、300个基因和10个性状"
+      ],
+      "models": [
+        "0/1/2位点编码",
+        "MAF/HWE质控",
+        "卡方+Fisher精确检验+WOE/IV",
+        "候选基因逐个建决策树",
+        "层次聚类生成综合性状后用卡方和原性状回查"
+      ],
+      "validation_design": [
+        "卡方与Fisher一致性对照",
+        "决策树用混淆矩阵和ROC",
+        "聚类数以R²/偏R²选择，并用原10性状回查候选SNP"
+      ],
+      "failure_modes": [
+        "候选基因筛选和决策树评估似乎复用同一数据，63.8%最高准确率也不强",
+        "聚类数与显著性阈值选择较多，需防选择性报告和多重检验漏洞"
+      ],
+      "evidence_locations": [
+        "Markdown摘要",
+        "问题2质控/列联表/IV",
+        "问题3决策树、混淆矩阵和ROC",
+        "问题4系统聚类与原性状回查",
+        "第五节结论"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "B16-04",
@@ -875,7 +2417,37 @@
       "risk": "将碱基顺序当作信息可能与无相位基因型不符；84%等阈值任意且不控制底数；K-means中心与相似度定义缺少理论校准；适合作反例而非直接复用",
       "evidence": "Markdown问题1编码与附录1；问题2表4.1；问题3矩阵与K-means；问题4阈值交集；7节总结",
       "source_file": "B11117004.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "problem_archetypes": [
+        "位运算编码、启发式高频筛选和基因相似性聚类"
+      ],
+      "data_structure": [
+        "1000个样本的有序碱基对、疾病A、300个基因与10个性状"
+      ],
+      "models": [
+        "对16种有序碱基对作4-bit编码",
+        "以患病样本/全样本异常基因型比例设阈值",
+        "构造二值矩阵用K-means聚类155种异常类型，再算基因与簇的相似度",
+        "多性状用多矩阵阈值交集"
+      ],
+      "validation_design": [
+        "主要为不同阈值下的数量统计和结果列表，未给正式显著性、多重校正、独立验证或稳定性实验"
+      ],
+      "failure_modes": [
+        "将碱基顺序当作信息可能与无相位基因型不符",
+        "84%等阈值任意且不控制底数",
+        "K-means中心与相似度定义缺少理论校准",
+        "适合作反例而非直接复用"
+      ],
+      "evidence_locations": [
+        "Markdown问题1编码与附录1",
+        "问题2表4.1",
+        "问题3矩阵与K-means",
+        "问题4阈值交集",
+        "7节总结"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "B16-05",
@@ -892,7 +2464,38 @@
       "risk": "摘要称Set-based与VEGAS一致找到3基因，但其Set-based的BH值仅gene_102低于0.05；多表型P值指数在摘要与表格中不一致；交叉模型共用数据，不是外部复现",
       "evidence": "Markdown摘要；4.1节卡方/贝叶斯/置换；4.2节Set-based/VEGAS；4.3节mv-plink/MultiPhen；5.2–5.4节数值结果；6节模型评价",
       "source_file": "BK0209.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "problem_archetypes": [
+        "多重检验、基因集合关联和多表型联合分析"
+      ],
+      "data_structure": [
+        "1000个样本、9445个SNP、疾病A、300个基因和10个性状"
+      ],
+      "models": [
+        "0/1/2加性编码",
+        "卡方+BH/Bonferroni，再用置换检验和贝叶斯因子对照",
+        "Set-based test与VEGAS做基因级检验",
+        "mv-plink与MultiPhen做多表型检验"
+      ],
+      "validation_design": [
+        "因无独立数据集，每个关联问题用至少两种模型交叉对照",
+        "明确报告校正后P值和Bayes factor"
+      ],
+      "failure_modes": [
+        "摘要称Set-based与VEGAS一致找到3基因，但其Set-based的BH值仅gene_102低于0.05",
+        "多表型P值指数在摘要与表格中不一致",
+        "交叉模型共用数据，不是外部复现"
+      ],
+      "evidence_locations": [
+        "Markdown摘要",
+        "4.1节卡方/贝叶斯/置换",
+        "4.2节Set-based/VEGAS",
+        "4.3节mv-plink/MultiPhen",
+        "5.2–5.4节数值结果",
+        "6节模型评价"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     },
     {
       "id": "B16-06",
@@ -909,7 +2512,38 @@
       "risk": "Markdown有(cid)损坏且无摘要，数字指数不宜直接引用；多表型结果与其他五篇主流结果不同；惩罚和接受阈值敏感，未做外部验证",
       "evidence": "Markdown 1.2节问题分析；4.2–4.6节单SNP检验；5.1–5.4节Fisher/Brown；6.1–6.3节惩罚CCA；7节总结",
       "source_file": "BK0247.pdf",
-      "status": "已入库"
+      "status": "已入库",
+      "problem_archetypes": [
+        "单位点多检验、相关P值合并和非线性多表型关联"
+      ],
+      "data_structure": [
+        "1000个样本、9445个SNP、疾病A、300个基因和10个性状；Markdown缺失摘要且部分公式为(cid)占位"
+      ],
+      "models": [
+        "主/次等位基因0/1/2编码",
+        "Fisher精确、Cochran-Armitage趋势和Logistic检验，配Bonferroni/BH",
+        "基因内P值用Fisher法合并并用Brown近似处理相关",
+        "最优缩放加惩罚CCA"
+      ],
+      "validation_design": [
+        "单SNP使用三种检验和两种多重校正对照",
+        "基因级对比Fisher与Brown",
+        "评价主要依赖方法一致性和显著性阈值"
+      ],
+      "failure_modes": [
+        "Markdown有(cid)损坏且无摘要，数字指数不宜直接引用",
+        "多表型结果与其他五篇主流结果不同",
+        "惩罚和接受阈值敏感，未做外部验证"
+      ],
+      "evidence_locations": [
+        "Markdown 1.2节问题分析",
+        "4.2–4.6节单SNP检验",
+        "5.1–5.4节Fisher/Brown",
+        "6.1–6.3节惩罚CCA",
+        "7节总结"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2
     }
   ]
 }

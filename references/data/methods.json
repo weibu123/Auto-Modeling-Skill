@@ -17,7 +17,22 @@
         "source_scope": "2016年研究生数学建模竞赛B题优秀论文6篇；依据MarkItDown转换稿逐篇核验摘要、模型、求解、验证、评价和结论",
         "evidence_note": "结果均为论文作者报告，未独立复算；已显式标注Markdown转换损坏、文内数值冲突和缺少独立验证等证据边界。"
       }
-    }
+    },
+    "schema_version": 2,
+    "decision_field_batches": [
+      "2016-A",
+      "2016-B",
+      "cross-cutting-methods-v1",
+      "domain-methods-completion-v1",
+      "domain-methods-core-v2",
+      "subproblems-a-reviewed-v1",
+      "subproblems-b-reviewed-v1",
+      "subproblems-c-reviewed-v1",
+      "subproblems-d-reviewed-v1",
+      "subproblems-e-reviewed-v1",
+      "subproblems-f-reviewed-v1"
+    ],
+    "decision_field_batch_count": 11
   },
   "records": [
     {
@@ -28,7 +43,29 @@
       "core_idea": "维护就绪集并按关键路径或资源压力排序",
       "advantage": "快速、可解释",
       "risk": "贪心不保证全局最优",
-      "source_paper_ids": "A01,A02,A03,A04"
+      "source_paper_ids": "A01,A02,A03,A04",
+      "must_check": [
+        "贪心不保证全局最优"
+      ],
+      "minimum_baseline": "先与按输入顺序执行的可行调度比较完工时间，并核对关键路径长度与最早/最迟时刻。",
+      "forbidden_when": [
+        "前序关系存在环且未先处理",
+        "资源容量约束决定排程却只使用无资源拓扑排序"
+      ],
+      "recommended_alternatives": [
+        "资源受限项目调度整数规划",
+        "约束规划或离散事件仿真"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "把任一拓扑序当最优调度",
+        "漏检跨任务资源冲突"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-core-v2"
+      ]
     },
     {
       "method_family": "组合优化",
@@ -38,7 +75,29 @@
       "core_idea": "允许概率接受劣解跳出局部最优",
       "advantage": "通用、易混合",
       "risk": "降温/邻域敏感",
-      "source_paper_ids": "A01,A04"
+      "source_paper_ids": "A01,A04",
+      "must_check": [
+        "降温/邻域敏感"
+      ],
+      "minimum_baseline": "与随机搜索和同邻域的纯爬山法在相同评估预算下多次比较。",
+      "forbidden_when": [
+        "没有可行邻域或修复机制",
+        "降温过程无法在时间预算内达到稳定阶段"
+      ],
+      "recommended_alternatives": [
+        "禁忌搜索",
+        "遗传算法或小规模精确规划"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "只运行一次并报告最好值",
+        "温度和接受率没有诊断"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-core-v2"
+      ]
     },
     {
       "method_family": "组合优化",
@@ -48,7 +107,29 @@
       "core_idea": "禁止近期移动以避免循环",
       "advantage": "局部搜索强",
       "risk": "参数与邻域设计关键",
-      "source_paper_ids": "A02,A04"
+      "source_paper_ids": "A02,A04",
+      "must_check": [
+        "参数与邻域设计关键"
+      ],
+      "minimum_baseline": "与相同初值和邻域的局部搜索比较，并报告多初值结果与可行率。",
+      "forbidden_when": [
+        "禁忌属性不能区分逆操作",
+        "邻域生成无法保持或修复硬约束"
+      ],
+      "recommended_alternatives": [
+        "模拟退火",
+        "大邻域搜索或整数规划"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "禁忌长度固定却不做敏感性",
+        "没有特赦准则导致错过改进解"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-core-v2"
+      ]
     },
     {
       "method_family": "精确优化",
@@ -58,7 +139,31 @@
       "core_idea": "用0-1变量表达分配与冲突",
       "advantage": "可给最优性基准",
       "risk": "规模扩展差",
-      "source_paper_ids": "A01"
+      "source_paper_ids": "A01",
+      "must_check": [
+        "规模扩展差"
+      ],
+      "minimum_baseline": "先给出满足全部硬约束的贪心或规则可行解；小规模实例报告求解器最优间隙或与枚举最优解核对。",
+      "forbidden_when": [
+        "关键关系无法合理线性化且线性化误差会改变可行性",
+        "变量规模超过现有时间预算又没有分解、松弛或热启动方案"
+      ],
+      "recommended_alternatives": [
+        "约束规划或混合整数非线性规划",
+        "拉格朗日、Benders或列生成分解",
+        "带可行性修复的启发式"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "只报告求解器返回解而不报告最优间隙和时间上限",
+        "使用任意大M导致数值不稳定",
+        "漏写变量域或把软约束当硬约束"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "cross-cutting-methods-v1"
+      ]
     },
     {
       "method_family": "资源分配",
@@ -68,7 +173,29 @@
       "core_idea": "放入最小可容纳空闲区间",
       "advantage": "快、工程直观",
       "risk": "易碎片化、顺序敏感",
-      "source_paper_ids": "A01,A03"
+      "source_paper_ids": "A01,A03",
+      "must_check": [
+        "易碎片化、顺序敏感"
+      ],
+      "minimum_baseline": "与First-Fit、原始顺序和按规模排序后的启发式比较碎片率与失败率。",
+      "forbidden_when": [
+        "分配可回溯且全局重排收益显著",
+        "区间对齐或未来请求分布决定可行性却未建模"
+      ],
+      "recommended_alternatives": [
+        "区间分配整数规划",
+        "伙伴系统或动态重打包"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "把当前最紧凑选择写成全局最优",
+        "只统计已用容量而不统计不可用碎片"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-core-v2"
+      ]
     },
     {
       "method_family": "多目标优化",
@@ -78,7 +205,32 @@
       "core_idea": "非支配排序并保持多样性",
       "advantage": "不必预设单一权重",
       "risk": "计算量大，需选最终解",
-      "source_paper_ids": "A02,A04,F01"
+      "source_paper_ids": "A02,A04,F01",
+      "must_check": [
+        "计算量大，需选最终解"
+      ],
+      "minimum_baseline": "与单目标极端点、等权标量化和随机可行搜索在相同函数评估预算下比较Pareto覆盖。",
+      "forbidden_when": [
+        "目标没有统一方向或量纲处理",
+        "无法稳定生成可行个体",
+        "最终决策者不能解释如何从Pareto集中选解"
+      ],
+      "recommended_alternatives": [
+        "加权和或ε约束法",
+        "小规模多目标整数规划",
+        "目标空间网格搜索"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "只展示一条好看的前沿而不报告可行率和多次运行波动",
+        "用测试数据选择最终折中解",
+        "把非支配解误写为全局最优"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "cross-cutting-methods-v1"
+      ]
     },
     {
       "method_family": "物理通信",
@@ -88,7 +240,29 @@
       "core_idea": "指数映射为等效SINR",
       "advantage": "轻量、可解释",
       "risk": "β常随MCS/场景变化",
-      "source_paper_ids": "B01,B02,B03"
+      "source_paper_ids": "B01,B02,B03",
+      "must_check": [
+        "β常随MCS/场景变化"
+      ],
+      "minimum_baseline": "与平均SINR和最差子载波SINR比较，并在独立链路样本上校准β。",
+      "forbidden_when": [
+        "不同MCS共用未经验证的β",
+        "子载波映射或编码结构与校准场景不一致"
+      ],
+      "recommended_alternatives": [
+        "MIESM",
+        "按MCS分层的链路级模型"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "在测试集拟合β",
+        "把有效SINR误作逐子载波真实SINR"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-core-v2"
+      ]
     },
     {
       "method_family": "物理通信",
@@ -98,7 +272,29 @@
       "core_idea": "先映射互信息再聚合",
       "advantage": "宽场景常优于EESM",
       "risk": "需准确调制/编码映射",
-      "source_paper_ids": "B01"
+      "source_paper_ids": "B01",
+      "must_check": [
+        "需准确调制/编码映射"
+      ],
+      "minimum_baseline": "与EESM和实际BLER/吞吐查表结果在同一MCS分层验证。",
+      "forbidden_when": [
+        "互信息映射与调制编码不匹配",
+        "缺少可靠链路曲线进行反映射"
+      ],
+      "recommended_alternatives": [
+        "EESM",
+        "端到端链路仿真或数据驱动校准"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "跨MCS直接比较未归一化互信息",
+        "忽略码率与资源块结构"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-core-v2"
+      ]
     },
     {
       "method_family": "校准",
@@ -108,7 +304,29 @@
       "core_idea": "非参数单调拟合",
       "advantage": "稳健且符合物理单调性",
       "risk": "阶梯化、外推弱",
-      "source_paper_ids": "B01,B03"
+      "source_paper_ids": "B01,B03",
+      "must_check": [
+        "阶梯化、外推弱"
+      ],
+      "minimum_baseline": "与线性回归、分箱均值和无校准预测比较独立集误差与单调违例。",
+      "forbidden_when": [
+        "任务关系没有可信单调方向",
+        "主要需求是训练范围之外的外推"
+      ],
+      "recommended_alternatives": [
+        "单调样条",
+        "带单调约束的树模型"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "用测试标签拟合校准曲线",
+        "把阶梯平台解释成真实阈值"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-core-v2"
+      ]
     },
     {
       "method_family": "机器学习",
@@ -118,7 +336,31 @@
       "core_idea": "树集成学习高阶交互",
       "advantage": "训练快、基线强",
       "risk": "域泄漏与解释局限",
-      "source_paper_ids": "B01,B03,D01,D02"
+      "source_paper_ids": "B01,B03,D01,D02",
+      "must_check": [
+        "域泄漏与解释局限"
+      ],
+      "minimum_baseline": "与均值或多数类、线性或Logistic回归以及单棵浅树在同一无泄漏划分上比较。",
+      "forbidden_when": [
+        "样本独立性假设被组、时间或空间结构破坏而划分仍按行随机",
+        "类别或目标编码使用了验证集统计量"
+      ],
+      "recommended_alternatives": [
+        "带正则的广义线性模型",
+        "分层或混合效应模型",
+        "样本充足时的神经网络"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "先用全数据筛特征再交叉验证",
+        "把树模型特征重要性直接解释为因果",
+        "调参和最终评估复用同一验证集"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "cross-cutting-methods-v1"
+      ]
     },
     {
       "method_family": "深度学习",
@@ -128,7 +370,29 @@
       "core_idea": "注意力聚合长程依赖",
       "advantage": "表达力强",
       "risk": "小样本过拟合",
-      "source_paper_ids": "B02,E01,E03"
+      "source_paper_ids": "B02,E01,E03",
+      "must_check": [
+        "小样本过拟合"
+      ],
+      "minimum_baseline": "与正则化CNN、树模型或简单序列模型在同一划分和参数预算下比较。",
+      "forbidden_when": [
+        "样本量不足且无合理预训练",
+        "位置编码或切片方式破坏任务所需结构"
+      ],
+      "recommended_alternatives": [
+        "CNN或TCN",
+        "预训练特征加浅层模型"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "小数据从零训练却无稳定性实验",
+        "将注意力权重直接当因果解释"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-core-v2"
+      ]
     },
     {
       "method_family": "降维/物理特征",
@@ -138,7 +402,29 @@
       "core_idea": "奇异值/向量表征能量与方向",
       "advantage": "物理含义清晰",
       "risk": "只取主分量可能丢信息",
-      "source_paper_ids": "B01,B02,B03"
+      "source_paper_ids": "B01,B02,B03",
+      "must_check": [
+        "只取主分量可能丢信息"
+      ],
+      "minimum_baseline": "报告保留秩、解释能量和重构误差，并与不降维方案比较下游指标。",
+      "forbidden_when": [
+        "关键弱信号位于低能量方向",
+        "缺失模式或非线性结构使直接矩阵分解失真"
+      ],
+      "recommended_alternatives": [
+        "稳健PCA",
+        "核降维或物理特征"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "按累计能量选秩却不检查任务性能",
+        "在全数据上分解后再划分验证"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-core-v2"
+      ]
     },
     {
       "method_family": "数据清洗",
@@ -148,7 +434,32 @@
       "core_idea": "稳健分位规则与对齐",
       "advantage": "简单透明",
       "risk": "可能删除真实极端样本",
-      "source_paper_ids": "B01,B02"
+      "source_paper_ids": "B01,B02",
+      "must_check": [
+        "可能删除真实极端样本"
+      ],
+      "minimum_baseline": "保留未经异常截断的数据版本，报告每列受影响比例，并比较处理前后的关键模型结果。",
+      "forbidden_when": [
+        "极端值正是研究目标或稀有事件",
+        "不同传感器时间基准尚未统一",
+        "阈值根据最终模型表现反复调整"
+      ],
+      "recommended_alternatives": [
+        "稳健损失与稳健尺度估计",
+        "显式异常状态模型",
+        "基于物理范围和质量标记的过滤"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "对所有变量使用同一IQR阈值",
+        "Winsor后不保留处理标记",
+        "时间对齐用未来观测填充过去"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "cross-cutting-methods-v1"
+      ]
     },
     {
       "method_family": "图像处理",
@@ -158,7 +469,29 @@
       "core_idea": "局部增强、平滑、边缘与阈值",
       "advantage": "小数据可用、可解释",
       "risk": "参数与纹理干扰敏感",
-      "source_paper_ids": "C01,C02,C04,C05"
+      "source_paper_ids": "C01,C02,C04,C05",
+      "must_check": [
+        "参数与纹理干扰敏感"
+      ],
+      "minimum_baseline": "保留原图和单一基础算子结果，在独立标注上比较像素或目标级指标。",
+      "forbidden_when": [
+        "增强会改变待测物理灰度关系",
+        "参数由最终测试图逐张人工调节"
+      ],
+      "recommended_alternatives": [
+        "自适应阈值与形态学处理",
+        "监督语义分割"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "只展示视觉效果不做定量验证",
+        "串联过多算子导致纹理伪边缘"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-core-v2"
+      ]
     },
     {
       "method_family": "图像处理",
@@ -168,7 +501,29 @@
       "core_idea": "Hessian特征值度量线结构",
       "advantage": "适合裂隙、小数据",
       "risk": "也会增强纹理线",
-      "source_paper_ids": "C03,C04"
+      "source_paper_ids": "C03,C04",
+      "must_check": [
+        "也会增强纹理线"
+      ],
+      "minimum_baseline": "与原图阈值和普通边缘/线检测比较目标级召回、误检及尺度敏感性。",
+      "forbidden_when": [
+        "目标并非局部管状或线状结构",
+        "背景纹理与目标具有相同Hessian响应"
+      ],
+      "recommended_alternatives": [
+        "多尺度线检测",
+        "监督分割或方向滤波"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "只选一个尺度",
+        "把增强响应直接当最终分割概率"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-core-v2"
+      ]
     },
     {
       "method_family": "语义分割",
@@ -178,7 +533,29 @@
       "core_idea": "编码器-解码器与多尺度上下文",
       "advantage": "精度高",
       "risk": "标注成本与过拟合",
-      "source_paper_ids": "C01,C05"
+      "source_paper_ids": "C01,C05",
+      "must_check": [
+        "标注成本与过拟合"
+      ],
+      "minimum_baseline": "与阈值/形态学基线和轻量分割网络比较，并按原图或对象分组划分。",
+      "forbidden_when": [
+        "训练与测试切片来自同一原图而造成泄漏",
+        "标注量不足且没有预训练或强正则"
+      ],
+      "recommended_alternatives": [
+        "传统图像处理",
+        "弱监督或预训练编码器"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "只报像素准确率掩盖小目标失败",
+        "切片级随机划分造成近重复泄漏"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-core-v2"
+      ]
     },
     {
       "method_family": "聚类",
@@ -188,7 +565,32 @@
       "core_idea": "密度、概率或中心距离聚类",
       "advantage": "无需类别标签",
       "risk": "参数与簇形状敏感",
-      "source_paper_ids": "C01,C02,C03,C04,C05,F02,B16-04"
+      "source_paper_ids": "C01,C02,C03,C04,C05,F02,B16-04",
+      "must_check": [
+        "参数与簇形状敏感"
+      ],
+      "minimum_baseline": "与不聚类、至少一种不同簇形假设的方法比较，并报告聚类稳定性和下游任务指标。",
+      "forbidden_when": [
+        "距离度量不能表达任务相似性",
+        "高维尺度未统一",
+        "必须满足容量或空间连通等硬约束但算法未编码"
+      ],
+      "recommended_alternatives": [
+        "层次或谱聚类",
+        "约束聚类",
+        "密度可变时的HDBSCAN"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "只凭轮廓系数选择对下游任务无意义的簇数",
+        "将簇标签当真实类别",
+        "多次初始化只报告最好一次"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "cross-cutting-methods-v1"
+      ]
     },
     {
       "method_family": "鲁棒拟合",
@@ -198,7 +600,29 @@
       "core_idea": "先剔除外点再精化参数",
       "advantage": "稳健、参数可解释",
       "risk": "依赖正确函数假设",
-      "source_paper_ids": "C01,C03,C04,C05"
+      "source_paper_ids": "C01,C03,C04,C05",
+      "must_check": [
+        "依赖正确函数假设"
+      ],
+      "minimum_baseline": "与普通最小二乘和稳健损失拟合比较参数误差、残差结构与重采样稳定性。",
+      "forbidden_when": [
+        "函数族与物理形态不匹配",
+        "参数不可辨识或初值决定不同局部解"
+      ],
+      "recommended_alternatives": [
+        "稳健M估计",
+        "贝叶斯参数估计或样条拟合"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "RANSAC阈值无量纲依据",
+        "只报告拟合R²而不检查残差和参数区间"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-core-v2"
+      ]
     },
     {
       "method_family": "工程指标",
@@ -208,7 +632,29 @@
       "core_idea": "由坡度统计映射粗糙度",
       "advantage": "工程解释直接",
       "risk": "尺度/采样/公式范围敏感",
-      "source_paper_ids": "C01,C02,C03,C04,C05"
+      "source_paper_ids": "C01,C02,C03,C04,C05",
+      "must_check": [
+        "尺度/采样/公式范围敏感"
+      ],
+      "minimum_baseline": "在标准轮廓或已知样本上核对公式实现，并报告采样间距变化下的稳定性。",
+      "forbidden_when": [
+        "轮廓尺度超出经验公式适用范围",
+        "宏观趋势未剥离或坐标单位不一致"
+      ],
+      "recommended_alternatives": [
+        "多尺度粗糙度谱",
+        "分形或轮廓统计指标"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "不同采样率直接比较JRC",
+        "把经验等级当精确物理常数"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-core-v2"
+      ]
     },
     {
       "method_family": "不确定性",
@@ -218,7 +664,32 @@
       "core_idea": "抽样传播不确定性或最大化信息增益",
       "advantage": "可支持风险决策",
       "risk": "先验错误会产生伪精确",
-      "source_paper_ids": "C02,C03,C04,A16-04"
+      "source_paper_ids": "C02,C03,C04,A16-04",
+      "must_check": [
+        "先验错误会产生伪精确"
+      ],
+      "minimum_baseline": "与名义参数和解析近似结果比较，并报告随机种子、样本量、Monte Carlo标准误或置信区间。",
+      "forbidden_when": [
+        "输入分布或相关结构没有依据",
+        "样本量不足以估计目标尾部概率",
+        "把熵值直接当作物理风险而无校准"
+      ],
+      "recommended_alternatives": [
+        "区间或鲁棒分析",
+        "拉丁超立方或准Monte Carlo",
+        "可得时的解析误差传播"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "只报告模拟均值不报告不确定性",
+        "假设所有输入独立",
+        "随机次数固定却不做收敛检查"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "cross-cutting-methods-v1"
+      ]
     },
     {
       "method_family": "气象物理",
@@ -228,7 +699,26 @@
       "core_idea": "从动力与热力稳定性构造指标",
       "advantage": "物理可解释",
       "risk": "观测误差与梯度放大",
-      "source_paper_ids": "D01,D02"
+      "source_paper_ids": "D01,D02",
+      "must_check": [
+        "观测误差与梯度放大"
+      ],
+      "minimum_baseline": "与原始风速梯度和单一湍流指标比较，并报告传感器误差传播。",
+      "forbidden_when": [
+        "垂直分辨率不足以稳定估计梯度，或单位与坐标高度未统一"
+      ],
+      "recommended_alternatives": [
+        "稳健局部回归或物理数值模式诊断"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "对噪声差分后直接解释极端湍流，不做平滑尺度敏感性"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "风场反演",
@@ -238,7 +728,26 @@
       "core_idea": "解观测方程得到u/v",
       "advantage": "经典、透明",
       "risk": "均匀风场等假设限制",
-      "source_paper_ids": "D01,D02"
+      "source_paper_ids": "D01,D02",
+      "must_check": [
+        "均匀风场等假设限制"
+      ],
+      "minimum_baseline": "用合成均匀风场回代验证，再与直接径向速度统计比较。",
+      "forbidden_when": [
+        "方位覆盖不足或风场非均匀性使参数不可辨识"
+      ],
+      "recommended_alternatives": [
+        "局部变分反演或多雷达联合反演"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "只报拟合优度，不检查方位残差和条件数"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "空间插值",
@@ -248,7 +757,26 @@
       "core_idea": "按距离或核函数加权",
       "advantage": "易实现",
       "risk": "难表达复杂物理边界",
-      "source_paper_ids": "D01,D02"
+      "source_paper_ids": "D01,D02",
+      "must_check": [
+        "难表达复杂物理边界"
+      ],
+      "minimum_baseline": "与最近邻和留点交叉验证比较误差，并检查边界区域。",
+      "forbidden_when": [
+        "存在屏障、强非平稳或外推需求而方法未编码物理边界"
+      ],
+      "recommended_alternatives": [
+        "Kriging、物理约束插值或有限元场重构"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "把插值网格当独立观测用于后续验证"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "数据同化",
@@ -258,7 +786,26 @@
       "core_idea": "兼顾观测拟合、先验和平滑",
       "advantage": "框架完整",
       "risk": "权重/协方差估计困难",
-      "source_paper_ids": "D01,D02"
+      "source_paper_ids": "D01,D02",
+      "must_check": [
+        "权重/协方差估计困难"
+      ],
+      "minimum_baseline": "与单源估计和固定权重融合比较误差、覆盖率及协方差校准。",
+      "forbidden_when": [
+        "状态转移、观测算子或噪声协方差无法基本识别"
+      ],
+      "recommended_alternatives": [
+        "集合卡尔曼、粒子滤波或稳健加权融合"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "随意指定协方差后把平滑结果视为真实不确定性"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "路径规划",
@@ -268,7 +815,26 @@
       "core_idea": "搜索距离与风险加权最小路径",
       "advantage": "输出直观",
       "risk": "代价权重决定结果",
-      "source_paper_ids": "D01,D02,A16-01"
+      "source_paper_ids": "D01,D02,A16-01",
+      "must_check": [
+        "代价权重决定结果"
+      ],
+      "minimum_baseline": "与最短距离路径和Dijkstra在同一栅格、代价和约束下比较。",
+      "forbidden_when": [
+        "代价包含负边或动态风险却使用静态不可重规划模型"
+      ],
+      "recommended_alternatives": [
+        "Dijkstra、D* Lite或时空网络规划"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "用主观权重选出路径后称其客观最优"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "信号处理",
@@ -278,7 +844,26 @@
       "core_idea": "时频分解并提取故障频率",
       "advantage": "符合轴承机理",
       "risk": "参数多、可能过处理",
-      "source_paper_ids": "E01,E02,E03"
+      "source_paper_ids": "E01,E02,E03",
+      "must_check": [
+        "参数多、可能过处理"
+      ],
+      "minimum_baseline": "与原始时域统计和FFT基线比较，所有参数仅在训练数据选择。",
+      "forbidden_when": [
+        "采样率或窗口长度不足以分辨目标频带"
+      ],
+      "recommended_alternatives": [
+        "物理阶次分析或简化滤波器组"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "从大量时频图中事后挑选最显著图样"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "域适应",
@@ -288,7 +873,26 @@
       "core_idea": "对齐均值/协方差/核分布或对抗域判别",
       "advantage": "缓解分布偏移",
       "risk": "边缘对齐可能混淆类别",
-      "source_paper_ids": "E01,E02,E03"
+      "source_paper_ids": "E01,E02,E03",
+      "must_check": [
+        "边缘对齐可能混淆类别"
+      ],
+      "minimum_baseline": "与仅源域模型和简单标准化迁移比较，报告源域与目标域分层指标。",
+      "forbidden_when": [
+        "源目标标签语义不同或类别先验差异未处理"
+      ],
+      "recommended_alternatives": [
+        "类别条件域适应、重要性加权或少量标注微调"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "只证明边缘分布接近，不检查类别混淆和负迁移"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "可解释性",
@@ -298,7 +902,26 @@
       "core_idea": "局部贡献、概念敏感度或关注区域",
       "advantage": "便于沟通",
       "risk": "相关解释不等同因果",
-      "source_paper_ids": "E01,E03"
+      "source_paper_ids": "E01,E03",
+      "must_check": [
+        "相关解释不等同因果"
+      ],
+      "minimum_baseline": "用置换重要性或已知合成特征作忠实度核对，并报告解释稳定性。",
+      "forbidden_when": [
+        "把相关解释用于因果结论，或背景分布选择无法说明"
+      ],
+      "recommended_alternatives": [
+        "反事实解释、敏感性分析或机制消融"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "只展示少量有利样本的漂亮解释图"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "空间图论",
@@ -308,7 +931,26 @@
       "core_idea": "生成骨架并过滤穿障边",
       "advantage": "几何解释清晰",
       "risk": "对图纸精度和安全距离敏感",
-      "source_paper_ids": "F01,F02"
+      "source_paper_ids": "F01,F02",
+      "must_check": [
+        "对图纸精度和安全距离敏感"
+      ],
+      "minimum_baseline": "与完整几何碰撞检查和简单栅格路网比较连通性与路径长度。",
+      "forbidden_when": [
+        "地图精度低于安全间距或障碍几何未闭合"
+      ],
+      "recommended_alternatives": [
+        "占据栅格、导航网格或采样式路径规划"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "图上连通即认为实际可通行，未做安全缓冲"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "视域分析",
@@ -318,7 +960,26 @@
       "core_idea": "计算可见元素与视域面积",
       "advantage": "贴近游览感知",
       "risk": "视高/视距/角度需校准",
-      "source_paper_ids": "F01,F02,F03"
+      "source_paper_ids": "F01,F02,F03",
+      "must_check": [
+        "视高/视距/角度需校准"
+      ],
+      "minimum_baseline": "在已知遮挡样例上验证可见判定，并与多个视高和视距设置比较。",
+      "forbidden_when": [
+        "建筑高度、观察高度或坐标系缺失且无法校准"
+      ],
+      "recommended_alternatives": [
+        "栅格视域或三维场景射线模型"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "忽略地形和高度，只在二维平面判定视域"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "综合评价",
@@ -328,7 +989,26 @@
       "core_idea": "组合主观结构与客观离散度",
       "advantage": "易解释、常用",
       "risk": "权重和基准仍需敏感性",
-      "source_paper_ids": "F02,F03"
+      "source_paper_ids": "F02,F03",
+      "must_check": [
+        "权重和基准仍需敏感性"
+      ],
+      "minimum_baseline": "与等权评分比较排序，并报告归一化、方向和权重扰动下的名次稳定性。",
+      "forbidden_when": [
+        "指标重复计量同一信息或量纲方向未统一"
+      ],
+      "recommended_alternatives": [
+        "PCA权重、TOPSIS敏感性或Pareto分析"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "主客观权重机械相加后宣称唯一客观排名"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "相似度",
@@ -338,7 +1018,26 @@
       "core_idea": "多度量融合后层次聚类",
       "advantage": "透明、适合小样本",
       "risk": "权重与尺度影响大",
-      "source_paper_ids": "F01,F02"
+      "source_paper_ids": "F01,F02",
+      "must_check": [
+        "权重与尺度影响大"
+      ],
+      "minimum_baseline": "与至少一种不同相似度和标准化方案比较聚类或检索稳定性。",
+      "forbidden_when": [
+        "特征尺度、稀疏性或变量类型与距离假设不匹配"
+      ],
+      "recommended_alternatives": [
+        "学习度量、Gower距离或任务特定核"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "先看聚类结果再调整权重且不做外部验证"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "多模态学习",
@@ -348,7 +1047,26 @@
       "core_idea": "学习统一嵌入空间",
       "advantage": "能整合多模态",
       "risk": "小样本下极易过拟合",
-      "source_paper_ids": "F03"
+      "source_paper_ids": "F03",
+      "must_check": [
+        "小样本下极易过拟合"
+      ],
+      "minimum_baseline": "与单模态、特征拼接和线性度量基线在独立组划分上比较。",
+      "forbidden_when": [
+        "正负样本构造泄漏标签或样本量不足以学习稳定表示"
+      ],
+      "recommended_alternatives": [
+        "晚期融合、正则CCA或预训练嵌入"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "将同一对象的增强视图分到训练和测试两侧"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "验证设计",
@@ -358,7 +1076,32 @@
       "core_idea": "按主体分组、折外预测或重复抽样",
       "advantage": "提高可信度",
       "risk": "组定义错误仍会泄漏",
-      "source_paper_ids": "B03,C03,E02"
+      "source_paper_ids": "B03,C03,E02",
+      "must_check": [
+        "组定义错误仍会泄漏"
+      ],
+      "minimum_baseline": "明确部署时独立单元并按该单元分组；与普通随机划分结果并列报告以量化泄漏乐观偏差。",
+      "forbidden_when": [
+        "同一实体跨组出现",
+        "时间因果顺序要求训练早于验证却使用无序GroupKFold",
+        "Bootstrap抽样单元小于真实相关单元"
+      ],
+      "recommended_alternatives": [
+        "滚动时间验证",
+        "留一主体或留一地点验证",
+        "分组嵌套交叉验证"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "先全数据标准化或选特征再分组",
+        "把行号当组ID",
+        "使用OOF预测调参后又当独立测试结果"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "cross-cutting-methods-v1"
+      ]
     },
     {
       "method_family": "稳健性",
@@ -368,7 +1111,33 @@
       "core_idea": "改变关键假设并比较输出",
       "advantage": "竞赛论文必备",
       "risk": "只展示有利结果会偏倚",
-      "source_paper_ids": "A-F多篇,A16-01,A16-03,A16-05,B16-02,B16-03,B16-05,B16-06"
+      "source_paper_ids": "A16-01,A16-03,A16-05,B16-02,B16-03,B16-05,B16-06",
+      "must_check": [
+        "只展示有利结果会偏倚"
+      ],
+      "minimum_baseline": "保留最简单可信模型，逐项移除新增模块，并在同一数据切分、随机预算和指标口径下比较。",
+      "forbidden_when": [
+        "比较方案使用不同数据预处理或评估集",
+        "只挑选有利参数区间或随机种子",
+        "消融后模型未重新调节必要参数"
+      ],
+      "recommended_alternatives": [
+        "因子实验设计",
+        "全局敏感性分析",
+        "误差分层和反事实压力测试"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "把相关的多个改动一次性移除而无法归因",
+        "只报告均值不报告波动",
+        "基线故意欠调参以夸大增益"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "source_note": "Legacy non-specific provenance: A-F多篇",
+      "decision_field_sources": [
+        "cross-cutting-methods-v1"
+      ]
     },
     {
       "method_family": "疲劳分析",
@@ -378,7 +1147,26 @@
       "core_idea": "识别循环并进行均值应力修正和线性/非线性累积",
       "advantage": "工程解释直接",
       "risk": "窗口实时化会截断长循环",
-      "source_paper_ids": "A05,A06,A07,A08"
+      "source_paper_ids": "A05,A06,A07,A08",
+      "must_check": [
+        "窗口实时化会截断长循环"
+      ],
+      "minimum_baseline": "用标准载荷序列核对循环计数和累积损伤，并与完整离线序列比较窗口误差。",
+      "forbidden_when": [
+        "材料S-N曲线或平均应力修正不适用于目标材料和工况"
+      ],
+      "recommended_alternatives": [
+        "时域损伤模型或断裂力学模型"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "窗口边界截断长循环却不保留残余半循环"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "控制优化",
@@ -388,7 +1176,32 @@
       "core_idea": "每个时刻重预测并求有限时域最优控制",
       "advantage": "可在线反馈",
       "risk": "代理误差与计算预算敏感",
-      "source_paper_ids": "A07"
+      "source_paper_ids": "A07",
+      "must_check": [
+        "代理误差与计算预算敏感"
+      ],
+      "minimum_baseline": "与固定规则和单步贪心控制比较累计目标、约束违例、计算时延以及模型误差下表现。",
+      "forbidden_when": [
+        "单步求解时间超过控制周期",
+        "状态不可观测且无可靠估计器",
+        "预测模型在控制访问区域严重外推"
+      ],
+      "recommended_alternatives": [
+        "鲁棒或随机MPC",
+        "动态规划",
+        "带安全投影的规则控制"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "离线使用真实未来量作为预测输入",
+        "只优化代理目标而不检查闭环约束",
+        "忽略滚动重优化的计算预算"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "cross-cutting-methods-v1"
+      ]
     },
     {
       "method_family": "强化学习",
@@ -398,7 +1211,26 @@
       "core_idea": "策略网络生成动作后投影/修复到可行域",
       "advantage": "能学习复杂非线性策略",
       "risk": "训练稳定性和场景覆盖不足",
-      "source_paper_ids": "A05"
+      "source_paper_ids": "A05",
+      "must_check": [
+        "训练稳定性和场景覆盖不足"
+      ],
+      "minimum_baseline": "与规则控制、随机策略和MPC在同一场景集比较回报、违约率和多随机种子稳定性。",
+      "forbidden_when": [
+        "安全层不能保证硬约束或训练场景覆盖不足"
+      ],
+      "recommended_alternatives": [
+        "安全MPC、离线强化学习或约束策略优化"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "只报告训练场景最好回报，不报告违约和分布外表现"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "稳健优化",
@@ -408,7 +1240,26 @@
       "core_idea": "优化最坏情形或保守上界",
       "advantage": "显式控制风险",
       "risk": "不确定集过宽会保守",
-      "source_paper_ids": "A05,A07"
+      "source_paper_ids": "A05,A07",
+      "must_check": [
+        "不确定集过宽会保守"
+      ],
+      "minimum_baseline": "与名义解和多个确定情景比较最坏表现、平均代价与保守成本。",
+      "forbidden_when": [
+        "不确定集没有数据或物理依据"
+      ],
+      "recommended_alternatives": [
+        "情景随机规划、机会约束或分布鲁棒优化"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "任意放大区间后把不可行或过保守结果归因于问题本身"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "时序预测",
@@ -418,7 +1269,32 @@
       "core_idea": "循环/卷积结构捕获短长期依赖",
       "advantage": "表达非线性动态",
       "risk": "随机划分会泄漏未来信息",
-      "source_paper_ids": "A05,A06,A08,B07,E04,E07"
+      "source_paper_ids": "A05,A06,A08,B07,E04,E07",
+      "must_check": [
+        "随机划分会泄漏未来信息"
+      ],
+      "minimum_baseline": "与季节朴素、持久性预测、线性自回归和树模型在滚动时间验证上比较。",
+      "forbidden_when": [
+        "样本序列不足以支持深度模型",
+        "在线预测却使用BiLSTM的未来上下文",
+        "随机划分会把未来信息泄漏到训练"
+      ],
+      "recommended_alternatives": [
+        "ARIMA或状态空间模型",
+        "滞后特征加树模型",
+        "样本较少时的TCN或正则线性模型"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "滑窗重叠后随机分样本",
+        "归一化使用全时段统计量",
+        "只报告一步预测而忽略递推误差"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "cross-cutting-methods-v1"
+      ]
     },
     {
       "method_family": "信号处理",
@@ -428,7 +1304,26 @@
       "core_idea": "平滑、低秩或递推估计恢复信号",
       "advantage": "轻量可在线",
       "risk": "过平滑或错误噪声模型",
-      "source_paper_ids": "A06,A07,A08"
+      "source_paper_ids": "A06,A07,A08",
+      "must_check": [
+        "过平滑或错误噪声模型"
+      ],
+      "minimum_baseline": "与原始序列和简单移动平均比较信号保真、滞后和下游指标。",
+      "forbidden_when": [
+        "滤波窗口跨越真实突变，或噪声模型与数据明显不符"
+      ],
+      "recommended_alternatives": [
+        "稳健状态空间模型、小波去噪或局部回归"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "用未来点平滑实时预测输入"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "机器学习",
@@ -438,7 +1333,32 @@
       "core_idea": "逐步提升弱学习器拟合残差",
       "advantage": "中小样本强基线",
       "risk": "调参和目标编码需防泄漏",
-      "source_paper_ids": "B05,C07,E06"
+      "source_paper_ids": "B05,C07,E06",
+      "must_check": [
+        "调参和目标编码需防泄漏"
+      ],
+      "minimum_baseline": "与正则线性模型、浅层决策树和简单频率编码方案在同一外层验证上比较。",
+      "forbidden_when": [
+        "目标编码没有在训练折内完成",
+        "类别在验证或部署期大量出现训练未见水平",
+        "样本依赖结构未体现在划分中"
+      ],
+      "recommended_alternatives": [
+        "随机森林或HGBR",
+        "带正则的广义线性模型",
+        "混合效应模型"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "CatBoost目标统计在全数据计算",
+        "以大量迭代补偿错误验证设计",
+        "只报告训练重要性不做外部误差分析"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "cross-cutting-methods-v1"
+      ]
     },
     {
       "method_family": "网络建模",
@@ -448,7 +1368,26 @@
       "core_idea": "把两个相关离散变量合成多分类任务",
       "advantage": "避免独立预测不一致",
       "risk": "类别爆炸与长尾",
-      "source_paper_ids": "B04,B05,B06,B07"
+      "source_paper_ids": "B04,B05,B06,B07",
+      "must_check": [
+        "类别爆炸与长尾"
+      ],
+      "minimum_baseline": "与分别预测MCS和NSS以及多数类基线比较联合准确率和长尾召回。",
+      "forbidden_when": [
+        "组合类别样本极少且无法可靠估计"
+      ],
+      "recommended_alternatives": [
+        "多任务学习或层级分类"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "只报总体准确率掩盖稀有组合完全失败"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "插值",
@@ -458,7 +1397,26 @@
       "core_idea": "局部样条或地统计协方差估计未知点",
       "advantage": "平滑且可解释",
       "risk": "插值点不可当独立真值",
-      "source_paper_ids": "B04,D06,E05"
+      "source_paper_ids": "B04,D06,E05",
+      "must_check": [
+        "插值点不可当独立真值"
+      ],
+      "minimum_baseline": "用留点验证与线性或最近邻插值比较，并报告预测区间或边界误差。",
+      "forbidden_when": [
+        "外推超出观测支撑范围，或Kriging变差函数无法稳定估计"
+      ],
+      "recommended_alternatives": [
+        "样条、RBF或物理代理模型"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "把插值点再次作为独立真值训练和验证"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "物理建模",
@@ -468,7 +1426,26 @@
       "core_idea": "保留幂律机理并加入温度/波形等修正",
       "advantage": "参数可解释",
       "risk": "适用工况与材料有限",
-      "source_paper_ids": "C06,C07,C08,C09"
+      "source_paper_ids": "C06,C07,C08,C09",
+      "must_check": [
+        "适用工况与材料有限"
+      ],
+      "minimum_baseline": "与原始Steinmetz和分材料分工况拟合比较独立样本误差。",
+      "forbidden_when": [
+        "频率、温度、波形或材料超出公式校准域"
+      ],
+      "recommended_alternatives": [
+        "物理特征回归或损耗查表模型"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "跨材料复用参数并在外推点优化"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "统计检验",
@@ -478,7 +1455,32 @@
       "core_idea": "比较组内组间变异或秩差异",
       "advantage": "结论清晰",
       "risk": "正态/方差齐性、多重检验要求",
-      "source_paper_ids": "C06,C07,C08,C09,B16-01,B16-02,B16-03,B16-05,B16-06"
+      "source_paper_ids": "C06,C07,C08,C09,B16-01,B16-02,B16-03,B16-05,B16-06",
+      "must_check": [
+        "正态/方差齐性、多重检验要求"
+      ],
+      "minimum_baseline": "先报告组样本量、效应量与置信区间；检查分布和方差条件，并对全部检验家族做校正。",
+      "forbidden_when": [
+        "重复测量或聚类样本被当作独立",
+        "组别在观察结果后才定义",
+        "多因素交互存在却只做多次单因素检验"
+      ],
+      "recommended_alternatives": [
+        "Welch ANOVA或Kruskal-Wallis",
+        "混合效应模型",
+        "置换检验"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "显著后只挑有利的事后比较",
+        "把不显著解释为完全相同",
+        "只报P值不报效应量"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "cross-cutting-methods-v1"
+      ]
     },
     {
       "method_family": "时频分析",
@@ -488,7 +1490,26 @@
       "core_idea": "提取频谱、瞬时模态和高阶相位耦合",
       "advantage": "兼顾时频与非高斯信息",
       "risk": "特征多、参数敏感",
-      "source_paper_ids": "C06,C08,C09"
+      "source_paper_ids": "C06,C08,C09",
+      "must_check": [
+        "特征多、参数敏感"
+      ],
+      "minimum_baseline": "与时域统计和普通频谱比较交叉验证性能及噪声敏感性。",
+      "forbidden_when": [
+        "采样长度、平稳性或频率分辨率不支持目标特征"
+      ],
+      "recommended_alternatives": [
+        "STFT、小波或物理谐波特征"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "从大量频域特征中全数据筛选后再验证"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "多目标优化",
@@ -498,7 +1519,32 @@
       "core_idea": "群体智能搜索折中解或Pareto前沿",
       "advantage": "易处理黑箱目标",
       "risk": "可能在代理模型外推区钻空子",
-      "source_paper_ids": "A06,C06,C07,C08,C09,E05,A16-02,A16-03,A16-04"
+      "source_paper_ids": "A06,C06,C07,C08,C09,E05,A16-02,A16-03,A16-04",
+      "must_check": [
+        "可能在代理模型外推区钻空子"
+      ],
+      "minimum_baseline": "与随机搜索、简单局部搜索和可得的小规模精确解在相同函数评估次数下多次独立比较。",
+      "forbidden_when": [
+        "不可行解没有修复、投影或可解释罚函数",
+        "代理模型外推区域没有边界",
+        "单次目标评估昂贵且没有预算控制"
+      ],
+      "recommended_alternatives": [
+        "混合整数或非线性规划",
+        "贝叶斯优化",
+        "启发式结合局部精修"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "不同算法使用不同评估预算",
+        "只报告最好一次",
+        "在代理预测最优点不回代真实模型验算"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "cross-cutting-methods-v1"
+      ]
     },
     {
       "method_family": "空间统计",
@@ -508,7 +1554,26 @@
       "core_idea": "度量空间自相关或分布方向变化",
       "advantage": "地图解释直观",
       "risk": "空间权重矩阵决定结果",
-      "source_paper_ids": "D03,D06"
+      "source_paper_ids": "D03,D06",
+      "must_check": [
+        "空间权重矩阵决定结果"
+      ],
+      "minimum_baseline": "与随机置换和不同空间权重矩阵比较显著性、方向和尺度稳定性。",
+      "forbidden_when": [
+        "空间单元或邻接定义没有任务依据"
+      ],
+      "recommended_alternatives": [
+        "局部Moran、Getis-Ord或空间回归"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "全局显著后推断所有局部区域均集聚"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "趋势分析",
@@ -518,7 +1583,26 @@
       "core_idea": "非参数检验单调趋势并稳健估计斜率",
       "advantage": "不依赖正态分布",
       "risk": "自相关会影响显著性",
-      "source_paper_ids": "D04,D06"
+      "source_paper_ids": "D04,D06",
+      "must_check": [
+        "自相关会影响显著性"
+      ],
+      "minimum_baseline": "与线性趋势和无趋势基线比较，并检验自相关与季节性影响。",
+      "forbidden_when": [
+        "存在强自相关或结构突变却直接使用独立样本显著性"
+      ],
+      "recommended_alternatives": [
+        "预白化MK、季节MK或分段趋势模型"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "把显著单调趋势解释为因果机制"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "地理信息",
@@ -528,7 +1612,26 @@
       "core_idea": "统一网格后进行空间连接与制图",
       "advantage": "适合大范围综合分析",
       "risk": "分辨率改变会制造尺度效应",
-      "source_paper_ids": "D03,D04,D05,D06"
+      "source_paper_ids": "D03,D04,D05,D06",
+      "must_check": [
+        "分辨率改变会制造尺度效应"
+      ],
+      "minimum_baseline": "保留原始分辨率，比较至少两种目标分辨率下的统计量和决策稳定性。",
+      "forbidden_when": [
+        "分类栅格使用连续插值或坐标参考系未统一"
+      ],
+      "recommended_alternatives": [
+        "矢量叠加或多分辨率分析"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "重复重采样并把像元数增加当信息增加"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "类别不平衡",
@@ -538,7 +1641,32 @@
       "core_idea": "重平衡训练分布并使用F1/AUC等指标",
       "advantage": "提高少数类学习",
       "risk": "必须只在训练折内处理",
-      "source_paper_ids": "B05,D05"
+      "source_paper_ids": "B05,D05",
+      "must_check": [
+        "必须只在训练折内处理"
+      ],
+      "minimum_baseline": "与不重采样但使用类别权重的模型比较，并在保持原始类别比例的独立测试集上评估。",
+      "forbidden_when": [
+        "在划分训练测试前重采样",
+        "合成样本跨越主体、时间或空间组边界",
+        "少数类极少且无法支持可靠邻域合成"
+      ],
+      "recommended_alternatives": [
+        "类别权重或焦点损失",
+        "阈值移动",
+        "异常检测或一类分类"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "对测试集也做平衡",
+        "用准确率评价严重不平衡任务",
+        "把复制样本分散到不同交叉验证折"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "cross-cutting-methods-v1"
+      ]
     },
     {
       "method_family": "综合评价",
@@ -548,7 +1676,26 @@
       "core_idea": "分层组织灾害风险并组合赋权",
       "advantage": "结构清晰",
       "risk": "权重与指标方向需敏感性",
-      "source_paper_ids": "D04"
+      "source_paper_ids": "D04",
+      "must_check": [
+        "权重与指标方向需敏感性"
+      ],
+      "minimum_baseline": "与等权和单维度评分比较，并对指标方向、归一化及权重做全局敏感性。",
+      "forbidden_when": [
+        "暴露、敏感性和适应能力指标重复或因果方向混乱"
+      ],
+      "recommended_alternatives": [
+        "多准则决策或结构方程模型"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "用主观权重制造精确排名而不报告不确定性"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "土地利用",
@@ -558,7 +1705,26 @@
       "core_idea": "统计类型间转入转出及变化速率",
       "advantage": "适合解释结构演变",
       "risk": "分类误差会被当作真实转移",
-      "source_paper_ids": "D05,D06"
+      "source_paper_ids": "D05,D06",
+      "must_check": [
+        "分类误差会被当作真实转移"
+      ],
+      "minimum_baseline": "核对各期面积守恒，并用分类混淆矩阵传播转移不确定性。",
+      "forbidden_when": [
+        "两期分类体系、分辨率或空间边界不一致"
+      ],
+      "recommended_alternatives": [
+        "轨迹分析或隐马尔可夫土地变化模型"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "把分类误差和边界错位全部解释为真实转移"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "目标检测跟踪",
@@ -568,7 +1734,26 @@
       "core_idea": "逐帧检测并跨帧关联ID",
       "advantage": "端到端得到流量速度密度",
       "risk": "遮挡、透视和ID切换误差",
-      "source_paper_ids": "E04,E05,E06,E07"
+      "source_paper_ids": "E04,E05,E06,E07",
+      "must_check": [
+        "遮挡、透视和ID切换误差"
+      ],
+      "minimum_baseline": "与人工计数和简单检测逐帧基线比较检测、计数、ID切换及轨迹完整率。",
+      "forbidden_when": [
+        "训练测试视频来自同一路段连续片段而泄漏，或标定不足以换算物理量"
+      ],
+      "recommended_alternatives": [
+        "背景建模加跟踪或检测器与光流结合"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "只报检测mAP却直接使用未经验证的轨迹流量"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "交通流",
@@ -578,7 +1763,26 @@
       "core_idea": "用基本图和波速刻画拥堵形成传播",
       "advantage": "物理含义明确",
       "risk": "参数随道路和时段变化",
-      "source_paper_ids": "E04,E06,E07"
+      "source_paper_ids": "E04,E06,E07",
+      "must_check": [
+        "参数随道路和时段变化"
+      ],
+      "minimum_baseline": "与观测速度—密度散点和分时段拟合比较参数稳定性及残差。",
+      "forbidden_when": [
+        "道路处于混合状态且单一基本图不适用"
+      ],
+      "recommended_alternatives": [
+        "分段基本图或数据驱动交通状态模型"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "跨道路和时段复用参数后宣称普适"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "决策规则",
@@ -588,7 +1792,26 @@
       "core_idea": "根据阈值和持续时间生成可执行规则",
       "advantage": "可解释、易部署",
       "risk": "阈值迁移性与频繁切换",
-      "source_paper_ids": "E04,E05,E06,E07"
+      "source_paper_ids": "E04,E05,E06,E07",
+      "must_check": [
+        "阈值迁移性与频繁切换"
+      ],
+      "minimum_baseline": "与单阈值和不干预策略比较误报、漏报、切换次数及约束违例。",
+      "forbidden_when": [
+        "阈值无法由验证数据或安全规范确定"
+      ],
+      "recommended_alternatives": [
+        "概率决策、MPC或序贯检测"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "在测试期调阈值且不计切换和干预成本"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "实验设计",
@@ -598,7 +1821,32 @@
       "core_idea": "按未来时间或未见区域留出测试",
       "advantage": "更接近真实泛化",
       "risk": "样本变少、方差增大",
-      "source_paper_ids": "A05-A08,B04-B07,C06-C09,D03-D06,E04-E07"
+      "source_paper_ids": "A05,A06,A07,A08,B04,B05,B06,B07,C06,C07,C08,C09,D03,D04,D05,D06,E04,E05,E06,E07",
+      "must_check": [
+        "样本变少、方差增大"
+      ],
+      "minimum_baseline": "按真实部署边界同时留出未来时间段和未见空间单元，并与随机划分结果比较。",
+      "forbidden_when": [
+        "空间缓冲区小于实际相关尺度",
+        "训练窗口包含验证期之后的数据",
+        "同一对象的派生样本跨越训练和验证"
+      ],
+      "recommended_alternatives": [
+        "前向滚动验证",
+        "空间块交叉验证",
+        "时空双重留一验证"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "只按时间或只按空间分割却声称时空外推",
+        "用全域统计量做标准化或插值",
+        "根据验证结果反复调整分块边界"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "cross-cutting-methods-v1"
+      ]
     },
     {
       "method_family": "轨道动力学",
@@ -608,7 +1856,26 @@
       "core_idea": "先在轨道平面求状态，再旋转到目标参考系",
       "advantage": "物理清晰、易验证",
       "risk": "忽略摄动时只适合短时或理想轨道",
-      "source_paper_ids": "F04,F05,F06,F07"
+      "source_paper_ids": "F04,F05,F06,F07",
+      "must_check": [
+        "忽略摄动时只适合短时或理想轨道"
+      ],
+      "minimum_baseline": "用已知历元状态反算根数并传播回原时刻，核对位置速度误差和守恒量。",
+      "forbidden_when": [
+        "传播时段或精度要求使摄动不可忽略"
+      ],
+      "recommended_alternatives": [
+        "含J2等摄动的数值积分或标准星历库"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "混用角度单位、历元和参考系"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "坐标与时间系统",
@@ -618,7 +1885,26 @@
       "core_idea": "通过旋转、平移和相对论尺度修正统一参考系",
       "advantage": "是精密时延的前提",
       "risk": "常数、历表版本和符号稍错即产生系统偏差",
-      "source_paper_ids": "F04,F05,F06,F07"
+      "source_paper_ids": "F04,F05,F06,F07",
+      "must_check": [
+        "常数、历表版本和符号稍错即产生系统偏差"
+      ],
+      "minimum_baseline": "用权威历表或库的测试向量核对往返转换和量级。",
+      "forbidden_when": [
+        "历表版本、时间尺度或参考系未明确"
+      ],
+      "recommended_alternatives": [
+        "SOFA、SPICE等经过验证的标准库"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "把UTC直接代入要求TT/TDB的公式或重复加修正"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "导航时延",
@@ -628,7 +1914,26 @@
       "core_idea": "将基线在视线方向投影并除以光速",
       "advantage": "计算轻量、几何意义直接",
       "risk": "直接对巨大距离作差会数值消减",
-      "source_paper_ids": "F04,F05,F06,F07"
+      "source_paper_ids": "F04,F05,F06,F07",
+      "must_check": [
+        "直接对巨大距离作差会数值消减"
+      ],
+      "minimum_baseline": "与高精度库或解析极限场景比较时延符号、幅值和往返一致性。",
+      "forbidden_when": [
+        "参考系和光源方向定义不一致"
+      ],
+      "recommended_alternatives": [
+        "重心校正标准库"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "对巨大绝对距离直接相减造成消减误差"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "相对论修正",
@@ -638,7 +1943,26 @@
       "core_idea": "分别计算引力路径、势能和运动时间膨胀效应",
       "advantage": "能达到导航所需精细度",
       "risk": "量级悬殊、易重复修正或符号错误",
-      "source_paper_ids": "F04,F05,F06,F07"
+      "source_paper_ids": "F04,F05,F06,F07",
+      "must_check": [
+        "量级悬殊、易重复修正或符号错误"
+      ],
+      "minimum_baseline": "分别关闭各修正做量级消融，并与标准历表实现比较。",
+      "forbidden_when": [
+        "所用坐标时间和固有时间定义不清"
+      ],
+      "recommended_alternatives": [
+        "标准相对论时延软件包"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "同一修正重复计入或符号方向错误"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "随机过程",
@@ -648,7 +1972,26 @@
       "core_idea": "按强度函数随机生成事件到达时刻",
       "advantage": "符合光子计数机理",
       "risk": "低计数、强度归一化和随机方差敏感",
-      "source_paper_ids": "F04,F05,F06,F07"
+      "source_paper_ids": "F04,F05,F06,F07",
+      "must_check": [
+        "低计数、强度归一化和随机方差敏感"
+      ],
+      "minimum_baseline": "验证事件数均值方差、分箱计数和到达间隔分布，并与齐次极限比较。",
+      "forbidden_when": [
+        "事件存在死时间、聚集或相依性却仍假设独立泊松"
+      ],
+      "recommended_alternatives": [
+        "更新过程、Cox过程或含死时间模型"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "强度未归一化或单次模拟被当稳定结论"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "随机采样",
@@ -658,7 +2001,26 @@
       "core_idea": "通过接受拒绝或累计强度反演产生样本",
       "advantage": "可适配复杂强度曲线",
       "risk": "效率、上界和随机预算影响比较",
-      "source_paper_ids": "F05,F06,F07"
+      "source_paper_ids": "F05,F06,F07",
+      "must_check": [
+        "效率、上界和随机预算影响比较"
+      ],
+      "minimum_baseline": "在可解析强度上核对样本分布、事件数和计算效率。",
+      "forbidden_when": [
+        "削减上界不是全域有效上界"
+      ],
+      "recommended_alternatives": [
+        "分段上界thinning或数值逆CDF"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "忽略拒绝率和随机预算差异比较算法"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "周期信号",
@@ -668,7 +2030,26 @@
       "core_idea": "换算相位后按周期分箱累积并与模板比较",
       "advantage": "输出直观、便于导航测时",
       "risk": "周期/相位误差会导致轮廓展宽",
-      "source_paper_ids": "F04,F05,F06,F07"
+      "source_paper_ids": "F04,F05,F06,F07",
+      "must_check": [
+        "周期/相位误差会导致轮廓展宽"
+      ],
+      "minimum_baseline": "用注入已知周期和相位的模拟事件验证恢复偏差与置信区间。",
+      "forbidden_when": [
+        "周期漂移和时延校正误差超过相位分辨率"
+      ],
+      "recommended_alternatives": [
+        "Z²检验、贝叶斯周期模型或相位跟踪"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "调分箱数直到轮廓最显著却不校正搜索"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "数值验证",
@@ -678,7 +2059,26 @@
       "core_idea": "用能量角动量守恒、参数反算和数量级交叉核验",
       "advantage": "可快速发现单位和实现错误",
       "risk": "只能验证内部一致性，不能替代真实观测外部验证",
-      "source_paper_ids": "F04,F05,F06,F07"
+      "source_paper_ids": "F04,F05,F06,F07",
+      "must_check": [
+        "只能验证内部一致性，不能替代真实观测外部验证"
+      ],
+      "minimum_baseline": "至少包含一个已知解析例、单位检查和正反向闭环误差。",
+      "forbidden_when": [
+        "将内部一致性检查冒充真实数据外部验证"
+      ],
+      "recommended_alternatives": [
+        "独立观测、交叉软件实现或实验标定"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "只检查一个最终数值而不检查中间量级和边界条件"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "domain-methods-completion-v1"
+      ]
     },
     {
       "method_family": "路径规划",
@@ -688,7 +2088,30 @@
       "core_idea": "反转或替换两段边，只接受能缩短目标的邻域解并迭代",
       "advantage": "实现简单、速度快、适合做强基线",
       "risk": "依赖初值且只保证局部最优；需多启动或与精确下界比较",
-      "source_paper_ids": "A16-01,A16-04,A16-05"
+      "source_paper_ids": "A16-01,A16-04,A16-05",
+      "must_check": [
+        "依赖初值且只保证局部最优",
+        "需多启动或与精确下界比较"
+      ],
+      "minimum_baseline": "至少与最近邻可行解和多次随机初始路线比较；小规模实例再与精确解或下界比较。",
+      "forbidden_when": [
+        "没有可行初始路线或交换后无法高效检查硬约束",
+        "需要全局最优证明却没有精确下界"
+      ],
+      "recommended_alternatives": [
+        "小规模整数规划或动态规划",
+        "带约束修复的禁忌搜索或遗传算法"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "只跑一个初值并把局部最优写成全局最优",
+        "只比较距离而漏检续航、时间窗和同步约束"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "method_family": "路径规划",
@@ -698,7 +2121,30 @@
       "core_idea": "用零代价/大权虚拟边把多条开放路线编码进一个Hamilton回路",
       "advantage": "可复用成熟TSP求解器并同时比较路线条数",
       "risk": "大权常数和虚拟边设计错误会产生伪路线，需解码后逐条验约束",
-      "source_paper_ids": "A16-05"
+      "source_paper_ids": "A16-05",
+      "must_check": [
+        "大权常数和虚拟边设计错误会产生伪路线，需解码后逐条验约束"
+      ],
+      "minimum_baseline": "与固定路线条数的直接MTSP模型或简单分区后逐区TSP比较，并逐条解码验约束。",
+      "forbidden_when": [
+        "虚拟边无法同时表达多起终点和路线条数",
+        "大权常数没有安全上界依据"
+      ],
+      "recommended_alternatives": [
+        "车辆路径整数规划",
+        "聚类后路径规划",
+        "集合划分或列生成"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "把虚拟边成本计入真实目标",
+        "解码后不检查空路线、重复目标或非法起终点"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "method_family": "分解优化",
@@ -708,7 +2154,31 @@
       "core_idea": "先优化群间/高威胁阶段，再优化群内/低威胁阶段并传递状态",
       "advantage": "显著缩小搜索空间，便于复用子模型和应急重规划",
       "risk": "固定层序可能牺牲全局最优；应用全局小规模对照或下界评估损失",
-      "source_paper_ids": "A16-01,A16-03,A16-04,A16-05"
+      "source_paper_ids": "A16-01,A16-03,A16-04,A16-05",
+      "must_check": [
+        "固定层序可能牺牲全局最优",
+        "应用全局小规模对照或下界评估损失"
+      ],
+      "minimum_baseline": "在可计算的小规模实例上与不分层的联合模型或统一启发式比较目标值和时间。",
+      "forbidden_when": [
+        "跨层耦合决定可行性而接口变量无法完整传递",
+        "固定层序会排除关键可行方案"
+      ],
+      "recommended_alternatives": [
+        "联合混合整数规划",
+        "拉格朗日或Benders分解",
+        "滚动时域优化"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "每层局部最优后直接声称整体最优",
+        "阶段之间未传递剩余资源和时钟状态"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "method_family": "覆盖优化",
@@ -718,7 +2188,31 @@
       "core_idea": "反复选择覆盖未服务目标最多的候选点并删除已覆盖集合",
       "advantage": "快速把密集目标压缩为少量服务点",
       "risk": "局部选择可能远离全局最优；并列规则和安全约束会显著影响结果",
-      "source_paper_ids": "A16-01"
+      "source_paper_ids": "A16-01",
+      "must_check": [
+        "局部选择可能远离全局最优",
+        "并列规则和安全约束会显著影响结果"
+      ],
+      "minimum_baseline": "与逐目标服务和标准集合覆盖整数规划的小规模精确解比较覆盖数与选点数。",
+      "forbidden_when": [
+        "覆盖关系随时间或路径强耦合且静态集合不能表示",
+        "安全约束不允许先覆盖后修复"
+      ],
+      "recommended_alternatives": [
+        "集合覆盖整数规划",
+        "最大覆盖模型",
+        "时空网络优化"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "用目标中心距离替代真实覆盖判定",
+        "未固定并列选择规则导致结果不可复现"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "method_family": "聚类分区",
@@ -728,7 +2222,31 @@
       "core_idea": "用隶属度和传递闭包形成软分区，再以重心细化任务区域",
       "advantage": "能表达类属不确定性并降低后续路径规模",
       "risk": "阈值和距离尺度敏感；聚类目标不一定与最终调度目标一致",
-      "source_paper_ids": "A16-02"
+      "source_paper_ids": "A16-02",
+      "must_check": [
+        "阈值和距离尺度敏感",
+        "聚类目标不一定与最终调度目标一致"
+      ],
+      "minimum_baseline": "至少与不聚类、K-means或层次聚类方案比较最终调度目标，而非只比较聚类指标。",
+      "forbidden_when": [
+        "目标不能由所选距离度量表达",
+        "硬约束要求目标只能进入预定分区"
+      ],
+      "recommended_alternatives": [
+        "约束聚类",
+        "位置—路径联合优化",
+        "图划分"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "只凭聚类紧致度选择阈值",
+        "把聚类重心当作必然可达或可覆盖的位置"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "method_family": "任务分配",
@@ -738,7 +2256,31 @@
       "core_idea": "各智能体按攻击或服务优势报价，通过信息交换确定唯一归属",
       "advantage": "分布式、可动态调整并减少分配冲突",
       "risk": "通信时延、丢包或拓扑变化会造成不一致；报价函数决定整体质量",
-      "source_paper_ids": "A16-02"
+      "source_paper_ids": "A16-02",
+      "must_check": [
+        "通信时延、丢包或拓扑变化会造成不一致",
+        "报价函数决定整体质量"
+      ],
+      "minimum_baseline": "与集中式最小成本分配或简单贪心分配比较完成率、成本和冲突数。",
+      "forbidden_when": [
+        "通信无法保证报价和中标状态最终一致",
+        "收益函数不能覆盖关键资源与时限"
+      ],
+      "recommended_alternatives": [
+        "匈牙利算法或最小费用流",
+        "混合整数任务分配",
+        "合同网加一致性协议"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "将局部最低报价等同全局最低成本",
+        "忽略并发竞标、丢包和任务撤销后的冲突"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "method_family": "进化优化",
@@ -748,7 +2290,31 @@
       "core_idea": "多个子种群独立搜索，保留优良父代并低概率迁移以维持多样性",
       "advantage": "兼顾并行探索和快速收敛，适合MDO-MTSP",
       "risk": "强精英保留可能过早收敛；迁移率、岛数和终止代数需敏感性实验",
-      "source_paper_ids": "A16-03"
+      "source_paper_ids": "A16-03",
+      "must_check": [
+        "强精英保留可能过早收敛",
+        "迁移率、岛数和终止代数需敏感性实验"
+      ],
+      "minimum_baseline": "与单岛遗传、随机搜索和简单局部搜索在相同函数评估预算下多次独立比较。",
+      "forbidden_when": [
+        "没有可行编码、修复或约束罚函数",
+        "单次评估昂贵且无代理或预算控制"
+      ],
+      "recommended_alternatives": [
+        "混合整数规划",
+        "禁忌搜索",
+        "遗传算法结合局部搜索"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "不同算法使用不同评估次数",
+        "只报告最好一次而不报告分布和可行率"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "method_family": "动态规划",
@@ -758,7 +2324,31 @@
       "core_idea": "按阶段递推最优余留价值，并由不可行状态触发任务拆分",
       "advantage": "结构明确时可给全局最优和可解释策略",
       "risk": "状态定义不完整会退化为规则枚举；状态空间可能爆炸",
-      "source_paper_ids": "A16-05"
+      "source_paper_ids": "A16-05",
+      "must_check": [
+        "状态定义不完整会退化为规则枚举",
+        "状态空间可能爆炸"
+      ],
+      "minimum_baseline": "与规则枚举或小规模完整动态规划比较，并给出状态数、转移数和最优性条件。",
+      "forbidden_when": [
+        "状态不足以满足马尔可夫性",
+        "状态空间在现有预算下不可控且无有效剪枝"
+      ],
+      "recommended_alternatives": [
+        "最短路或时空网络",
+        "滚动时域混合整数规划",
+        "近似动态规划"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "漏掉剩余资源或历史依赖导致同状态异后果",
+        "把固定规则循环称为动态规划"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "method_family": "验证设计",
@@ -768,7 +2358,30 @@
       "core_idea": "在可承受规模上同时运行分层与全局方案，比较目标值、耗时和规模",
       "advantage": "直接量化分解方法的工程价值和近似误差",
       "risk": "若所谓全局方案也是启发式，则只能作经验对照，不能证明最优性",
-      "source_paper_ids": "A16-03"
+      "source_paper_ids": "A16-03",
+      "must_check": [
+        "若所谓全局方案也是启发式，则只能作经验对照，不能证明最优性"
+      ],
+      "minimum_baseline": "统一数据、目标、硬约束、计算预算和随机种子口径，至少报告目标值、时间和可行率。",
+      "forbidden_when": [
+        "两方案目标或约束定义不同",
+        "所谓全局模型无法产生可行基准"
+      ],
+      "recommended_alternatives": [
+        "精确下界",
+        "消融实验",
+        "规模递增实验"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "把另一种启发式称为全局最优",
+        "只比较运行时间或只比较目标值"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "method_family": "鲁棒决策",
@@ -778,7 +2391,31 @@
       "core_idea": "先消除最高威胁，再复用低威胁层模型；必要时按最不利场景配置资源",
       "advantage": "策略可解释且便于应急重规划",
       "risk": "手工最坏情景不等于严格鲁棒优化；需说明场景覆盖和保守代价",
-      "source_paper_ids": "A16-01,A16-02,A16-03,A16-04,A16-05"
+      "source_paper_ids": "A16-01,A16-02,A16-03,A16-04,A16-05",
+      "must_check": [
+        "手工最坏情景不等于严格鲁棒优化",
+        "需说明场景覆盖和保守代价"
+      ],
+      "minimum_baseline": "与确定性名义场景和全部已列场景逐一优化比较，报告保守代价和最坏场景表现。",
+      "forbidden_when": [
+        "威胁等级没有可核验依据",
+        "手工场景未覆盖允许的不确定集合却宣称鲁棒"
+      ],
+      "recommended_alternatives": [
+        "情景鲁棒优化",
+        "两阶段随机规划",
+        "机会约束规划"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "把少量枚举场景等同严格最坏情形",
+        "分步后未更新剩余资源和已知信息"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-A"
+      ]
     },
     {
       "method_family": "数据编码",
@@ -788,7 +2425,32 @@
       "core_idea": "用次要等位基因个数表示基因型，纯合主/杂合/纯合次为0/1/2",
       "advantage": "紧凑、易计算，直接表达加性效应",
       "risk": "不能自动表达显性、隐性和非加性效应；主/次方向必须全程一致",
-      "source_paper_ids": "B16-01,B16-02,B16-03,B16-05,B16-06"
+      "source_paper_ids": "B16-01,B16-02,B16-03,B16-05,B16-06",
+      "must_check": [
+        "不能自动表达显性、隐性和非加性效应",
+        "主/次方向必须全程一致"
+      ],
+      "minimum_baseline": "同时报告未编码基因型频数，并与显性或隐性编码中的至少一种作敏感性比较。",
+      "forbidden_when": [
+        "等位基因方向无法一致确定",
+        "研究问题明确关注相位或单倍型而无相位剂量会丢失关键信息"
+      ],
+      "recommended_alternatives": [
+        "显性或隐性编码",
+        "分类哑变量编码",
+        "单倍型模型"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "不同数据切分中重新定义主次方向",
+        "把缺失值编码为0",
+        "默认加性关系成立而不做敏感性检查"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "method_family": "数据质控",
@@ -798,7 +2460,31 @@
       "core_idea": "删除MAF过低或显著偏离Hardy-Weinberg平衡的位点",
       "advantage": "降低稀疏列联表和测量异常造成的伪关联，同时减少计算量",
       "risk": "阈值应事前规定并区分病例/对照质控；质控不能代替种群分层校正",
-      "source_paper_ids": "B16-02,B16-03"
+      "source_paper_ids": "B16-02,B16-03",
+      "must_check": [
+        "阈值应事前规定并区分病例/对照质控",
+        "质控不能代替种群分层校正"
+      ],
+      "minimum_baseline": "报告质控前后样本数、位点数和阈值，并与不含该过滤的敏感性结果比较。",
+      "forbidden_when": [
+        "病例与对照混合计算HWE会掩盖真实结构",
+        "阈值在查看关联结果后反复调整"
+      ],
+      "recommended_alternatives": [
+        "分病例对照质控",
+        "缺失率与基因分型质量过滤",
+        "主成分和亲缘关系校正"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "把HWE偏离直接等同错误位点",
+        "用质控替代种群分层或批次效应处理"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "method_family": "假设检验",
@@ -808,7 +2494,33 @@
       "core_idea": "卡方比较频数差异，小期望频数用Fisher，加性有序假设用趋势检验",
       "advantage": "可解释、易批量化，三者能覆盖不同的频数和趋势条件",
       "risk": "必须事前选择与数据条件匹配的检验；大规模扫描必须做多重校正",
-      "source_paper_ids": "B16-01,B16-02,B16-03,B16-05,B16-06"
+      "source_paper_ids": "B16-01,B16-02,B16-03,B16-05,B16-06",
+      "must_check": [
+        "必须事前选择与数据条件匹配的检验",
+        "大规模扫描必须做多重校正"
+      ],
+      "minimum_baseline": "至少给出基因型列联表、未校正与校正后P值、效应量和置信区间。",
+      "forbidden_when": [
+        "期望频数过小仍使用卡方近似",
+        "趋势检验的有序加性假设明显不成立",
+        "相关或重复样本被当作独立"
+      ],
+      "recommended_alternatives": [
+        "Fisher精确检验",
+        "含协变量的Logistic回归",
+        "混合模型或广义估计方程"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "在结果出来后挑最显著检验",
+        "扫描大量SNP却不校正",
+        "只报P值不报效应方向"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "method_family": "多重检验",
@@ -818,7 +2530,33 @@
       "core_idea": "Bonferroni用严格单次阈值控FWER；BH按P值排序控FDR",
       "advantage": "明确处理大规模筛选中的偶然显著",
       "risk": "Bonferroni在相关且高维时过于保守；BH依赖其适用条件；不能用校正后显著代替效应量和置信区间",
-      "source_paper_ids": "B16-01,B16-05,B16-06"
+      "source_paper_ids": "B16-01,B16-05,B16-06",
+      "must_check": [
+        "Bonferroni在相关且高维时过于保守",
+        "BH依赖其适用条件",
+        "不能用校正后显著代替效应量和置信区间"
+      ],
+      "minimum_baseline": "同时报告原始P值、校正方法、检验总数和目标错误率，并比较显著结论对方法的敏感度。",
+      "forbidden_when": [
+        "检验家族在看结果后才定义",
+        "将BH控制FDR误写成控制单个结果的错误概率"
+      ],
+      "recommended_alternatives": [
+        "置换最大统计量校正",
+        "分层检验",
+        "独立假设加权"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "对筛选后的少量P值才做校正",
+        "把Bonferroni无显著解释为没有效应",
+        "用q值替代效应量"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "method_family": "回归检验",
@@ -828,7 +2566,34 @@
       "core_idea": "用log-odds线性预测子估计每个次要等位基因的效应和显著性",
       "advantage": "输出方向、比值比和置信区间，可显式校正混杂因素",
       "risk": "高维联合回归会共线或过拟合；分离情形需惩罚估计；加性剂量假设需检查",
-      "source_paper_ids": "B16-02,B16-06"
+      "source_paper_ids": "B16-02,B16-06",
+      "must_check": [
+        "高维联合回归会共线或过拟合",
+        "分离情形需惩罚估计",
+        "加性剂量假设需检查"
+      ],
+      "minimum_baseline": "与仅协变量的空模型以及单SNP未调整模型比较，并报告优势比、置信区间和校正后显著性。",
+      "forbidden_when": [
+        "完全或近完全分离且仍用普通极大似然",
+        "样本量不足以支持高维联合参数",
+        "结局并非二元且未改链接函数"
+      ],
+      "recommended_alternatives": [
+        "Firth Logistic回归",
+        "惩罚Logistic回归",
+        "混合效应或广义线性混合模型"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "先全数据筛SNP再交叉验证",
+        "忽略种群主成分和批次协变量",
+        "把加性剂量系数解释为任意基因型差异"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "method_family": "基因集合检验",
@@ -838,7 +2603,33 @@
       "core_idea": "用核统计、置换或LD模拟将多SNP证据聚合到基因级",
       "advantage": "能检出单SNP不强但集合效应存在的基因，并部分处理LD",
       "risk": "不同方法的零假设和变异方向假设不同；输入基因边界、权重和LD参考会显著改变结果",
-      "source_paper_ids": "B16-02,B16-05"
+      "source_paper_ids": "B16-02,B16-05",
+      "must_check": [
+        "不同方法的零假设和变异方向假设不同",
+        "输入基因边界、权重和LD参考会显著改变结果"
+      ],
+      "minimum_baseline": "与最小单SNP P值经校正的基因排名以及至少一种不同零假设的集合方法比较。",
+      "forbidden_when": [
+        "基因边界或SNP集合由结果驱动",
+        "LD参考与研究人群不匹配",
+        "所选方法的效应方向假设与任务冲突"
+      ],
+      "recommended_alternatives": [
+        "负担检验或SKAT-O",
+        "置换集合检验",
+        "单SNP模型加基因级校正"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "混用不同版本的基因注释",
+        "忽略权重与稀有变异阈值",
+        "比较方法时输入SNP集合不同"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "method_family": "证据合并",
@@ -848,7 +2639,33 @@
       "core_idea": "Fisher累加-2log(P)；Brown用有效自由度和尺度修正相关导致的分布偏移",
       "advantage": "实现简单，可把弱但分散的证据聚合到基因或指标组",
       "risk": "Fisher的独立假设在LD下常失效；Brown依赖协方差估计；先选成员再合并会导致乐观偏差",
-      "source_paper_ids": "B16-06"
+      "source_paper_ids": "B16-06",
+      "must_check": [
+        "Fisher的独立假设在LD下常失效",
+        "Brown依赖协方差估计",
+        "先选成员再合并会导致乐观偏差"
+      ],
+      "minimum_baseline": "与基因内最小P值校正和置换合并结果比较，并报告成员数及依赖估计。",
+      "forbidden_when": [
+        "成员P值不是同一零假设下的合法P值",
+        "强依赖存在却使用独立Fisher并按理论卡方解释"
+      ],
+      "recommended_alternatives": [
+        "Brown或Empirical Brown",
+        "置换P值合并",
+        "SKAT或其他集合检验"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "先按显著性筛成员再合并",
+        "重复计入高度重叠证据",
+        "把合并P值解释为效应大小"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "method_family": "多表型关联",
@@ -858,7 +2675,33 @@
       "core_idea": "通过典型变量、反向序数回归或联合假设检验利用表型间相关",
       "advantage": "比逐表型检验更能利用共同信号并减少结果碎片化",
       "risk": "对尺度、协方差稳定性和线性/分布假设敏感；仍需多重校正和独立复现",
-      "source_paper_ids": "B16-01,B16-02,B16-05"
+      "source_paper_ids": "B16-01,B16-02,B16-05",
+      "must_check": [
+        "对尺度、协方差稳定性和线性/分布假设敏感",
+        "仍需多重校正和独立复现"
+      ],
+      "minimum_baseline": "与逐表型单变量检验经统一多重校正的结果比较，并用置换或独立样本验证整体关联。",
+      "forbidden_when": [
+        "有效样本秩不足以估计协方差",
+        "摘要统计不满足metaCCA兼容条件",
+        "混合表型未经方法要求的尺度或分布处理"
+      ],
+      "recommended_alternatives": [
+        "多响应回归",
+        "降维后单变量检验",
+        "正则化CCA"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "在全数据标准化和选性状后再验证",
+        "把高典型相关直接解释为因果",
+        "SNP扫描不做多重校正"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "method_family": "高维相关",
@@ -868,7 +2711,31 @@
       "core_idea": "先为离散取值学习连续量化，再用正则化稳定高维CCA",
       "advantage": "减轻直接对0/1/2做线性CCA的表达限制，并可产生稀疏排名",
       "risk": "最优缩放和惩罚参数会引入额外选择偏差；必须在嵌套验证内调参",
-      "source_paper_ids": "B16-06"
+      "source_paper_ids": "B16-06",
+      "must_check": [
+        "最优缩放和惩罚参数会引入额外选择偏差",
+        "必须在嵌套验证内调参"
+      ],
+      "minimum_baseline": "与普通CCA、单表型模型和无监督降维基线在外层交叉验证中比较。",
+      "forbidden_when": [
+        "样本量不足以进行嵌套调参",
+        "最优缩放类别在验证集中出现训练未见水平且无处理规则"
+      ],
+      "recommended_alternatives": [
+        "稀疏偏最小二乘",
+        "多响应惩罚回归",
+        "降维后多变量检验"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "在全数据上选惩罚参数再报告交叉验证",
+        "把缩放和变量选择后的相关系数当无偏估计"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     },
     {
       "method_family": "验证设计",
@@ -878,7 +2745,34 @@
       "core_idea": "用置换生成经验零分布，同时用Bayes factor比较备择假设与零假设的证据",
       "advantage": "减少对渐近分布的依赖，并提供与P值不同视角的证据量",
       "risk": "置换方案必须保持零假设下可交换性；极小P值需大量重复；Bayes factor对先验敏感",
-      "source_paper_ids": "B16-05"
+      "source_paper_ids": "B16-05",
+      "must_check": [
+        "置换方案必须保持零假设下可交换性",
+        "极小P值需大量重复",
+        "Bayes factor对先验敏感"
+      ],
+      "minimum_baseline": "同时报告渐近检验结果、置换次数与可达P值分辨率、先验设定及贝叶斯因子敏感性。",
+      "forbidden_when": [
+        "置换单元在零假设下不可交换",
+        "重复次数不足却报告更小精度的P值",
+        "先验未说明或由结果反推"
+      ],
+      "recommended_alternatives": [
+        "参数自助法",
+        "精确检验",
+        "预注册先验的贝叶斯层次模型"
+      ],
+      "computational_complexity": "",
+      "common_misuse": [
+        "打乱单个特征而破坏样本内相关结构",
+        "把贝叶斯因子当后验概率",
+        "只保留两类证据一致的结果而不报告冲突"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-B"
+      ]
     }
   ]
 }

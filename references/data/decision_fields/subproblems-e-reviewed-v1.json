@@ -1,0 +1,409 @@
+{
+  "batch_id": "subproblems-e-reviewed-v1",
+  "evidence_basis": "从已深度蒸馏的任务、输入输出、验证和风险字段中结构化归纳，并按领域验证原则复核；不新增论文性能结论。",
+  "subproblems": [
+    {
+      "record_id": "Q048",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：轮廓系数/t-SNE"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q049",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：Accuracy/Precision/Recall/F1"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q050",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：MMD/内聚性/消融"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q051",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：保真度/一致性/Layer MMD"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q052",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：可视化与统计"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q053",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：五折多指标"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q054",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：分布距离"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q055",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：距离下降"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q056",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：信号可视化"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q057",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：性能与稳定性"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q058",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：域距离/训练曲线"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q059",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：类间机理一致性"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q133",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：视频事件验证"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q134",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：情景合理性"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q135",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：不同阈值"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q136",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：题目数据实验"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q137",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：预测有效性"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q138",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：阈值拟合"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q139",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：五项效益指标"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q140",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：布局前后指标"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q141",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：MAE/RMSE/R²+事件"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q142",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：阈值解释"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q143",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：延迟/结束时间"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q144",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：逻辑完整性"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q145",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：多误差指标/跨视频"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "事件级准确率或误差",
+        "误报漏报与时延"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q146",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：交通机理解释"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q147",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：机理模型仿真"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q148",
+      "constraints": [
+        "按视频、设备或事件单元隔离训练和评估",
+        "上游识别误差必须传递到下游决策",
+        "验收时复核：定性论证"
+      ],
+      "metric": [
+        "事件级准确率或误差",
+        "误报漏报与时延",
+        "下游决策约束违例"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    }
+  ],
+  "methods": []
+}

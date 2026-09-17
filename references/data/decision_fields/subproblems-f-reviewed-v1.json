@@ -1,0 +1,367 @@
+{
+  "batch_id": "subproblems-f-reviewed-v1",
+  "evidence_basis": "从已深度蒸馏的任务、输入输出、验证和风险字段中结构化归纳，并按领域验证原则复核；不新增论文性能结论。",
+  "subproblems": [
+    {
+      "record_id": "Q060",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：收敛/相关性/路线检查"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q061",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：学术评价对照"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q062",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：新园林验证"
+      ],
+      "metric": [
+        "宏平均F1或平衡准确率",
+        "混淆矩阵与类别利益",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q063",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：参数合理性/路线"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q064",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：园林排序对照"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q065",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：CV阈值与外部园林"
+      ],
+      "metric": [
+        "簇稳定性",
+        "下游任务表现",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q066",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：敏感性/优越性"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q067",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：排名共识"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q068",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：R²/交叉验证/t-SNE"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q149",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：轨道参数一致性"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q150",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：数量级核验"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q151",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：位置误差敏感性"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q152",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：Pearson相关系数"
+      ],
+      "metric": [
+        "MAE/RMSE与R²",
+        "残差分层误差",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q153",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：半径、角动量、能量守恒"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q154",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：合理性分析"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q155",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：量级比较"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q156",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：相关/MSE/RMSE/R²"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q157",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：反算根数/周期平滑性"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q158",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：跨坐标计算一致性"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q159",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：分量数量级"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q160",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：Pearson相关+卡方检验"
+      ],
+      "metric": [
+        "校正后显著性",
+        "效应量与置信区间",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q161",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：能量/动量守恒"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q162",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：方向遍历完备性"
+      ],
+      "metric": [
+        "目标函数值",
+        "可行率与计算时间",
+        "绝对与相对误差",
+        "残差量级"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q163",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：误差量级分析"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    },
+    {
+      "record_id": "Q164",
+      "constraints": [
+        "坐标系、时间尺度、符号和单位明确且统一",
+        "通过解析极限、反算或守恒量检查内部一致性",
+        "验收时复核：步长与分布改进比较"
+      ],
+      "metric": [
+        "绝对与相对误差",
+        "残差量级",
+        "数值稳定性"
+      ],
+      "decision_field_quality": "reviewed-prose-normalization"
+    }
+  ],
+  "methods": []
+}

@@ -7,6 +7,14 @@ import argparse
 import json
 from pathlib import Path
 
+from kb_schema import (
+    parse_source_ids,
+    update_metadata,
+    upgrade_method,
+    upgrade_paper,
+    upgrade_subproblem,
+)
+
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "references" / "data"
@@ -81,11 +89,7 @@ def merge_method_sources(methods: dict, updates: list[dict]) -> int:
         if method not in by_name:
             raise ValueError(f"Method source update target not found: {method}")
         record = by_name[method]
-        existing = [
-            value.strip()
-            for value in record.get("source_paper_ids", "").split(",")
-            if value.strip()
-        ]
+        existing = parse_source_ids(record.get("source_paper_ids"))
         merged = list(dict.fromkeys([*existing, *update["source_paper_ids"]]))
         rendered = ",".join(merged)
         if rendered != record.get("source_paper_ids", ""):
@@ -111,11 +115,7 @@ def validate_batch(batch: dict, current_paper_ids: set[str]) -> None:
                 f"{record.get('paper_id')!r}"
             )
     for record in methods:
-        source_ids = [
-            value.strip()
-            for value in record.get("source_paper_ids", "").split(",")
-            if value.strip()
-        ]
+        source_ids = parse_source_ids(record.get("source_paper_ids"))
         unknown = set(source_ids) - valid_paper_ids
         if unknown:
             raise ValueError(f"Method {record['method']} has unknown sources: {sorted(unknown)}")
@@ -133,15 +133,24 @@ def promote(batch_path: Path) -> dict[str, int]:
     current_paper_ids = {record["id"] for record in papers["records"]}
     validate_batch(batch, current_paper_ids)
 
-    paper_added, paper_updated = upsert_records(papers, batch["papers"], ("id",))
+    index = load_json(DATA_DIR / "paper_index.json")
+    index_by_source = {
+        Path(record.get("source_pdf") or record.get("team_or_file_id", "")).stem.casefold(): record
+        for record in index["records"]
+    }
+    incoming_papers = [upgrade_paper(record, index_by_source) for record in batch["papers"]]
+    incoming_subproblems = [upgrade_subproblem(record) for record in batch["subproblems"]]
+    incoming_methods = [upgrade_method(record) for record in batch.get("new_methods", [])]
+
+    paper_added, paper_updated = upsert_records(papers, incoming_papers, ("id",))
     sub_added, sub_updated = upsert_records(
         subproblems,
-        batch["subproblems"],
+        incoming_subproblems,
         ("record_id",),
     )
     method_added, method_updated = upsert_records(
         methods,
-        batch.get("new_methods", []),
+        incoming_methods,
         ("method_family", "method"),
     )
     method_sources_updated = merge_method_sources(
@@ -151,6 +160,7 @@ def promote(batch_path: Path) -> dict[str, int]:
 
     for payload in (papers, subproblems, methods):
         add_batch_metadata(payload, batch)
+        update_metadata(payload)
     for filename, payload in (
         ("papers.json", papers),
         ("subproblems.json", subproblems),

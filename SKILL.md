@@ -26,6 +26,7 @@ Read [commands.md](references/commands.md) before initializing or auditing a wor
 python3 scripts/auto_model.py init ./contest --questions 4
 python3 scripts/auto_model.py query "时间序列 空间泄漏" --dataset subproblems --topic D --limit 6
 python3 scripts/auto_model.py query "无人机 调度" --dataset index --year 2016 --topic A --limit 6
+python3 scripts/auto_model.py decision-promote --check
 python3 scripts/auto_model.py audit ./contest
 python3 scripts/auto_model.py doctor
 ```
@@ -57,7 +58,9 @@ python3 scripts/auto_model.py query "遗传位点 假设检验" --dataset index 
 
 Use `references/data/paper_index.json` to discover candidates by year, topic, title, abstract, and keywords. Records marked `indexed` are discovery leads only: inspect their source Markdown before reusing a method or claim. Records marked `curated` cross-reference `papers.json`, `subproblems.json`, and `methods.json` and contain deeper task, validation, and risk extraction. Prefer task similarity, data structure, constraints, and validation design over algorithm-name matching. Never quote a historical paper's reported performance as an expected current result.
 
-When maintaining the knowledge base or promoting indexed papers, read `references/knowledge-base-evidence.md` and follow its evidence rules.
+Before recommending an advanced method, retrieve its method record and check applicability, required data, minimum baseline, forbidden conditions, alternatives, and common misuse. If a result shows `待补`, treat that decision field as unresolved and derive it from the current problem rather than assuming the method is safe. For a selected analogue, also retrieve the closest subproblem record and compare its constraints and metric with the current question.
+
+When maintaining the knowledge base or promoting indexed papers, read [knowledge-base-evidence.md](references/knowledge-base-evidence.md) and [knowledge-base-schema.md](references/knowledge-base-schema.md). Store reviewed decision fields in a traceable batch, run `decision-promote --check`, apply it, and then validate the result. When changing retrieval or Skill instructions, read [evaluation.md](references/evaluation.md) and rerun the relevant evaluation instead of relying on structural tests alone.
 
 ## Model-selection rules
 
