@@ -26,6 +26,53 @@ class CommandLineTests(unittest.TestCase):
         self.assertIn("数据集", result.stdout)
         self.assertIn("F", result.stdout)
 
+    def test_query_can_search_index_by_year(self) -> None:
+        result = self.run_cli(
+            "query",
+            "无人机 调度",
+            "--dataset",
+            "index",
+            "--year",
+            "2016",
+            "--topic",
+            "A",
+            "--limit",
+            "3",
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("2016 A题", result.stdout)
+        self.assertIn("curated", result.stdout)
+
+    def test_query_finds_deeply_curated_2016_paper(self) -> None:
+        result = self.run_cli(
+            "query",
+            "虚拟点 MTSP",
+            "--dataset",
+            "papers",
+            "--year",
+            "2016",
+            "--topic",
+            "A",
+            "--limit",
+            "3",
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("A16-05", result.stdout)
+        self.assertIn("虚拟点MTSP", result.stdout)
+
+    def test_query_finds_deeply_curated_2016_b_method(self) -> None:
+        result = self.run_cli(
+            "query",
+            "SKAT 基因级关联",
+            "--dataset",
+            "methods",
+            "--limit",
+            "3",
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("SKAT/Set-based/VEGAS", result.stdout)
+        self.assertIn("methods", result.stdout)
+
     def test_doctor_reports_components(self) -> None:
         result = self.run_cli("doctor")
         self.assertEqual(result.returncode, 0, result.stderr)

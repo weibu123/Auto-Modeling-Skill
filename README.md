@@ -1,11 +1,11 @@
 # Auto Modeling Skill
 
-面向“华为杯”中国研究生数学建模竞赛的可安装 Agent Skill。它把赛题拆解、数据审计、模型选择、代码实现、验证设计和 LaTeX 论文交付串成一条可复现工作流，并内置 44 篇优秀论文的结构化知识库。
+面向“华为杯”中国研究生数学建模竞赛的可安装 Agent Skill。它把赛题拆解、数据审计、模型选择、代码实现、验证设计和 LaTeX 论文交付串成一条可复现工作流，并内置 338 篇优秀论文的检索索引，以及由 55 篇论文深度蒸馏得到的论文、子问题和方法知识库。
 
 项目不是“一键生成答案”的黑箱。脚本负责确定性工作，Agent 负责需要判断的工作：
 
 - `init`：创建标准参赛目录、建模笔记和论文骨架；
-- `query`：检索 44 篇论文、164 条子问题和 66 条方法记录；
+- `query`：检索 338 篇论文索引、55 条深度论文记录、213 条子问题和 86 条方法记录；
 - `audit`：检查材料完整性、占位符、结果来源和论文交付状态；
 - `doctor`：检查 Python、XeLaTeX 和中文论文模板所需宏包；
 - `$auto-modeling-skill`：在题目与附件基础上完成问题拆解、建模、实现、验证和写作协作。
@@ -39,10 +39,13 @@ python3 scripts/auto_model.py init ./contest-2026 --questions 4
 # 2. 从优秀论文知识库检索可迁移方案与风险
 python3 scripts/auto_model.py query "多目标优化 疲劳 功率分配" --dataset all --limit 8
 
-# 3. 检查参赛材料和论文交付是否完整
+# 3. 按年份和题号检索尚待深度蒸馏的论文索引
+python3 scripts/auto_model.py query "无人机 调度" --dataset index --year 2016 --topic A --limit 6
+
+# 4. 检查参赛材料和论文交付是否完整
 python3 scripts/auto_model.py audit ./contest-2026
 
-# 4. 检查本机能否编译中文 LaTeX 模板
+# 5. 检查本机能否编译中文 LaTeX 模板
 python3 scripts/auto_model.py doctor
 ```
 
@@ -83,7 +86,7 @@ contest-2026/
 
 ## 知识库边界
 
-知识库中的历史结果均为原论文作者自报，不能替代当前赛题上的复现、验证或证明。检索时优先匹配任务结构、数据形式、约束和验证方式，不按算法名称机械套用。仓库不包含原始论文 PDF。
+知识库中的历史结果均为原论文作者自报，不能替代当前赛题上的复现、验证或证明。`paper_index.json` 中标记为 `indexed` 的记录仅完成标题、摘要和关键词自动提取，用于发现候选论文；只有标记为 `curated` 的记录进入深度论文、子问题和方法层。检索时优先匹配任务结构、数据形式、约束和验证方式，不按算法名称机械套用。仓库不包含原始论文 PDF 或 Markdown 全文。
 
 ## 项目结构
 
@@ -93,7 +96,7 @@ auto-modeling-skill/
 ├── agents/openai.yaml
 ├── assets/                     # 初始化工作区时复制的模板
 ├── references/                 # 工作流、模型路由、验证与写作规范
-│   └── data/                   # 44 篇论文结构化知识库
+│   └── data/                   # 338 篇索引 + 深度蒸馏知识库
 ├── scripts/                    # init / query / audit 命令
 └── tests/                      # 标准库 smoke tests
 ```

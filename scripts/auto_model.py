@@ -84,6 +84,7 @@ def build_parser() -> argparse.ArgumentParser:
     query_parser.add_argument("query", help="Task, data, method, constraint, or risk keywords")
     query_parser.add_argument("--dataset", choices=["all", *FILES], default="all")
     query_parser.add_argument("--topic", choices=list("ABCDEF"))
+    query_parser.add_argument("--year", type=int)
     query_parser.add_argument("--limit", type=int, default=8)
     query_parser.add_argument("--json", action="store_true", dest="as_json")
 
@@ -110,7 +111,7 @@ def main() -> int:
 
     if args.command == "query":
         try:
-            hits = search(args.query, args.dataset, args.topic, args.limit)
+            hits = search(args.query, args.dataset, args.topic, args.year, args.limit)
         except ValueError as exc:
             print(f"错误：{exc}")
             return 2

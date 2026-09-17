@@ -2,8 +2,22 @@
   "metadata": {
     "source_workbook": "华为杯优秀论文基础数据库_v3_44篇完整版.xlsx",
     "sheet": "方法库",
-    "record_count": 66,
-    "evidence_level": "论文摘要与模型/评价章节结构化抽取；作者结果尚未独立复算"
+    "record_count": 86,
+    "evidence_level": "论文摘要与模型/评价章节结构化抽取；作者结果尚未独立复算",
+    "curation_batches": [
+      "2016-A",
+      "2016-B"
+    ],
+    "curation_batch_sources": {
+      "2016-A": {
+        "source_scope": "2016年研究生数学建模竞赛A题优秀论文5篇；依据MarkItDown转换稿逐篇核验摘要、模型、求解、验证、评价和结论",
+        "evidence_note": "结果均为论文作者报告，未独立复算；证据位置使用Markdown章节定位。"
+      },
+      "2016-B": {
+        "source_scope": "2016年研究生数学建模竞赛B题优秀论文6篇；依据MarkItDown转换稿逐篇核验摘要、模型、求解、验证、评价和结论",
+        "evidence_note": "结果均为论文作者报告，未独立复算；已显式标注Markdown转换损坏、文内数值冲突和缺少独立验证等证据边界。"
+      }
+    }
   },
   "records": [
     {
@@ -174,7 +188,7 @@
       "core_idea": "密度、概率或中心距离聚类",
       "advantage": "无需类别标签",
       "risk": "参数与簇形状敏感",
-      "source_paper_ids": "C01,C02,C03,C04,C05,F02"
+      "source_paper_ids": "C01,C02,C03,C04,C05,F02,B16-04"
     },
     {
       "method_family": "鲁棒拟合",
@@ -204,7 +218,7 @@
       "core_idea": "抽样传播不确定性或最大化信息增益",
       "advantage": "可支持风险决策",
       "risk": "先验错误会产生伪精确",
-      "source_paper_ids": "C02,C03,C04"
+      "source_paper_ids": "C02,C03,C04,A16-04"
     },
     {
       "method_family": "气象物理",
@@ -254,7 +268,7 @@
       "core_idea": "搜索距离与风险加权最小路径",
       "advantage": "输出直观",
       "risk": "代价权重决定结果",
-      "source_paper_ids": "D01,D02"
+      "source_paper_ids": "D01,D02,A16-01"
     },
     {
       "method_family": "信号处理",
@@ -354,7 +368,7 @@
       "core_idea": "改变关键假设并比较输出",
       "advantage": "竞赛论文必备",
       "risk": "只展示有利结果会偏倚",
-      "source_paper_ids": "A-F多篇"
+      "source_paper_ids": "A-F多篇,A16-01,A16-03,A16-05,B16-02,B16-03,B16-05,B16-06"
     },
     {
       "method_family": "疲劳分析",
@@ -464,7 +478,7 @@
       "core_idea": "比较组内组间变异或秩差异",
       "advantage": "结论清晰",
       "risk": "正态/方差齐性、多重检验要求",
-      "source_paper_ids": "C06,C07,C08,C09"
+      "source_paper_ids": "C06,C07,C08,C09,B16-01,B16-02,B16-03,B16-05,B16-06"
     },
     {
       "method_family": "时频分析",
@@ -484,7 +498,7 @@
       "core_idea": "群体智能搜索折中解或Pareto前沿",
       "advantage": "易处理黑箱目标",
       "risk": "可能在代理模型外推区钻空子",
-      "source_paper_ids": "A06,C06,C07,C08,C09,E05"
+      "source_paper_ids": "A06,C06,C07,C08,C09,E05,A16-02,A16-03,A16-04"
     },
     {
       "method_family": "空间统计",
@@ -665,6 +679,206 @@
       "advantage": "可快速发现单位和实现错误",
       "risk": "只能验证内部一致性，不能替代真实观测外部验证",
       "source_paper_ids": "F04,F05,F06,F07"
+    },
+    {
+      "method_family": "路径规划",
+      "method": "2-opt/改良圈局部搜索",
+      "applicable_task": "TSP、开放路径和多机路线的快速局部改进",
+      "required_data": "距离矩阵、可行初始路线和边交换规则",
+      "core_idea": "反转或替换两段边，只接受能缩短目标的邻域解并迭代",
+      "advantage": "实现简单、速度快、适合做强基线",
+      "risk": "依赖初值且只保证局部最优；需多启动或与精确下界比较",
+      "source_paper_ids": "A16-01,A16-04,A16-05"
+    },
+    {
+      "method_family": "路径规划",
+      "method": "虚拟点MTSP到TSP变换",
+      "applicable_task": "路线条数未知或具有多起终点的多旅行商规划",
+      "required_data": "目标距离、边界进入/离开代价和虚拟点数量候选",
+      "core_idea": "用零代价/大权虚拟边把多条开放路线编码进一个Hamilton回路",
+      "advantage": "可复用成熟TSP求解器并同时比较路线条数",
+      "risk": "大权常数和虚拟边设计错误会产生伪路线，需解码后逐条验约束",
+      "source_paper_ids": "A16-05"
+    },
+    {
+      "method_family": "分解优化",
+      "method": "分层规划/分步优化",
+      "applicable_task": "目标具有群组、威胁等级或先后阶段的大规模任务规划",
+      "required_data": "可解释的层级结构、跨层接口和每层约束",
+      "core_idea": "先优化群间/高威胁阶段，再优化群内/低威胁阶段并传递状态",
+      "advantage": "显著缩小搜索空间，便于复用子模型和应急重规划",
+      "risk": "固定层序可能牺牲全局最优；应用全局小规模对照或下界评估损失",
+      "source_paper_ids": "A16-01,A16-03,A16-04,A16-05"
+    },
+    {
+      "method_family": "覆盖优化",
+      "method": "贪心覆盖/集合覆盖压缩",
+      "applicable_task": "一个观测或服务点可同时覆盖多个目标的选点问题",
+      "required_data": "候选点—目标覆盖关系、半径和优先级规则",
+      "core_idea": "反复选择覆盖未服务目标最多的候选点并删除已覆盖集合",
+      "advantage": "快速把密集目标压缩为少量服务点",
+      "risk": "局部选择可能远离全局最优；并列规则和安全约束会显著影响结果",
+      "source_paper_ids": "A16-01"
+    },
+    {
+      "method_family": "聚类分区",
+      "method": "模糊聚类+重心细分",
+      "applicable_task": "具有空间相似性且边界并非硬切分的目标分区",
+      "required_data": "目标特征/坐标、相似矩阵和截集阈值",
+      "core_idea": "用隶属度和传递闭包形成软分区，再以重心细化任务区域",
+      "advantage": "能表达类属不确定性并降低后续路径规模",
+      "risk": "阈值和距离尺度敏感；聚类目标不一定与最终调度目标一致",
+      "source_paper_ids": "A16-02"
+    },
+    {
+      "method_family": "任务分配",
+      "method": "竞标/拍卖式协同分配",
+      "applicable_task": "多智能体对多目标的去冲突任务分配",
+      "required_data": "智能体能力、任务收益/代价和通信拓扑",
+      "core_idea": "各智能体按攻击或服务优势报价，通过信息交换确定唯一归属",
+      "advantage": "分布式、可动态调整并减少分配冲突",
+      "risk": "通信时延、丢包或拓扑变化会造成不一致；报价函数决定整体质量",
+      "source_paper_ids": "A16-02"
+    },
+    {
+      "method_family": "进化优化",
+      "method": "多岛遗传+无性繁殖",
+      "applicable_task": "大规模离散路线、分配和断点联合编码",
+      "required_data": "可行编码、适应度、岛间迁移与多种变异算子",
+      "core_idea": "多个子种群独立搜索，保留优良父代并低概率迁移以维持多样性",
+      "advantage": "兼顾并行探索和快速收敛，适合MDO-MTSP",
+      "risk": "强精英保留可能过早收敛；迁移率、岛数和终止代数需敏感性实验",
+      "source_paper_ids": "A16-03"
+    },
+    {
+      "method_family": "动态规划",
+      "method": "状态递推与阶段决策",
+      "applicable_task": "具有可分阶段状态、资源和续航约束的路线/调度",
+      "required_data": "状态、动作、转移、阶段成本和终止条件",
+      "core_idea": "按阶段递推最优余留价值，并由不可行状态触发任务拆分",
+      "advantage": "结构明确时可给全局最优和可解释策略",
+      "risk": "状态定义不完整会退化为规则枚举；状态空间可能爆炸",
+      "source_paper_ids": "A16-05"
+    },
+    {
+      "method_family": "验证设计",
+      "method": "分层模型与全局模型交叉对照",
+      "applicable_task": "评估分解优化带来的精度损失与计算收益",
+      "required_data": "同一数据、同一目标和可比求解预算",
+      "core_idea": "在可承受规模上同时运行分层与全局方案，比较目标值、耗时和规模",
+      "advantage": "直接量化分解方法的工程价值和近似误差",
+      "risk": "若所谓全局方案也是启发式，则只能作经验对照，不能证明最优性",
+      "source_paper_ids": "A16-03"
+    },
+    {
+      "method_family": "鲁棒决策",
+      "method": "威胁分级与最坏情景分步规划",
+      "applicable_task": "高威胁目标必须优先且位置/启动顺序不完全已知的任务",
+      "required_data": "威胁等级、场景集合、资源和阶段转移条件",
+      "core_idea": "先消除最高威胁，再复用低威胁层模型；必要时按最不利场景配置资源",
+      "advantage": "策略可解释且便于应急重规划",
+      "risk": "手工最坏情景不等于严格鲁棒优化；需说明场景覆盖和保守代价",
+      "source_paper_ids": "A16-01,A16-02,A16-03,A16-04,A16-05"
+    },
+    {
+      "method_family": "数据编码",
+      "method": "SNP加性剂量0/1/2编码",
+      "applicable_task": "将无相位的三种二倍体基因型转为可回归的数值",
+      "required_data": "每个SNP的三种基因型及主/次等位基因定义",
+      "core_idea": "用次要等位基因个数表示基因型，纯合主/杂合/纯合次为0/1/2",
+      "advantage": "紧凑、易计算，直接表达加性效应",
+      "risk": "不能自动表达显性、隐性和非加性效应；主/次方向必须全程一致",
+      "source_paper_ids": "B16-01,B16-02,B16-03,B16-05,B16-06"
+    },
+    {
+      "method_family": "数据质控",
+      "method": "MAF+Hardy-Weinberg平衡质控",
+      "applicable_task": "GWAS或关联分析前的低频和异常SNP过滤",
+      "required_data": "基因型计数、等位基因频率和预先规定的质控阈值",
+      "core_idea": "删除MAF过低或显著偏离Hardy-Weinberg平衡的位点",
+      "advantage": "降低稀疏列联表和测量异常造成的伪关联，同时减少计算量",
+      "risk": "阈值应事前规定并区分病例/对照质控；质控不能代替种群分层校正",
+      "source_paper_ids": "B16-02,B16-03"
+    },
+    {
+      "method_family": "假设检验",
+      "method": "卡方/Fisher精确/Cochran-Armitage趋势检验",
+      "applicable_task": "二元结局与单个有序或无序基因型的关联",
+      "required_data": "病例/对照与基因型列联表",
+      "core_idea": "卡方比较频数差异，小期望频数用Fisher，加性有序假设用趋势检验",
+      "advantage": "可解释、易批量化，三者能覆盖不同的频数和趋势条件",
+      "risk": "必须事前选择与数据条件匹配的检验；大规模扫描必须做多重校正",
+      "source_paper_ids": "B16-01,B16-02,B16-03,B16-05,B16-06"
+    },
+    {
+      "method_family": "多重检验",
+      "method": "Bonferroni/BH多重比较校正",
+      "applicable_task": "同时检验大量假设时控制族错误率或假发现率",
+      "required_data": "全部未校正P值、检验总数和目标错误率",
+      "core_idea": "Bonferroni用严格单次阈值控FWER；BH按P值排序控FDR",
+      "advantage": "明确处理大规模筛选中的偶然显著",
+      "risk": "Bonferroni在相关且高维时过于保守；BH依赖其适用条件；不能用校正后显著代替效应量和置信区间",
+      "source_paper_ids": "B16-01,B16-05,B16-06"
+    },
+    {
+      "method_family": "回归检验",
+      "method": "SNP剂量Logistic回归",
+      "applicable_task": "二元疾病与SNP剂量的关联，并需纳入年龄、性别或主成分等协变量",
+      "required_data": "二元标签、SNP剂量和协变量",
+      "core_idea": "用log-odds线性预测子估计每个次要等位基因的效应和显著性",
+      "advantage": "输出方向、比值比和置信区间，可显式校正混杂因素",
+      "risk": "高维联合回归会共线或过拟合；分离情形需惩罚估计；加性剂量假设需检查",
+      "source_paper_ids": "B16-02,B16-06"
+    },
+    {
+      "method_family": "基因集合检验",
+      "method": "SKAT/Set-based/VEGAS基因级关联",
+      "applicable_task": "将一个基因内多个常见或罕见变异联合检验",
+      "required_data": "基因—SNP映射、基因型、表型与LD/置换信息",
+      "core_idea": "用核统计、置换或LD模拟将多SNP证据聚合到基因级",
+      "advantage": "能检出单SNP不强但集合效应存在的基因，并部分处理LD",
+      "risk": "不同方法的零假设和变异方向假设不同；输入基因边界、权重和LD参考会显著改变结果",
+      "source_paper_ids": "B16-02,B16-05"
+    },
+    {
+      "method_family": "证据合并",
+      "method": "Fisher/Brown基因内P值合并",
+      "applicable_task": "将同一集合内多个检验的P值汇总为一个集合级统计量",
+      "required_data": "成员P值，Brown法还需检验统计量之间的依赖结构",
+      "core_idea": "Fisher累加-2log(P)；Brown用有效自由度和尺度修正相关导致的分布偏移",
+      "advantage": "实现简单，可把弱但分散的证据聚合到基因或指标组",
+      "risk": "Fisher的独立假设在LD下常失效；Brown依赖协方差估计；先选成员再合并会导致乐观偏差",
+      "source_paper_ids": "B16-06"
+    },
+    {
+      "method_family": "多表型关联",
+      "method": "CCA/metaCCA/mv-plink/MultiPhen",
+      "applicable_task": "寻找与多个相关连续或混合表型整体关联的变量",
+      "required_data": "个体级数据或兼容的摘要统计，以及表型协方差",
+      "core_idea": "通过典型变量、反向序数回归或联合假设检验利用表型间相关",
+      "advantage": "比逐表型检验更能利用共同信号并减少结果碎片化",
+      "risk": "对尺度、协方差稳定性和线性/分布假设敏感；仍需多重校正和独立复现",
+      "source_paper_ids": "B16-01,B16-02,B16-05"
+    },
+    {
+      "method_family": "高维相关",
+      "method": "最优缩放+惩罚CCA",
+      "applicable_task": "高维、离散预测变量与多响应的典型相关",
+      "required_data": "离散或有序变量、多响应、惩罚参数选择规则",
+      "core_idea": "先为离散取值学习连续量化，再用正则化稳定高维CCA",
+      "advantage": "减轻直接对0/1/2做线性CCA的表达限制，并可产生稀疏排名",
+      "risk": "最优缩放和惩罚参数会引入额外选择偏差；必须在嵌套验证内调参",
+      "source_paper_ids": "B16-06"
+    },
+    {
+      "method_family": "验证设计",
+      "method": "置换检验+贝叶斯因子交叉证据",
+      "applicable_task": "渐近P值假设可疑或需将显著性与证据强度并列的关联检验",
+      "required_data": "可置换的交换单元、统计量、先验及足够的重复次数",
+      "core_idea": "用置换生成经验零分布，同时用Bayes factor比较备择假设与零假设的证据",
+      "advantage": "减少对渐近分布的依赖，并提供与P值不同视角的证据量",
+      "risk": "置换方案必须保持零假设下可交换性；极小P值需大量重复；Bayes factor对先验敏感",
+      "source_paper_ids": "B16-05"
     }
   ]
 }

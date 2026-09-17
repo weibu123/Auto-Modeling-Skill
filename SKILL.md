@@ -1,6 +1,6 @@
 ---
 name: auto-modeling-skill
-description: "Use for Huawei Cup / China Graduate Mathematical Contest in Modeling work: initialize a competition workspace, interpret the problem, audit attachments, retrieve analogues from the curated 44-paper knowledge base, select and implement models, design validation, draft a traceable LaTeX paper, or audit final delivery. Do not use for routine mathematics exercises or unrelated academic writing."
+description: "Use for Huawei Cup / China Graduate Mathematical Contest in Modeling work: initialize a competition workspace, interpret the problem, audit attachments, retrieve analogues from the indexed 338-paper corpus and deeply curated knowledge base, select and implement models, design validation, draft a traceable LaTeX paper, or audit final delivery. Do not use for routine mathematics exercises or unrelated academic writing."
 ---
 
 # Auto Modeling Skill
@@ -25,6 +25,7 @@ Read [commands.md](references/commands.md) before initializing or auditing a wor
 ```bash
 python3 scripts/auto_model.py init ./contest --questions 4
 python3 scripts/auto_model.py query "时间序列 空间泄漏" --dataset subproblems --topic D --limit 6
+python3 scripts/auto_model.py query "无人机 调度" --dataset index --year 2016 --topic A --limit 6
 python3 scripts/auto_model.py audit ./contest
 python3 scripts/auto_model.py doctor
 ```
@@ -46,14 +47,17 @@ Read [competition-workflow.md](references/competition-workflow.md) for full solu
 
 ## Use the curated knowledge base
 
-The local knowledge base contains 44 papers, 164 subproblem records, and 66 method records. Query it when an analogue materially improves model selection or risk checking:
+The local knowledge base has two evidence levels: a 338-paper discovery index and a deeply curated layer containing 55 paper records, 213 subproblem records, and 86 method records. Query it when an analogue materially improves model selection or risk checking:
 
 ```bash
 python3 scripts/auto_model.py query "多目标优化 疲劳 功率分配" --dataset all --limit 8
 python3 scripts/auto_model.py query "脉冲星 相对论时延 光子仿真" --topic F --limit 6
+python3 scripts/auto_model.py query "遗传位点 假设检验" --dataset index --year 2016 --topic B --limit 6
 ```
 
-Use returned paper IDs to cross-reference `references/data/papers.json`, `subproblems.json`, and `methods.json`. Prefer task similarity, data structure, constraints, and validation design over algorithm-name matching. Never quote a historical paper's reported performance as an expected current result.
+Use `references/data/paper_index.json` to discover candidates by year, topic, title, abstract, and keywords. Records marked `indexed` are discovery leads only: inspect their source Markdown before reusing a method or claim. Records marked `curated` cross-reference `papers.json`, `subproblems.json`, and `methods.json` and contain deeper task, validation, and risk extraction. Prefer task similarity, data structure, constraints, and validation design over algorithm-name matching. Never quote a historical paper's reported performance as an expected current result.
+
+When maintaining the knowledge base or promoting indexed papers, read `references/knowledge-base-evidence.md` and follow its evidence rules.
 
 ## Model-selection rules
 

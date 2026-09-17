@@ -16,6 +16,7 @@ FILES = {
     "papers": DATA_DIR / "papers.json",
     "subproblems": DATA_DIR / "subproblems.json",
     "methods": DATA_DIR / "methods.json",
+    "index": DATA_DIR / "paper_index.json",
 }
 
 
@@ -44,6 +45,7 @@ def load_records(dataset: str) -> list[dict]:
 def score_record(record: dict, terms: Iterable[str]) -> int:
     weights = {
         "title": 5,
+        "variant_label": 4,
         "task": 5,
         "method": 5,
         "model": 4,
@@ -55,6 +57,10 @@ def score_record(record: dict, terms: Iterable[str]) -> int:
         "strength": 2,
         "risk": 2,
         "validation": 2,
+        "abstract": 4,
+        "keywords": 4,
+        "content_excerpt": 2,
+        "team_or_file_id": 1,
     }
     score = 0
     for key, value in record.items():
@@ -68,7 +74,14 @@ def score_record(record: dict, terms: Iterable[str]) -> int:
 
 def record_label(dataset: str, record: dict) -> str:
     if dataset == "papers":
-        return f'{record.get("id", "")} {record.get("title", "")}'
+        variant = record.get("variant_label", "")
+        suffix = f" [{variant}]" if variant else ""
+        return f'{record.get("id", "")} {record.get("title", "")}{suffix}'
+    if dataset == "index":
+        return (
+            f'{record.get("year", "")} {record.get("topic", "")}题 '
+            f'{record.get("title", "")} [{record.get("team_or_file_id", "")}]'
+        )
     if dataset == "subproblems":
         return f'{record.get("paper_id", "")}-问题{record.get("question", "")} {record.get("task", "")}'
     return f'{record.get("method_family", "")} / {record.get("method", "")}'
@@ -77,6 +90,13 @@ def record_label(dataset: str, record: dict) -> str:
 def record_summary(dataset: str, record: dict) -> str:
     if dataset == "papers":
         return f'{record.get("pipeline", "")}；风险：{record.get("risk", "")}'
+    if dataset == "index":
+        flags = ",".join(record.get("quality_flags") or []) or "无"
+        keywords = record.get("keywords") or "未提取"
+        return (
+            f'状态：{record.get("distillation_status", "indexed")}；'
+            f'关键词：{keywords}；质量标记：{flags}'
+        )
     if dataset == "subproblems":
         return (
             f'{record.get("model", "")}；验证：{record.get("validation", "")}；'
@@ -89,6 +109,7 @@ def search(
     query: str,
     dataset: str = "all",
     topic: str | None = None,
+    year: int | None = None,
     limit: int = 8,
 ) -> list[dict]:
     if not query.strip():
@@ -97,6 +118,8 @@ def search(
         raise ValueError(f"unknown dataset: {dataset}")
     if topic and topic.upper() not in set("ABCDEF"):
         raise ValueError("topic must be A-F")
+    if year is not None and not 2000 <= year <= 2100:
+        raise ValueError("year must be between 2000 and 2100")
     if limit < 1:
         raise ValueError("limit must be positive")
 
@@ -105,10 +128,15 @@ def search(
     hits: list[dict] = []
     for dataset_name in datasets:
         for record in load_records(dataset_name):
+            if dataset == "all" and dataset_name == "index":
+                if record.get("distillation_status") == "curated":
+                    continue
             if topic:
                 record_topic = normalize(record.get("topic") or record.get("paper_id", "")[:1])
                 if record_topic[:1] != topic.lower():
                     continue
+            if year is not None and record.get("year") != year:
+                continue
             score = score_record(record, terms)
             if score:
                 hits.append({"dataset": dataset_name, "score": score, "record": record})
@@ -137,6 +165,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--query", required=True, help="Task, data, method, constraint, or risk keywords")
     parser.add_argument("--dataset", choices=["all", *FILES], default="all")
     parser.add_argument("--topic", choices=list("ABCDEF"), help="Optional competition topic letter")
+    parser.add_argument("--year", type=int, help="Optional competition year")
     parser.add_argument("--limit", type=int, default=8)
     parser.add_argument("--json", action="store_true", dest="as_json")
     return parser
@@ -144,7 +173,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main() -> int:
     args = build_parser().parse_args()
-    hits = search(args.query, args.dataset, args.topic, args.limit)
+    hits = search(args.query, args.dataset, args.topic, args.year, args.limit)
     if args.as_json:
         print(json.dumps(hits, ensure_ascii=False, indent=2))
     else:

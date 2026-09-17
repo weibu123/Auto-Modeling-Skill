@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "description": "人工核验后的索引字段修正。键优先使用 Paper-Markdown 下的相对路径；文件 ID 唯一时也可使用文件名主干。不得在此伪造论文结论。",
+  "overrides": {
+    "BK0247": {
+      "title": "基于假设检验与关联分析的多性状致病位点与致病基因定位方法研究",
+      "title_source": "manual_cover_verification",
+      "note": "封面标题已人工核验；正文可检索，但摘要页未被 MarkItDown 正确提取。"
+    },
+    "C10004025": {
+      "title": "航班恢复问题",
+      "title_source": "topic_title_fallback",
+      "note": "PDF 字体映射导致大量 cid 标记；暂用 2017 C 题题名作为检索标题，原论文标题仍待人工核验。"
+    }
+  }
+}

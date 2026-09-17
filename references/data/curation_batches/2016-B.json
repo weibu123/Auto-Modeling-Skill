@@ -1,0 +1,247 @@
+{
+  "batch_id": "2016-B",
+  "source_scope": "2016年研究生数学建模竞赛B题优秀论文6篇；依据MarkItDown转换稿逐篇核验摘要、模型、求解、验证、评价和结论",
+  "evidence_note": "结果均为论文作者报告，未独立复算；已显式标注Markdown转换损坏、文内数值冲突和缺少独立验证等证据边界。",
+  "papers": [
+    {
+      "id": "B16-01",
+      "topic": "B题",
+      "year": 2016,
+      "title": "具有遗传性疾病和性状的遗传位点分析",
+      "variant_label": "卡方、多元线性回归与典型相关",
+      "type": "SNP编码、单位点/基因关联和多表型分析",
+      "data": "1000个样本的9445个SNP、疾病A二元标签、300个基因的SNP集合及10个相关性状",
+      "pipeline": "AA/AB/BB编码0/1/2；单SNP卡方检验加Bonferroni校正；基因内SNP多元线性回归；先筛候选SNP再对SNP与10性状做CCA",
+      "validation": "各问用显著性检验；结论章明示讨论GWAS对样本量、种群差异和连锁不平衡的局限，但没有独立数据或样本外验证",
+      "reported_result": "作者报告rs2273298为疾病A最相关位点，Gene102和Gene217为最相关基因，rs12746773与10个性状整体相关性最强",
+      "strength": "从单位点、基因到多性状逐层建模，并在结论中主动识别GWAS的生物学与外推局限",
+      "risk": "假设SNP相互独立且基因—疾病为简单线性关系；二元疾病用线性回归不理想；先筛选后CCA若复用全数据会放大显著性；未控制种群分层和其他协变量",
+      "evidence": "Markdown摘要；5.2–5.3节卡方与校正；6.2节多元回归；7.2–7.4节CCA；8节总结与局限",
+      "source_file": "B10013022.pdf",
+      "status": "已入库"
+    },
+    {
+      "id": "B16-02",
+      "topic": "B题",
+      "year": 2016,
+      "title": "具有遗传性疾病和性状的遗传位点分析",
+      "variant_label": "MAF/HWE质控、Logistic、SKAT与metaCCA",
+      "type": "全基因组质控、单SNP/基因联合检验与多表型关联",
+      "data": "1000个样本、9445个SNP、疾病A、300个基因集和10个表型",
+      "pipeline": "按等位基因频率作0/1/2编码；MAF+Hardy-Weinberg质控；卡方与Logistic检验SNP；Logistic与SKAT检验基因；metaCCA检验多表型",
+      "validation": "剥97个不合格SNP；同一问使用多模型独立对照并讨论独立性假设；未做独立数据集验证",
+      "reported_result": "作者报告rs2273298最显著；Logistic偏向Gene102，SKAT偏向Gene217且作者认为后者更可靠；metaCCA指向rs12746773",
+      "strength": "在关联分析前显式做MAF/HWE质控，并用假设差异解释不同模型结果，而非简单投票",
+      "risk": "多模型一致性不能代替外部验证；Logistic基因模型受SNP相关性影响；未报告种群结构、协变量和严格的样本外评估",
+      "evidence": "Markdown摘要；5.2节MAF/HWE质控；5.3–5.5节SNP检验；6.2–6.4节Logistic/SKAT；7节metaCCA；8节评价",
+      "source_file": "B10248299.pdf",
+      "status": "已入库"
+    },
+    {
+      "id": "B16-03",
+      "topic": "B题",
+      "year": 2016,
+      "title": "具有遗传性疾病和性状的遗传位点分析",
+      "variant_label": "Fisher/IV、决策树与分层聚类",
+      "type": "质控、关联筛选、分类预测和综合性状聚类",
+      "data": "1000个样本、9445个SNP、疾病A、300个基因和10个性状",
+      "pipeline": "0/1/2位点编码；MAF/HWE质控；卡方+Fisher精确检验+WOE/IV；候选基因逐个建决策树；层次聚类生成综合性状后用卡方和原性状回查",
+      "validation": "卡方与Fisher一致性对照；决策树用混淆矩阵和ROC；聚类数以R²/偏R²选择，并用原10性状回查候选SNP",
+      "reported_result": "作者报告rs2273298最可能与疾病A相关；gene102和gene55决策树准确率最高；综合性状得到8个回查后仍相关的SNP",
+      "strength": "将显著性与变量预测力分开，并对聚类得到的综合性状用原始性状做回查",
+      "risk": "候选基因筛选和决策树评估似乎复用同一数据，63.8%最高准确率也不强；聚类数与显著性阈值选择较多，需防选择性报告和多重检验漏洞",
+      "evidence": "Markdown摘要；问题2质控/列联表/IV；问题3决策树、混淆矩阵和ROC；问题4系统聚类与原性状回查；第五节结论",
+      "source_file": "B10273004.pdf",
+      "status": "已入库"
+    },
+    {
+      "id": "B16-04",
+      "topic": "B题",
+      "year": 2016,
+      "title": "具有遗传性疾病和性状的遗传位点分析",
+      "variant_label": "16类二进制编码、频率阈值与K-means",
+      "type": "位运算编码、启发式高频筛选和基因相似性聚类",
+      "data": "1000个样本的有序碱基对、疾病A、300个基因与10个性状",
+      "pipeline": "对16种有序碱基对作4-bit编码；以患病样本/全样本异常基因型比例设阈值；构造二值矩阵用K-means聚类155种异常类型，再算基因与簇的相似度；多性状用多矩阵阈值交集",
+      "validation": "主要为不同阈值下的数量统计和结果列表，未给正式显著性、多重校正、独立验证或稳定性实验",
+      "reported_result": "作者以约84%以上比例筛得rs2999878等8个位点；基因聚类相似度指向gene_7、gene_129、gene_265和gene_293",
+      "strength": "用紧凑二进制编码和矩阵位运算提高大批量数据筛选效率",
+      "risk": "将碱基顺序当作信息可能与无相位基因型不符；84%等阈值任意且不控制底数；K-means中心与相似度定义缺少理论校准；适合作反例而非直接复用",
+      "evidence": "Markdown问题1编码与附录1；问题2表4.1；问题3矩阵与K-means；问题4阈值交集；7节总结",
+      "source_file": "B11117004.pdf",
+      "status": "已入库"
+    },
+    {
+      "id": "B16-05",
+      "topic": "B题",
+      "year": 2016,
+      "title": "具有遗传性疾病和性状的遗传位点分析",
+      "variant_label": "置换/贝叶斯、Set-based/VEGAS与MultiPhen",
+      "type": "多重检验、基因集合关联和多表型联合分析",
+      "data": "1000个样本、9445个SNP、疾病A、300个基因和10个性状",
+      "pipeline": "0/1/2加性编码；卡方+BH/Bonferroni，再用置换检验和贝叶斯因子对照；Set-based test与VEGAS做基因级检验；mv-plink与MultiPhen做多表型检验",
+      "validation": "因无独立数据集，每个关联问题用至少两种模型交叉对照；明确报告校正后P值和Bayes factor",
+      "reported_result": "作者报告rs2273298在卡方、置换与贝叶斯模型中最强；VEGAS指向gene_55/102/217；mv-plink和MultiPhen指向rs12746773",
+      "strength": "将频率学派和贝叶斯证据、SNP级和基因集合级证据并列，并如实承认缺少独立验证",
+      "risk": "摘要称Set-based与VEGAS一致找到3基因，但其Set-based的BH值仅gene_102低于0.05；多表型P值指数在摘要与表格中不一致；交叉模型共用数据，不是外部复现",
+      "evidence": "Markdown摘要；4.1节卡方/贝叶斯/置换；4.2节Set-based/VEGAS；4.3节mv-plink/MultiPhen；5.2–5.4节数值结果；6节模型评价",
+      "source_file": "BK0209.pdf",
+      "status": "已入库"
+    },
+    {
+      "id": "B16-06",
+      "topic": "B题",
+      "year": 2016,
+      "title": "基于假设检验与关联分析的多性状致病位点与致病基因定位方法研究",
+      "variant_label": "Fisher/Brown合并P值与惩罚CCA",
+      "type": "单位点多检验、相关P值合并和非线性多表型关联",
+      "data": "1000个样本、9445个SNP、疾病A、300个基因和10个性状；Markdown缺失摘要且部分公式为(cid)占位",
+      "pipeline": "主/次等位基因0/1/2编码；Fisher精确、Cochran-Armitage趋势和Logistic检验，配Bonferroni/BH；基因内P值用Fisher法合并并用Brown近似处理相关；最优缩放加惩罚CCA",
+      "validation": "单SNP使用三种检验和两种多重校正对照；基因级对比Fisher与Brown；评价主要依赖方法一致性和显著性阈值",
+      "reported_result": "作者报告三种SNP检验均以rs2273298最显著；Brown法主要指向gene102；惩罚CCA以rs351617最强，与rs12746773等方案不同",
+      "strength": "明确识别Fisher合并法的独立性假设，用Brown近似修正基因内SNP相关；惩罚与最优缩放对高维离散多表型问题更合适",
+      "risk": "Markdown有(cid)损坏且无摘要，数字指数不宜直接引用；多表型结果与其他五篇主流结果不同；惩罚和接受阈值敏感，未做外部验证",
+      "evidence": "Markdown 1.2节问题分析；4.2–4.6节单SNP检验；5.1–5.4节Fisher/Brown；6.1–6.3节惩罚CCA；7节总结",
+      "source_file": "BK0247.pdf",
+      "status": "已入库"
+    }
+  ],
+  "subproblems": [
+    {"record_id":"Q190","paper_id":"B16-01","question":"1","task":"将三种无相位SNP基因型转为数值","input":"各位点的碱基对","processing":"每列映射为AA/AB/BB","model":"基因型剂量0/1/2编码","output":"1000×9445数值矩阵","validation":"编码类型与列取值核查","risk":"需按主/次等位基因统一方向"},
+    {"record_id":"Q191","paper_id":"B16-01","question":"2","task":"筛选疾病A的单位点","input":"SNP编码与疾病标签","processing":"逐SNP构造列联表并校正P值","model":"卡方检验+Bonferroni","output":"显著SNP排名","validation":"显著性检验","risk":"独立SNP假设忽略LD和种群分层"},
+    {"record_id":"Q192","paper_id":"B16-01","question":"3","task":"从SNP集合识别疾病关联基因","input":"300个基因的SNP列表与疾病标签","processing":"基因内SNP联合回归，综合残差与显著性","model":"多元线性回归","output":"Gene102/Gene217等候选","validation":"回归显著性","risk":"二元结局线性化且忽略SNP相关"},
+    {"record_id":"Q193","paper_id":"B16-01","question":"4","task":"识别与10个相关性状整体关联的SNP","input":"SNP与10个连续性状","processing":"预筛候选SNP后求前两对典型变量","model":"典型相关分析","output":"rs12746773","validation":"典型相关显著性","risk":"线性假设与预筛数据泄漏"},
+
+    {"record_id":"Q194","paper_id":"B16-02","question":"1","task":"基于等位基因频率作加性编码","input":"每个SNP的三种基因型","processing":"区分主/次等位基因并计数0/1/2","model":"次要等位基因剂量编码","output":"SNP剂量矩阵","validation":"核对频率与取值范围","risk":"加性假设无法表达显性/隐性效应"},
+    {"record_id":"Q195","paper_id":"B16-02","question":"2","task":"质控后检验疾病A的单SNP关联","input":"9445个SNP与疾病标签","processing":"MAF/HWE过滤，再分别做卡方和Logistic","model":"SNP质控+卡方/Logistic","output":"rs2273298等候选","validation":"两模型结果对照","risk":"缺少协变量和种群分层校正"},
+    {"record_id":"Q196","paper_id":"B16-02","question":"3","task":"比较单SNP回归与集合检验的基因关联","input":"基因内SNP集合和疾病A","processing":"对每个基因运行Logistic和SKAT","model":"Logistic回归+SKAT","output":"Gene102/Gene217排名","validation":"根据SNP相关性讨论假设适配","risk":"同数据的模型对照不是外部验证"},
+    {"record_id":"Q197","paper_id":"B16-02","question":"4","task":"检验SNP与多表型整体的关联","input":"SNP摘要统计与10个性状","processing":"构造协方差后估计典型相关并检验","model":"metaCCA","output":"rs12746773","validation":"显著性差异与稳定性讨论","risk":"摘要统计和协方差质量决定结果"},
+
+    {"record_id":"Q198","paper_id":"B16-03","question":"1","task":"以位点为最小单元压缩编码","input":"三种等位基因对","processing":"将三种状态映射为00/01/10","model":"二比特0/1/2编码","output":"紧凑SNP数据","validation":"存储与解码一致性","risk":"编码紧凑不等于统计假设合理"},
+    {"record_id":"Q199","paper_id":"B16-03","question":"2","task":"同时衡量SNP显著性与预测信息","input":"质控后SNP和疾病A","processing":"卡方/Fisher检验，再计算WOE/IV","model":"列联表检验+信息值IV","output":"rs2273298","validation":"统计检验与IV排名对照","risk":"IV分箱与筛选阈值需事前规定"},
+    {"record_id":"Q200","paper_id":"B16-03","question":"3","task":"用基因内SNP预测疾病并排名","input":"预筛的10个基因与疾病A","processing":"每个基因独立建树并计算混淆矩阵/ROC","model":"决策树分类","output":"gene102和gene55","validation":"准确率和ROC","risk":"若无独立划分则存在训练内评估与筛选泄漏"},
+    {"record_id":"Q201","paper_id":"B16-03","question":"4","task":"将相关性状聚合后筛选SNP","input":"10个性状与SNP","processing":"层次聚类选多个簇数，再做卡方并回查原性状","model":"系统聚类+显著性检验","output":"8个稳定候选SNP","validation":"R²/偏R²与原性状回查","risk":"多个簇数与阈值会引入研究者自由度"},
+
+    {"record_id":"Q202","paper_id":"B16-04","question":"1","task":"对16种有序碱基对作可位运算编码","input":"AA至GG等16种组合","processing":"每种组合映射为4-bit码","model":"有序碱基对二进制编码","output":"位运算友好矩阵","validation":"编码表穷举","risk":"无相位数据中AT与TA不应被当作不同基因型"},
+    {"record_id":"Q203","paper_id":"B16-04","question":"2","task":"按患病样本中的高频异常类型筛SNP","input":"患病组和全样本频数","processing":"计算患病数/总数并用约84%阈值","model":"频率比启发式筛选","output":"8个候选SNP","validation":"结果频数表","risk":"小底数可造成高比例，且无置信区间/多重校正"},
+    {"record_id":"Q204","paper_id":"B16-04","question":"3","task":"按异常基因型簇与基因相似度排名","input":"155种异常编码与300个基因SNP集","processing":"K-means聚类后计算基因—簇相似度","model":"K-means+集合相似性","output":"gene_7/129/265/293","validation":"聚类与相似度列表","risk":"簇数、中心更新和相似度的统计意义不充分"},
+    {"record_id":"Q205","paper_id":"B16-04","question":"4","task":"用多性状阈值矩阵交集筛SNP","input":"10个性状、病例/对照和SNP","processing":"构造六类比值矩阵并取阈值交集","model":"规则矩阵交集","output":"各性状的1–3个SNP","validation":"阈值变化的数量对照","risk":"连续性状离散化与阈值高度主观"},
+
+    {"record_id":"Q206","paper_id":"B16-05","question":"1","task":"用加性效应编码SNP","input":"主/次等位基因","processing":"纯合主、杂合、纯合次分别映射0/1/2","model":"加性剂量编码","output":"SNP数值矩阵","validation":"列频率核对","risk":"忽略非加性遗传效应"},
+    {"record_id":"Q207","paper_id":"B16-05","question":"2","task":"以多种证据筛疾病A的单SNP","input":"SNP列联表与疾病标签","processing":"卡方+BH/Bonferroni，再用置换P值与Bayes factor对照","model":"多重校正+置换检验+贝叶斯因子","output":"rs2273298","validation":"频率学派/贝叶斯结果对照","risk":"交叉模型同源且置换次数决定尾部精度"},
+    {"record_id":"Q208","paper_id":"B16-05","question":"3","task":"考虑基因内LD的基因级关联检验","input":"300个基因的SNP集与疾病A","processing":"Set-based置换与VEGAS联合检验","model":"Set-based test+VEGAS","output":"gene_55/102/217的模型别证据","validation":"两模型比较与BH校正","risk":"论文对Set-based的总结与报告P值不完全一致"},
+    {"record_id":"Q209","paper_id":"B16-05","question":"4","task":"用两种多表型方法检验SNP","input":"9445个SNP与10个性状","processing":"分别运行mv-plink和MultiPhen并做BH校正","model":"mv-plink+MultiPhen","output":"rs12746773","validation":"两模型结果一致性","risk":"摘要与正文表格的P值指数冲突，需回原始数据复算"},
+
+    {"record_id":"Q210","paper_id":"B16-06","question":"1","task":"以主/次等位基因定义SNP剂量","input":"每列三种基因型","processing":"按等位基因频率映射0/1/2","model":"加性剂量编码","output":"SNP数值矩阵","validation":"主/次频率检查","risk":"Markdown的公式占位符不影响基本编码，但不宜拷贝损坏符号"},
+    {"record_id":"Q211","paper_id":"B16-06","question":"2","task":"通过多种单SNP检验定位疾病A位点","input":"SNP基因型与二元疾病","processing":"Fisher精确、趋势检验和Logistic，配Bonferroni/BH","model":"单SNP三检验+多重校正","output":"rs2273298及模型别次级候选","validation":"三种检验一致性","risk":"小期望频数、趋势假设和加性Logistic的适用性各不相同"},
+    {"record_id":"Q212","paper_id":"B16-06","question":"3","task":"将基因内多个SNP的P值合成基因级证据","input":"三种单SNP检验P值与SNP相关","processing":"先用Fisher合并，再用Brown近似调整相关性","model":"Fisher/Brown合并P值","output":"gene102等候选","validation":"两合并法和三类输入P值对照","risk":"协方差估计不稳或SNP筛选会扭曲合并P值"},
+    {"record_id":"Q213","paper_id":"B16-06","question":"4","task":"在高维离散SNP与多性状间做关联","input":"SNP离散剂量与10个性状","processing":"最优缩放将SNP转换为连续量，再对CCA加惩罚","model":"最优缩放+惩罚CCA","output":"rs351617等候选","validation":"置换/显著性阈值和多候选排名","risk":"结果对惩罚与接受阈值敏感，且与其他方法的最优SNP不同"}
+  ],
+  "new_methods": [
+    {
+      "method_family": "数据编码",
+      "method": "SNP加性剂量0/1/2编码",
+      "applicable_task": "将无相位的三种二倍体基因型转为可回归的数值",
+      "required_data": "每个SNP的三种基因型及主/次等位基因定义",
+      "core_idea": "用次要等位基因个数表示基因型，纯合主/杂合/纯合次为0/1/2",
+      "advantage": "紧凑、易计算，直接表达加性效应",
+      "risk": "不能自动表达显性、隐性和非加性效应；主/次方向必须全程一致",
+      "source_paper_ids": "B16-01,B16-02,B16-03,B16-05,B16-06"
+    },
+    {
+      "method_family": "数据质控",
+      "method": "MAF+Hardy-Weinberg平衡质控",
+      "applicable_task": "GWAS或关联分析前的低频和异常SNP过滤",
+      "required_data": "基因型计数、等位基因频率和预先规定的质控阈值",
+      "core_idea": "删除MAF过低或显著偏离Hardy-Weinberg平衡的位点",
+      "advantage": "降低稀疏列联表和测量异常造成的伪关联，同时减少计算量",
+      "risk": "阈值应事前规定并区分病例/对照质控；质控不能代替种群分层校正",
+      "source_paper_ids": "B16-02,B16-03"
+    },
+    {
+      "method_family": "假设检验",
+      "method": "卡方/Fisher精确/Cochran-Armitage趋势检验",
+      "applicable_task": "二元结局与单个有序或无序基因型的关联",
+      "required_data": "病例/对照与基因型列联表",
+      "core_idea": "卡方比较频数差异，小期望频数用Fisher，加性有序假设用趋势检验",
+      "advantage": "可解释、易批量化，三者能覆盖不同的频数和趋势条件",
+      "risk": "必须事前选择与数据条件匹配的检验；大规模扫描必须做多重校正",
+      "source_paper_ids": "B16-01,B16-02,B16-03,B16-05,B16-06"
+    },
+    {
+      "method_family": "多重检验",
+      "method": "Bonferroni/BH多重比较校正",
+      "applicable_task": "同时检验大量假设时控制族错误率或假发现率",
+      "required_data": "全部未校正P值、检验总数和目标错误率",
+      "core_idea": "Bonferroni用严格单次阈值控FWER；BH按P值排序控FDR",
+      "advantage": "明确处理大规模筛选中的偶然显著",
+      "risk": "Bonferroni在相关且高维时过于保守；BH依赖其适用条件；不能用校正后显著代替效应量和置信区间",
+      "source_paper_ids": "B16-01,B16-05,B16-06"
+    },
+    {
+      "method_family": "回归检验",
+      "method": "SNP剂量Logistic回归",
+      "applicable_task": "二元疾病与SNP剂量的关联，并需纳入年龄、性别或主成分等协变量",
+      "required_data": "二元标签、SNP剂量和协变量",
+      "core_idea": "用log-odds线性预测子估计每个次要等位基因的效应和显著性",
+      "advantage": "输出方向、比值比和置信区间，可显式校正混杂因素",
+      "risk": "高维联合回归会共线或过拟合；分离情形需惩罚估计；加性剂量假设需检查",
+      "source_paper_ids": "B16-02,B16-06"
+    },
+    {
+      "method_family": "基因集合检验",
+      "method": "SKAT/Set-based/VEGAS基因级关联",
+      "applicable_task": "将一个基因内多个常见或罕见变异联合检验",
+      "required_data": "基因—SNP映射、基因型、表型与LD/置换信息",
+      "core_idea": "用核统计、置换或LD模拟将多SNP证据聚合到基因级",
+      "advantage": "能检出单SNP不强但集合效应存在的基因，并部分处理LD",
+      "risk": "不同方法的零假设和变异方向假设不同；输入基因边界、权重和LD参考会显著改变结果",
+      "source_paper_ids": "B16-02,B16-05"
+    },
+    {
+      "method_family": "证据合并",
+      "method": "Fisher/Brown基因内P值合并",
+      "applicable_task": "将同一集合内多个检验的P值汇总为一个集合级统计量",
+      "required_data": "成员P值，Brown法还需检验统计量之间的依赖结构",
+      "core_idea": "Fisher累加-2log(P)；Brown用有效自由度和尺度修正相关导致的分布偏移",
+      "advantage": "实现简单，可把弱但分散的证据聚合到基因或指标组",
+      "risk": "Fisher的独立假设在LD下常失效；Brown依赖协方差估计；先选成员再合并会导致乐观偏差",
+      "source_paper_ids": "B16-06"
+    },
+    {
+      "method_family": "多表型关联",
+      "method": "CCA/metaCCA/mv-plink/MultiPhen",
+      "applicable_task": "寻找与多个相关连续或混合表型整体关联的变量",
+      "required_data": "个体级数据或兼容的摘要统计，以及表型协方差",
+      "core_idea": "通过典型变量、反向序数回归或联合假设检验利用表型间相关",
+      "advantage": "比逐表型检验更能利用共同信号并减少结果碎片化",
+      "risk": "对尺度、协方差稳定性和线性/分布假设敏感；仍需多重校正和独立复现",
+      "source_paper_ids": "B16-01,B16-02,B16-05"
+    },
+    {
+      "method_family": "高维相关",
+      "method": "最优缩放+惩罚CCA",
+      "applicable_task": "高维、离散预测变量与多响应的典型相关",
+      "required_data": "离散或有序变量、多响应、惩罚参数选择规则",
+      "core_idea": "先为离散取值学习连续量化，再用正则化稳定高维CCA",
+      "advantage": "减轻直接对0/1/2做线性CCA的表达限制，并可产生稀疏排名",
+      "risk": "最优缩放和惩罚参数会引入额外选择偏差；必须在嵌套验证内调参",
+      "source_paper_ids": "B16-06"
+    },
+    {
+      "method_family": "验证设计",
+      "method": "置换检验+贝叶斯因子交叉证据",
+      "applicable_task": "渐近P值假设可疑或需将显著性与证据强度并列的关联检验",
+      "required_data": "可置换的交换单元、统计量、先验及足够的重复次数",
+      "core_idea": "用置换生成经验零分布，同时用Bayes factor比较备择假设与零假设的证据",
+      "advantage": "减少对渐近分布的依赖，并提供与P值不同视角的证据量",
+      "risk": "置换方案必须保持零假设下可交换性；极小P值需大量重复；Bayes factor对先验敏感",
+      "source_paper_ids": "B16-05"
+    }
+  ],
+  "method_source_updates": [
+    {"method":"DBSCAN/GMM/K-means","source_paper_ids":["B16-04"]},
+    {"method":"ANOVA/非参数检验","source_paper_ids":["B16-01","B16-02","B16-03","B16-05","B16-06"]},
+    {"method":"敏感性/消融/基线比较","source_paper_ids":["B16-02","B16-03","B16-05","B16-06"]}
+  ]
+}
