@@ -2,12 +2,13 @@
   "metadata": {
     "source_workbook": "华为杯优秀论文基础数据库_v3_44篇完整版.xlsx",
     "sheet": "子问题库",
-    "record_count": 237,
+    "record_count": 255,
     "evidence_level": "论文摘要与模型/评价章节结构化抽取；作者结果尚未独立复算",
     "curation_batches": [
       "2016-A",
       "2016-B",
-      "2016-C"
+      "2016-C",
+      "2016-D"
     ],
     "curation_batch_sources": {
       "2016-A": {
@@ -21,6 +22,10 @@
       "2016-C": {
         "source_scope": "2016年研究生数学建模竞赛C题优秀论文6篇；依据MarkItDown转换稿逐篇核验摘要、问题分析、模型建立、求解、检验、评价和结论",
         "evidence_note": "结果均为论文作者报告，未独立复算；证据位置使用Markdown行号与章节定位。"
+      },
+      "2016-D": {
+        "source_scope": "2016年研究生数学建模竞赛D题优秀论文6篇；依据MarkItDown转换稿逐篇核验摘要、问题分析、轨道与路径模型、求解、检验、评价和结论",
+        "evidence_note": "结果均为论文作者报告，未独立复算；军事情境仅作为时变覆盖与路径优化的历史建模案例；证据位置使用Markdown章节定位。"
       }
     },
     "schema_version": 2,
@@ -28,6 +33,7 @@
       "2016-A",
       "2016-B",
       "2016-C",
+      "2016-D",
       "cross-cutting-methods-v1",
       "domain-methods-completion-v1",
       "domain-methods-core-v2",
@@ -38,7 +44,7 @@
       "subproblems-e-reviewed-v1",
       "subproblems-f-reviewed-v1"
     ],
-    "decision_field_batch_count": 12
+    "decision_field_batch_count": 13
   },
   "records": [
     {
@@ -9333,6 +9339,690 @@
       "record_version": 2,
       "decision_field_sources": [
         "2016-C"
+      ]
+    },
+    {
+      "record_id": "Q238",
+      "paper_id": "D16-01",
+      "question": "1",
+      "task": "预测Q/L/K卫星观测与过顶窗口",
+      "input": "轨道根数、观测站记录、目标区域和侦察幅宽",
+      "processing": "计算星下点与观测/覆盖几何，未知根数由观测反演",
+      "model": "六根数二体轨道+可见性判定",
+      "output": "卫星轨迹、观测与安全窗口",
+      "validation": "给定观测回代及窗口边界检查",
+      "risk": "圆轨道与匀速近似产生累积误差",
+      "objective": "预测Q/L/K卫星观测与过顶窗口",
+      "constraints": [
+        "统一时间基准、坐标系和角度单位",
+        "窗口边界传播轨道与覆盖误差",
+        "未知根数仅用过去观测估计"
+      ],
+      "metric": [
+        "进入/离开时刻误差",
+        "窗口召回率",
+        "位置或角度误差"
+      ],
+      "split_unit": "连续观测时段或卫星",
+      "assumptions": [],
+      "failure_modes": [
+        "圆轨道与匀速近似产生累积误差"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "卫星轨迹、观测与安全窗口"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "record_id": "Q239",
+      "paper_id": "D16-01",
+      "question": "2",
+      "task": "在行驶、休息与侦察约束下求最快路线",
+      "input": "城市路网、道路速度、休息规则和卫星覆盖窗口",
+      "processing": "构造时间相关有效边长并搜索可行路径",
+      "model": "时变约束最短路",
+      "output": "路线、出发/休息时刻和总耗时",
+      "validation": "逐段时序及约束核查",
+      "risk": "稀疏路网使简化结论难推广",
+      "objective": "在行驶、休息与侦察约束下求最快路线",
+      "constraints": [
+        "边权满足出发时刻依赖",
+        "连续行驶和休息约束逐段满足",
+        "覆盖窗口与车辆位置使用同一时钟"
+      ],
+      "metric": [
+        "总耗时",
+        "暴露时长/冲突次数",
+        "约束违例率"
+      ],
+      "split_unit": "完整行程",
+      "assumptions": [],
+      "failure_modes": [
+        "稀疏路网使简化结论难推广"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "路线、出发/休息时刻和总耗时"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "record_id": "Q240",
+      "paper_id": "D16-01",
+      "question": "3",
+      "task": "为单星和组合星选择低发现概率机动路径",
+      "input": "区域、路网、卫星窗口及影响因素权重",
+      "processing": "归一化影响因素并修正A*累计代价",
+      "model": "影响因子加权A*",
+      "output": "规避路径和可行性评分",
+      "validation": "情景可行性检查",
+      "risk": "模型和算法未完整闭合，权重主观",
+      "objective": "为单星和组合星选择低发现概率机动路径",
+      "constraints": [
+        "影响因子方向和量纲统一",
+        "A*启发函数保持可采纳或明确近似性质",
+        "多星相关性不被当作独立概率相加"
+      ],
+      "metric": [
+        "累计暴露风险",
+        "路径耗时",
+        "多权重敏感性"
+      ],
+      "split_unit": "完整路径",
+      "assumptions": [],
+      "failure_modes": [
+        "模型和算法未完整闭合，权重主观"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "规避路径和可行性评分"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "record_id": "Q241",
+      "paper_id": "D16-02",
+      "question": "1",
+      "task": "由轨道/观测数据预测三类卫星窗口",
+      "input": "Q/L根数、K星重复观测和目标区",
+      "processing": "星下点平移、双星相位分析和最小误差周期估计",
+      "model": "近圆轨道轨迹+周期校准",
+      "output": "过顶、观测和施工规避时段",
+      "validation": "历史观测与不同观测次数比较",
+      "risk": "轨迹平移初值误差会累积",
+      "objective": "由轨道/观测数据预测三类卫星窗口",
+      "constraints": [
+        "轨迹平移校准只用历史窗口",
+        "双星相位随周期差动态更新",
+        "观测次数和预测跨度同时报告"
+      ],
+      "metric": [
+        "窗口时刻误差",
+        "漏报/误报数",
+        "误差随预测跨度增长率"
+      ],
+      "split_unit": "卫星和预测日",
+      "assumptions": [],
+      "failure_modes": [
+        "轨迹平移初值误差会累积"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "过顶、观测和施工规避时段"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "record_id": "Q242",
+      "paper_id": "D16-02",
+      "question": "2",
+      "task": "规划经喀什到和田并返回的最短安全行程",
+      "input": "道路速度、城市、休息约束和Q/L1窗口",
+      "processing": "先求时间最短路线，再逐时段叠加侦察并配置休息/伪装",
+      "model": "最短时间路线+窗口交会",
+      "output": "去返路线、宿营地和时间表",
+      "validation": "逐段行驶/休息/覆盖核查",
+      "risk": "侦察时仍行驶依赖未量化伪装假设",
+      "objective": "规划经喀什到和田并返回的最短安全行程",
+      "constraints": [
+        "必须经过指定节点并完成任务停留",
+        "速度与休息规则不可被伪装假设替代",
+        "侦察期间的动作规则预先定义"
+      ],
+      "metric": [
+        "总行程时间",
+        "暴露时长",
+        "宿营/休息可行率"
+      ],
+      "split_unit": "完整往返行程",
+      "assumptions": [],
+      "failure_modes": [
+        "侦察时仍行驶依赖未量化伪装假设"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "去返路线、宿营地和时间表"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "record_id": "Q243",
+      "paper_id": "D16-02",
+      "question": "3",
+      "task": "利用相邻覆盖间隙规划移动发射装置方向",
+      "input": "单星周期、覆盖宽度、区域和路网",
+      "processing": "比较相邻进入方向与时间差，向下次交会更晚方向移动",
+      "model": "覆盖间隙规则",
+      "output": "活动区域和规避方式",
+      "validation": "单星轨迹情景分析",
+      "risk": "未完成组合卫星与不确定性分析",
+      "objective": "利用相邻覆盖间隙规划移动发射装置方向",
+      "constraints": [
+        "活动区域与路网保证可达",
+        "运动速度足以利用覆盖间隙",
+        "组合卫星必须联合检查而非逐星结论相加"
+      ],
+      "metric": [
+        "安全时间占比",
+        "最小所需区域/速度",
+        "最坏相位暴露"
+      ],
+      "split_unit": "完整覆盖周期",
+      "assumptions": [],
+      "failure_modes": [
+        "未完成组合卫星与不确定性分析"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "活动区域和规避方式"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "record_id": "Q244",
+      "paper_id": "D16-03",
+      "question": "1",
+      "task": "校正轨迹系统提前量并拟合未知K星倾角",
+      "input": "轨道参数、观测点、目标区域",
+      "processing": "坐标转换、轨迹函数、最小二乘倾角与累计误差校正",
+      "model": "轨道几何+最小二乘定轨",
+      "output": "Q/L/K观测、过顶和安全窗口",
+      "validation": "观测回代及观测数量稳定性",
+      "risk": "忽略摄动且误差外推可能失稳",
+      "objective": "校正轨迹系统提前量并拟合未知K星倾角",
+      "constraints": [
+        "系统提前量校正不使用未来观测",
+        "倾角拟合报告条件数或不确定性",
+        "误差外推随时间增长被限制"
+      ],
+      "metric": [
+        "窗口时刻误差",
+        "倾角稳定性",
+        "不同观测数的预测误差"
+      ],
+      "split_unit": "连续观测时段",
+      "assumptions": [],
+      "failure_modes": [
+        "忽略摄动且误差外推可能失稳"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "Q/L/K观测、过顶和安全窗口"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "record_id": "Q245",
+      "paper_id": "D16-03",
+      "question": "2",
+      "task": "在监视时等待、无监视时机动下最小化总耗时",
+      "input": "离散道路、速度/休息规则和时变覆盖",
+      "processing": "把遭遇覆盖转为等待代价并搜索",
+      "model": "离散时变最短路",
+      "output": "路线和54.46h作者自报耗时",
+      "validation": "逐段可行性核查",
+      "risk": "道路划分精度直接控制计算量和结果",
+      "objective": "在监视时等待、无监视时机动下最小化总耗时",
+      "constraints": [
+        "时间离散步小于最短关键窗口",
+        "等待和休息状态区别明确",
+        "所有候选路线使用相同覆盖模型"
+      ],
+      "metric": [
+        "总耗时",
+        "时间离散敏感度",
+        "覆盖冲突次数"
+      ],
+      "split_unit": "完整行程",
+      "assumptions": [],
+      "failure_modes": [
+        "道路划分精度直接控制计算量和结果"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "路线和54.46h作者自报耗时"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "record_id": "Q246",
+      "paper_id": "D16-03",
+      "question": "3",
+      "task": "按发现概率代理选择主动规避路径",
+      "input": "路长、路况、障碍和多星覆盖",
+      "processing": "主观权重聚合机动能力并用于A*启发代价",
+      "model": "加权A*概率代理",
+      "output": "最高可行性路径",
+      "validation": "路径约束检查",
+      "risk": "多星概率线性相加和权重缺少校准",
+      "objective": "按发现概率代理选择主动规避路径",
+      "constraints": [
+        "路长、路况和障碍权重有来源",
+        "发现概率代理限制在0到1或不称概率",
+        "A*路径满足硬障碍"
+      ],
+      "metric": [
+        "代理风险",
+        "路径长度/耗时",
+        "权重扰动下路径稳定性"
+      ],
+      "split_unit": "完整路径",
+      "assumptions": [],
+      "failure_modes": [
+        "多星概率线性相加和权重缺少校准"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "最高可行性路径"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "record_id": "Q247",
+      "paper_id": "D16-04",
+      "question": "1",
+      "task": "单站短弧定轨并预测三类卫星覆盖",
+      "input": "方位角、仰角、距离与时间序列",
+      "processing": "坐标转换求六根数，再外推星下点和覆盖",
+      "model": "单站短弧定轨",
+      "output": "卫星根数和覆盖窗口",
+      "validation": "目标区域与历史观测核对",
+      "risk": "短弧数据导致轨道参数病态",
+      "objective": "单站短弧定轨并预测三类卫星覆盖",
+      "constraints": [
+        "观测站坐标与观测角同步",
+        "短弧解检查多解和病态性",
+        "预测窗口保留轨道参数不确定性"
+      ],
+      "metric": [
+        "观测残差",
+        "轨道参数置信区间",
+        "窗口误差"
+      ],
+      "split_unit": "整段短弧",
+      "assumptions": [],
+      "failure_modes": [
+        "短弧数据导致轨道参数病态"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "卫星根数和覆盖窗口"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "record_id": "Q248",
+      "paper_id": "D16-04",
+      "question": "2",
+      "task": "在候选路线中安排最快且可规避的行程",
+      "input": "16条候选路线、道路速度、休息和卫星窗口",
+      "processing": "模拟退火选路线，分钟离散后遇覆盖则停车/休息",
+      "model": "模拟退火+离散时序检查",
+      "output": "路线、休息点和卫星应对时刻",
+      "validation": "逐分钟位置—覆盖比较",
+      "risk": "候选集有限且无精确基线证明全局最优",
+      "objective": "在候选路线中安排最快且可规避的行程",
+      "constraints": [
+        "候选路线集覆盖合理替代方案",
+        "退火种子、温度和停止规则固定",
+        "分钟离散足以捕获最短窗口"
+      ],
+      "metric": [
+        "总耗时",
+        "暴露分钟数",
+        "多次运行最优值分布"
+      ],
+      "split_unit": "完整行程",
+      "assumptions": [],
+      "failure_modes": [
+        "候选集有限且无精确基线证明全局最优"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "路线、休息点和卫星应对时刻"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "record_id": "Q249",
+      "paper_id": "D16-04",
+      "question": "3",
+      "task": "构建单星/多星侦察时序图和周期盲区规则",
+      "input": "多星覆盖时序、区域形状和路网",
+      "processing": "叠加覆盖带并提高时序图维数，识别周期盲区",
+      "model": "时序图+盲区移动",
+      "output": "主动规避方向与周期",
+      "validation": "示意情景检查",
+      "risk": "盲区对轨道误差和多星相位变化敏感",
+      "objective": "构建单星/多星侦察时序图和周期盲区规则",
+      "constraints": [
+        "多星覆盖在统一时间轴求并集",
+        "盲区在轨道误差扰动下仍存在",
+        "周期移动满足速度和路网约束"
+      ],
+      "metric": [
+        "安全窗口长度",
+        "鲁棒盲区面积",
+        "最坏相位暴露率"
+      ],
+      "split_unit": "联合覆盖周期",
+      "assumptions": [],
+      "failure_modes": [
+        "盲区对轨道误差和多星相位变化敏感"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "主动规避方向与周期"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "record_id": "Q250",
+      "paper_id": "D16-05",
+      "question": "1",
+      "task": "用时间参量模型预测观测和过顶窗口",
+      "input": "观测站坐标、方位/仰角/距离和轨道参数",
+      "processing": "站心到球心坐标转换并求极坐标轨道",
+      "model": "时间序列轨道预测",
+      "output": "Q/L/K窗口及安全施工时段",
+      "validation": "理论与实测时间误差及仰角误差传播",
+      "risk": "忽略椭球与摄动",
+      "objective": "用时间参量模型预测观测和过顶窗口",
+      "constraints": [
+        "站心/球心转换可逆核对",
+        "理论与观测时间误差显式校准",
+        "位置误差传播到仰角和窗口"
+      ],
+      "metric": [
+        "时间残差",
+        "仰角误差",
+        "过顶分类准确率"
+      ],
+      "split_unit": "卫星过境",
+      "assumptions": [],
+      "failure_modes": [
+        "忽略椭球与摄动"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "Q/L/K窗口及安全施工时段"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "record_id": "Q251",
+      "paper_id": "D16-05",
+      "question": "2",
+      "task": "求解权值随卫星时间变化的机动路径",
+      "input": "道路网、出发时刻、速度/休息和覆盖窗口",
+      "processing": "过顶模型更新边权并搜索避开L1的路线",
+      "model": "时变最短路径",
+      "output": "路线、时刻和Q星预警",
+      "validation": "覆盖交会与时间约束核查",
+      "risk": "离散时间步可能漏掉短覆盖窗口",
+      "objective": "求解权值随卫星时间变化的机动路径",
+      "constraints": [
+        "边权满足FIFO或使用能处理非FIFO的算法",
+        "覆盖窗口与路段进入/离开时刻精确对齐",
+        "休息资源纳入状态"
+      ],
+      "metric": [
+        "总耗时",
+        "暴露时长",
+        "状态空间和运行时间"
+      ],
+      "split_unit": "完整行程",
+      "assumptions": [],
+      "failure_modes": [
+        "离散时间步可能漏掉短覆盖窗口"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "路线、时刻和Q星预警"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "record_id": "Q252",
+      "paper_id": "D16-05",
+      "question": "3",
+      "task": "由卫星覆盖角判断路段弧面是否暴露",
+      "input": "星下点轨迹、覆盖角、路段弧线和移动时序",
+      "processing": "构造覆盖面与路段弧面交会并按星型设计规避",
+      "model": "时空覆盖几何",
+      "output": "不同卫星的规避方案",
+      "validation": "典型路段交会检查",
+      "risk": "覆盖边界和轨道误差未充分传播",
+      "objective": "由卫星覆盖角判断路段弧面是否暴露",
+      "constraints": [
+        "覆盖角和地球曲率使用一致几何",
+        "短路段与短窗口均被时间采样捕获",
+        "边界不确定区采用保守判定"
+      ],
+      "metric": [
+        "路段暴露时长",
+        "交会判断误差",
+        "边界扰动敏感性"
+      ],
+      "split_unit": "路段和过境",
+      "assumptions": [],
+      "failure_modes": [
+        "覆盖边界和轨道误差未充分传播"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "不同卫星的规避方案"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "record_id": "Q253",
+      "paper_id": "D16-06",
+      "question": "1",
+      "task": "修正平近地点角漂移并预测三类卫星窗口",
+      "input": "轨道根数和K星观测记录",
+      "processing": "二体运动、多坐标系转换和时间线性M0校正",
+      "model": "校准二体轨道模型",
+      "output": "秒/分钟级作者自报窗口",
+      "validation": "历史窗口回代和观测次数比较",
+      "risk": "K星圆轨道假设及校准外推边界",
+      "objective": "修正平近地点角漂移并预测三类卫星窗口",
+      "constraints": [
+        "M0时间修正只在训练观测拟合",
+        "二体假设的适用预测跨度明确",
+        "K星圆轨道假设用残差检验"
+      ],
+      "metric": [
+        "窗口时刻MAE",
+        "秒/分钟级覆盖率",
+        "误差随跨度变化"
+      ],
+      "split_unit": "卫星和预测时段",
+      "assumptions": [],
+      "failure_modes": [
+        "K星圆轨道假设及校准外推边界"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "秒/分钟级作者自报窗口"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "record_id": "Q254",
+      "paper_id": "D16-06",
+      "question": "2",
+      "task": "用真实GIS路网与车队Buffer规划最短安全行程",
+      "input": "GIS矢量道路、速度/休息、车队长度和覆盖轨迹",
+      "processing": "Dijkstra求路径，车队Buffer与覆盖相交后反馈调整",
+      "model": "GIS Dijkstra+Buffer时空相交",
+      "output": "分段路线、宿营和总时长",
+      "validation": "逐路段相交与约束核查",
+      "risk": "投影、路网版本和Buffer参数影响结果",
+      "objective": "用真实GIS路网与车队Buffer规划最短安全行程",
+      "constraints": [
+        "GIS图层统一坐标参考系",
+        "Buffer包含车辆长度和定位误差",
+        "相交反馈后重新核查全行程约束"
+      ],
+      "metric": [
+        "总耗时",
+        "相交次数/时长",
+        "投影和Buffer敏感性"
+      ],
+      "split_unit": "完整行程",
+      "assumptions": [],
+      "failure_modes": [
+        "投影、路网版本和Buffer参数影响结果"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "分段路线、宿营和总时长"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "record_id": "Q255",
+      "paper_id": "D16-06",
+      "question": "3",
+      "task": "按单星/双星轨道特性寻找侦察盲区",
+      "input": "Q/L/K星轨迹、区域、天气和路网",
+      "processing": "识别覆盖空隙并配置移动、静默或伪装规则",
+      "model": "盲区与规则式情景模型",
+      "output": "不同星型规避条件和方式",
+      "validation": "轨迹覆盖示意与可行性检查",
+      "risk": "规则依赖强情景假设且无概率鲁棒性",
+      "objective": "按单星/双星轨道特性寻找侦察盲区",
+      "constraints": [
+        "盲区由联合覆盖而非单星空隙定义",
+        "静默/伪装效能若无数据只能作情景变量",
+        "规则在参数扰动下验算"
+      ],
+      "metric": [
+        "安全时空体积",
+        "最坏情景暴露",
+        "规则可行率"
+      ],
+      "split_unit": "联合覆盖周期",
+      "assumptions": [],
+      "failure_modes": [
+        "规则依赖强情景假设且无概率鲁棒性"
+      ],
+      "upstream_dependencies": [],
+      "downstream_outputs": [
+        "不同星型规避条件和方式"
+      ],
+      "implementation_artifacts": [],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
       ]
     }
   ]

@@ -2,12 +2,13 @@
   "metadata": {
     "source_workbook": "华为杯优秀论文基础数据库_v3_44篇完整版.xlsx",
     "sheet": "方法库",
-    "record_count": 92,
+    "record_count": 96,
     "evidence_level": "论文摘要与模型/评价章节结构化抽取；作者结果尚未独立复算",
     "curation_batches": [
       "2016-A",
       "2016-B",
-      "2016-C"
+      "2016-C",
+      "2016-D"
     ],
     "curation_batch_sources": {
       "2016-A": {
@@ -21,6 +22,10 @@
       "2016-C": {
         "source_scope": "2016年研究生数学建模竞赛C题优秀论文6篇；依据MarkItDown转换稿逐篇核验摘要、问题分析、模型建立、求解、检验、评价和结论",
         "evidence_note": "结果均为论文作者报告，未独立复算；证据位置使用Markdown行号与章节定位。"
+      },
+      "2016-D": {
+        "source_scope": "2016年研究生数学建模竞赛D题优秀论文6篇；依据MarkItDown转换稿逐篇核验摘要、问题分析、轨道与路径模型、求解、检验、评价和结论",
+        "evidence_note": "结果均为论文作者报告，未独立复算；军事情境仅作为时变覆盖与路径优化的历史建模案例；证据位置使用Markdown章节定位。"
       }
     },
     "schema_version": 2,
@@ -28,6 +33,7 @@
       "2016-A",
       "2016-B",
       "2016-C",
+      "2016-D",
       "cross-cutting-methods-v1",
       "domain-methods-completion-v1",
       "domain-methods-core-v2",
@@ -38,7 +44,7 @@
       "subproblems-e-reviewed-v1",
       "subproblems-f-reviewed-v1"
     ],
-    "decision_field_batch_count": 12
+    "decision_field_batch_count": 13
   },
   "records": [
     {
@@ -81,7 +87,7 @@
       "core_idea": "允许概率接受劣解跳出局部最优",
       "advantage": "通用、易混合",
       "risk": "降温/邻域敏感",
-      "source_paper_ids": "A01,A04",
+      "source_paper_ids": "A01,A04,D16-04",
       "must_check": [
         "降温/邻域敏感"
       ],
@@ -821,7 +827,7 @@
       "core_idea": "搜索距离与风险加权最小路径",
       "advantage": "输出直观",
       "risk": "代价权重决定结果",
-      "source_paper_ids": "D01,D02,A16-01",
+      "source_paper_ids": "D01,D02,A16-01,D16-01,D16-03",
       "must_check": [
         "代价权重决定结果"
       ],
@@ -1618,7 +1624,7 @@
       "core_idea": "统一网格后进行空间连接与制图",
       "advantage": "适合大范围综合分析",
       "risk": "分辨率改变会制造尺度效应",
-      "source_paper_ids": "D03,D04,D05,D06",
+      "source_paper_ids": "D03,D04,D05,D06,D16-06",
       "must_check": [
         "分辨率改变会制造尺度效应"
       ],
@@ -1862,7 +1868,7 @@
       "core_idea": "先在轨道平面求状态，再旋转到目标参考系",
       "advantage": "物理清晰、易验证",
       "risk": "忽略摄动时只适合短时或理想轨道",
-      "source_paper_ids": "F04,F05,F06,F07",
+      "source_paper_ids": "F04,F05,F06,F07,D16-01,D16-02,D16-03,D16-04,D16-05,D16-06",
       "must_check": [
         "忽略摄动时只适合短时或理想轨道"
       ],
@@ -2988,6 +2994,146 @@
       "record_version": 2,
       "decision_field_sources": [
         "2016-C"
+      ]
+    },
+    {
+      "method_family": "轨道预测",
+      "method": "星下点轨迹+观测/侦察窗口判定",
+      "applicable_task": "由轨道状态预测地面目标的可见或覆盖时间窗",
+      "required_data": "轨道根数或状态、地球自转、观测站/目标区和传感器几何",
+      "core_idea": "传播卫星状态到星下点，再用仰角、幅宽和区域边界求进入/离开时刻",
+      "advantage": "把轨道动力学结果直接转成决策窗口",
+      "risk": "轨道、地球形状和覆盖边界误差会在临界窗口放大",
+      "source_paper_ids": "D16-01,D16-02,D16-03,D16-04,D16-05,D16-06",
+      "must_check": [
+        "轨道、地球形状和覆盖边界误差会在临界窗口放大"
+      ],
+      "minimum_baseline": "与标准二体传播器或专业轨道软件在历史观测上比较窗口时刻，并报告轨道位置误差到窗口边界的传播。",
+      "forbidden_when": [
+        "时间基准、坐标系或轨道历元不明确",
+        "预测跨度超过二体/近圆近似可接受范围",
+        "临界窗口没有误差裕量"
+      ],
+      "recommended_alternatives": [
+        "含J2和阻力的高精度轨道传播",
+        "SGP4/TLE传播",
+        "蒙特卡罗窗口概率"
+      ],
+      "computational_complexity": "轨道传播与时间采样点数及卫星数近似线性，区域边界相交还取决于几何复杂度。",
+      "common_misuse": [
+        "混用真太阳时和UTC",
+        "只画星下点而忽略传感器幅宽",
+        "把点预测窗口当作无误差事实"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "method_family": "轨道估计",
+      "method": "短弧观测最小二乘定轨+周期校准",
+      "applicable_task": "仅有短时方位/仰角/距离或窗口记录时估计轨道状态",
+      "required_data": "带时间戳的观测序列、观测站坐标和坐标转换模型",
+      "core_idea": "由短弧观测反演轨道参数，并用重复窗口最小化预测误差校准周期/倾角",
+      "advantage": "无需完整已知根数即可形成预测",
+      "risk": "短弧几何病态，观测数少时多个轨道可同样拟合",
+      "source_paper_ids": "D16-01,D16-02,D16-03,D16-04,D16-05",
+      "must_check": [
+        "短弧几何病态，观测数少时多个轨道可同样拟合"
+      ],
+      "minimum_baseline": "与仅周期平移和至少一种标准批处理最小二乘定轨比较，并按完整过境留出验证。",
+      "forbidden_when": [
+        "短弧几何无法识别所需轨道参数",
+        "观测时间或站址误差未知",
+        "使用未来窗口参与当前轨道拟合"
+      ],
+      "recommended_alternatives": [
+        "扩展卡尔曼滤波定轨",
+        "多站联合定轨",
+        "贝叶斯/无迹变换不确定性传播"
+      ],
+      "computational_complexity": "每次迭代需传播全部观测并解小型正规方程，成本约随观测数和迭代次数线性增长。",
+      "common_misuse": [
+        "只报告拟合残差不做未来窗口验证",
+        "忽略多解与条件数",
+        "把观测次数增加自动等同无偏"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "method_family": "时变路径",
+      "method": "卫星覆盖约束时变最短路径",
+      "applicable_task": "路段通行成本随外部覆盖窗口变化且需满足休息等资源约束",
+      "required_data": "带速度/长度的路网、出发时刻、覆盖窗口和资源约束",
+      "core_idea": "把等待、绕行或暴露代价写入时间相关边权，在扩展状态空间搜索可行最短路",
+      "advantage": "统一处理路线、出发时机和等待决策",
+      "risk": "时间离散过粗会漏窗口，状态空间随时间和资源维数膨胀",
+      "source_paper_ids": "D16-01,D16-02,D16-03,D16-04,D16-05,D16-06",
+      "must_check": [
+        "时间离散过粗会漏窗口，状态空间随时间和资源维数膨胀"
+      ],
+      "minimum_baseline": "与纯最短时间路线、固定等待规则和时间扩展Dijkstra在同一路网与时间步上比较。",
+      "forbidden_when": [
+        "边成本依赖未来路径历史却未扩展状态",
+        "时间步长大于关键覆盖窗口",
+        "非FIFO边权仍直接套普通Dijkstra"
+      ],
+      "recommended_alternatives": [
+        "时间扩展网络",
+        "资源约束最短路",
+        "滚动时域混合整数规划"
+      ],
+      "computational_complexity": "时间扩展后状态规模约为节点数×时间层×资源状态；精细时间步会显著增大成本。",
+      "common_misuse": [
+        "先求静态最短路再局部等待却称全局最优",
+        "漏掉车辆在路段内部的覆盖",
+        "把软暴露代价与硬安全约束混淆"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
+      ]
+    },
+    {
+      "method_family": "时空几何",
+      "method": "GIS Buffer与覆盖轨迹相交反馈",
+      "applicable_task": "移动对象有长度/宽度且覆盖区随时间移动的规避规划",
+      "required_data": "统一投影的矢量路网、对象Buffer、覆盖多边形和时间同步",
+      "core_idea": "逐时刻计算移动对象缓冲区与覆盖几何的相交，并将冲突反馈给路线或等待决策",
+      "advantage": "比点质假设更真实地表达车队或区域目标",
+      "risk": "投影、采样步长和Buffer定义会改变相交判定",
+      "source_paper_ids": "D16-05,D16-06",
+      "must_check": [
+        "投影、采样步长和Buffer定义会改变相交判定"
+      ],
+      "minimum_baseline": "与点质车辆和不同Buffer宽度/时间步结果比较，并在统一投影下人工核验若干交会。",
+      "forbidden_when": [
+        "图层坐标参考系或时间戳不一致",
+        "Buffer物理含义未定义",
+        "覆盖多边形边界精度低于决策裕量"
+      ],
+      "recommended_alternatives": [
+        "连续时间碰撞检测",
+        "时空棱柱相交",
+        "概率覆盖栅格"
+      ],
+      "computational_complexity": "约为时间步数乘候选几何对象数；空间索引可大幅减少相交测试。",
+      "common_misuse": [
+        "经纬度平面上直接按米做Buffer",
+        "只检查采样时刻导致穿越漏检",
+        "用相交结果循环调整却不重新检查全程"
+      ],
+      "evidence_level": "deeply_curated",
+      "record_version": 2,
+      "decision_field_sources": [
+        "2016-D"
       ]
     }
   ]

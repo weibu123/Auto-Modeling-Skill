@@ -49,7 +49,7 @@ Read [competition-workflow.md](references/competition-workflow.md) for full solu
 
 ## Use the curated knowledge base
 
-The local knowledge base has two evidence levels: a 338-paper discovery index and a deeply curated layer containing 61 paper records, 237 subproblem records, and 92 method records. Query it when an analogue materially improves model selection or risk checking:
+The local knowledge base has two evidence levels: a 338-paper discovery index and a deeply curated layer containing 67 paper records, 255 subproblem records, and 96 method records. Query it when an analogue materially improves model selection or risk checking:
 
 ```bash
 python3 scripts/auto_model.py query "多目标优化 疲劳 功率分配" --dataset all --limit 8

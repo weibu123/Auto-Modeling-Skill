@@ -3,9 +3,9 @@
     "schema_version": 1,
     "record_count": 338,
     "state_counts": {
-      "deeply_curated": 61,
+      "deeply_curated": 67,
       "needs_source_repair": 2,
-      "ready_for_deep_review": 244,
+      "ready_for_deep_review": 238,
       "ready_with_quality_flags": 31
     },
     "completion_definition": "只有逐篇核验摘要、问题分析、模型建立、求解、检验、评价和结论，并通过批次晋级与知识库校验后，才能标记 deeply_curated。",
@@ -96,9 +96,9 @@
     {
       "batch_id": "2016-D",
       "total": 6,
-      "deeply_curated": 0,
-      "remaining": 6,
-      "ready_for_deep_review": 6,
+      "deeply_curated": 6,
+      "remaining": 0,
+      "ready_for_deep_review": 0,
       "ready_with_quality_flags": 0,
       "needs_source_repair": 0
     },
@@ -1494,9 +1494,9 @@
       "source_markdown": "2016年研究生数学建模竞赛优秀论文选/第十三届优秀论文/D10248021.md",
       "source_sha256": "f5cbdda6d7b8d85c48d65d2ee04bfa31362123ad36014bf45f947a5940248d82",
       "quality_flags": [],
-      "review_state": "ready_for_deep_review",
-      "curated_paper_id": "",
-      "curation_batch": ""
+      "review_state": "deeply_curated",
+      "curated_paper_id": "D16-01",
+      "curation_batch": "2016-D"
     },
     {
       "uid": "HC-2016-D-9ff43c1bcc",
@@ -1508,9 +1508,9 @@
       "source_markdown": "2016年研究生数学建模竞赛优秀论文选/第十三届优秀论文/D10252015.md",
       "source_sha256": "18215125155be9d61cb149caab65ba9c414455d11e1a9ced8474887421b61b71",
       "quality_flags": [],
-      "review_state": "ready_for_deep_review",
-      "curated_paper_id": "",
-      "curation_batch": ""
+      "review_state": "deeply_curated",
+      "curated_paper_id": "D16-02",
+      "curation_batch": "2016-D"
     },
     {
       "uid": "HC-2016-D-4b99b6aad4",
@@ -1522,9 +1522,9 @@
       "source_markdown": "2016年研究生数学建模竞赛优秀论文选/第十三届优秀论文/D10291002.md",
       "source_sha256": "851419121da3637f3e1b5998f7440541b810008507b19424c47cd5545909b946",
       "quality_flags": [],
-      "review_state": "ready_for_deep_review",
-      "curated_paper_id": "",
-      "curation_batch": ""
+      "review_state": "deeply_curated",
+      "curated_paper_id": "D16-03",
+      "curation_batch": "2016-D"
     },
     {
       "uid": "HC-2016-D-d131308be6",
@@ -1536,9 +1536,9 @@
       "source_markdown": "2016年研究生数学建模竞赛优秀论文选/第十三届优秀论文/D83285024.md",
       "source_sha256": "c0969eef268a9e37445b60ae9fd6fe46a70208365783e2c4b361a571dba51838",
       "quality_flags": [],
-      "review_state": "ready_for_deep_review",
-      "curated_paper_id": "",
-      "curation_batch": ""
+      "review_state": "deeply_curated",
+      "curated_paper_id": "D16-04",
+      "curation_batch": "2016-D"
     },
     {
       "uid": "HC-2016-D-37da837cf5",
@@ -1550,9 +1550,9 @@
       "source_markdown": "2016年研究生数学建模竞赛优秀论文选/第十三届优秀论文/D90059029.md",
       "source_sha256": "7b69e9a232ae09cf66ff09ae2a70cfa83bb068c816a3d77c23c796e65113b35c",
       "quality_flags": [],
-      "review_state": "ready_for_deep_review",
-      "curated_paper_id": "",
-      "curation_batch": ""
+      "review_state": "deeply_curated",
+      "curated_paper_id": "D16-05",
+      "curation_batch": "2016-D"
     },
     {
       "uid": "HC-2016-D-23de75120e",
@@ -1564,9 +1564,9 @@
       "source_markdown": "2016年研究生数学建模竞赛优秀论文选/第十三届优秀论文/DK0003.md",
       "source_sha256": "84ca902288ec9eecd1fdd101edef1c0f961ea63d598492d8c814df26d52d4ef1",
       "quality_flags": [],
-      "review_state": "ready_for_deep_review",
-      "curated_paper_id": "",
-      "curation_batch": ""
+      "review_state": "deeply_curated",
+      "curated_paper_id": "D16-06",
+      "curation_batch": "2016-D"
     },
     {
       "uid": "HC-2016-E-83228a8cb6",

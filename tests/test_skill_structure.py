@@ -31,9 +31,9 @@ class SkillStructureTests(unittest.TestCase):
 
     def test_knowledge_base_counts(self) -> None:
         expected = {
-            "papers.json": 61,
-            "subproblems.json": 237,
-            "methods.json": 92,
+            "papers.json": 67,
+            "subproblems.json": 255,
+            "methods.json": 96,
             "paper_index.json": 338,
         }
         for filename, count in expected.items():
@@ -73,7 +73,7 @@ class SkillStructureTests(unittest.TestCase):
         self.assertEqual(len({record["source_markdown"] for record in records}), len(records))
         self.assertEqual(
             sum(record["distillation_status"] == "curated" for record in records),
-            61,
+            67,
         )
         self.assertTrue(
             all(
@@ -102,7 +102,7 @@ class SkillStructureTests(unittest.TestCase):
             {item["uid"] for item in index["records"]},
         )
         self.assertEqual(
-            manifest["metadata"]["state_counts"]["deeply_curated"], 61
+            manifest["metadata"]["state_counts"]["deeply_curated"], 67
         )
 
     def test_2016_a_curation_batch_is_traceable(self) -> None:
@@ -162,8 +162,26 @@ class SkillStructureTests(unittest.TestCase):
             all(record["paper_id"] in paper_ids for record in batch["subproblems"])
         )
 
+    def test_2016_d_curation_batch_is_traceable(self) -> None:
+        batch = json.loads(
+            (ROOT / "references" / "data" / "curation_batches" / "2016-D.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        self.assertEqual(len(batch["papers"]), 6)
+        self.assertEqual(len(batch["subproblems"]), 18)
+        self.assertEqual(len(batch["new_methods"]), 4)
+        paper_ids = {record["id"] for record in batch["papers"]}
+        self.assertEqual(len(paper_ids), 6)
+        self.assertTrue(all(record["paper_id"] in paper_ids for record in batch["subproblems"]))
+
     def test_2016_decision_batches_are_traceable(self) -> None:
-        expected = {"2016-A": (25, 10), "2016-B": (24, 10), "2016-C": (24, 6)}
+        expected = {
+            "2016-A": (25, 10),
+            "2016-B": (24, 10),
+            "2016-C": (24, 6),
+            "2016-D": (18, 4),
+        }
         for batch_id, counts in expected.items():
             batch = json.loads(
                 (
@@ -209,8 +227,8 @@ class SkillStructureTests(unittest.TestCase):
         self.assertEqual(sum(not item["minimum_baseline"] for item in methods["records"]), 0)
         curated_subproblems = [item for item in subproblems["records"] if item.get("decision_field_sources")]
         curated_methods = [item for item in methods["records"] if item.get("decision_field_sources")]
-        self.assertEqual(len(curated_subproblems), 237)
-        self.assertEqual(len(curated_methods), 92)
+        self.assertEqual(len(curated_subproblems), 255)
+        self.assertEqual(len(curated_methods), 96)
 
     def test_cross_cutting_method_batch_is_traceable(self) -> None:
         batch = json.loads(
